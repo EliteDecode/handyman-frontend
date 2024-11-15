@@ -1,50 +1,174 @@
-# React + TypeScript + Vite
+# Project Development Guidelines
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📚 Tech Stack & Libraries
 
-Currently, two official plugins are available:
+### UI Components & Styling
+- ShadcN UI
+- Tailwind CSS
+- Material-UI (MUI)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Icons
+- Primary: Lucide React
+- Alternative icon libraries can be used when necessary (document usage in comments)
 
-## Expanding the ESLint configuration
+## 🏗 Code Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+### Directory Structure
+```
+src/
+├── components/
+│   ├── ui/           # ShadcN components
+│   └── shared/       # Reusable components
+├── types/            # TypeScript type definitions
+├── hooks/            # Custom React hooks
+├── pages/           # Page components
+├── utils/           # Helper functions
+└── styles/          # Global styles
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### TypeScript Guidelines
+- **MANDATORY**: All components, functions, and variables must be typed
+- Place shared types in `src/types/` directory
+- Example:
+  ```typescript
+  // src/types/user.ts
+  export interface User {
+    id: string;
+    name: string;
+    email: string;
+  }
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+  // src/types/props.ts
+  export interface ButtonProps {
+    onClick: () => void;
+    children: React.ReactNode;
+    variant?: 'primary' | 'secondary';
+  }
+  ```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+## 🔧 Development Rules
+
+### 1. Page Structure
+- One main function per page
+- Keep pages modular and focused
+- Example:
+  ```typescript
+  // pages/About.tsx
+  const AboutPage: React.FC = () => {
+    return (
+      <div>
+        {/* Page content */}
+      </div>
+    );
+  };
+
+  export default AboutPage;
+  ```
+
+### 2. Hook Usage
+- Create custom hooks for reusable logic
+- Place hooks in `src/hooks/` directory
+- Use meaningful naming: `use[Feature]`
+- Example:
+  ```typescript
+  // hooks/useFormValidation.ts
+  export const useFormValidation = (initialValues: FormValues) => {
+    // Hook logic
+  };
+  ```
+
+### 3. Component Structure
+```typescript
+// Good Component Structure
+import { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import type { ComponentProps } from '@/types/props';
+
+const ExampleComponent: React.FC<ComponentProps> = ({ title }) => {
+  // State declarations
+  const [data, setData] = useState<string>('');
+
+  // Event handlers
+  const handleClick = (): void => {
+    // Logic
+  };
+
+  return (
+    <div>
+      {/* JSX */}
+    </div>
+  );
+};
 ```
+
+### 4. Commenting Guidelines
+Add comments for:
+- Complex business logic
+- Non-obvious state manipulations
+- Complex UI calculations
+- API integrations
+- Workarounds or temporary solutions
+
+Example:
+```typescript
+// Calculates the total price including tax and shipping
+const calculateTotal = (items: CartItem[]): number => {
+  // First sum up the base prices
+  const basePrice = items.reduce((sum, item) => sum + item.price, 0);
+  
+  // Add 8% tax
+  const withTax = basePrice * 1.08;
+  
+  // Add flat rate shipping of $5 for orders under $50
+  return basePrice < 50 ? withTax + 5 : withTax;
+};
+```
+
+## 🚀 Getting Started
+
+1. Clone the repository
+```bash
+git clone [repository-url]
+```
+
+2. Switch to your assigned feature branch
+```bash
+git checkout feature/[your-feature-branch]
+```
+
+3. Install dependencies
+```bash
+npm install
+```
+
+4. Start development server
+```bash
+npm run dev
+```
+
+## 🔍 Code Review Checklist
+- [ ] Types are properly defined
+- [ ] Components are in appropriate directories
+- [ ] Custom hooks are used where necessary
+- [ ] Code is properly commented
+- [ ] No unused imports or variables
+- [ ] Consistent naming conventions
+- [ ] Responsive design principles followed
+- [ ] No hardcoded values
+
+## 🤝 Contribution Guidelines
+1. Always work on your assigned feature branch
+2. Pull latest changes from development branch regularly
+3. Write meaningful commit messages
+4. Create PR (Pull Request) when feature is complete
+5. Ensure all types are properly defined
+6. Add necessary comments for complex logic
+
+## ⚠️ Common Pitfalls to Avoid
+- Mixing different UI library styles unnecessarily
+- Skipping type definitions
+- Writing monolithic components
+- Insufficient commenting on complex logic
+- Hardcoding values that should be configurable
+
+For any questions or clarifications, contact the team lead.
