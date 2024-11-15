@@ -1,174 +1,164 @@
-# Project Development Guidelines
+# HANDYMAN Project Guidelines
 
-## 📚 Tech Stack & Libraries
-
-### UI Components & Styling
-- ShadcN UI
-- Tailwind CSS
-- Material-UI (MUI)
-
-### Icons
-- Primary: Lucide React
-- Alternative icon libraries can be used when necessary (document usage in comments)
-
-## 🏗 Code Structure
-
-### Directory Structure
+## 📁 Project Structure
 ```
 src/
-├── components/
-│   ├── ui/           # ShadcN components
-│   └── shared/       # Reusable components
-├── types/            # TypeScript type definitions
-├── hooks/            # Custom React hooks
-├── pages/           # Page components
-├── utils/           # Helper functions
-└── styles/          # Global styles
+├── assets/          # Images, fonts, static files
+├── components/      # Reusable UI components
+├── hooks/           # Custom React hooks
+├── layouts/         # Layout components
+├── lib/            # Third-party library configurations
+├── pages/          # Page components
+├── routes/         # Route configurations
+├── services/       # API and external service integrations
+├── store/          # State management
+├── types/          # TypeScript types/interfaces
+└── utils/          # Helper functions
 ```
 
-### TypeScript Guidelines
-- **MANDATORY**: All components, functions, and variables must be typed
-- Place shared types in `src/types/` directory
-- Example:
-  ```typescript
-  // src/types/user.ts
-  export interface User {
-    id: string;
-    name: string;
-    email: string;
-  }
+## 🔧 Technology Stack
+- ShadcN UI
+- Tailwind CSS
+- MUI Components
+- Icons: Lucide React/Icon libraries
 
-  // src/types/props.ts
-  export interface ButtonProps {
-    onClick: () => void;
-    children: React.ReactNode;
-    variant?: 'primary' | 'secondary';
-  }
-  ```
+## 📋 Development Rules
+1. **Types**
+   - All types must be in `src/types` folder
+   - No `any` types allowed
+   - Export interfaces/types from separate files
 
-## 🔧 Development Rules
+2. **Components**
+   - One function per page
+   - Use hooks when needed
+   - Comment complex logic only
 
-### 1. Page Structure
-- One main function per page
-- Keep pages modular and focused
-- Example:
-  ```typescript
-  // pages/About.tsx
-  const AboutPage: React.FC = () => {
-    return (
-      <div>
-        {/* Page content */}
-      </div>
-    );
-  };
+3. **Styling**
+   - Prefer Tailwind classes
+   - ShadcN components take priority
+   - Use MUI components when necessary
 
-  export default AboutPage;
-  ```
+## 🌿 Git Workflow Rules
 
-### 2. Hook Usage
-- Create custom hooks for reusable logic
-- Place hooks in `src/hooks/` directory
-- Use meaningful naming: `use[Feature]`
-- Example:
-  ```typescript
-  // hooks/useFormValidation.ts
-  export const useFormValidation = (initialValues: FormValues) => {
-    // Hook logic
-  };
-  ```
-
-### 3. Component Structure
-```typescript
-// Good Component Structure
-import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import type { ComponentProps } from '@/types/props';
-
-const ExampleComponent: React.FC<ComponentProps> = ({ title }) => {
-  // State declarations
-  const [data, setData] = useState<string>('');
-
-  // Event handlers
-  const handleClick = (): void => {
-    // Logic
-  };
-
-  return (
-    <div>
-      {/* JSX */}
-    </div>
-  );
-};
-```
-
-### 4. Commenting Guidelines
-Add comments for:
-- Complex business logic
-- Non-obvious state manipulations
-- Complex UI calculations
-- API integrations
-- Workarounds or temporary solutions
-
-Example:
-```typescript
-// Calculates the total price including tax and shipping
-const calculateTotal = (items: CartItem[]): number => {
-  // First sum up the base prices
-  const basePrice = items.reduce((sum, item) => sum + item.price, 0);
-  
-  // Add 8% tax
-  const withTax = basePrice * 1.08;
-  
-  // Add flat rate shipping of $5 for orders under $50
-  return basePrice < 50 ? withTax + 5 : withTax;
-};
-```
-
-## 🚀 Getting Started
-
-1. Clone the repository
+### Daily Development
 ```bash
-git clone [repository-url]
+# Start of day - Update your feature branch
+git checkout development
+git pull origin development
+git checkout your-feature-branch
+git merge development
 ```
 
-2. Switch to your assigned feature branch
+### If Conflicts Occur
 ```bash
-git checkout feature/[your-feature-branch]
+# 1. When merge shows conflicts
+git status  # Check conflicting files
+
+# 2. Open each conflicting file and resolve conflicts
+# Look for <<<<<<< HEAD, =======, and >>>>>>> markers
+
+# 3. After resolving
+git add .
+git commit -m "resolved conflicts with development branch"
 ```
 
-3. Install dependencies
+### When Stuck/Need to Reset
 ```bash
-npm install
+# If you need to undo changes in your feature branch
+git fetch origin
+git reset --hard origin/development
+git checkout -b feature/your-branch-name
 ```
 
-4. Start development server
+### Before Making Pull Request
 ```bash
-npm run dev
+# 1. Update your branch
+git checkout development
+git pull origin development
+git checkout your-feature-branch
+git merge development
+
+# 2. Fix any conflicts
+# 3. Test your changes
+# 4. Then push
+git push origin your-feature-branch
 ```
 
-## 🔍 Code Review Checklist
-- [ ] Types are properly defined
-- [ ] Components are in appropriate directories
-- [ ] Custom hooks are used where necessary
-- [ ] Code is properly commented
-- [ ] No unused imports or variables
-- [ ] Consistent naming conventions
-- [ ] Responsive design principles followed
-- [ ] No hardcoded values
+### Emergency Fix Process
+```bash
+# If you find a bug in your feature
+git checkout your-feature-branch
+# Fix the issue
+git commit -m "fix: description of the fix"
+git push origin your-feature-branch
+```
 
-## 🤝 Contribution Guidelines
-1. Always work on your assigned feature branch
-2. Pull latest changes from development branch regularly
-3. Write meaningful commit messages
-4. Create PR (Pull Request) when feature is complete
-5. Ensure all types are properly defined
-6. Add necessary comments for complex logic
+## ⚠️ Important Rules
+1. **NEVER** push directly to `master` or `development`
+2. Always create Pull Request for review
+3. Keep commits small and focused
+4. Write clear commit messages
+5. Pull from `development` daily
+6. Resolve conflicts in your feature branch
 
-## ⚠️ Common Pitfalls to Avoid
-- Mixing different UI library styles unnecessarily
-- Skipping type definitions
-- Writing monolithic components
-- Insufficient commenting on complex logic
-- Hardcoding values that should be configurable
+## 🚨 Commit Message Format
+```
+feat: add new feature
+fix: bug fix
+style: styling changes
+refactor: code refactoring
+docs: documentation updates
+test: adding tests
+```
 
-For any questions or clarifications, contact the team lead.
+## 🔄 Branch Naming
+```
+feature/feature-name
+bugfix/bug-description
+hotfix/urgent-fix
+```
+
+## 📝 Pull Request Process
+1. Update your feature branch with development
+2. Resolve any conflicts
+3. Push your changes
+4. Create PR on GitHub
+5. Wait for code review
+6. Address review comments
+7. Get approval
+8. Merge will be done by lead
+
+## 🚫 Common Issues & Solutions
+
+### 1. Stuck with Bad Changes
+```bash
+# Discard all local changes
+git checkout -- .
+
+# Or reset to last commit
+git reset --hard HEAD
+```
+
+### 2. Wrong Branch
+```bash
+# Save your changes
+git stash
+git checkout correct-branch
+git stash pop
+```
+
+### 3. Bad Merge
+```bash
+# Undo last merge
+git reset --hard HEAD~1
+```
+
+### 4. Update Branch After PR Comments
+```bash
+# Make changes
+git add .
+git commit -m "fix: PR review changes"
+git push origin your-feature-branch
+```
+
+For any Git-related issues, contact the team lead before making major changes.
