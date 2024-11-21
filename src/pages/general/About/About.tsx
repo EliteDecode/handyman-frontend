@@ -1,6 +1,7 @@
 import bg from "@/assets/images/about-hero-bg.png";
 import AboutCards from "@/components/AboutCards";
 import AboutInfo from "@/components/AboutInfo";
+import AboutTeam from "@/components/AboutTeam";
 import { cardDetails } from "@/lib/utils";
 
 const About = () => {
@@ -31,6 +32,7 @@ const About = () => {
         ))}
       </div>
 
+      <AboutTeam />
       
     </section>
   );

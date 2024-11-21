@@ -64,3 +64,16 @@
     @apply bg-background text-foreground;
   }
 }
+
+.swiper-pagination-bullet {
+  background-color: #D9D9D9 !important; 
+  opacity: 1 !important; 
+  width: 6px !important; 
+  height: 6px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #008080 !important;
+  width: 30px !important ; 
+  opacity: 1 !important;
+  border-radius: 16px !important;
+}

@@ -7,17 +7,16 @@ const AboutInfo = () => {
         <h2 className="font-bold font-merriweather text-center">Our Story</h2>
         <div className="flex items-center justify-center">
           <p className="mt-2 px-6 font-medium text-center font-lato text-xs leading-6 text-[#3C3C3C] w-[355px] tracking-[] ">
-          Handyman was founded with a simple goal: to bridge the gap between
-          skilled artisans and people who need their services. We understand the
-          frustration of finding reliable professionals for home repairs,
-          installations, and maintenance. That's why we built a platform that
-          simplifies the process, connecting you with experienced artisans in
-          just a few clicks. Whether you're a homeowner, a business owner, or a
-          contractor, Handyman is here to ensure that you receive the quality
-          service you deserve, every time.
-        </p>
+            Handyman was founded with a simple goal: to bridge the gap between
+            skilled artisans and people who need their services. We understand
+            the frustration of finding reliable professionals for home repairs,
+            installations, and maintenance. That's why we built a platform that
+            simplifies the process, connecting you with experienced artisans in
+            just a few clicks. Whether you're a homeowner, a business owner, or
+            a contractor, Handyman is here to ensure that you receive the
+            quality service you deserve, every time.
+          </p>
         </div>
-        
       </div>
       <div className="flex justify-center z-10 items-center w-full">
         <img
