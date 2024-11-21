@@ -27,9 +27,11 @@ const About = () => {
 
       <div>
         {cardDetails.map((cardDetail, i) => (
-          <AboutCards desc={cardDetail.desc} title={cardDetail.title} key={i} />
+          <AboutCards desc={cardDetail.desc} title={cardDetail.title} icon={cardDetail.icon} key={i} />
         ))}
       </div>
+
+      
     </section>
   );
 };

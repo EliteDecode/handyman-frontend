@@ -1,6 +1,4 @@
-import { BsRocketTakeoffFill } from "react-icons/bs";
-
-const AboutCards = ({ title, desc }: AboutCard) => {
+const AboutCards = ({ title, desc, icon: Icon }: AboutCardProps) => {
   return (
     <div className="flex flex-wrap justify-center items-center gap-6 px-6 py-3">
       <div className="w-[340px] h-[275px] shadow-md rounded-xl ">
@@ -11,7 +9,7 @@ const AboutCards = ({ title, desc }: AboutCard) => {
 
           <div className="w-full flex flex-col justify-center items-center mt-2">
             <div className="border-2 border-white rounded-full p-4 w-[60px] h-[60px] bg-[#008080] flex justify-center items-center">
-              <BsRocketTakeoffFill color="white" size={24} />
+              <img src={Icon} color="white" width={24} />
             </div>
           </div>
         </div>
