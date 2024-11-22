@@ -42,4 +42,12 @@ export const sliderDetails = [
     title: "lorem ipsum dolor",
     desc: "sit amet comsectur",
   },
+  {
+    title: "lorem ipsum dolor",
+    desc: "sit amet comsectur",
+  },
+  {
+    title: "lorem ipsum dolor",
+    desc: "sit amet comsectur",
+  },
 ];
