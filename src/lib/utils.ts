@@ -3,6 +3,9 @@ import { twMerge } from "tailwind-merge";
 import rocket from "@/assets/images/rocket.svg";
 import vision from "@/assets/images/vision.svg";
 import target from "@/assets/images/target.svg";
+import toolImg from "@/assets/images/tools.png";
+import plugImg from "@/assets/images/plug.png";
+import tapImg from "@/assets/images/tap.png";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -192,7 +195,6 @@ export const privacyInfos: PrivacyInfos[] = [
   },
 ];
 
-
 export const privacyLinks = [
   { name: "Information We Collect", to: "privacy-1" },
   { name: "How We Use Your Information", to: "privacy-2" },
@@ -202,4 +204,28 @@ export const privacyLinks = [
   { name: "Children’s Privacy", to: "privacy-6" },
   { name: "Changes to This Privacy Policy", to: "privacy-7" },
   { name: "Contact Us", to: "privacy-8" },
+];
+
+export const popularServices = [
+  {
+    id: 1,
+    icon: toolImg,
+    title: "Capentry",
+    subtext:
+      "Whether you need custom furniture, repairs, or cabinetry, our skilled carpenters provide craftsmanship that lasts.",
+  },
+  {
+    id: 2,
+    icon: plugImg,
+    title: "Electrical",
+    subtext:
+      "From wiring and lighting installations to appliance repair, our electricians are ready to handle all your electrical needs with precision and safety.",
+  },
+  {
+    id: 3,
+    icon: tapImg,
+    title: "Plumbing",
+    subtext:
+      "Our expert plumbers can assist with everything from leaky faucets to full bathroom installations, ensuring quality service for all water-related issues.",
+  },
 ];

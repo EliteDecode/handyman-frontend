@@ -18,7 +18,7 @@ const TOC = () => {
                 smooth={true}
                 spy={true}
                 duration={500}
-                offset={-20}
+                offset={-15}
               >
                 {privacyLink.name}
               </Link>
