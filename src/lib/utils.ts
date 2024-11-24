@@ -229,3 +229,46 @@ export const popularServices = [
       "Our expert plumbers can assist with everything from leaky faucets to full bathroom installations, ensuring quality service for all water-related issues.",
   },
 ];
+
+export const servicesInfos = [
+  {
+    id: 1,
+    image:
+      "https://s3-alpha-sig.figma.com/img/0d22/231f/f74d1d1a92301ca3a8e688251fe9308b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FcbH514QWoMahG0djzsZImfaWb~RhJhL74Edo0d~67nsg-9DVGa1~5qJwp71ltPpFQwjmit9FP~bdme1C7sHOfdlwSpv~ELHDWO-7Bfz62IiW9QKpK7ksp9CKUTQAiWsP5v42CA5PCE~VVrmREnJwipK46KNe4HfaPCrR0ArxemyWU2YLxWMHGtSauizi1N-eBatRiJIKZ0M6jI8sOQDjLmazYG47Q3V0AspfZjEdQ5MNuE22XadgXWTHm5VibxWTp~~mXnIQHV9exhm2UlBC39y8oOORHkriWXuRAUmlFGTb5Yc1MUDVX9MymDaVKIUzFImxUxYGafT2jZRCD98Og__",
+    title: "Verified Handymen",
+    subtext:
+      "Gain peace of mind knowing that all artisans on our platform are thoroughly vetted. We conduct background checks and skill assessments to ensure only qualified professionals join our network.",
+  },
+  {
+    id: 2,
+    image:
+      "https://s3-alpha-sig.figma.com/img/88b8/b617/0f4f1b0a769400d0f78f4b0b10ad30a0?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FZw-PqgRy34ntEByubddLllZW5il5vKl2svB2mBV3HqtT3REFPhuvPvlPjLrC7aw7O2buMotutZjF-mRHcKnpUbAMcOabelkAevJdwN8gGDOeVudkooz0UnkhO0s-9B3zEDirthSLn78Yj26eWkq10ozTRLYVogKItZoGjz2EjAnpgLBGOUqgSk1rMVttao5K65gSI-TkXAafrzQxYWLTrIrdHVC7F3PQ-3hc0zaZjizldm86IZvyfp~E60yea1K3bBu6UxkKF26xFxhet-tSfPbNQ7JVYYv~PIkp5oFQnEUKgWSB1dRrCxxzkxvAVoaONSqpN0gE3BI5FCqMZUIQw__",
+    title: "Fast & Easy Booking",
+    subtext:
+      "We’ve made finding the right professional as easy as 1-2-3. With just a few clicks, you can search for the service you need, view profiles, and schedule an appointment at a time that works for you.",
+  },
+  {
+    id: 3,
+    image:
+      "https://s3-alpha-sig.figma.com/img/7b6a/1b72/e7a93f1f45a8455009c86e414bc65e06?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BfkB438ZkRmOHWXdQACjy~i~45RoNTHd38pbiAFojo4GiOVvYfib5hlsUbP21h6wRVFxEa8KFBMMRVR~rkEN92jceuSVHFFwcuj0u4MXJyPiBzGOnSUTDiNu3slRz8rdlA-q24ZsXPcFaXA8eR6EaxwD9yHo5skVpBdv7XjVmNEOIe8TNtNfXEAbWrh2meuebIfx52ucVibDSPydbM405Whrn6G3mhiUfY-5TYPszuzGamRw9Q2i4Q20AYGoLsQwENezVDDEAs50NWRRzI110DhsySFKZrv1JyIe7ibiqjkVe~yM51SlG-pMMKe8bLN21ZP8DHIDgDE0tfNR77aFWw__",
+    title: "Location-Based Matching",
+    subtext:
+      "Time is precious, and we aim to save yours by connecting you with artisans nearest to you. Our advanced location-based matching system uses your current location to recommend the best professionals in your vicinity, ensuring faster response times and quicker arrivals. ",
+  },
+  {
+    id: 4,
+    image:
+      "https://s3-alpha-sig.figma.com/img/3182/eb87/318904efbef5565e91af2464275da977?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=buSGSJdAMvd1amKWQj1U9OKDMpi3TJur6vTLc-4rqzjyGcgd0p~ATEQxG6F6FqWP9syPPpELImrKEubaMaQfSnurBnBjkA0v9rQtu5yO6M5A1rQjF7Ffu-EP6JciLJd7t9Vbf5qMlnCCRT59HHskb257rM2cp-TwgixezIU5aZhGuuAI0M9wHSTNEpWU2pgte0yMgdUv6aaQbtMouye2bD6ZPfCm-WyM0CTUA4~v92YRTO2KtD6nzWy1R9aYp7ilzwS~0z7uYwjXetlq~cKT3f~FoKUeX3OEjWtOIyXnF-EQu4zcCZV8nrej~Tpl8E4WhAlRtkWRUkOka7OgqM6FDg__",
+    title: "Flexible Payment Options",
+    subtext:
+      "We believe in providing convenience at every step, including when it’s time to pay. Choose from multiple payment methods such as bank transfers, credit/debit cards, or mobile payments, and rest assured that your transactions are secure.",
+  },
+  {
+    id: 5,
+    image:
+      "https://s3-alpha-sig.figma.com/img/3e95/190e/16ac0b96e211bb185e32a7d2c74c1332?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=arYl7e1ffCNjoQu6QnH7~veeST8pX1LPRUPRHWEn57Yet6cjSs7TYRt7imAt4Kg9KKb8i0VlDdF3mJdekm2dZLWVpSa8jxGSqW-OpMd0rLXIx1KsmKyK2TX-vKSYN63r~JRo2jXeJLHh0s7gtIo-jyA-k2x~uMW9RR8pV~bF5fR-Ng3ApYjCoIlGjTVyxJRb7QzU3WBPu~GpI94xI0Yx4kCXU7dgFti7xB2zs2Fq~RuE24JX68Xc0bPe7W-9fY8M0uEuBh5yG0P6ATtof-VSLOyCieNKnUhavmifaul2ydErlChJ5l7NIcsDb9gFlr5BRYr4VK1FslkiOvd-AU4hDw__",
+    title: "Customer Reviews & Ratings",
+    subtext:
+      "Make informed choices by reading honest feedback from other users like you. Each professional on our platform is rated and reviewed based on past services, allowing you to see what others have to say about their quality of work, punctuality, and professionalism.",
+  },
+];

@@ -51,6 +51,7 @@ const AboutSlider = () => {
               <img
                 src="https://s3-alpha-sig.figma.com/img/3ddd/6ff2/df0a6b03d92f6ef9a774535c80ec1dae?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XvNvh48H5kow~3HKGUqDwD9Nk7zioTsOZ6Y2mHgfxsSUO3Ai92VhoLeKDPLXbb2jWkX29syk9quCRev0gBBtzCptg~~TPUf6buW6ugbtADJvcYK0ASXdgUgVJifJgtW8N7DBsNTQAXLBmHQgsw~UUgx7CqhojCtJsn3wMWhtS43tUPq4j6qfDt5GaOhYr3TIQUzr9~bGt4lNdTxql-lxzfllsscB32ziZEvlqT-FISfQHeOR6NhkoMwZLp1uscHtreK8thpxyTGVWnMQtsQyzZDzAHwvxKiEmnzIZkBhGpptsbtYoEdiXLkRUsR1tRFxzj8pHueIWwYzA8-HpNqlfQ__"
                 alt="team-member"
+                loading="lazy"
               />
             </div>
             <div className="mt-4 font-lato">
@@ -69,6 +70,7 @@ const AboutSlider = () => {
                 <img
                   src="https://s3-alpha-sig.figma.com/img/3ddd/6ff2/df0a6b03d92f6ef9a774535c80ec1dae?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XvNvh48H5kow~3HKGUqDwD9Nk7zioTsOZ6Y2mHgfxsSUO3Ai92VhoLeKDPLXbb2jWkX29syk9quCRev0gBBtzCptg~~TPUf6buW6ugbtADJvcYK0ASXdgUgVJifJgtW8N7DBsNTQAXLBmHQgsw~UUgx7CqhojCtJsn3wMWhtS43tUPq4j6qfDt5GaOhYr3TIQUzr9~bGt4lNdTxql-lxzfllsscB32ziZEvlqT-FISfQHeOR6NhkoMwZLp1uscHtreK8thpxyTGVWnMQtsQyzZDzAHwvxKiEmnzIZkBhGpptsbtYoEdiXLkRUsR1tRFxzj8pHueIWwYzA8-HpNqlfQ__"
                   alt="team-member"
+                  loading="lazy"
                 />
               </div>
               <div className="mt-4 font-lato">

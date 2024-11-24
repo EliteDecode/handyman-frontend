@@ -18,6 +18,7 @@ const AboutCards = () => {
                       src={cardDetail.icon}
                       color="white"
                       className="w-[24px] lg:w-16"
+                      loading="lazy"
                     />
                   </div>
                 </div>

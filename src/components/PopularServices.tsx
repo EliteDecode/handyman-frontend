@@ -8,14 +8,14 @@ const PopularServices = () => {
           Our Popular Services
         </h2>
 
-        <div className="w-full flex  flex-wrap justify-center items-center font-lato">
+        <div className="w-full flex flex-col md:flex-row md:flex-wrap justify-center items-center font-lato">
           {popularServices.map((service) => (
             <div
               className="w-[284px] flex flex-col justify-center items-center mt-6"
               key={service.id}
             >
               <div className="">
-                <img src={service.icon} alt="toolsImg" className="w-[24px]" />
+                <img src={service.icon} alt="toolsImg" className="w-[24px]" loading="lazy" />
               </div>
               <h3 className="font-medium text-center tracking-wide mt-4">
                 {service.title}

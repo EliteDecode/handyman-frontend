@@ -3,6 +3,10 @@ declare interface PageHeroProps {
   subtext: string;
 }
 
+declare interface FooterCTAProps {
+  title?: string;
+}
+
 declare type PrivacyInfos = {
   id: number;
   title: string;

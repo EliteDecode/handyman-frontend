@@ -1,5 +1,7 @@
+import FooterCTA from "@/components/FooterCTA";
 import PageHero from "@/components/PageHero";
 import PopularServices from "@/components/PopularServices";
+import ServicesInfo from "@/components/ServicesInfo";
 
 const title = "Our Services";
 const subtext =
@@ -12,8 +14,12 @@ const Services = () => {
       <PageHero title={title} subtext={subtext} />
 
       <PopularServices />
-    </section>
-  )
-}
 
-export default Services
+      <ServicesInfo />
+
+      <FooterCTA />
+    </section>
+  );
+};
+
+export default Services;
