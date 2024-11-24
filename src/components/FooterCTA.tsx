@@ -1,6 +1,6 @@
 const FooterCTA = ({ title }: FooterCTAProps) => {
   return (
-    <div className="bg-[#0080800A] w-full h-[176px] md:h-[244px] md:pcx-[120px] lg:min-h-[312px] flex flex-col items-center justify-center p-6 lg:py-96s">
+    <div className="bg-[#0080800A] w-full flex flex-col items-center justify-center px-6 py-8 lg:py-12 lg:mt-20">
       <div className="md:hidden flex flex-col justify-center items-center">
         <h2 className="font-merriweather font-bold leading-6">
           Ready to get started?
@@ -15,7 +15,7 @@ const FooterCTA = ({ title }: FooterCTAProps) => {
       </div>
 
       {title ? (
-        <div className=" hidden md:flex w-full md:w-[718px] lg:w-[788px] xl:w-[1200px] h-full justify-between items-center gap-3">
+        <div className=" hidden md:flex w-full md:w-[718px] lg:w-[788px] xl:w-[1200px] h-full justify-between items-center gap-3 lg:py-[84px]">
           <h2 className="font-merriweather font-bold md:text-2xl lg:leading-[50px] lg:text-[40px] lg:w-[534px] ">
             Ready to experience a new level of service?
           </h2>

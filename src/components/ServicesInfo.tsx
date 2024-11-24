@@ -2,7 +2,7 @@ import { servicesInfos } from "@/lib/utils";
 
 const ServicesInfo = () => {
   return (
-    <div className="my-8 px-6">
+    <div className="my-8 px-6 lg:mt-20">
       <div className="w-full flex justify-center">
         <div className="lg:w-[573px] lg:flex flex-col items-center">
           <h2 className="font-bold font-merriweather text-center md:text-2xl lg:text-[32px] leading-10">
@@ -19,10 +19,9 @@ const ServicesInfo = () => {
         {servicesInfos.map((servicesInfo) => {
           const id = servicesInfo.id % 2;
 
-          console.log(id);
           return (
             <div
-              className={`${id ? "lg:flex-row" : "lg:flex-row-reverse"} mt-6 w-full flex flex-col justify-center items-center lg:gap-6`}
+              className={`${id ? "lg:flex-row" : "lg:flex-row-reverse"} mt-6 lg:mt-10 w-full flex flex-col justify-center items-center lg:gap-6`}
             >
               <div className="w-full lg:w-[486px] flex justify-center items-center">
                 <img
