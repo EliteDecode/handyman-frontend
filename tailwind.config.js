@@ -57,6 +57,10 @@ module.exports = {
       merriweather: ["Merriweather", "serif"],
       quicksand: ["Quicksand", "sans-serif"],
     },
+
+    boxShadow: {
+      custom: "0px 4px 12px 0px #10182814",
+    },
   },
   plugins: [require("tailwindcss-animate")],
 };

@@ -25,7 +25,7 @@ const HeroSection = () => {
             <input
               type="text"
               id="service-search"
-              className="w-full md:h-14 h-10 border-2 border-[#008080] rounded-lg pl-12 pr-4 py-3 placeholder-gray-500 focus:outline-none focus:ring focus:ring-[#008080] placeholder:leading-[20px] placeholder:text-[12px]"
+              className="w-full md:h-14 h-10 border-2 border-[#008080] rounded-lg pl-12 pr-4 py-3 placeholder-gray-500 focus:outline-none focus:ring focus:ring-[#008080] placeholder:leading-[20px] placeholder:text-[12px] placeholder:sm:leading-8 placeholder:sm:text-[20px]"
               placeholder="What service are you looking for?"
             />
             <img
