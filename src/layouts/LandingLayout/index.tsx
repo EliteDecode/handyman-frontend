@@ -1,11 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "./Header";
+import Footer from "./Footer";
 
 const LandingLayout = () => {
   return (
-    <div>
+    <div className="w-full mx-auto">
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 };
