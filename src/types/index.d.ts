@@ -6,6 +6,10 @@ declare interface PageHeroProps {
 declare interface FooterCTAProps {
   title?: string;
 }
+declare interface AccordionProps {
+  question: string;
+  answer: string;
+}
 
 declare type PrivacyInfos = {
   id: number;
@@ -20,3 +24,8 @@ declare type ContactDetails = {
   icon: iconType;
 }[];
 
+declare type ContactFAQS = {
+  id: number;
+  question: string;
+  answer: string;
+}[];

@@ -294,3 +294,48 @@ export const contactDetails: ContactDetails = [
     icon: Mail,
   },
 ];
+
+export const contactFAQS: ContactFAQS = [
+  {
+    id: 1,
+    question: "What type of services do you offer?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 2,
+    question: "Can i Schedule an appointment?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 3,
+    question: "How do you ensure quality and safety?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 4,
+    question: "How do i book Handyman?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 5,
+    question: "How do i get the price estimate?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 6,
+    question: "Do you offer same day service?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+  {
+    id: 7,
+    question: "How can i contact customer’s support?",
+    answer:
+      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+];

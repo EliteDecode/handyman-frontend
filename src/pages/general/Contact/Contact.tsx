@@ -1,4 +1,5 @@
 import ContactCard from "@/components/ContactCard";
+import ContactFAQs from "@/components/ContactFAQs";
 import ContactMessage from "@/components/ContactMessage";
 import PageHero from "@/components/PageHero";
 
@@ -14,6 +15,8 @@ const Contact = () => {
       <ContactCard />
 
       <ContactMessage />
+
+      <ContactFAQs />
     </div>
   );
 };
