@@ -1,4 +1,4 @@
-import { privacyLinks } from "@/lib/utils";
+import { privacyLinks } from "@/lib/demoData";
 import { Link } from "react-scroll";
 
 const TOC = () => {

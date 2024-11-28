@@ -1,4 +1,5 @@
 import ContactCard from "@/components/ContactCard";
+import ContactMessage from "@/components/ContactMessage";
 import PageHero from "@/components/PageHero";
 
 const title = "Contact";
@@ -11,6 +12,8 @@ const Contact = () => {
       <PageHero title={title} subtext={subtext} />
 
       <ContactCard />
+
+      <ContactMessage />
     </div>
   );
 };

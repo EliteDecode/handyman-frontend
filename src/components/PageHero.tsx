@@ -1,5 +1,5 @@
 import bg from "@/assets/images/pageHero-bg.png";
-const PageHero = ({title, subtext}:PageHeroProps) => {
+const PageHero = ({ title, subtext }: PageHeroProps) => {
   return (
     <div
       className="bg-center bg-no-repeat bg-cover w-full"
@@ -17,6 +17,6 @@ const PageHero = ({title, subtext}:PageHeroProps) => {
       </div>
     </div>
   );
-}
+};
 
-export default PageHero
+export default PageHero;

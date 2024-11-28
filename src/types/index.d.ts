@@ -12,3 +12,11 @@ declare type PrivacyInfos = {
   title: string;
   subInfos: { subTitle?: string; subtext: string; email?: string }[];
 };
+
+declare type ContactDetails = {
+  id: number;
+  title: string;
+  desc: string;
+  icon: iconType;
+}[];
+
