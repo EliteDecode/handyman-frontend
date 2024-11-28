@@ -5,6 +5,7 @@ import {
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
 import { Home } from "./routes";
+import HelpAndSupport from "./pages/general/HelpAndSupport/HelpAndSupport";
 
 // routes
 
@@ -24,6 +25,10 @@ export default function App() {
             {
               path: "/home",
               element: <Home />,
+            },
+            {
+              path: "/HelpAndSupport",
+              element: <HelpAndSupport />,
             },
           ],
         },
