@@ -1,7 +1,7 @@
-import checkWithstarCircleAndMultiColour from "../../../../public/icons/checkWithstarCircleAndMultiColour.svg";
-import searchWithMultiColour from "../../../../public/icons/searchWithMultiColour.svg";
-import calanderWithMultiColour from "../../../../public/icons/calanderWithMultiColour.svg";
-import teamWithMultiColor from "../../../../public/icons/teamWithMultiColor.svg";
+import checkWithstarCircleAndMultiColour from "@/assets/icons/checkWithstarCircleAndMultiColour.svg";
+import searchWithMultiColour from "@/assets/icons/searchWithMultiColour.svg";
+import calanderWithMultiColour from "@/assets/icons/calanderWithMultiColour.svg";
+import teamWithMultiColor from "@/assets/icons/teamWithMultiColor.svg";
 
 const HowItWorksSection = () => {
   // Define the type for booking step
@@ -40,7 +40,7 @@ const HowItWorksSection = () => {
 
   return (
     <div className="container px-6 lg:px-[120px] md:px-10 mt-[80px] flex flex-col gap-12">
-      <div className="flex flex-col items-center sm:gap-4 gap-2">
+      <div className="flex flex-col items-center gap-2 sm:gap-4">
         <h1 className="sm:text-[32px] text-[16px] leading-6 sm:leading-[40.22px] font-bold text-[#191919] font-merriweather">
           How It Works
         </h1>
@@ -49,7 +49,7 @@ const HowItWorksSection = () => {
         </p>
       </div>
 
-      <div className="grid  grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  place-items-center ">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center ">
         {bookingSteps.map((step, index) => (
           <div className="flex flex-col items-center sm:w-[252px] w-[282px] sm:gap-4 gap-2 h-full">
             <h1

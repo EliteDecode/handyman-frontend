@@ -1,8 +1,8 @@
-import ElectricalImage from "../../../../public/icons/Electrical.svg";
-import CarpentryImage from "../../../../public/icons/FullToolStorageBox.svg";
-import PlumbingImage from "../../../../public/icons/Plumbing.svg";
-import PaintingImage from "../../../../public/icons/PaintRoller.svg";
-import RepairsImage from "../../../../public/icons/Tools.svg";
+import ElectricalImage from "@/assets/icons/Electrical.svg";
+import CarpentryImage from "@/assets/icons/FullToolStorageBox.svg";
+import PlumbingImage from "@/assets/icons/Plumbing.svg";
+import PaintingImage from "@/assets/icons/PaintRoller.svg";
+import RepairsImage from "@/assets/icons/Tools.svg";
 
 const ServiceList = () => {
   type serviceItem = {

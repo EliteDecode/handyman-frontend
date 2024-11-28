@@ -1,5 +1,5 @@
-import handyManWorkingImage from "../../../../public/images/image 184.png";
-import checkWithCircle from "../../../../public/icons/checkWithCircle.svg";
+import handyManWorkingImage from "@/assets/images/image 184.png";
+import checkWithCircle from "@/assets/icons/checkWithCircle.svg";
 
 const TrustedHandyManSection = () => {
   const trustedHandyMan: string[] = [

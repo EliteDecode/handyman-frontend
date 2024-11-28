@@ -1,5 +1,5 @@
-import manImage from "../../../../public/images/image 141.png";
-import searchIcon from "../../../../public/icons/search_icon.svg";
+import manImage from "@/assets/images/image 141.png";
+import searchIcon from "@/assets/icons/search_icon.svg";
 
 const HeroSection = () => {
   return (

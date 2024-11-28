@@ -1,5 +1,5 @@
-import phone from "../../../../public/icons/phone.svg";
-import message from "../../../../public/icons/message.svg";
+import phone from "@/assets/icons/phone.svg";
+import message from "@/assets/icons/message.svg";
 
 const ContactSupport = () => {
   return (
