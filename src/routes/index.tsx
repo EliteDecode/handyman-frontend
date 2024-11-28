@@ -4,3 +4,8 @@ import { lazy } from "react";
 export const Home = lazy(() => import("@/pages/general/Home/Home"));
 export const About = lazy(() => import("@/pages/general/About/About"));
 export const Contact = lazy(() => import("@/pages/general/Contact/Contact"));
+export const Privacy = lazy(() => import("@/pages/general/Privacy/Privacy"));
+export const Services = lazy(() => import("@/pages/general/Services/Services"));
+export const HelpAndSupport = lazy(
+  () => import("@/pages/general/HelpAndSupport/HelpAndSupport")
+);

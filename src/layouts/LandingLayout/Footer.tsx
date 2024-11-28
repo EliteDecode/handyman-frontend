@@ -23,10 +23,19 @@ const Footer = () => {
             Quick Links
           </h2>
           <ul className="flex gap-2 flex-col text-[12px] leading-5 sm:text-[16px] sm:leading-[30px]">
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Services</li>
+            <li>
+              <a href="/">Home</a>
+            </li>
+            <li>
+              <a href="/about">About</a>
+            </li>
+            <li>
+              {" "}
+              <a href="/contact">Contact</a>
+            </li>
+            <li>
+              <a href="/services">Services</a>{" "}
+            </li>
           </ul>
         </div>
 
@@ -35,9 +44,16 @@ const Footer = () => {
             Company
           </h2>
           <ul className="flex gap-2 flex-col text-[12px] leading-5 sm:text-[16px] sm:leading-[30px]">
-            <li>Help & Support</li>
-            <li>Terms of Service</li>
-            <li>Privacy Policy</li>
+            <li>
+              <a href="/HelpAndSupport">Help & Support</a>{" "}
+            </li>
+            <li>
+              <a href="/">Terms of Service</a>
+            </li>
+            <li>
+              {" "}
+              <a href="/privacy">Privacy Policy</a>
+            </li>
           </ul>
         </div>
 

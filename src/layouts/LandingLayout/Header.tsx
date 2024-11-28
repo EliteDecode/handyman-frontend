@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation().pathname;
@@ -7,13 +7,14 @@ const Header = () => {
 
   interface UrlItem {
     name: string;
+    path: string;
   }
 
   const url: UrlItem[] = [
-    { name: "Home" },
-    { name: "About" },
-    { name: "Contact" },
-    { name: "Services" },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Contact", path: "/contact" },
+    { name: "Services", path: "/services" },
   ];
 
   return (
@@ -29,34 +30,31 @@ const Header = () => {
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "rotate-45 translate-y-[5px]" : "rotate-0"
-            }`}
-          ></div>
+            }`}></div>
 
           {/* Line 2 */}
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          ></div>
+            }`}></div>
 
           {/* Line 3 */}
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "-rotate-45 -translate-y-[15px]" : "rotate-0"
-            }`}
-          ></div>
+            }`}></div>
         </div>
       </div>
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex items-center gap-4 text-[20px] leading-[32px] font-medium text-[#3C3C3C] ">
         {url.map((item, index) => (
-          <li
+          <Link
+            to={item.path}
             key={index}
-            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}
-          >
+            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}>
             {item.name}
-          </li>
+          </Link>
         ))}
       </ul>
 
@@ -66,21 +64,20 @@ const Header = () => {
           menuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-[-20px] opacity-0"
-        }`}
-      >
+        }`}>
         <ul>
           {url.map((item, index) => (
-            <li
+            <Link
+              to={item.path}
               key={index}
               className={`cursor-pointer py-4 text-[20px] font-medium hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${
                 location.toLocaleLowerCase().slice(1) ===
                 item.name.toLocaleLowerCase()
                   ? "underline underline-offset-8 decoration-1 text-[#008080]"
                   : "text-[#3C3C3C]"
-              }`}
-            >
+              }`}>
               {item.name}
-            </li>
+            </Link>
           ))}
         </ul>
 
