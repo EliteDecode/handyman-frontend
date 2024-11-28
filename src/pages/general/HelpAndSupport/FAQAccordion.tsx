@@ -54,10 +54,9 @@ const FAQAccordion: React.FC = () => {
     },
   ];
 
-  const handleChange =
-    (index: number) => (event: React.SyntheticEvent, isExpanded: boolean) => {
-      setExpandedIndex(isExpanded ? index : false); // Set the expanded index
-    };
+  const handleChange = (index: number) => (_: any, isExpanded: boolean) => {
+    setExpandedIndex(isExpanded ? index : false); // Set the expanded index
+  };
 
   return (
     <div className="flex flex-col items-center justify-center px-6 lg:px-[120px] md:px-10 w-full sm:mt-[320px] mt-6 gap-8 h-full">
@@ -86,8 +85,7 @@ const FAQAccordion: React.FC = () => {
               }
               aria-controls={`panel${index}-content`}
               id={`panel${index}-header`}
-              className="sm:h-[78px] h-10"
-            >
+              className="sm:h-[78px] h-10">
               <h1 className="text-[#191919] sm:text-[18px] text-[11.58px] sm:leading-[30px] leading-[15.43px] font-medium font-lato letter-spacing">
                 {faq.question}
               </h1>
