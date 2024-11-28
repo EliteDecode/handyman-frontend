@@ -27,7 +27,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -53,7 +53,7 @@
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
   }
 }
 @layer base {
@@ -62,5 +62,63 @@
   }
   body {
     @apply bg-background text-foreground;
+    @apply font-lato;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: #d9d9d9 !important;
+  opacity: 1 !important;
+  width: 6px !important;
+  height: 6px !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: #008080 !important;
+  width: 30px !important ;
+  opacity: 1 !important;
+  border-radius: 16px !important;
+  .letter-spacing {
+    letter-spacing: 2%;
+  }
+
+  /* for carousel */
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 10px; /* Adjust the width */
+    height: 30px; /* Adjust the height */
+    font-size: 18px; /* Adjust the font size */
+    background-color: transparent; /* Optional: Adjust background color */
+    border-radius: 50%; /* Optional: Round the button */
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 20px; /* Adjust the icon size */
+    font-weight: 900;
+  }
+
+  /* Customize pagination dots */
+  .swiper-pagination-bullet {
+    width: 6px; /* Adjust the width of the bullets */
+    height: 6px; /* Adjust the height of the bullets */
+    background-color: #888; /* Set default bullet color */
+    opacity: 0.7; /* Set default opacity */
+    border-radius: 50%; /* Make bullets circular */
+    transition:
+      background-color 0.3s,
+      opacity 0.3s; /* Smooth transition */
+  }
+
+  /* Change color on active bullet */
+  .swiper-pagination-bullet-active {
+    background-color: #008080; /* Active bullet color */
+    opacity: 1; /* Full opacity for active bullet */
+  }
+
+  .swiper-pagination-fraction,
+  .swiper-pagination-custom,
+  .swiper-horizontal > .swiper-pagination-bullets,
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 40px; /* Change 20px to any value that moves it up or down */
   }
 }

@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-import { Home } from "./routes";
+import { Home, About, Privacy, Services, HelpAndSupport } from "./routes";
 
 // routes
 
@@ -25,12 +25,28 @@ export default function App() {
               path: "/home",
               element: <Home />,
             },
+            {
+              path: "/about",
+              element: <About />,
+            },
+            {
+              path: "/privacy",
+              element: <Privacy />,
+            },
+            {
+              path: "/services",
+              element: <Services />,
+            },
+            {
+              path: "/HelpAndSupport",
+              element: <HelpAndSupport />,
+            },
           ],
         },
 
         {
           path: "*",
-          element: <Navigate to="/dashboard/home" />,
+          element: <Navigate to="/" />,
         },
       ])}
     />
