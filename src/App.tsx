@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-import { Home, About, Privacy, Services } from "./routes";
+import { Home, About, Privacy, Services, Contact } from "./routes";
 
 // routes
 
@@ -24,6 +24,14 @@ export default function App() {
             {
               path: "/home",
               element: <Home />,
+            },
+            {
+              path: "/contact",
+              element: <Contact />,
+            },
+            {
+              path: "/about",
+              element: <About />,
             },
             {
               path: "/about",
