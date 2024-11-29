@@ -42,10 +42,6 @@ export default function App() {
               element: <About />,
             },
             {
-              path: "/about",
-              element: <About />,
-            },
-            {
               path: "/privacy",
               element: <Privacy />,
             },
