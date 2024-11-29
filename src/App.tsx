@@ -4,7 +4,15 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-import { Home, About, Privacy, Services, Contact } from "./routes";
+
+import {
+  Home,
+  About,
+  Privacy,
+  Services,
+  HelpAndSupport,
+  Contact,
+} from "./routes";
 
 // routes
 
@@ -45,12 +53,16 @@ export default function App() {
               path: "/services",
               element: <Services />,
             },
+            {
+              path: "/HelpAndSupport",
+              element: <HelpAndSupport />,
+            },
           ],
         },
 
         {
           path: "*",
-          element: <Navigate to="/dashboard/home" />,
+          element: <Navigate to="/" />,
         },
       ])}
     />
