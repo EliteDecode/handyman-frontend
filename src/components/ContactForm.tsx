@@ -1,7 +1,7 @@
 import useContactForm from "@/hooks/useContactForm";
 
 const ContactForm = () => {
-  const { formik } = useContactForm();
+  const { formik, isLoading } = useContactForm();
   return (
     <div className="bg-white w-full md:w-[600px] lg:w-[650px] rounded-xl p-6 flex flex-col items-center lg:items-start">
       <h2 className="font-bold font-merriweather leading-6 lg:text-2xl ">
@@ -9,9 +9,10 @@ const ContactForm = () => {
       </h2>
 
       <form className="w-full font-lato" onSubmit={formik.handleSubmit}>
+        {/* Name field */}
         <div className="mt-6">
           <label
-            htmlFor="name"
+            htmlFor="fullname"
             className="text-sm font-medium tracking-wide lg:text-base"
           >
             Full Name<span className="text-red-600">*</span>
@@ -19,20 +20,22 @@ const ContactForm = () => {
           <br />
           <input
             type="text"
-            name="name"
-            id="name"
+            name="fullname"
+            id="fullname"
             placeholder="Enter full name"
-            className={`${formik.touched.name && formik.errors.name ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
+            className={`${formik.touched.fullname && formik.errors.fullname ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.name}
+            value={formik.values.fullname}
           />
-          {formik.touched.name && formik.errors.name ? (
+          {formik.touched.fullname && formik.errors.fullname ? (
             <div className="text-red-500 text-[10px] lg:text-xs font-semibold">
-              {formik.errors.name}
+              {formik.errors.fullname}
             </div>
           ) : null}
         </div>
+
+        {/* Email field */}
         <div className="mt-6">
           <label
             htmlFor="email"
@@ -57,6 +60,8 @@ const ContactForm = () => {
             </div>
           ) : null}
         </div>
+
+        {/* Phone field */}
         <div className="mt-6">
           <label
             htmlFor="phone"
@@ -66,7 +71,7 @@ const ContactForm = () => {
           </label>
           <br />
           <input
-            type="number"
+            type="text"
             name="phone"
             id="phone"
             placeholder="+234"
@@ -81,6 +86,34 @@ const ContactForm = () => {
             </div>
           ) : null}
         </div>
+
+        {/* Title field */}
+        <div className="mt-6">
+          <label
+            htmlFor="title"
+            className="text-sm font-medium tracking-wide md:text-base"
+          >
+            Message Title
+          </label>
+          <br />
+          <input
+            type="text"
+            name="title"
+            id="title"
+            placeholder="Title message here..."
+            className={`${formik.touched.title && formik.errors.title ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border  w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.title}
+          />
+          {formik.touched.title && formik.errors.title ? (
+            <div className="text-red-500 text-[10px] font-semibold lg:text-xs">
+              {formik.errors.title}
+            </div>
+          ) : null}
+        </div>
+
+        {/* Message field */}
         <div className="mt-6">
           <label
             htmlFor="message"
@@ -106,10 +139,11 @@ const ContactForm = () => {
         </div>
         <div className="flex flex-col items-center mt-6">
           <button
+            disabled={isLoading}
             type="submit"
-            className="bg-[#008080] w-[130px] md:w-1/2 lg:w-full text-white font-semibold text-xs md:text-[15px] lg:text-lg py-4 px-6 rounded-lg outline-none"
+            className={`${isLoading? "bg-[#0dd5d5]":"bg-[#008080]"}  w-[130px] md:w-1/2 lg:w-full text-white font-semibold text-xs md:text-[15px] lg:text-lg py-4 px-6 rounded-lg outline-none`}
           >
-            Send Message
+            {isLoading? "Please wait...":"Send Message"}
           </button>
         </div>
       </form>

@@ -1,9 +1,8 @@
 import { createAsyncThunkWithHandler } from "@/services/api/apiHandler";
-import { IMessage, initialSupportStateProps } from "@/types/majorTypes";
 import { createSlice } from "@reduxjs/toolkit";
 import supportService from "./supportService";
 
-const initialState: initialSupportStateProps = {
+const initialState: InitialSupportStateProps = {
   isLoading: false,
   message: "",
   isSuccess: false,
@@ -12,7 +11,7 @@ const initialState: initialSupportStateProps = {
 
 export const sendMessage = createAsyncThunkWithHandler(
   "support/sendMessage",
-  async (data: IMessage) => {
+  async (data: IMessage, _) => {
     return await supportService.send_message(data);
   }
 );
