@@ -3,16 +3,16 @@ import useContactForm from "@/hooks/useContactForm";
 const ContactForm = () => {
   const { formik } = useContactForm();
   return (
-    <div className="bg-white w-[334px] rounded-xl p-6 flex flex-col items-center ">
-      <h2 className="font-bold font-merriweather leading-6">
+    <div className="bg-white w-full md:w-[600px] lg:w-[650px] rounded-xl p-6 flex flex-col items-center lg:items-start">
+      <h2 className="font-bold font-merriweather leading-6 lg:text-2xl ">
         Send us a message
       </h2>
 
-      <form className="mt-6 w-full font-lato" onSubmit={formik.handleSubmit}>
+      <form className="w-full font-lato" onSubmit={formik.handleSubmit}>
         <div className="mt-6">
           <label
             htmlFor="name"
-            className="text-sm font-medium tracking-wide md:text-base"
+            className="text-sm font-medium tracking-wide lg:text-base"
           >
             Full Name<span className="text-red-600">*</span>
           </label>
@@ -22,13 +22,13 @@ const ContactForm = () => {
             name="name"
             id="name"
             placeholder="Enter full name"
-            className={`${formik.touched.name && formik.errors.name ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border  w-full rounded-md text-xs h-8 font-medium outline-none tracking-wide`}
+            className={`${formik.touched.name && formik.errors.name ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.name}
           />
           {formik.touched.name && formik.errors.name ? (
-            <div className="text-red-500 text-[10px] font-semibold">
+            <div className="text-red-500 text-[10px] lg:text-xs font-semibold">
               {formik.errors.name}
             </div>
           ) : null}
@@ -46,13 +46,13 @@ const ContactForm = () => {
             name="email"
             id="email"
             placeholder="handyman@example.com"
-            className={`${formik.touched.email && formik.errors.email ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border  w-full rounded-md text-xs h-8 font-medium outline-none tracking-wide`}
+            className={`${formik.touched.email && formik.errors.email ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
           />
           {formik.touched.email && formik.errors.email ? (
-            <div className="text-red-500 text-[10px] font-semibold">
+            <div className="text-red-500 text-[10px] font-semibold lg:text-xs">
               {formik.errors.email}
             </div>
           ) : null}
@@ -70,13 +70,13 @@ const ContactForm = () => {
             name="phone"
             id="phone"
             placeholder="+234"
-            className={`${formik.touched.phone && formik.errors.phone ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border  w-full rounded-md text-xs h-8 font-medium outline-none tracking-wide`}
+            className={`${formik.touched.phone && formik.errors.phone ? "border-[#EB4335]" : "border-[#D0D5DD]"} py-2 px-3 border  w-full rounded-md text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.phone}
           />
           {formik.touched.phone && formik.errors.phone ? (
-            <div className="text-red-500 text-[10px] font-semibold">
+            <div className="text-red-500 text-[10px] font-semibold lg:text-xs">
               {formik.errors.phone}
             </div>
           ) : null}
@@ -93,13 +93,13 @@ const ContactForm = () => {
             name="message"
             id="message"
             placeholder="Enter a description..."
-            className={`${formik.touched.message && formik.errors.message ? "border-[#EB4335]" : "border-[#D0D5DD]"} resize-none py-2 px-3 border  w-full rounded-md text-xs h-[72px] font-medium outline-none tracking-wide`}
+            className={`${formik.touched.message && formik.errors.message ? "border-[#EB4335]" : "border-[#D0D5DD]"} resize-none py-2 px-3 border  w-full rounded-md text-xs h-[72px] md:h-[100px] lg:h-[128px] lg:text-base font-medium outline-none tracking-wide`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.message}
           ></textarea>
           {formik.touched.message && formik.errors.message ? (
-            <div className="text-red-500 text-[10px] font-semibold">
+            <div className="text-red-500 text-[10px] font-semibold lg:text-xs">
               {formik.errors.message}
             </div>
           ) : null}
@@ -107,7 +107,7 @@ const ContactForm = () => {
         <div className="flex flex-col items-center mt-6">
           <button
             type="submit"
-            className="bg-[#008080] w-[130px] text-white font-semibold text-xs py-4 px-6 rounded-lg outline-none"
+            className="bg-[#008080] w-[130px] md:w-1/2 lg:w-full text-white font-semibold text-xs md:text-[15px] lg:text-lg py-4 px-6 rounded-lg outline-none"
           >
             Send Message
           </button>

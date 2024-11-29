@@ -4,19 +4,19 @@ import { ChevronUp, ChevronDown } from "lucide-react";
 const Accordion = ({ question, answer }: AccordionProps) => {
   const [accordionOpen, setAccordionOpen] = useState(false);
   return (
-    <div className="w-full font-lato border-b py-4">
+    <div className="w-full font-lato border-b py-4 md:py-5 lg:py-6">
       <div className="w-full flex justify-between items-center font-medium ">
-        <span className="text-sm tracking-wide">{question}</span>
+        <span className="text-sm md:text-base lg:text-lg tracking-wide">{question}</span>
         <button
           onClick={() => {
             setAccordionOpen(!accordionOpen);
           }}
-          className=""
+          className="outline-none"
         >
           {accordionOpen ? (
             <ChevronUp className="text-[#008080]" />
           ) : (
-            <ChevronDown className="text-[#008080]" />
+            <ChevronDown className="text-[#C9CDD3]" />
           )}
         </button>
       </div>
@@ -27,7 +27,7 @@ const Accordion = ({ question, answer }: AccordionProps) => {
             : "grid-rows-[0fr] opacity-0"
         }`}
       >
-        <div className="overflow-hidden leading-5 text-xs tracking-wide">
+        <div className="overflow-hidden leading-5 text-xs md:text-sm lg:text-lg lg:leading-6 tracking-wide">
           {answer}
         </div>
       </div>
