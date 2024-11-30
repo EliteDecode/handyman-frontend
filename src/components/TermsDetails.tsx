@@ -1,12 +1,11 @@
-import { privacyInfos } from "@/lib/utils";
-import TOC from "./TOC";
-import PolicyDetails from "./PolicyDetails";
-import { privacyLinks } from "@/lib/utils";
+import { termsInfos, termsLinks } from "@/lib/utils"
+import PolicyDetails from "./PolicyDetails"
+import TOC from "./TOC"
 
-const PrivacyDetails = () => {
+const TermsDetails = () => {
   return (
     <div className="mb-[58px] lg:flex flex-row-reverse gap-8 justify-center w-full lg:mt-20">
-      <TOC policyLinks={privacyLinks} />
+      <TOC policyLinks={termsLinks} />
 
       <div className="px-6 md:mt-10 lg:mt-0 lg:w-[760px]">
         <div>
@@ -21,10 +20,15 @@ const PrivacyDetails = () => {
           </p>
         </div>
 
-        <PolicyDetails PolicyInfos={privacyInfos} />
+        <PolicyDetails PolicyInfos={termsInfos} />
+
+        <p className="text-xs md:text-base lg:text-lg font-lato leading-4 md:leading-5 lg:leading-6 font-semibold mt-4 md:mt-5 lg:mt-6">
+          By using Handyman, you acknowledge that you have read, understood, and
+          agree to abide by these terms.
+        </p>
       </div>
     </div>
   );
-};
+}
 
-export default PrivacyDetails;
+export default TermsDetails
