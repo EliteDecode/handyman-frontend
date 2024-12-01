@@ -1,4 +1,4 @@
-import { cardDetails } from "@/lib/utils";
+import { cardDetails } from "@/lib/demoData";
 
 const AboutCards = () => {
   return (
