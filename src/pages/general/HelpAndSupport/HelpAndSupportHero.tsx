@@ -1,4 +1,4 @@
-import helpAndSupport from "../../../../public/images/helpAndSupport.png";
+import helpAndSupport from "@/assets/images/helpAndSupport.png";
 
 const HelpAndSupportHero = () => (
   <div className="flex flex-col items-center sm:h-[400px] h-[142px] relative">

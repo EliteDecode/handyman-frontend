@@ -1,7 +1,7 @@
-import facebookIcon from "../../../public/icons/facebookIcon.svg";
-import xIcon from "../../../public/icons/xIcon.svg";
-import instagramIcon from "../../../public/icons/instagramIcon.svg";
-import linkedin from "../../../public/icons/linkedin.svg";
+import facebookIcon from "../../../src/assets/icons/facebookIcon.svg";
+import xIcon from "../../../src/assets/icons/xIcon.svg";
+import instagramIcon from "../../../src/assets/icons/instagramIcon.svg";
+import linkedin from "../../../src/assets/icons/linkedin.svg";
 
 const Footer = () => {
   return (
@@ -17,7 +17,7 @@ const Footer = () => {
         </p>
       </div>
 
-      <div className="flex lg:gap-14 gap-6 flex-col lg:flex-row  lg:mx-0 mx-auto lg:text-start text-center">
+      <div className="flex flex-col gap-6 mx-auto text-center lg:gap-14 lg:flex-row lg:mx-0 lg:text-start">
         <div className="lg:w-[160px] flex flex-col sm:gap-4 gap-2">
           <h2 className="sm:text-[16px] text-[14px] leading-6 font-bold font-merriweather">
             Quick Links
@@ -57,7 +57,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="w-full lg:w-fit flex flex-col sm:gap-4 gap-2">
+        <div className="flex flex-col w-full gap-2 lg:w-fit sm:gap-4">
           <h2 className="sm:text-[16px] text-[14px] leading-6 font-bold font-merriweather">
             Connect With Us
           </h2>
