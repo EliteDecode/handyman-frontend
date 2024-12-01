@@ -1,9 +1,9 @@
-import handyManWithClient from "../../../../public/images/image 138.png";
+import handyManWithClient from "@/assets/images/image 138.png";
 
 const GrowBusinessSection = () => {
   return (
     <div className="lg:flex-row flex-col justify-center items-center md:mt-[80px] mt-8 h-fit bg-[#0080800A] w-full flex pt-[32px] pb-[34px] px-6 lg:px-[120px] md:px-10 gap-6">
-      <div className="flex items-center lg:items-start flex-col text-center lg:text-start ">
+      <div className="flex flex-col items-center text-center lg:items-start lg:text-start ">
         <h1 className="text-[#000000] sm:text-[32px] text-[16px] sm:leading-[48px] leading-6 font-bold font-merriweather">
           Grow Your Business with Handyman: Connect, Build, and Thrive
         </h1>
