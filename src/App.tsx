@@ -4,7 +4,6 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-<<<<<<< HEAD
 
 import {
   Home,
@@ -13,10 +12,8 @@ import {
   Services,
   HelpAndSupport,
   Contact,
+  Terms,
 } from "./routes";
-=======
-import { Home, About, Privacy, Services, HelpAndSupport, Terms } from "./routes";
->>>>>>> origin/development
 
 // routes
 
