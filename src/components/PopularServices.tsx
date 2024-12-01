@@ -1,4 +1,4 @@
-import { popularServices } from "@/lib/utils";
+import { popularServices } from "@/lib/demoData";
 
 const PopularServices = () => {
   return (

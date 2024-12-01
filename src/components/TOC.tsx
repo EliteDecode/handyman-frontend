@@ -1,7 +1,6 @@
-
 import { Link } from "react-scroll";
 
-const TOC = ({policyLinks}: TOCProps) => {
+const TOC = ({ policyLinks }: TOCProps) => {
   return (
     <div className="">
       <div className="m-6 lg:m-0 p-6 lg:p-8 shadow-md rounded-lg w-fit lg:w-[408px]">
@@ -18,8 +17,7 @@ const TOC = ({policyLinks}: TOCProps) => {
                 smooth={true}
                 spy={true}
                 duration={500}
-                offset={-15}
-              >
+                offset={-15}>
                 {privacyLink.name}
               </Link>
             </li>

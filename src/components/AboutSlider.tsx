@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 import { Pagination, Autoplay } from "swiper/modules";
-import { sliderDetails } from "@/lib/utils";
+import { sliderDetails } from "@/lib/demoData";
 
 const AboutSlider = () => {
   return (

@@ -1,4 +1,4 @@
-import { servicesInfos } from "@/lib/utils";
+import { servicesInfos } from "@/lib/demoData";
 
 const ServicesInfo = () => {
   return (

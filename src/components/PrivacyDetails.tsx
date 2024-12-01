@@ -1,4 +1,4 @@
-import { privacyInfos } from "@/lib/utils";
+import { privacyInfos } from "@/lib/demoData";
 import TOC from "./TOC";
 import PolicyDetails from "./PolicyDetails";
 import { privacyLinks } from "@/lib/utils";
