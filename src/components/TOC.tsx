@@ -1,4 +1,3 @@
-import { privacyLinks } from "@/lib/demoData";
 import { Link } from "react-scroll";
 
 const TOC = ({ policyLinks }: TOCProps) => {

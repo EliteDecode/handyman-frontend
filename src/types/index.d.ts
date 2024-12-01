@@ -14,7 +14,6 @@ declare interface AccordionProps {
 declare type PrivacyInfos = {
   id: number;
   title: string;
-<<<<<<< HEAD
   subInfos: { subTitle?: string; subtext: string; email?: string }[];
 };
 
@@ -29,9 +28,13 @@ declare type ContactFAQS = {
   id: number;
   question: string;
   answer: string;
-}[];
-=======
-  subInfos: { subTitle?: string; subtext: string; email?: string; linkText?: string; to?: string; }[];
+  subInfos: {
+    subTitle?: string;
+    subtext: string;
+    email?: string;
+    linkText?: string;
+    to?: string;
+  }[];
 }[];
 
 declare interface PolicyDetailsProps {
@@ -40,7 +43,7 @@ declare interface PolicyDetailsProps {
     title: string;
     subInfos: {
       subTitle?: string;
-      subtext: string;
+      subtext?: string;
       email?: string;
       linkText?: string;
       to?: string;
@@ -54,5 +57,3 @@ declare interface TOCProps {
     to: string;
   }[];
 }
-
->>>>>>> origin/development

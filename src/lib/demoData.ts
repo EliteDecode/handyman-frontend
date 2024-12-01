@@ -295,7 +295,7 @@ export const contactDetails: ContactDetails = [
   },
 ];
 
-export const contactFAQS: ContactFAQS = [
+export const contactFAQS = [
   {
     id: 1,
     question: "What type of services do you offer?",

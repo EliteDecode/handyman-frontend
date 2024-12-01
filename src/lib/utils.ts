@@ -57,7 +57,7 @@ export const sliderDetails = [
   },
 ];
 
-export const privacyInfos: PrivacyInfos = [
+export const privacyInfos = [
   {
     id: 1,
     title: "Information We Collect",
@@ -221,7 +221,7 @@ export const termsLinks = [
   { name: "Contact Information", to: "policy-11" },
 ];
 
-export const termsInfos: PrivacyInfos = [
+export const termsInfos = [
   {
     id: 1,
     title: "Acceptance of Terms",
