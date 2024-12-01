@@ -4,7 +4,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import LandingLayout from "./layouts/LandingLayout";
-import { Home, About, Privacy, Services, HelpAndSupport } from "./routes";
+import { Home, About, Privacy, Services, HelpAndSupport, Terms } from "./routes";
 
 // routes
 
@@ -36,6 +36,10 @@ export default function App() {
             {
               path: "/services",
               element: <Services />,
+            },
+            {
+              path: "/terms",
+              element: <Terms />,
             },
             {
               path: "/HelpAndSupport",

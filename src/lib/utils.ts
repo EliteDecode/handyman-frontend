@@ -56,7 +56,7 @@ export const sliderDetails = [
   },
 ];
 
-export const privacyInfos: PrivacyInfos[] = [
+export const privacyInfos: PrivacyInfos = [
   {
     id: 1,
     title: "Information We Collect",
@@ -196,14 +196,189 @@ export const privacyInfos: PrivacyInfos[] = [
 ];
 
 export const privacyLinks = [
-  { name: "Information We Collect", to: "privacy-1" },
-  { name: "How We Use Your Information", to: "privacy-2" },
-  { name: "How We Share Your Information", to: "privacy-3" },
-  { name: "Your Choices and Rights", to: "privacy-4" },
-  { name: "Security Measures", to: "privacy-5" },
-  { name: "Children’s Privacy", to: "privacy-6" },
-  { name: "Changes to This Privacy Policy", to: "privacy-7" },
-  { name: "Contact Us", to: "privacy-8" },
+  { name: "Information We Collect", to: "policy-1" },
+  { name: "How We Use Your Information", to: "policy-2" },
+  { name: "How We Share Your Information", to: "policy-3" },
+  { name: "Your Choices and Rights", to: "policy-4" },
+  { name: "Security Measures", to: "policy-5" },
+  { name: "Children’s Privacy", to: "policy-6" },
+  { name: "Changes to This Privacy Policy", to: "policy-7" },
+  { name: "Contact Us", to: "policy-8" },
+];
+
+export const termsLinks = [
+  { name: "Acceptance of Terms", to: "policy-1" },
+  { name: "Eligibility", to: "policy-2" },
+  { name: "User Account", to: "policy-3" },
+  { name: "Booking Services", to: "policy-4" },
+  { name: "Responsibilities of Service Providers", to: "policy-5" },
+  { name: "User Conduct", to: "policy-6" },
+  { name: "Privacy", to: "policy-7" },
+  { name: "Limitation of Liability", to: "policy-8" },
+  { name: "Intellectual Property", to: "policy-9" },
+  { name: "Modification to Terms", to: "policy-10" },
+  { name: "Contact Information", to: "policy-11" },
+];
+
+export const termsInfos: PrivacyInfos = [
+  {
+    id: 1,
+    title: "Acceptance of Terms",
+    subInfos: [
+      {
+        subtext:
+          "By accessing or using Handyman, you agree to comply with these Terms of Service and all applicable laws and regulations. If you disagree with any part, you may not use the service.",
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "Eligibility",
+    subInfos: [
+      {
+        subtext:
+          "You must be at least 18 years old to use Handyman. By registering, you confirm you meet this age requirement and have the authority to enter a legally binding agreement.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "User Account",
+    subInfos: [
+      {
+        subTitle: "Registration",
+        subtext:
+          "To access services, you must create an account by providing accurate and complete information.",
+      },
+      {
+        subTitle: "Account Security",
+        subtext:
+          "You are responsible for keeping your login details confidential. Notify us immediately if you suspect unauthorized use of your account.",
+      },
+      {
+        subTitle: "Account Termination",
+        subtext:
+          "We reserve the right to suspend or terminate accounts for any breaches of these terms or inappropriate conduct on the platform.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Booking Services",
+    subInfos: [
+      {
+        subTitle: "Service Requests",
+        subtext:
+          "Handyman allows you to browse, select, and book service providers. Each service provider is an independent contractor and is not an employee of Handyman.",
+      },
+      {
+        subTitle: "Payments and Pricing",
+        subtext:
+          "Prices for services are set by the service provider and are subject to change. All payments are securely processed through our platform, and we do not store your payment information.",
+      },
+      {
+        subTitle: "Cancellation Policy",
+        subtext:
+          "Cancellations may be subject to fees as per the service provider's policy. Review the provider’s cancellation policy before booking.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Responsibilities of Service Providers",
+    subInfos: [
+      {
+        subTitle: "Compliance",
+        subtext:
+          "WService providers must comply with local regulations, maintain accurate availability, and deliver services as agreed.",
+      },
+      {
+        subTitle: "Independent Contractors",
+        subtext:
+          "Service providers operate as independent contractors, and Handyman is not liable for their actions, quality of service, or any damage arising from services rendered.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "User Conduct",
+    subInfos: [
+      {
+        subTitle: "Prohibited Activities",
+        subtext:
+          "You agree not to misuse the platform, including but not limited to spamming, harassment, or misrepresenting personal information.",
+      },
+      {
+        subTitle: "Disputes",
+        subtext:
+          "Handyman is not a party to contracts between users and service providers but will assist in dispute resolution to the best of its ability.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Privacy",
+    subInfos: [
+      {
+        subtext:
+          "Your privacy is important to us. By using Handyman, you agree to our [Privacy Policy] regarding the collection and use of your information",
+        linkText: "(link to Privacy Policy)",
+        to: "/privacy",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Limitation to Liability",
+    subInfos: [
+      {
+        subtext:
+          "Handyman provides a platform for connecting with service providers and makes no warranties regarding the accuracy, reliability, or quality of services rendered.",
+      },
+      {
+        subTitle: "Disclaimer",
+        subtext:
+          "To the fullest extent permitted by law, Handyman disclaims all liability for any indirect, incidental, or consequential damages arising from your use of the platform or services provided.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Intellectual Property",
+    subInfos: [
+      {
+        subTitle: "Ownership",
+        subtext:
+          "All content on Handyman, including trademarks, logos, and service marks, remains the property of Handyman.",
+      },
+      {
+        subTitle: "License",
+        subtext:
+          "Handyman grants you a limited license to access and use the platform for personal, non-commercial purposes only.",
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: "Modification to terms",
+    subInfos: [
+      {
+        subtext:
+          "We may modify these Terms of Service at any time. Updates will be posted on this page, and continued use of the platform signifies acceptance of the updated terms.",
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "Contact Information",
+    subInfos: [
+      {
+        subtext:
+          "If you have any questions about this Privacy Policy, please contact us at",
+        email: "support@handyman.com",
+      },
+    ],
+  },
 ];
 
 export const popularServices = [
