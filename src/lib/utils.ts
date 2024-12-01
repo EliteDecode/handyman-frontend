@@ -1,8 +1,8 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
-import rocket from "@/assets/images/rocket.svg";
-import vision from "@/assets/images/vision.svg";
-import target from "@/assets/images/target.svg";
+import rocket from "@/assets/icons/rocket.svg";
+import vision from "@/assets/icons/vision.svg";
+import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/images/plug.png";
 import tapImg from "@/assets/images/tap.png";

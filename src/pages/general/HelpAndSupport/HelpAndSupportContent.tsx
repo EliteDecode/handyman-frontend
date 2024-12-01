@@ -1,4 +1,4 @@
-import calander from "../../../../public/icons/calander.svg";
+import calander from "@/assets/icons/calander.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
