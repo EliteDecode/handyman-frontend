@@ -3,18 +3,18 @@ import { Mail, LockKeyhole, EyeOff } from "lucide-react";
 
 const CustomerSignUpForm = () => {
   return (
-    <div className="bg-white w-full h-fit px-6 py-6 rounded-xl mt-8">
+    <div className="bg-white w-full h-fit px-6 py-6 rounded-xl mt-8 md:w-[540px] lg:w-[642px] lg:border border-[#D0D5DD] lg:min-h-[760px] lg:mt-0">
       <div>
-        <h1 className="text-[#008080] font-merriweather text-2xl font-bold text-center">
+        <h1 className="text-[#008080] font-merriweather text-2xl lg:text-[32px] font-bold text-center">
           Handyman
         </h1>
-        <h2 className="font-merriweather text-[#008080] font-bold leading-6 mt-6">
+        <h2 className="font-merriweather lg:text-[40px] text-[#008080] lg:text-black font-bold leading-6 lg:leading-10 mt-6 lg:mt-8">
           Create an account
         </h2>
-        <p className="leading-5 tracking-wide text-xs mt-2">
+        <p className="leading-5 tracking-wide text-xs lg:text-lg mt-2 lg:mt-6">
           Already have an account?{" "}
           <Link to="/sign-in" className="text-[#008080]">
-            Sign in
+            Login
           </Link>
         </p>
       </div>
@@ -28,7 +28,7 @@ const CustomerSignUpForm = () => {
           >
             Email
           </label>
-          <div className="border-[#D0D5DD] border w-full px-2 flex items-center gap-2 rounded-md">
+          <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <Mail color="#98A2B3" />
             <input
               type="text"
@@ -55,7 +55,7 @@ const CustomerSignUpForm = () => {
           >
             Password
           </label>
-          <div className="border-[#D0D5DD] border w-full px-2 flex items-center gap-2 rounded-md">
+          <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <LockKeyhole color="#98A2B3" />
             <input
               type="password"
@@ -83,7 +83,7 @@ const CustomerSignUpForm = () => {
           >
             Email
           </label>
-          <div className="border-[#D0D5DD] border w-full px-2 flex items-center gap-2 rounded-md">
+          <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <LockKeyhole color="#98A2B3" />
             <input
               type="password"
@@ -104,11 +104,16 @@ const CustomerSignUpForm = () => {
           ) : null} */}
         </div>
         {/* Terms & Conditions */}
-        <div className="mt-2 flex gap-2 items-center">
-          <input type="checkbox" name="terms" id="terms" className="h-[18px] w-[18px]" />
+        <div className="mt-2 lg:mt-6 flex gap-2 items-center">
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            className="h-[18px] w-[18px]"
+          />
           <label
             htmlFor="terms"
-            className="text-xs leading-5 tracking-wide w-[302px]"
+            className="text-xs lg:text-base leading-5 tracking-wide w-[302px] lg:w-[560px] lg:leading-6"
           >
             I agree to the Handyman’s
             <Link to="/terms" className="text-[#008080]">
@@ -123,9 +128,14 @@ const CustomerSignUpForm = () => {
           </label>
         </div>
         {/* Submit btn */}
-        <button type="submit" className="w-full bg-[#008080] text-white rounded-lg h-10 px-6 mt-8 text-xs">
-          Sign Up
-        </button>
+        <div className="flex items-center justify-center">
+          <button
+            type="submit"
+            className="w-full lg:w-[385px] bg-[#008080] text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold"
+          >
+            Sign Up
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -22,3 +22,21 @@ export const contactMessageSchema = Yup.object().shape({
     .max(150, "Message name should be less than 150 characters long.")
     .notRequired(),
 });
+
+export const customerSignUpSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Please confirm your password"),
+});
