@@ -14,6 +14,7 @@ import {
   Contact,
   Terms,
   SignUp,
+  VerifyEmail
 } from "./routes";
 
 // routes
@@ -64,6 +65,10 @@ export default function App() {
         {
           path: "/sign-up",
           element: <SignUp />,
+        },
+        {
+          path: "/verify-email",
+          element: <VerifyEmail />,
         },
         
         {

@@ -7,6 +7,8 @@ const sign_up = async (data: CustomerSignUp) => {
     data
   );
 
+  localStorage.setItem("userId", JSON.stringify(response.data));
+
   return response.data;
 };
 

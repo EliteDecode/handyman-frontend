@@ -22,7 +22,7 @@ const useCustomerSignUpForm = () => {
   useEffect(() => {
     if (isError) toast.error(message);
     if (isSuccess) {
-      toast.success("Submitted Successfully")
+      toast.success(message)
       formik.resetForm();
     }
     dispatch(reset());

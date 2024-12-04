@@ -11,4 +11,6 @@ export const HelpAndSupport = lazy(
   () => import("@/pages/general/HelpAndSupport/HelpAndSupport")
 );
 
+// Auth routes - Contains routes for authentication pages like SignUp, Login and verify-email
 export const SignUp = lazy(() => import("@/pages/CustomerAuth/SignUp/SignUp"));
+export const VerifyEmail = lazy(() => import("@/pages/CustomerAuth/VerifyEmail/VerifyEmail"));
