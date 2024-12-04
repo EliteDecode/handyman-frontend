@@ -14,6 +14,9 @@ import {
   Contact,
   Terms,
 } from "./routes";
+import Login from "./pages/HandymanAuth/Login";
+import AuthLayout from "./layouts/AuthLayout";
+import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
 
 // routes
 
@@ -57,6 +60,22 @@ export default function App() {
             {
               path: "/HelpAndSupport",
               element: <HelpAndSupport />,
+            },
+          ],
+        },
+
+        {
+          path: "/role-selection",
+          element: <RoleSelection />,
+        },
+
+        {
+          path: "/auth",
+          element: <AuthLayout />,
+          children: [
+            {
+              path: "login",
+              element: <Login />,
             },
           ],
         },
