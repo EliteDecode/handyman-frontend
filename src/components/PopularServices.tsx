@@ -9,7 +9,7 @@ const PopularServices = () => {
         </h2>
 
         <div className="w-full flex items-center justify-center">
-          <div className="w-full xl:w-[1200px] flex flex-col md:flex-row md:flex-wrap xl:justify-between lg:flex-wrap justify-center items-center xl:gap-14 gap-6 font-lato">
+          <div className="w-full xl:w-[1200px] flex flex-col md:flex-row md:flex-wrap xl:justify-between lg:flex-wrap justify-center items-center xl:gap-14 gap-6 ">
             {popularServices.map((service) => (
               <div
                 className="w-[284px] lg:w-[345px] flex flex-col justify-center items-center mt-6"

@@ -10,3 +10,5 @@ export const Services = lazy(() => import("@/pages/general/Services/Services"));
 export const HelpAndSupport = lazy(
   () => import("@/pages/general/HelpAndSupport/HelpAndSupport")
 );
+
+export const SignUp = lazy(() => import("@/pages/CustomerAuth/SignUp/SignUp"));

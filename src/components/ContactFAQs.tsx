@@ -8,7 +8,7 @@ const ContactFAQs = () => {
         <h2 className="font-bold font-merriweather text-center md:text-2xl lg:text-[32px]">
           FREQUENTLY ASKED QUESTIONS
         </h2>
-        <p className="font-lato text-xs md:text-sm lg:text-lg leading-5 tracking-wide text-center w-[375px] md:w-[603px] lg:w-[832px] mt-4">
+        <p className=" text-xs md:text-sm lg:text-lg leading-5 tracking-wide text-center w-[375px] md:w-[603px] lg:w-[832px] mt-4">
           Find answers to common questions about our services, booking process,
           pricing and more. If you can’t find what you are looking for feel free
           to contact us for further assistance.

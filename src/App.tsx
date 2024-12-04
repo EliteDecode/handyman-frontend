@@ -13,6 +13,7 @@ import {
   HelpAndSupport,
   Contact,
   Terms,
+  SignUp,
 } from "./routes";
 
 // routes
@@ -60,7 +61,11 @@ export default function App() {
             },
           ],
         },
-
+        {
+          path: "/sign-up",
+          element: <SignUp />,
+        },
+        
         {
           path: "*",
           element: <Navigate to="/" />,

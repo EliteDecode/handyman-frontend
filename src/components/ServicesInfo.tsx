@@ -8,7 +8,7 @@ const ServicesInfo = () => {
           <h2 className="font-bold font-merriweather text-center md:text-2xl lg:text-[32px] leading-10">
             Get it done right!
           </h2>
-          <p className="text-xs md:text-base lg:text-xl lg:leading-8 font-lato text-center tracking-wide leading-5 mt-2 lg:mt-4">
+          <p className="text-xs md:text-base lg:text-xl lg:leading-8  text-center tracking-wide leading-5 mt-2 lg:mt-4">
             Powerful Features Designed to Make Your Life Easier—Find the Right
             Professionals Quickly and Effortlessly
           </p>
@@ -34,7 +34,7 @@ const ServicesInfo = () => {
                 <h2 className="font-merriweather font-bold text-sm md:text-lg lg:text-2xl leading-6 lg:leading-8">
                   {servicesInfo.title}
                 </h2>
-                <p className="font-lato text-sm md:text-base lg:text-lg leading-5 lg:leading-8 tracking-wide mt-2 lg:mt-4 ">
+                <p className=" text-sm md:text-base lg:text-lg leading-5 lg:leading-8 tracking-wide mt-2 lg:mt-4 ">
                   {servicesInfo.subtext}
                 </p>
               </div>

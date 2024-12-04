@@ -8,7 +8,7 @@ const AboutInfo = () => {
           Our Story
         </h2>
         <div className="flex items-center justify-center">
-          <p className="mt-2 md:mt-3 lg:mt-4 px-6 font-medium text-center font-lato text-xs md:text-base lg:text-xl leading-6 text-[#3C3C3C] w-[355px] md:w-[566px] lg:w-[777px] tracking-[] ">
+          <p className="mt-2 md:mt-3 lg:mt-4 px-6 font-medium text-center text-xs md:text-base lg:text-xl leading-6 text-[#3C3C3C] w-[355px] md:w-[566px] lg:w-[777px] tracking-[] ">
             Handyman was founded with a simple goal: to bridge the gap between
             skilled artisans and people who need their services. We understand
             the frustration of finding reliable professionals for home repairs,

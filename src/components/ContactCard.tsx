@@ -13,13 +13,16 @@ const ContactCard = () => {
             >
               <div className="w-[132px] md:w-[165px] lg:w-[198px] flex flex-col items-center gap-4">
                 <div className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 bg-[#0080800A] flex items-center justify-center rounded-3xl">
-                  <Icon color="#008080" className="md:w-7 md:h-7  lg:w-8 lg:h-8" />
+                  <Icon
+                    color="#008080"
+                    className="md:w-7 md:h-7  lg:w-8 lg:h-8"
+                  />
                 </div>
                 <div className="flex flex-col items-center justify-center gap-2 w-full">
                   <div className="font-bold leading-6 font-merriweather md:text-xl lg:text-2xl lg:font-semibold lg:leading-7 ">
                     {contactDetail.title}
                   </div>
-                  <div className="text-center font-lato leading-5 md:leading-6 lg:leading-8 text-xs md:text-base lg:text-xl tracking-wide text-[#3C3C3C]">
+                  <div className="text-center  leading-5 md:leading-6 lg:leading-8 text-xs md:text-base lg:text-xl tracking-wide text-[#3C3C3C]">
                     {contactDetail.desc}
                   </div>
                 </div>

@@ -54,7 +54,7 @@ const AboutSlider = () => {
                 loading="lazy"
               />
             </div>
-            <div className="mt-4 font-lato">
+            <div className="mt-4 ">
               <h2 className="font-semibold text-xl">{sliderDetail.title}</h2>
               <p className="leading-10 text-lg">{sliderDetail.desc}</p>
             </div>
@@ -73,9 +73,13 @@ const AboutSlider = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="mt-4 font-lato">
-                <h2 className="font-semibold text-xl lg:mt-2">{sliderDetail.title}</h2>
-                <p className="leading-10 text-lg lg:mt-2">{sliderDetail.desc}</p>
+              <div className="mt-4 ">
+                <h2 className="font-semibold text-xl lg:mt-2">
+                  {sliderDetail.title}
+                </h2>
+                <p className="leading-10 text-lg lg:mt-2">
+                  {sliderDetail.desc}
+                </p>
               </div>
             </div>
           ))}

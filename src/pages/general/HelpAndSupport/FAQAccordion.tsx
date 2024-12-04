@@ -85,13 +85,14 @@ const FAQAccordion: React.FC = () => {
               }
               aria-controls={`panel${index}-content`}
               id={`panel${index}-header`}
-              className="sm:h-[78px] h-10">
-              <h1 className="text-[#191919] sm:text-[18px] text-[11.58px] sm:leading-[30px] leading-[15.43px] font-medium font-lato letter-spacing">
+              className="sm:h-[78px] h-10"
+            >
+              <h1 className="text-[#191919] sm:text-[18px] text-[11.58px] sm:leading-[30px] leading-[15.43px] font-medium  letter-spacing">
                 {faq.question}
               </h1>
             </AccordionSummary>
             <AccordionDetails className="min-h-[72px] h-full">
-              <p className="sm:text-[18px] sm:leading-6 text-[11.58px] leading-[15.43px] letter-spacing text-[#3C3C3C] font-lato">
+              <p className="sm:text-[18px] sm:leading-6 text-[11.58px] leading-[15.43px] letter-spacing text-[#3C3C3C] ">
                 {faq.answer}
               </p>
             </AccordionDetails>

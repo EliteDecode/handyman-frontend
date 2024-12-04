@@ -5,11 +5,11 @@ const FooterCTA = ({ title }: FooterCTAProps) => {
         <h2 className="font-merriweather font-bold leading-6">
           Ready to get started?
         </h2>
-        <p className="mt-3 font-lato text-xs leading-5 text-center tracking-wide  ">
+        <p className="mt-3  text-xs leading-5 text-center tracking-wide  ">
           Whether you need a quick fix or a major project done, Handyman is here
           to connect you with the best professionals in your area
         </p>
-        <button className="bg-[#008080] mt-6 py-2 px-4 rounded-lg font-lato text-white outline-none font-semibold text-xs">
+        <button className="bg-[#008080] mt-6 py-2 px-4 rounded-lg  text-white outline-none font-semibold text-xs">
           Book a Handyman
         </button>
       </div>
@@ -21,10 +21,10 @@ const FooterCTA = ({ title }: FooterCTAProps) => {
           </h2>
 
           <div className="flex gap-3">
-            <button className="bg-[#008080] text-white font-lato py-4 px-6 rounded-lg lg:text-lg font-semibold outline-none">
+            <button className="bg-[#008080] text-white  py-4 px-6 rounded-lg lg:text-lg font-semibold outline-none">
               Book a Handyman
             </button>
-            <button className="border-[1.5px] border-[#008080] text-[#008080] font-lato py-4 px-6 rounded-lg lg:text-lg font-semibold outline-none">
+            <button className="border-[1.5px] border-[#008080] text-[#008080]  py-4 px-6 rounded-lg lg:text-lg font-semibold outline-none">
               Learn More
             </button>
           </div>
@@ -34,11 +34,11 @@ const FooterCTA = ({ title }: FooterCTAProps) => {
           <h2 className="font-merriweather font-bold lg:leading-[48px] lg:text-[32px] ">
             Ready to get started?
           </h2>
-          <p className="mt-6 font-lato lg:text-[32px] lg:leading-[48px] text-center lg:w-[1000px] xl:w-[1044px] ">
+          <p className="mt-6  lg:text-[32px] lg:leading-[48px] text-center lg:w-[1000px] xl:w-[1044px] ">
             Whether you need a quick fix or a major project done, Handyman is
             here to connect you with the best professionals in your area
           </p>
-          <button className="bg-[#008080] mt-8 py-4 px-6 rounded-lg font-lato text-white outline-none font-semibold md:text-sm lg:text-base">
+          <button className="bg-[#008080] mt-8 py-4 px-6 rounded-lg  text-white outline-none font-semibold md:text-sm lg:text-base">
             Book a Handyman
           </button>
         </div>

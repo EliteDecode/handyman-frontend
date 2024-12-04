@@ -8,7 +8,7 @@ const ContactForm = () => {
         Send us a message
       </h2>
 
-      <form className="w-full font-lato" onSubmit={formik.handleSubmit}>
+      <form className="w-full " onSubmit={formik.handleSubmit}>
         {/* Name field */}
         <div className="mt-6">
           <label
@@ -141,9 +141,9 @@ const ContactForm = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className={`${isLoading? "bg-[#0dd5d5]":"bg-[#008080]"}  w-[130px] md:w-1/2 lg:w-full text-white font-semibold text-xs md:text-[15px] lg:text-lg py-4 px-6 rounded-lg outline-none`}
+            className={`${isLoading ? "bg-[#0dd5d5]" : "bg-[#008080]"}  w-[130px] md:w-1/2 lg:w-full text-white font-semibold text-xs md:text-[15px] lg:text-lg py-4 px-6 rounded-lg outline-none`}
           >
-            {isLoading? "Please wait...":"Send Message"}
+            {isLoading ? "Please wait..." : "Send Message"}
           </button>
         </div>
       </form>

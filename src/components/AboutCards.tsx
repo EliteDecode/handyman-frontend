@@ -25,7 +25,7 @@ const AboutCards = () => {
               </div>
 
               <div className="h-full flex justify-center items-center">
-                <p className="w-[200px] md:w-[80%] lg:w-full text-center text-xs md:text-base lg:text-xl font-lato leading-5 md:leading-[26px] lg:leading-8 mt-2 md:mt-8 lg:mt-20 lg:px-6 ">
+                <p className="w-[200px] md:w-[80%] lg:w-full text-center text-xs md:text-base lg:text-xl leading-5 md:leading-[26px] lg:leading-8 mt-2 md:mt-8 lg:mt-20 lg:px-6 ">
                   {cardDetail.desc}
                 </p>
               </div>

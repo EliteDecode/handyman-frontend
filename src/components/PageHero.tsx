@@ -10,7 +10,7 @@ const PageHero = ({ title, subtext }: PageHeroProps) => {
           <h2 className="font-bold font-merriweather leading-6 lg:leading-[70px] md:text-4xl lg:text-[56px]">
             {title}
           </h2>
-          <p className="max-w-[214px] md:max-w-[357px] lg:max-w-[500px] font-semibold font-lato text-xs md:text-base lg:text-xl mt-2 lg:mt-8 leading-4 lg:leading-8">
+          <p className="max-w-[214px] md:max-w-[357px] lg:max-w-[500px] font-semibold  text-xs md:text-base lg:text-xl mt-2 lg:mt-8 leading-4 lg:leading-8">
             {subtext}
           </p>
         </div>
