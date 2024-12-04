@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
-import { Mail, LockKeyhole, EyeOff } from "lucide-react";
+import { Mail, LockKeyhole, EyeOff, Eye } from "lucide-react";
+import useCustomerSignUpForm from "@/hooks/useCustomerSignUpForm";
 
 const CustomerSignUpForm = () => {
+  const {
+    formik,
+    isLoading,
+    togglePassword,
+    toggleCPassword,
+    setTogglePassword,
+    setToggleCPassword,
+  } = useCustomerSignUpForm();
   return (
     <div className="bg-white w-full h-fit px-6 py-6 rounded-xl mt-8 md:w-[540px] lg:w-[642px] lg:border border-[#D0D5DD] lg:min-h-[760px] lg:mt-0">
       <div>
@@ -19,7 +28,7 @@ const CustomerSignUpForm = () => {
         </p>
       </div>
 
-      <form className="mt-6">
+      <form className="mt-6" onSubmit={formik.handleSubmit}>
         {/* Email */}
         <div className="">
           <label
@@ -36,16 +45,16 @@ const CustomerSignUpForm = () => {
               id="email"
               placeholder="handyman@example.com"
               className={`w-full text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
-              // onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
-              // value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.email}
             />
           </div>
-          {/* {formik.touched.email && formik.errors.email ? (
+          {formik.touched.email && formik.errors.email ? (
             <div className="text-red-500 text-[10px] lg:text-xs font-semibold">
               {formik.errors.email}
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         {/* Password */}
         <div className="mt-6">
@@ -58,22 +67,32 @@ const CustomerSignUpForm = () => {
           <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <LockKeyhole color="#98A2B3" />
             <input
-              type="password"
+              type={togglePassword ? "text" : "password"}
               name="password"
               id="password"
               placeholder="Choose a password"
               className={`w-full text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
-              // onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
-              // value={formik.values.password}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.password}
             />
-            <EyeOff color="#98A2B3" />
+            <button
+              className="outline-none"
+              onClick={() => setTogglePassword(!togglePassword)}
+              type="button"
+            >
+              {togglePassword ? (
+                <Eye color="#98A2B3" />
+              ) : (
+                <EyeOff color="#98A2B3" />
+              )}
+            </button>
           </div>
-          {/* {formik.touched.password && formik.errors.password ? (
+          {formik.touched.password && formik.errors.password ? (
             <div className="text-red-500 text-[10px] lg:text-xs font-semibold">
               {formik.errors.password}
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         {/* Confirm Password */}
         <div className="mt-6">
@@ -81,27 +100,37 @@ const CustomerSignUpForm = () => {
             htmlFor="confirmPassword"
             className="text-sm font-medium tracking-wide lg:text-base"
           >
-            Email
+            Confirm Password
           </label>
           <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <LockKeyhole color="#98A2B3" />
             <input
-              type="password"
+              type={toggleCPassword ? "text" : "password"}
               name="confirmPassword"
               id="confirmPassword"
               placeholder="Confirm password"
               className={`w-full text-xs h-8 lg:h-[58px] lg:text-sm font-medium outline-none tracking-wide`}
-              // onChange={formik.handleChange}
-              // onBlur={formik.handleBlur}
-              // value={formik.values.email}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.confirmPassword}
             />
-            <EyeOff color="#98A2B3" />
+            <button
+              className="outline-none"
+              onClick={() => setToggleCPassword(!toggleCPassword)}
+              type="button"
+            >
+              {toggleCPassword ? (
+                <Eye color="#98A2B3" />
+              ) : (
+                <EyeOff color="#98A2B3" />
+              )}
+            </button>
           </div>
-          {/* {formik.touched.email && formik.errors.email ? (
+          {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
             <div className="text-red-500 text-[10px] lg:text-xs font-semibold">
-              {formik.errors.email}
+              {formik.errors.confirmPassword}
             </div>
-          ) : null} */}
+          ) : null}
         </div>
         {/* Terms & Conditions */}
         <div className="mt-2 lg:mt-6 flex gap-2 items-center">
@@ -110,6 +139,8 @@ const CustomerSignUpForm = () => {
             name="terms"
             id="terms"
             className="h-[18px] w-[18px]"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
           />
           <label
             htmlFor="terms"
@@ -131,9 +162,10 @@ const CustomerSignUpForm = () => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="w-full lg:w-[385px] bg-[#008080] text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold"
+            disabled={!formik.dirty || !formik.isValid || isLoading}
+            className={`${!formik.dirty || !formik.isValid || isLoading ? "bg-[#9eb5b5]" : "bg-[#008080]"} w-full lg:w-[385px]  text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold outline-none`}
           >
-            Sign Up
+            {isLoading ? "Please wait..." : "Sign Up"}
           </button>
         </div>
       </form>

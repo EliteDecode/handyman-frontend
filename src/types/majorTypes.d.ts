@@ -12,3 +12,9 @@ declare interface IMessage {
   title: string;
   message: string;
 }
+
+declare interface CustomerSignUp {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
