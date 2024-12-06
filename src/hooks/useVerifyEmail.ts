@@ -30,7 +30,7 @@ const useVerifyEmail = () => {
     if (isSuccess) {
       formik.resetForm();
       localStorage.removeItem("userId");
-      navigate("/verify-email");
+      navigate("/email-success");
       dispatch(reset());
     }
     return;

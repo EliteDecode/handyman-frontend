@@ -14,7 +14,8 @@ import {
   Contact,
   Terms,
   SignUp,
-  VerifyEmail
+  VerifyEmail,
+  EmailSuccess
 } from "./routes";
 
 // routes
@@ -70,7 +71,11 @@ export default function App() {
           path: "/verify-email",
           element: <VerifyEmail />,
         },
-        
+        {
+          path: "/email-success",
+          element: <EmailSuccess />,
+        },
+
         {
           path: "*",
           element: <Navigate to="/" />,
