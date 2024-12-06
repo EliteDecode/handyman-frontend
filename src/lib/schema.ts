@@ -43,3 +43,9 @@ export const customerSignUpSchema = Yup.object().shape({
     .oneOf([true], "You must accept the terms and conditions")
     .required("You must accept the terms and conditions"),
 });
+
+export const emailOTP = Yup.object().shape({
+  code: Yup.array().of(
+    Yup.string().matches(/^\d$/, "Must be a digit").required("Required")
+  ),
+});

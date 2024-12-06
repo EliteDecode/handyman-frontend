@@ -163,7 +163,7 @@ const CustomerSignUpForm = () => {
           <button
             type="submit"
             disabled={!formik.dirty || !formik.isValid || isLoading}
-            className={`${!formik.dirty || !formik.isValid || isLoading ? "bg-[#9eb5b5]" : "bg-[#008080]"} w-full lg:w-[385px]  text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold outline-none`}
+            className={`${!formik.dirty || !formik.isValid || isLoading ? "bg-[#D0D5DD]" : "bg-[#008080]"} w-full lg:w-[385px]  text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold outline-none`}
           >
             {isLoading ? "Please wait..." : "Sign Up"}
           </button>

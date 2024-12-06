@@ -18,3 +18,16 @@ declare interface CustomerSignUp {
   password: string;
   confirmPassword: string;
 }
+
+declare interface UserDataId {
+  data: {
+    _id: string;
+    email: string;
+  };
+  message: string;
+  success: boolean;
+}
+
+declare interface VerifyEmailProp {
+  code: string;
+}
