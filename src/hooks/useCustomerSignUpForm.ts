@@ -8,12 +8,14 @@ import {
   customerSignUp,
   reset,
 } from "@/services/features/auth/CustomerSignUpSlice";
+import { useNavigate } from "react-router-dom";
 
 const useCustomerSignUpForm = () => {
   const [togglePassword, setTogglePassword] = useState(false);
   const [toggleCPassword, setToggleCPassword] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate()
 
   const { isLoading, isError, message, isSuccess } = useSelector(
     (state: RootState) => state.customerSignUp
@@ -24,6 +26,7 @@ const useCustomerSignUpForm = () => {
     if (isSuccess) {
       toast.success(message)
       formik.resetForm();
+      navigate("/verify-email");
     }
     dispatch(reset());
     return;

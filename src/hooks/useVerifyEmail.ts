@@ -1,14 +1,17 @@
 import { useFormik } from "formik";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 import { RootState, AppDispatch } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import useCountdown from "@/hooks/useCountDown";
 import { emailOTP } from "@/lib/schema";
-import { verifyEmail } from "@/services/features/auth/CustomerSignUpSlice";
+import { reset, verifyEmail } from "@/services/features/auth/CustomerSignUpSlice";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const useVerifyEmail = () => {
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate()
 
   const { isLoading, isError, message, isSuccess } = useSelector(
     (state: RootState) => state.customerSignUp
@@ -18,6 +21,16 @@ const useVerifyEmail = () => {
   const resetTime = new Date().getTime() + 30000;
   const [timeLeft, setEndTime] = useCountdown(resetTime);
   const seconds = Math.floor(Number(timeLeft) / 1000) % 60;
+
+  useEffect(() => {
+    if (isError) toast.error(message);
+    if (isSuccess) {
+      formik.resetForm();
+      navigate("/verify-email");
+    }
+    dispatch(reset());
+    return;
+  }, [isSuccess, isError]);
 
   const formik = useFormik({
     initialValues: {
@@ -65,7 +78,7 @@ const useVerifyEmail = () => {
     message,
     isLoading,
     isError,
-    singleError
+    singleError,
   };
 };
 
