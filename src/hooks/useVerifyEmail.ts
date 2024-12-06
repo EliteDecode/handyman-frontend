@@ -5,13 +5,16 @@ import { RootState, AppDispatch } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import useCountdown from "@/hooks/useCountDown";
 import { emailOTP } from "@/lib/schema";
-import { reset, verifyEmail } from "@/services/features/auth/CustomerSignUpSlice";
+import {
+  reset,
+  verifyEmail,
+} from "@/services/features/auth/CustomerSignUpSlice";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const useVerifyEmail = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
     (state: RootState) => state.customerSignUp
@@ -26,9 +29,10 @@ const useVerifyEmail = () => {
     if (isError) toast.error(message);
     if (isSuccess) {
       formik.resetForm();
+      localStorage.removeItem("userId");
       navigate("/verify-email");
+      dispatch(reset());
     }
-    dispatch(reset());
     return;
   }, [isSuccess, isError]);
 
@@ -38,9 +42,7 @@ const useVerifyEmail = () => {
     },
     validationSchema: emailOTP,
     onSubmit: async (values) => {
-      const userOtp = { code: values.code.join("") };
-
-      console.log(userOtp);
+      const userOtp = { authCode: values.code.join("") };
 
       dispatch(verifyEmail(userOtp));
     },

@@ -16,7 +16,6 @@ const verify_email = async (userData: VerifyEmailProp) => {
   const localData = localStorage.getItem("userId");
   if (localData !== null) {
     const { data }: UserDataId = JSON.parse(localData);
-    console.log(userData, "\n", data._id);
 
     const response = await axiosClient.post(
       `https://handyman-backend-4sb0.onrender.com/handyman/v1/auth/verify/${data._id}`,

@@ -29,5 +29,5 @@ declare interface UserDataId {
 }
 
 declare interface VerifyEmailProp {
-  code: string;
+  authCode: string;
 }
