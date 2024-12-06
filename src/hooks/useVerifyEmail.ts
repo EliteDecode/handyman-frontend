@@ -33,7 +33,7 @@ const useVerifyEmail = () => {
     },
   });
 
-  const arr: string[] | string | undefined = formik.errors.code;
+  const arr: string[] | string | undefined | any = formik.errors.code;
   const singleError = arr?.find((item: any) => item !== undefined);
 
   // Handle input change and move focus to the next input
