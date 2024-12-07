@@ -15,7 +15,8 @@ import {
   Terms,
   SignUp,
   VerifyEmail,
-  EmailSuccess
+  EmailSuccess,
+  CompleteProfile
 } from "./routes";
 
 // routes
@@ -74,6 +75,10 @@ export default function App() {
         {
           path: "/email-success",
           element: <EmailSuccess />,
+        },
+        {
+          path: "/complete-profile",
+          element: <CompleteProfile />,
         },
 
         {

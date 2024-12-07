@@ -15,3 +15,4 @@ export const HelpAndSupport = lazy(
 export const SignUp = lazy(() => import("@/pages/CustomerAuth/SignUp/SignUp"));
 export const VerifyEmail = lazy(() => import("@/pages/CustomerAuth/VerifyEmail/VerifyEmail"));
 export const EmailSuccess = lazy(() => import("@/pages/CustomerAuth/VerifySuccess/VerifySuccess"));
+export const CompleteProfile = lazy(() => import("@/pages/CustomerAuth/CompleteProfile/CompleteProfile"));
