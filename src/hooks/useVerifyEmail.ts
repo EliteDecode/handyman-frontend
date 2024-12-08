@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { RootState, AppDispatch } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import useCountdown from "@/hooks/useCountDown";
-import { emailOTP } from "@/lib/schema";
+import { emailOTPSchema } from "@/lib/schema";
 import {
   reset,
   verifyEmail,
@@ -40,7 +40,7 @@ const useVerifyEmail = () => {
     initialValues: {
       code: Array.from({ length: 6 }).fill(""), // 6 inputs for OTP
     },
-    validationSchema: emailOTP,
+    validationSchema: emailOTPSchema,
     onSubmit: async (values) => {
       const userOtp = { authCode: values.code.join("") };
 

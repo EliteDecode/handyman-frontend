@@ -27,9 +27,19 @@ const verify_email = async (userData: VerifyEmailProp) => {
   return;
 };
 
+const login = async (userData: LoginProp) => {
+  const response = await axiosClient.post(
+    "https://handyman-backend-4sb0.onrender.com/handyman/v1/auth/login",
+    userData
+  );
+
+  return response.data;
+};
+
 const customerSignUpService = {
   sign_up,
   verify_email,
+  login,
 };
 
 export default customerSignUpService;

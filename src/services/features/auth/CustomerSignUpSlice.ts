@@ -21,6 +21,12 @@ export const verifyEmail = createAsyncThunkWithHandler(
     return await customerSignUpService.verify_email(data);
   }
 );
+export const login = createAsyncThunkWithHandler(
+  "auth/login",
+  async (data: LoginProp, _) => {
+    return await customerSignUpService.login(data);
+  }
+);
 
 const customerSignUpSlice = createSlice({
   name: "user",
@@ -67,7 +73,24 @@ const customerSignUpSlice = createSlice({
         state.isError = true;
         state.message = action.payload as string;
         state.isSuccess = false;
-      });
+      })
+
+      //verifyEmail case
+      .addCase(login.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+        state.isSuccess = false;
+      })
   },
 });
 

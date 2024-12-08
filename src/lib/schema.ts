@@ -44,8 +44,22 @@ export const customerSignUpSchema = Yup.object().shape({
     .required("You must accept the terms and conditions"),
 });
 
-export const emailOTP = Yup.object().shape({
+export const emailOTPSchema = Yup.object().shape({
   code: Yup.array().of(
     Yup.string().matches(/^\d$/, "Must be a digit").required("Required")
   ),
+});
+export const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Password must contain at least one special character (e.g., $, &, @, etc.)"
+    )
 });

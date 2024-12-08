@@ -16,7 +16,8 @@ import {
   SignUp,
   VerifyEmail,
   EmailSuccess,
-  CompleteProfile
+  CompleteProfile,
+  Login
 } from "./routes";
 
 // routes
@@ -79,6 +80,10 @@ export default function App() {
         {
           path: "/complete-profile",
           element: <CompleteProfile />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
         },
 
         {

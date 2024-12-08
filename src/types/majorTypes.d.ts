@@ -31,3 +31,8 @@ declare interface UserDataId {
 declare interface VerifyEmailProp {
   authCode: string;
 }
+
+declare interface LoginProp {
+  email: string;
+  password: sring;
+}
