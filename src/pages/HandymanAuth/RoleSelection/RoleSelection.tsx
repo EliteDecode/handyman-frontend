@@ -29,7 +29,7 @@ const RoleSelection = () => {
       <div className="flex flex-col items-center gap-2 text-center sm:gap-6">
         <h1 className="sm:text-[40px] text-[16px] sm:leading-[50.28px] leading-6 font-bold text-[#191919] sm:px-24 font-merriweather">
           How would you like to use{" "}
-          <span className="text-[#008080]">Handyman?</span>
+          <span className="text-[#008080]">Handyman</span>
         </h1>
         <p className="sm:text-[24px] text-[12px] leading-[32px] font-medium font-lato text-[#3C3C3C]">
           Select an option on how to use handyman
