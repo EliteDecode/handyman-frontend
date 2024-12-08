@@ -14,9 +14,11 @@ import {
   Contact,
   Terms,
 } from "./routes";
-import Login from "./pages/HandymanAuth/Login";
+import Login from "./pages/HandymanAuth/login/Login";
 import AuthLayout from "./layouts/AuthLayout";
-import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
+import RoleSelection from "./pages/HandymanAuth/roleSelection/RoleSelection";
+import SignUp from "./pages/HandymanAuth/signUp/signUp";
+import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 
 // routes
 
@@ -74,8 +76,12 @@ export default function App() {
           element: <AuthLayout />,
           children: [
             {
-              path: "login",
-              element: <Login />,
+              path: "handyman-signup",
+              element: <SignUp />,
+            },
+            {
+              path: "complete-your-profile",
+              element: <CompleteYourProfile />,
             },
           ],
         },
