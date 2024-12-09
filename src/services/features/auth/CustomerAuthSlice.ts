@@ -2,11 +2,14 @@ import { createAsyncThunkWithHandler } from "@/services/api/apiHandler";
 import { createSlice } from "@reduxjs/toolkit";
 import customerSignUpService from "./CustomerAuthService";
 
+const token = localStorage.getItem("HMan_access_token");
+
 const initialState: InitialSupportStateProps = {
   isLoading: false,
   message: "",
   isSuccess: false,
   isError: false,
+  token: token ? token : null,
 };
 
 export const customerSignUp = createAsyncThunkWithHandler(
@@ -15,12 +18,14 @@ export const customerSignUp = createAsyncThunkWithHandler(
     return await customerSignUpService.sign_up(data);
   }
 );
+
 export const verifyEmail = createAsyncThunkWithHandler(
   "auth/verifyEmail",
   async (data: VerifyEmailProp, _) => {
     return await customerSignUpService.verify_email(data);
   }
 );
+
 export const login = createAsyncThunkWithHandler(
   "auth/login",
   async (data: LoginProp, _) => {
@@ -28,8 +33,8 @@ export const login = createAsyncThunkWithHandler(
   }
 );
 
-const customerSignUpSlice = createSlice({
-  name: "user",
+const customerAuthSlice = createSlice({
+  name: "auth",
   initialState,
   reducers: {
     reset: (state) => {
@@ -94,5 +99,5 @@ const customerSignUpSlice = createSlice({
   },
 });
 
-export const { reset } = customerSignUpSlice.actions;
-export default customerSignUpSlice.reducer;
+export const { reset } = customerAuthSlice.actions;
+export default customerAuthSlice.reducer;

@@ -14,7 +14,7 @@ const useVerifyEmail = () => {
   const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
-    (state: RootState) => state.customerSignUp
+    (state: RootState) => state.customerAuth
   );
 
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -26,8 +26,7 @@ const useVerifyEmail = () => {
     if (isError) toast.error(message);
     if (isSuccess) {
       formik.resetForm();
-      localStorage.removeItem("userId");
-      navigate("/email-success");
+      navigate("/auth/email-success");
       dispatch(reset());
     }
     return;

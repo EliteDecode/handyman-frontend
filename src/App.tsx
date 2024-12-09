@@ -17,12 +17,17 @@ import {
   VerifyEmail,
   EmailSuccess,
   CompleteProfile,
-  Login
+  Login,
+  ForgetPassword,
 } from "./routes";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+import AuthLayout from "./layouts/AuthLayout/AuthLayout";
 
 // routes
 
 export default function App() {
+  const { token } = useSelector((state: RootState) => state.customerAuth);
   return (
     <RouterProvider
       router={createBrowserRouter([
@@ -65,25 +70,36 @@ export default function App() {
             },
           ],
         },
+        // Auth routes
         {
-          path: "/sign-up",
-          element: <SignUp />,
-        },
-        {
-          path: "/verify-email",
-          element: <VerifyEmail />,
-        },
-        {
-          path: "/email-success",
-          element: <EmailSuccess />,
-        },
-        {
-          path: "/complete-profile",
-          element: <CompleteProfile />,
-        },
-        {
-          path: "/login",
-          element: <Login />,
+          path: "auth",
+          element: token ? <Navigate to="/home" /> : <AuthLayout />,
+          children: [
+            {
+              path: "sign-up",
+              element: <SignUp />,
+            },
+            {
+              path: "verify-email",
+              element: <VerifyEmail />,
+            },
+            {
+              path: "email-success",
+              element: <EmailSuccess />,
+            },
+            {
+              path: "complete-profile",
+              element: <CompleteProfile />,
+            },
+            {
+              path: "login",
+              element: <Login />,
+            },
+            {
+              path: "forget-password",
+              element: <ForgetPassword />,
+            },
+          ],
         },
 
         {

@@ -1,4 +1,4 @@
-import CompleteProfileForm from "@/components/CompleteProfileForm";
+import CompleteProfileForm from "@/components/auth/CompleteProfileForm";
 
 const CompleteProfile = () => {
   return (
@@ -13,13 +13,15 @@ const CompleteProfile = () => {
           </p>
         </div>
         <div className="mt-6">
-          <h2 className="mt-6 font-merriweather font-bold text-base lg:text2xl">Fill in the information below</h2>
+          <h2 className="mt-6 font-merriweather font-bold text-base lg:text2xl">
+            Fill in the information below
+          </h2>
         </div>
 
         <CompleteProfileForm />
       </div>
     </section>
   );
-}
+};
 
-export default CompleteProfile
+export default CompleteProfile;

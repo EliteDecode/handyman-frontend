@@ -14,7 +14,7 @@ const useLoginForm = () => {
   const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
-    (state: RootState) => state.customerSignUp
+    (state: RootState) => state.customerAuth
   );
   useEffect(() => {
     if (isError) toast.error(message);

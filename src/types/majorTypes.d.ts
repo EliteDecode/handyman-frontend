@@ -3,6 +3,7 @@ declare interface InitialSupportStateProps {
   message: string;
   isSuccess: boolean;
   isError: boolean;
+  token: string | null;
 }
 
 declare interface IMessage {

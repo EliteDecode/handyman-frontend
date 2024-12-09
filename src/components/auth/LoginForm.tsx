@@ -6,7 +6,7 @@ const LoginForm = () => {
   const { formik, isLoading, setTogglePassword, togglePassword, message } =
     useLoginForm();
   return (
-    <form className="mt-6 lg:mt-8" onSubmit={formik.handleSubmit}>
+    <form className="mt-6 md:mt-7 lg:mt-8" onSubmit={formik.handleSubmit}>
       <div className="">
         <label
           htmlFor="email"
@@ -72,8 +72,13 @@ const LoginForm = () => {
         ) : null}
       </div>
 
-      <div className="mt-2 w-full text-right">
-        <Link to='/forget-password' className="text-xs tracking-wide">Forget Password?</Link>
+      <div className="mt-2 w-full text-right text-[#008080]">
+        <Link
+          to="/auth/forget-password"
+          className="text-xs lg:text-sm tracking-wide"
+        >
+          Forget Password?
+        </Link>
       </div>
 
       <div className="flex items-center justify-center">

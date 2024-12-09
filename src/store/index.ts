@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import supportSlice from "@/services/features/support/supportSlice";
-import customerSignUpSlice from "@/services/features/auth/CustomerAuthSlice";
+import customerAuthSlice from "@/services/features/auth/CustomerAuthSlice";
 
 export const store = configureStore({
   reducer: {
     support: supportSlice,
-    customerSignUp: customerSignUpSlice,
+    customerAuth: customerAuthSlice,
   },
 });
 

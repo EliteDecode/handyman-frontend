@@ -1,4 +1,4 @@
-import VerifyEmailForm from "@/components/VerifyEmailForm";
+import VerifyEmailForm from "@/components/auth/VerifyEmailForm";
 import { Link } from "react-router-dom";
 const VerifyEmail = () => {
   return (
@@ -7,7 +7,7 @@ const VerifyEmail = () => {
 
       <div className="mt-4 text-center text-xs md:text-sm tracking-wide lg:text-lg ">
         Already have an account?{" "}
-        <Link to="/login" className="text-[#008080]">
+        <Link to="/auth/login" className="text-[#008080]">
           Login
         </Link>
       </div>

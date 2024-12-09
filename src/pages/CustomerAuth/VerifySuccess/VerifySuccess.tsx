@@ -29,7 +29,7 @@ const VerifySuccess = () => {
             </p>
           </div>
 
-          <Link to='/login' className="w-full flex items-center justify-center md:w-[540px] lg:w-[472px] bg-[#008080] h-8 md:h-11 lg:h-14 rounded-lg text-xs md:text-sm lg:text-lg font-semibold text-white mt-8 md:mt-10 lg:mt-12 outline-none">
+          <Link to='/auth/login' className="w-full flex items-center justify-center md:w-[540px] lg:w-[472px] bg-[#008080] h-8 md:h-11 lg:h-14 rounded-lg text-xs md:text-sm lg:text-lg font-semibold text-white mt-8 md:mt-10 lg:mt-12 outline-none">
             Continue to your account
           </Link>
         </div>

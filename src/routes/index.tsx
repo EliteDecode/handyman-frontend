@@ -17,3 +17,4 @@ export const VerifyEmail = lazy(() => import("@/pages/CustomerAuth/VerifyEmail/V
 export const EmailSuccess = lazy(() => import("@/pages/CustomerAuth/VerifySuccess/VerifySuccess"));
 export const CompleteProfile = lazy(() => import("@/pages/CustomerAuth/CompleteProfile/CompleteProfile"));
 export const Login = lazy(() => import("@/pages/CustomerAuth/Login/Login"));
+export const ForgetPassword = lazy(() => import("@/pages/CustomerAuth/ForgetPassword/ForgetPassword"));

@@ -22,7 +22,7 @@ const CustomerSignUpForm = () => {
         </h2>
         <p className="leading-5 tracking-wide text-xs lg:text-lg mt-2 lg:mt-6">
           Already have an account?{" "}
-          <Link to="/sign-in" className="text-[#008080]">
+          <Link to="/auth/login" className="text-[#008080]">
             Login
           </Link>
         </p>

@@ -18,7 +18,7 @@ const useCustomerSignUpForm = () => {
   const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
-    (state: RootState) => state.customerSignUp
+    (state: RootState) => state.customerAuth
   );
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const useCustomerSignUpForm = () => {
     if (isSuccess) {
       toast.success(message);
       formik.resetForm();
-      navigate("/verify-email");
+      navigate("/auth/verify-email");
     }
     dispatch(reset());
     return;

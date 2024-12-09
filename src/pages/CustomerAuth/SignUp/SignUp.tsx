@@ -1,5 +1,5 @@
-import CustomerSignUpForm from "@/components/CustomerSignUpForm";
-import CustomerSignUpHead from "@/components/CustomerSignUpHead";
+import CustomerSignUpForm from "@/components/auth/CustomerSignUpForm";
+import CustomerSignUpHead from "@/components/auth/CustomerSignUpHead";
 
 const SignUp = () => {
   return (
