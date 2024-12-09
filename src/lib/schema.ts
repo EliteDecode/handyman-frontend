@@ -49,6 +49,7 @@ export const emailOTPSchema = Yup.object().shape({
     Yup.string().matches(/^\d$/, "Must be a digit").required("Required")
   ),
 });
+
 export const loginSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email format")
@@ -62,4 +63,10 @@ export const loginSchema = Yup.object().shape({
       /[\W_]/,
       "Password must contain at least one special character (e.g., $, &, @, etc.)"
     )
+});
+
+export const forgetPasswordSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
 });

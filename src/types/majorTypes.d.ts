@@ -37,3 +37,7 @@ declare interface LoginProp {
   email: string;
   password: sring;
 }
+
+declare interface forgetPasswordProp {
+  email: string;
+}

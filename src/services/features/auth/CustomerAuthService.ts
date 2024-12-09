@@ -33,10 +33,17 @@ const login = async (userData: LoginProp) => {
   return response.data;
 };
 
+const forget_password = async (userData: forgetPasswordProp) => {
+  const response = await axiosClient.post(`/auth/forgot-password`, userData);
+
+  return response.data;
+};
+
 const customerSignUpService = {
   sign_up,
   verify_email,
   login,
+  forget_password,
 };
 
 export default customerSignUpService;

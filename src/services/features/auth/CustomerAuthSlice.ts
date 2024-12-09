@@ -33,6 +33,13 @@ export const login = createAsyncThunkWithHandler(
   }
 );
 
+export const forgetPassword = createAsyncThunkWithHandler(
+  "auth/forgetPassword",
+  async (data: forgetPasswordProp, _) => {
+    return await customerSignUpService.forget_password(data);
+  }
+);
+
 const customerAuthSlice = createSlice({
   name: "auth",
   initialState,
@@ -91,6 +98,23 @@ const customerAuthSlice = createSlice({
         state.message = action.payload.message;
       })
       .addCase(login.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+        state.isSuccess = false;
+      })
+
+      //forgetPassword case
+      .addCase(forgetPassword.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(forgetPassword.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(forgetPassword.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload as string;
