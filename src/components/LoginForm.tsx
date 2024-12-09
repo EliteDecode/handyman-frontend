@@ -1,11 +1,12 @@
 import useLoginForm from "@/hooks/useLoginForm";
 import { Eye, EyeOff, LockKeyhole, Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
-  const { formik, isLoading, setTogglePassword, togglePassword } =
+  const { formik, isLoading, setTogglePassword, togglePassword, message } =
     useLoginForm();
   return (
-    <form className="mt-6" onSubmit={formik.handleSubmit}>
+    <form className="mt-6 lg:mt-8" onSubmit={formik.handleSubmit}>
       <div className="">
         <label
           htmlFor="email"
@@ -58,9 +59,9 @@ const LoginForm = () => {
             type="button"
           >
             {togglePassword ? (
-              <Eye color="#98A2B3" className="w-[18px]"/>
+              <Eye color="#98A2B3" className="w-[18px]" />
             ) : (
-              <EyeOff color="#98A2B3" className="w-[18px]"/>
+              <EyeOff color="#98A2B3" className="w-[18px]" />
             )}
           </button>
         </div>
@@ -71,15 +72,24 @@ const LoginForm = () => {
         ) : null}
       </div>
 
+      <div className="mt-2 w-full text-right">
+        <Link to='/forget-password' className="text-xs tracking-wide">Forget Password?</Link>
+      </div>
+
       <div className="flex items-center justify-center">
         <button
           type="submit"
-            disabled={!formik.dirty || !formik.isValid || isLoading}
-            className={`${!formik.dirty || !formik.isValid || isLoading ? "bg-[#D0D5DD]" : "bg-[#008080]"} w-full lg:w-[385px]  text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold outline-none`}
+          disabled={!formik.dirty || !formik.isValid || isLoading}
+          className={`${!formik.dirty || !formik.isValid || isLoading ? "bg-[#D0D5DD]" : "bg-[#008080]"} w-full lg:w-[385px]  text-white rounded-lg h-10 lg:h-14 px-6 mt-8 lg:mt-16 text-xs lg:text-base lg:font-semibold outline-none`}
         >
-          {isLoading ? "Please wait..." : "Login"} 
+          {isLoading ? "Please wait..." : "Login"}
         </button>
       </div>
+      {message && (
+        <p className="text-sm text-[#B3261E] tracking-wide text-center mt-6">
+          {message}
+        </p>
+      )}
     </form>
   );
 };

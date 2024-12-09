@@ -5,10 +5,7 @@ import { RootState, AppDispatch } from "@/store";
 import { useSelector, useDispatch } from "react-redux";
 import useCountdown from "@/hooks/useCountDown";
 import { emailOTPSchema } from "@/lib/schema";
-import {
-  reset,
-  verifyEmail,
-} from "@/services/features/auth/CustomerSignUpSlice";
+import { reset, verifyEmail } from "@/services/features/auth/CustomerAuthSlice";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 

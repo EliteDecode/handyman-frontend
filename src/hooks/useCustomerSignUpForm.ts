@@ -7,7 +7,7 @@ import { toast } from "react-hot-toast";
 import {
   customerSignUp,
   reset,
-} from "@/services/features/auth/CustomerSignUpSlice";
+} from "@/services/features/auth/CustomerAuthSlice";
 import { useNavigate } from "react-router-dom";
 
 const useCustomerSignUpForm = () => {
@@ -15,7 +15,7 @@ const useCustomerSignUpForm = () => {
   const [toggleCPassword, setToggleCPassword] = useState(false);
 
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
     (state: RootState) => state.customerSignUp
@@ -24,7 +24,7 @@ const useCustomerSignUpForm = () => {
   useEffect(() => {
     if (isError) toast.error(message);
     if (isSuccess) {
-      toast.success(message)
+      toast.success(message);
       formik.resetForm();
       navigate("/verify-email");
     }

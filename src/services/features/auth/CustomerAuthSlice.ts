@@ -1,6 +1,6 @@
 import { createAsyncThunkWithHandler } from "@/services/api/apiHandler";
 import { createSlice } from "@reduxjs/toolkit";
-import customerSignUpService from "./CustomerSignUpService";
+import customerSignUpService from "./CustomerAuthService";
 
 const initialState: InitialSupportStateProps = {
   isLoading: false,
