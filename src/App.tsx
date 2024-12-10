@@ -19,6 +19,7 @@ import {
   CompleteProfile,
   Login,
   ForgetPassword,
+  ResetPassword,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -98,6 +99,10 @@ export default function App() {
             {
               path: "forget-password",
               element: <ForgetPassword />,
+            },
+            {
+              path: "reset-password",
+              element: <ResetPassword />,
             },
           ],
         },

@@ -33,9 +33,18 @@ const login = async (userData: LoginProp) => {
   return response.data;
 };
 
-const forget_password = async (userData: forgetPasswordProp) => {
+const forget_password = async (userData: ForgetPasswordProp) => {
   const response = await axiosClient.post(`/auth/forgot-password`, userData);
 
+  if (response.data.success === true)
+    localStorage.setItem("token", response.data.data);
+  return response.data;
+};
+
+const reset_password = async (userData: ResetPasswordProp) => {
+  const response = await axiosClient.post(`/auth/reset-password`, userData);
+
+  if (response.data.success === true) localStorage.removeItem("token");
   return response.data;
 };
 
@@ -44,6 +53,7 @@ const customerSignUpService = {
   verify_email,
   login,
   forget_password,
+  reset_password,
 };
 
 export default customerSignUpService;

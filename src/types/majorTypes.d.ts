@@ -38,6 +38,12 @@ declare interface LoginProp {
   password: sring;
 }
 
-declare interface forgetPasswordProp {
+declare interface ForgetPasswordProp {
   email: string;
+}
+
+declare interface ResetPasswordProp {
+  password: string;
+  confirmPassword: string;
+  token: string | null;
 }
