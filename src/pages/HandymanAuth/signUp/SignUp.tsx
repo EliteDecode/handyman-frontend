@@ -2,7 +2,7 @@ import inbox from "@/assets/icons/inbox.svg";
 import dropDown from "@/assets/icons/dropDown.svg";
 import lock from "@/assets/icons/lock.svg";
 import hidePassword from "@/assets/icons/hidePassword.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SignUpSuccessful from "../modals/SignUpSucessful";
 
 const statesAndLGAs = {
@@ -47,6 +47,10 @@ const SignUp = () => {
     event.preventDefault();
     handleOpenModal();
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="px-6">

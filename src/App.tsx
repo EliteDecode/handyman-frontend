@@ -17,8 +17,10 @@ import {
 import Login from "./pages/HandymanAuth/login/Login";
 import AuthLayout from "./layouts/AuthLayout";
 import RoleSelection from "./pages/HandymanAuth/roleSelection/RoleSelection";
-import SignUp from "./pages/HandymanAuth/signUp/signUp";
+import SignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
+import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
+import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
 
 // routes
 
@@ -82,6 +84,14 @@ export default function App() {
             {
               path: "complete-your-profile",
               element: <CompleteYourProfile />,
+            },
+            {
+              path: "verification-and-Identification",
+              element: <VerificationAndIdentification />,
+            },
+            {
+              path: "portfolio",
+              element: <Portfolio />,
             },
           ],
         },

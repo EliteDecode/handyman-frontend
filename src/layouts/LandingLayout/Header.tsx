@@ -88,12 +88,16 @@ const Header = () => {
         </ul>
 
         <div className="flex items-center justify-center gap-6 mt-6">
-          <button className="w-full h-14 px-4 bg-[#008080] text-white text-[15px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
-            Login / SignUp
-          </button>
-          <button className="w-full h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] text-[15px] leading-[24px] font-semibold">
-            Become a Handyman
-          </button>
+          <Link to={"/role-selection"} className="w-full">
+            <button className="w-full h-14 px-4 bg-[#008080] text-white text-[15px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
+              Login / SignUp
+            </button>
+          </Link>
+          <Link to={"/auth/handyman-signup"} className="w-full">
+            <button className="w-full h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] text-[15px] leading-[24px] font-semibold">
+              Become a Handyman
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -103,9 +107,12 @@ const Header = () => {
             Login / SignUp
           </button>
         </NavLink>
-        <button className="lg:w-[217px]  w-fit h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] md:text-[18px] text-[12px] md:leading-[24px] font-semibold">
-          Become a Handyman
-        </button>
+
+        <Link to={"/auth/handyman-signup"}>
+          <button className="lg:w-[217px]  w-fit h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] md:text-[18px] text-[12px] md:leading-[24px] font-semibold">
+            Become a Handyman
+          </button>
+        </Link>
       </div>
     </div>
   );

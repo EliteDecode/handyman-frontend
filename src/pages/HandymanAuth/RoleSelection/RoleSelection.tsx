@@ -3,9 +3,11 @@ import userImage from "@/assets/images/Frame 1597882487.png";
 import handymanImage from "@/assets/images/Frame 1597882487 (1).png";
 import { useNavigate } from "react-router-dom";
 
+type Role = "user" | "handyman";
+
 const RoleSelection = () => {
   const [selectedRole, setSelectedRole] = useState<"user" | "handyman" | null>(
-    null
+    "user"
   );
   const navigate = useNavigate();
 
@@ -23,6 +25,13 @@ const RoleSelection = () => {
       alert("Please select a role to continue.");
     }
   };
+
+  const getCardClasses = (role: Role) =>
+    `flex flex-col items-center justify-center text-center max-w-[370px] w-full sm:gap-8 gap-2 cursor-pointer ${
+      selectedRole === role
+        ? "bg-[#008080] bg-opacity-10 ring-4 ring-[#008080] rounded-lg"
+        : ""
+    }`;
 
   return (
     <div className="flex flex-col items-center justify-center max-w-[791px] w-full mx-auto sm:mt-[120px] sm:mb-[150px] mt-8 mb-7 px-6">
@@ -44,11 +53,8 @@ const RoleSelection = () => {
           {/* User Option */}
           <div
             onClick={() => handleSelect("user")}
-            className={`flex flex-col items-center justify-center text-center max-w-[370px] w-full sm:gap-8 gap-2 cursor-pointer ${
-              selectedRole === "user"
-                ? "bg-[#008080] bg-opacity-10 ring-4 ring-[#008080] rounded-lg"
-                : ""
-            }`}
+            className={getCardClasses("user")}
+            aria-pressed={selectedRole === "user"}
           >
             <div className="px-12 py-6 shadow-custom1 rounded-3xl">
               <img src={userImage} alt="User" />
@@ -61,11 +67,8 @@ const RoleSelection = () => {
           {/* Handyman Option */}
           <div
             onClick={() => handleSelect("handyman")}
-            className={`flex flex-col items-center justify-center text-center max-w-[370px] w-full sm:gap-8 gap-2 cursor-pointer ${
-              selectedRole === "handyman"
-                ? "bg-[#008080] bg-opacity-10 ring-4 ring-[#008080] rounded-lg"
-                : ""
-            }`}
+            className={getCardClasses("handyman")}
+            aria-pressed={selectedRole === "handyman"}
           >
             <div className="px-12 py-6 shadow-custom1 rounded-3xl">
               <img src={handymanImage} alt="Handyman" />
