@@ -7,6 +7,40 @@ import profile from "@/assets/icons/profile.svg";
 import edit from "@/assets/icons/editIcon.svg";
 import dropDown from "@/assets/icons/dropDown.svg";
 import backIcon from "@/assets/icons/backIcon.svg";
+import { useFormik, useField } from "formik";
+import { handyManCYPSchema } from "@/lib/schema";
+
+interface FormValues {
+  selectedCategories: string[];
+}
+
+const banksInNigeria = [
+  { name: "Access Bank", code: "044" },
+  { name: "Citibank", code: "023" },
+  { name: "Diamond Bank", code: "063" },
+  { name: "Ecobank Nigeria", code: "050" },
+  { name: "Fidelity Bank Nigeria", code: "070" },
+  { name: "First Bank of Nigeria", code: "011" },
+  { name: "First City Monument Bank", code: "214" },
+  { name: "Guaranty Trust Bank", code: "058" },
+  { name: "Heritage Bank Plc", code: "030" },
+  { name: "Keystone Bank Limited", code: "082" },
+  { name: "Kuda Bank", code: "50211" },
+  { name: "Moniepoint MFB", code: "50515" },
+  { name: "Opay", code: "999991" },
+  { name: "Palmpay", code: "999992" },
+  { name: "Polaris Bank", code: "076" },
+  { name: "Providus Bank", code: "101" },
+  { name: "Stanbic IBTC Bank", code: "221" },
+  { name: "Standard Chartered Bank", code: "068" },
+  { name: "Sterling Bank", code: "232" },
+  { name: "Suntrust Bank Nigeria", code: "100" },
+  { name: "Union Bank of Nigeria", code: "032" },
+  { name: "United Bank for Africa", code: "033" },
+  { name: "Unity Bank Plc", code: "215" },
+  { name: "Wema Bank", code: "035" },
+  { name: "Zenith Bank", code: "057" },
+];
 
 const CompleteYourProfile = () => {
   const [profileImage, setProfileImage] = useState<string | null>(profile);
@@ -16,27 +50,31 @@ const CompleteYourProfile = () => {
 
   const navigate = useNavigate();
 
-  // Reusable Input Component
-  const TextInput = ({
-    label,
-    placeholder,
-    readOnly = false,
-    type = "text",
-    disabled = false,
-  }: any) => (
-    <div className="flex flex-col gap-1 font-lato">
-      <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
-        {label}
-      </label>
-      <input
-        className="h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080]"
-        type={type}
-        placeholder={placeholder}
-        readOnly={readOnly}
-        disabled={disabled}
-      />
-    </div>
-  );
+  const formik = useFormik({
+    initialValues: {
+      profileImage: null,
+      aboutMe: "",
+      serviceDescription: "",
+      selectedCategories: [],
+      bankName: "",
+      accountNumber: "",
+      accountName: "",
+      guarantorsName: "",
+      guarantorsPhoneNumber: "",
+      guarantorsRelationship: "",
+      YOE: "",
+      days: "",
+      startTime: "",
+      endTime: "",
+      ratePerHour: "",
+      ratePerJob: "",
+    },
+    validationSchema: handyManCYPSchema,
+    onSubmit: (values) => {
+      console.log(values);
+      navigate("/auth/verification-and-Identification");
+    },
+  });
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
@@ -58,6 +96,21 @@ const CompleteYourProfile = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  // Scroll to the first error after form submission
+  useEffect(() => {
+    if (formik.errors && Object.keys(formik.errors).length > 0) {
+      const firstError = Object.keys(formik.errors)[0];
+      const firstErrorElement = document.getElementById(firstError);
+      if (firstErrorElement) {
+        // Scroll smoothly to the first error element
+        firstErrorElement.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+    }
+  }, [formik.errors]);
+
   return (
     <div className="flex items-center justify-center w-full lg:px-[120px] md:px-10 px-6 h-full">
       <div className="mx-auto max-w-[1201px] sm:pt-20 pt-8 pb-[59px]  flex flex-col items-start w-full h-full text-start bg-white rounded-lg shadow-lg">
@@ -74,7 +127,7 @@ const CompleteYourProfile = () => {
           <ProgressBar progress={33.3} step={1} />
         </div>
 
-        <form className="w-full h-full">
+        <form className="w-full h-full" onSubmit={formik.handleSubmit}>
           <section className="flex items-center gap-6">
             <div className="sm:w-[180px] sm:h-[180px] w-[120px] h-[120px]">
               <img
@@ -119,7 +172,16 @@ const CompleteYourProfile = () => {
             <textarea
               className="w-full h-20 px-[14px] py-[10px] resize-none rounded-[8px] border border-[#C9CDD3] text-[16px] leading-[18px] font-lato placeholder:text-[#98A2B3] focus:outline-none focus:ring focus:ring-[#008080]"
               placeholder="Enter a description..."
+              name="aboutMe"
+              id="aboutMe"
+              value={formik.values.aboutMe}
+              onChange={formik.handleChange}
             ></textarea>
+            {formik.touched.aboutMe && formik.errors.aboutMe && (
+              <div className="text-xs text-red-500">
+                {formik.errors.aboutMe}
+              </div>
+            )}
           </section>
 
           <section className="flex flex-col w-full h-full gap-4 mt-4 sm:gap-6 sm:mt-6 lg:flex-row ">
@@ -130,7 +192,17 @@ const CompleteYourProfile = () => {
               <textarea
                 className="w-full h-[128px] px-[14px] py-[10px] resize-none rounded-[8px] border border-[#C9CDD3] text-[16px] leading-[18px] font-lato placeholder:text-[#98A2B3] focus:outline-none focus:ring focus:ring-[#008080]"
                 placeholder="Enter a description..."
+                name="serviceDescription"
+                id="serviceDescription"
+                value={formik.values.serviceDescription}
+                onChange={formik.handleChange}
               ></textarea>
+              {formik.touched.serviceDescription &&
+                formik.errors.serviceDescription && (
+                  <div className="text-xs text-red-500">
+                    {formik.errors.serviceDescription}
+                  </div>
+                )}
             </div>
 
             <div className="flex flex-col w-full h-full gap-4 lg:w-1/2">
@@ -143,57 +215,53 @@ const CompleteYourProfile = () => {
                 </p>
               </div>
 
-              <div className="grid h-full grid-cols-2  xl:grid-cols-3 gap-x-6 sm:gap-y-4 gap-y-[18px]">
-                <div className="flex items-center gap-[11px]">
-                  <input
-                    type="checkbox"
-                    className="accent-[#008080] w-[18px] h-[18px]"
-                  />
-                  <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5  text-[#3C3C3C]">
-                    Electrical work
-                  </label>
-                </div>
-
-                <div className="flex items-center gap-[11px]">
-                  <input
-                    type="checkbox"
-                    className="accent-[#008080] w-[18px] h-[18px]"
-                  />
-                  <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5  text-[#3C3C3C]">
-                    Carpentry
-                  </label>
-                </div>
-
-                <div className="flex items-center gap-[11px]">
-                  <input
-                    type="checkbox"
-                    className="accent-[#008080] w-[18px] h-[18px]"
-                  />
-                  <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5  text-[#3C3C3C]">
-                    Home repairs
-                  </label>
-                </div>
-
-                <div className="flex items-center gap-[11px]">
-                  <input
-                    type="checkbox"
-                    className="accent-[#008080] w-[18px] h-[18px]"
-                  />
-                  <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5  text-[#3C3C3C]">
-                    Plumbing
-                  </label>
-                </div>
-
-                <div className="flex items-center gap-[11px]">
-                  <input
-                    type="checkbox"
-                    className="accent-[#008080] w-[18px] h-[18px]"
-                  />
-                  <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5  text-[#3C3C3C]">
-                    Appliance repairs
-                  </label>
-                </div>
+              <div className="grid h-full grid-cols-2 xl:grid-cols-3 gap-x-6 sm:gap-y-4 gap-y-[18px]">
+                {[
+                  "Electrical work",
+                  "Carpentry",
+                  "Home repairs",
+                  "Plumbing",
+                  "Appliance repairs",
+                ].map((category) => (
+                  <div className="flex items-center gap-[11px]" key={category}>
+                    <input
+                      type="checkbox"
+                      className="accent-[#008080] w-[18px] h-[18px]"
+                      name="selectedCategories"
+                      value={category}
+                      checked={formik.values.selectedCategories.includes(
+                        category
+                      )}
+                      onChange={(e) => {
+                        const { checked, value } = e.target;
+                        if (checked) {
+                          formik.setFieldValue("selectedCategories", [
+                            ...formik.values.selectedCategories,
+                            value,
+                          ]);
+                        } else {
+                          formik.setFieldValue(
+                            "selectedCategories",
+                            formik.values.selectedCategories.filter(
+                              (cat) => cat !== value
+                            )
+                          );
+                        }
+                      }}
+                    />
+                    <label className="whitespace-nowrap sm:text-[16px] text-[12px] sm:leading-6 leading-5 text-[#3C3C3C]">
+                      {category}
+                    </label>
+                  </div>
+                ))}
               </div>
+
+              {formik.touched.selectedCategories &&
+              formik.errors.selectedCategories ? (
+                <div className="text-xs text-red-500">
+                  {formik.errors.selectedCategories}
+                </div>
+              ) : null}
             </div>
           </section>
 
@@ -214,41 +282,183 @@ const CompleteYourProfile = () => {
                   Bank Name
                 </label>
                 <div className="relative w-full">
-                  <select className="sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white">
+                  <select
+                    className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.bankName && formik.errors.bankName ? "border-red-500" : ""}`}
+                  >
                     <option
                       className="text-[#98A2B3]"
-                      value=""
+                      value={formik.values.bankName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
                       disabled
                       selected
                     >
                       Select your bank
                     </option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    {banksInNigeria.map((bank) => (
+                      <option>{bank.name}</option>
+                    ))}
                   </select>
                   <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
                     <img src={dropDown} alt="dropdown" />
                   </div>
                 </div>
+
+                <div className="text-xs text-red-500 min-h-4">
+                  {formik.touched.bankName && formik.errors.bankName}
+                </div>
               </div>
 
-              <TextInput
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Account Number
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.accountNumber && formik.errors.accountNumber ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="accountNumber"
+                  id="accountNumber"
+                  value={formik.values.accountNumber}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={"Enter account number"}
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.accountNumber && formik.errors.accountNumber}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Account Name
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.accountName && formik.errors.accountName ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="accountName"
+                  id="accountName"
+                  value={formik.values.accountName}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={""}
+                  disabled
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.accountName && formik.errors.accountName}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Guarantor’s Name
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.guarantorsName && formik.errors.guarantorsName ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="guarantorsName"
+                  id="guarantorsName"
+                  value={formik.values.guarantorsName}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={"Enter guarantor’s Name"}
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.guarantorsName &&
+                    formik.errors.guarantorsName}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Guarantor’s Phone Number
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.guarantorsPhoneNumber && formik.errors.guarantorsPhoneNumber ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="guarantorsPhoneNumber"
+                  id="guarantorsPhoneNumber"
+                  value={formik.values.guarantorsPhoneNumber}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={"Enter guarantor’s Number"}
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.guarantorsPhoneNumber &&
+                    formik.errors.guarantorsPhoneNumber}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Guarantor’s Relationship
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.guarantorsRelationship && formik.errors.guarantorsRelationship ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="guarantorsRelationship"
+                  id="guarantorsRelationship"
+                  value={formik.values.guarantorsRelationship}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={"Enter guarantor’s relationship"}
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.guarantorsRelationship &&
+                    formik.errors.guarantorsRelationship}
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1 font-lato">
+                <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
+                  Years of Experience
+                </label>
+                <input
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.YOE && formik.errors.YOE ? "border-red-500" : ""}`}
+                  // type={type}
+                  name="YOE"
+                  id="YOE"
+                  value={formik.values.YOE}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder={"Enter years of experience"}
+                />
+
+                <div className="text-xs text-red-500 min-h-[16px]">
+                  {formik.touched.YOE && formik.errors.YOE}
+                </div>
+              </div>
+
+              {/* <TextInput
+                name="accountNumber"
                 label="Account Number"
                 placeholder="Enter account number"
               />
-              <TextInput label="Account Name" readOnly={true} disabled={true} />
               <TextInput
+                name="accountName"
+                label="Account Name"
+                readOnly={true}
+                disabled={true}
+              />
+              <TextInput
+                name="guarantorsName"
                 label="Guarantor’s Name"
                 placeholder="Enter guarantor's name"
               />
               <TextInput
+                name="guarantorsPhoneNumber"
                 label="Guarantor’s Phone Number"
                 placeholder="Enter phone number"
               />
               <TextInput
+                name="guarantorsRelationship"
                 label="Guarantor’s Relationship"
                 placeholder="Enter relationship"
-              />
+              /> */}
             </div>
           </section>
 
@@ -268,16 +478,31 @@ const CompleteYourProfile = () => {
                   Days
                 </label>
                 <div className="relative w-full">
-                  <select className="h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-4 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white">
+                  <select
+                    className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-4 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.days && formik.errors.days ? "border-red-500" : ""}`}
+                    name="days"
+                    id="days"
+                    value={formik.values.days}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  >
                     <option className="text-[#98A2B3]" value="" disabled>
-                      Select your bank
+                      Select your Working day
                     </option>
-                    <option>Male</option>
-                    <option>Female</option>
+                    <option>Sunday</option>
+                    <option>Monday</option>
+                    <option>Tuesday</option>
+                    <option>Wednesday</option>
+                    <option>Thursday</option>
+                    <option>Friday</option>
+                    <option>Saturday</option>
                   </select>
                   <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
                     <img src={dropDown} alt="dropdown" />
                   </div>
+                </div>
+                <div className="text-xs text-red-500 min-h-4">
+                  {formik.touched.days && formik.errors.days}
                 </div>
               </div>
 
@@ -288,9 +513,18 @@ const CompleteYourProfile = () => {
                   </label>
 
                   <input
+                    name="startTime"
+                    id="startTime"
                     type="time"
-                    className="h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080]"
+                    className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.startTime && formik.errors.startTime ? "border-red-500" : ""}`}
+                    value={formik.values.startTime}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
+
+                  <div className="text-xs text-red-500 min-h-4">
+                    {formik.touched.startTime && formik.errors.startTime}
+                  </div>
                 </div>
 
                 <div className="w-full sm:w-1/2">
@@ -300,8 +534,17 @@ const CompleteYourProfile = () => {
 
                   <input
                     type="time"
-                    className="h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080]"
+                    className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.endTime && formik.errors.endTime ? "border-red-500" : ""}`}
+                    name="endTime"
+                    id="endTime"
+                    value={formik.values.endTime}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
                   />
+
+                  <div className="text-xs text-red-500 min-h-4">
+                    {formik.touched.endTime && formik.errors.endTime}
+                  </div>
                 </div>
               </div>
             </div>
@@ -323,10 +566,21 @@ const CompleteYourProfile = () => {
                   Rate per hour
                 </label>
                 <div className="relative w-full sm:max-w-[282px]">
-                  <input className="sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-9 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080]" />
+                  <input
+                    className={`sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-9 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.ratePerHour && formik.errors.ratePerHour ? "border-red-500" : ""}`}
+                    name="ratePerHour"
+                    id="ratePerHour"
+                    value={formik.values.ratePerHour}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
                   <p className="absolute inset-y-0 flex items-center cursor-pointer right-3 text-[#667185] text-[14px] leading-[20.3px]">
                     ₦
                   </p>
+                </div>
+
+                <div className="text-xs text-red-500 min-h-4">
+                  {formik.touched.ratePerHour && formik.errors.ratePerHour}
                 </div>
               </div>
 
@@ -335,10 +589,22 @@ const CompleteYourProfile = () => {
                   Rate per job
                 </label>
                 <div className="relative w-full sm:max-w-[282px]">
-                  <input className="sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-9 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080]" />
+                  <input
+                    className={`sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-9 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.ratePerJob && formik.errors.ratePerJob ? "border-red-500" : ""}`}
+                    name="ratePerJob"
+                    id="ratePerJob"
+                    value={formik.values.ratePerJob}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  />
                   <p className="absolute inset-y-0 flex items-center cursor-pointer right-3 text-[#667185] text-[14px] leading-[20.3px]">
                     ₦
                   </p>
+                </div>
+
+                {/* Reserve space for error messages */}
+                <div className="text-xs text-red-500 min-h-4">
+                  {formik.touched.ratePerJob && formik.errors.ratePerJob}
                 </div>
               </div>
             </div>
