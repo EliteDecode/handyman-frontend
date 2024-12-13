@@ -7,12 +7,47 @@ import profile from "@/assets/icons/profile.svg";
 import edit from "@/assets/icons/editIcon.svg";
 import dropDown from "@/assets/icons/dropDown.svg";
 import backIcon from "@/assets/icons/backIcon.svg";
-import { useFormik, useField } from "formik";
+import { useFormik, FormikValues, FormikHelpers } from "formik";
 import { handyManCYPSchema } from "@/lib/schema";
+import axios from "axios";
+import BankSelector from "./BankSelector";
 
 interface FormValues {
+  profileImage: File | null;
+  aboutMe: string;
+  serviceDescription: string;
   selectedCategories: string[];
+  bankName: string;
+  accountNumber: string;
+  accountName: string;
+  guarantorsName: string;
+  guarantorsPhoneNumber: string;
+  guarantorsRelationship: string;
+  YOE: string;
+  days: string;
+  startTime: string;
+  endTime: string;
+  ratePerHour: string;
+  ratePerJob: string;
 }
+
+type ResolveAccountDetailsProps = {
+  formik: FormikValues;
+  setAccountName: (name: string) => void;
+  setLoadingAccountName: (loading: boolean) => void;
+  setError: (error: string | null) => void;
+};
+
+type UseEffectProps = {
+  formik: {
+    values: {
+      accountNumber: string;
+      bankCode: string;
+    };
+  };
+  resolveAccountDetails: () => Promise<void>;
+  setAccountName: (name: string) => void;
+};
 
 const banksInNigeria = [
   { name: "Access Bank", code: "044" },
@@ -46,11 +81,15 @@ const CompleteYourProfile = () => {
   const [profileImage, setProfileImage] = useState<string | null>(profile);
   const [fileInput, setFileInput] = useState<File | null>(null);
 
+  const [accountName, setAccountName] = useState("");
+  const [loadingAccountName, setLoadingAccountName] = useState(false);
+  const [error, setError] = useState(null);
+
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB (in bytes)
 
   const navigate = useNavigate();
 
-  const formik = useFormik({
+  const formik = useFormik<FormValues>({
     initialValues: {
       profileImage: null,
       aboutMe: "",
@@ -71,6 +110,10 @@ const CompleteYourProfile = () => {
     },
     validationSchema: handyManCYPSchema,
     onSubmit: (values) => {
+      if (!profileImage) {
+        window.alert(formik.touched.profileImage && formik.errors.profileImage);
+        return;
+      }
       console.log(values);
       navigate("/auth/verification-and-Identification");
     },
@@ -89,27 +132,72 @@ const CompleteYourProfile = () => {
       // If file size is valid, proceed with the upload
       setFileInput(file);
       setProfileImage(URL.createObjectURL(file)); // Display image immediately
+      formik.setFieldValue("profileImage", file);
     }
   };
+
+  const resolveAccountDetails = async () => {
+    const { accountNumber, bankCode } = formik.values;
+    console.log(accountNumber, bankCode);
+
+    if (accountNumber && bankCode) {
+      setLoadingAccountName(true);
+      console.log(loadingAccountName);
+
+      try {
+        const response = await axios.get(
+          `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${bankCode}`,
+          {
+            headers: {
+              Authorization: `Bearer sk_test_0b939b05baed1f9f688c7f074450b4c062baac54`, // Use your test secret key here
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        setAccountName(response.data.data.account_name);
+
+        // Set the accountName field in Formik with the correct value
+        if (response.data.data) {
+          formik.setFieldValue("accountName", response.data.data.account_name);
+        }
+
+        setError(null);
+      } catch (err: unknown) {
+        console.error("Error fetching account details:", err);
+
+        if (axios.isAxiosError(err)) {
+          if (err.message === "Network Error") {
+            formik.setFieldError("accountNumber", "Network issue. Try again.");
+          } else if (err.response?.status === 422) {
+            formik.setFieldError("accountNumber", "Invalid account details.");
+          } else if (err.response?.status === 401) {
+            setError("Unauthorized request. Check your API key.");
+          } else {
+            setError("Unexpected error occurred. Please try again.");
+          }
+        } else {
+          setError("Unknown error occurred.");
+        }
+
+        setAccountName("");
+      } finally {
+        setLoadingAccountName(false);
+      }
+    }
+  };
+
+  // Trigger the resolve function when accountNumber or bank changes
+  useEffect(() => {
+    setAccountName(""); // Reset account name before each check
+    if (formik.values.accountNumber.length === 10 && formik.values.bankCode) {
+      resolveAccountDetails(); // Resolve account details when conditions are met
+    }
+  }, [formik.values.accountNumber, formik.values.bankCode]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  // Scroll to the first error after form submission
-  useEffect(() => {
-    if (formik.errors && Object.keys(formik.errors).length > 0) {
-      const firstError = Object.keys(formik.errors)[0];
-      const firstErrorElement = document.getElementById(firstError);
-      if (firstErrorElement) {
-        // Scroll smoothly to the first error element
-        firstErrorElement.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
-    }
-  }, [formik.errors]);
 
   return (
     <div className="flex items-center justify-center w-full lg:px-[120px] md:px-10 px-6 h-full">
@@ -281,28 +369,11 @@ const CompleteYourProfile = () => {
                 <label className="sm:text-[16px] text-[14px] sm:leading-6 leading-[16.8px] font-medium text-[#101928]">
                   Bank Name
                 </label>
-                <div className="relative w-full">
-                  <select
-                    className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.bankName && formik.errors.bankName ? "border-red-500" : ""}`}
-                  >
-                    <option
-                      className="text-[#98A2B3]"
-                      value={formik.values.bankName}
-                      onChange={formik.handleChange}
-                      onBlur={formik.handleBlur}
-                      disabled
-                      selected
-                    >
-                      Select your bank
-                    </option>
-                    {banksInNigeria.map((bank) => (
-                      <option>{bank.name}</option>
-                    ))}
-                  </select>
-                  <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                    <img src={dropDown} alt="dropdown" />
-                  </div>
-                </div>
+                <BankSelector
+                  formik={formik} // Pass formik to the BankSelector
+                  banksInNigeria={banksInNigeria} // Pass the bank data
+                  dropDown={dropDown} // Path to your dropdown icon
+                />
 
                 <div className="text-xs text-red-500 min-h-4">
                   {formik.touched.bankName && formik.errors.bankName}
@@ -322,6 +393,7 @@ const CompleteYourProfile = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   placeholder={"Enter account number"}
+                  maxLength={10}
                 />
 
                 <div className="text-xs text-red-500 min-h-[16px]">
@@ -432,33 +504,6 @@ const CompleteYourProfile = () => {
                   {formik.touched.YOE && formik.errors.YOE}
                 </div>
               </div>
-
-              {/* <TextInput
-                name="accountNumber"
-                label="Account Number"
-                placeholder="Enter account number"
-              />
-              <TextInput
-                name="accountName"
-                label="Account Name"
-                readOnly={true}
-                disabled={true}
-              />
-              <TextInput
-                name="guarantorsName"
-                label="Guarantor’s Name"
-                placeholder="Enter guarantor's name"
-              />
-              <TextInput
-                name="guarantorsPhoneNumber"
-                label="Guarantor’s Phone Number"
-                placeholder="Enter phone number"
-              />
-              <TextInput
-                name="guarantorsRelationship"
-                label="Guarantor’s Relationship"
-                placeholder="Enter relationship"
-              /> */}
             </div>
           </section>
 

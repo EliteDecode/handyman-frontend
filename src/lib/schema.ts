@@ -96,10 +96,25 @@ export const handyManCYPSchema = Yup.object().shape({
     .min(1, "Year's of experience cannot be negative")
     .max(99, "Year's of experience cannot be more than 99 year's"),
   days: Yup.string().required("Working days are required"),
-  startTime: Yup.date().required("Start time is required"),
-  endTime: Yup.date()
+  startTime: Yup.string()
+    .required("Start time is required")
+    .test("is-valid-time", "Invalid start time format", (value) =>
+      /^([01]\d|2[0-3]):([0-5]\d)$/.test(value)
+    ),
+
+  endTime: Yup.string()
     .required("End time is required")
-    .min(Yup.ref("fromDate"), "End date cannot be before the start date"),
+    .test("is-valid-time", "Invalid end time format", (value) =>
+      /^([01]\d|2[0-3]):([0-5]\d)$/.test(value)
+    )
+    .test(
+      "is-after-startTime",
+      "End time must be later than start time",
+      function (value) {
+        const { startTime } = this.parent;
+        return startTime && value && value > startTime;
+      }
+    ),
   ratePerHour: Yup.number()
     .required("Rate per hour is required")
     .min(0, "Rate cannot be negative"),
