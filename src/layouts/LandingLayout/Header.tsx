@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const location = useLocation().pathname;
@@ -30,19 +30,22 @@ const Header = () => {
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "rotate-45 translate-y-[5px]" : "rotate-0"
-            }`}></div>
+            }`}
+          ></div>
 
           {/* Line 2 */}
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "opacity-0" : "opacity-100"
-            }`}></div>
+            }`}
+          ></div>
 
           {/* Line 3 */}
           <div
             className={`w-full h-1 bg-black rounded transition-all duration-300 ${
               menuOpen ? "-rotate-45 -translate-y-[15px]" : "rotate-0"
-            }`}></div>
+            }`}
+          ></div>
         </div>
       </div>
 
@@ -52,7 +55,8 @@ const Header = () => {
           <Link
             to={item.path}
             key={index}
-            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}>
+            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}
+          >
             {item.name}
           </Link>
         ))}
@@ -64,7 +68,8 @@ const Header = () => {
           menuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-[-20px] opacity-0"
-        }`}>
+        }`}
+      >
         <ul>
           {url.map((item, index) => (
             <Link
@@ -75,29 +80,39 @@ const Header = () => {
                 item.name.toLocaleLowerCase()
                   ? "underline underline-offset-8 decoration-1 text-[#008080]"
                   : "text-[#3C3C3C]"
-              }`}>
+              }`}
+            >
               {item.name}
             </Link>
           ))}
         </ul>
 
         <div className="flex items-center justify-center gap-6 mt-6">
-          <button className="w-full h-14 px-4 bg-[#008080] text-white text-[15px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
-            Login / SignUp
-          </button>
-          <button className="w-full h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] text-[15px] leading-[24px] font-semibold">
-            Become a Handyman
-          </button>
+          <Link to={"/role-selection"} className="w-full">
+            <button className="w-full h-14 px-4 bg-[#008080] text-white text-[15px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
+              Login / SignUp
+            </button>
+          </Link>
+          <Link to={"/auth/handyman-signup"} className="w-full">
+            <button className="w-full h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] text-[15px] leading-[24px] font-semibold">
+              Become a Handyman
+            </button>
+          </Link>
         </div>
       </div>
 
       <div className="items-center hidden gap-6 md:flex">
-        <button className="lg:w-[165px] w-fit  h-14 px-4 bg-[#008080] text-white md:text-[18px] text-[12px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
-          Login / SignUp
-        </button>
-        <button className="lg:w-[217px]  w-fit h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] md:text-[18px] text-[12px] md:leading-[24px] font-semibold">
-          Become a Handyman
-        </button>
+        <NavLink to={"/role-selection"}>
+          <button className="lg:w-[165px] w-fit  h-14 px-4 bg-[#008080] text-white md:text-[18px] text-[12px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
+            Login / SignUp
+          </button>
+        </NavLink>
+
+        <Link to={"/auth/handyman-signup"}>
+          <button className="lg:w-[217px]  w-fit h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] md:text-[18px] text-[12px] md:leading-[24px] font-semibold">
+            Become a Handyman
+          </button>
+        </Link>
       </div>
     </div>
   );
