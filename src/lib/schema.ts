@@ -62,7 +62,7 @@ export const loginSchema = Yup.object().shape({
     .matches(
       /[\W_]/,
       "Password must contain at least one special character (e.g., $, &, @, etc.)"
-    )
+    ),
 });
 
 export const forgetPasswordSchema = Yup.object().shape({
@@ -84,4 +84,23 @@ export const resetPasswordSchema = Yup.object().shape({
   confirmPassword: Yup.string()
     .oneOf([Yup.ref("password")], "Passwords must match")
     .required("Please confirm your password"),
+});
+
+export const completeProfileSchema = Yup.object().shape({
+  address: Yup.string()
+    .min(5, "Address must be at least 5 character long")
+    .required("Address is required"),
+  state: Yup.string().required("State is required"),
+  lga: Yup.string().required("State is required"),
+  firstname: Yup.string()
+    .required("State is required")
+    .min(2, "Name must be at least 2 characters"),
+  lastname: Yup.string()
+    .required("State is required")
+    .min(2, "Name must be at least 2 characters"),
+  phone: Yup.string()
+    .min(10, "Phone number must be at least 11 characters")
+    .max(15, "Phone number should be less than 15 characters long.")
+    .matches(/^\d+$/, "Only numbers are allowed"),
+  gender: Yup.string().required("State is required"),
 });
