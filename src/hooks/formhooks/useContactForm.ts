@@ -2,7 +2,10 @@ import { contactMessageSchema } from "@/lib/schema";
 import { useFormik } from "formik";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { reset, sendMessage } from "../services/features/support/supportSlice";
+import {
+  reset,
+  sendMessage,
+} from "../../services/features/support/supportSlice";
 import { RootState, AppDispatch } from "@/store";
 
 const useContactForm = () => {
@@ -13,12 +16,11 @@ const useContactForm = () => {
   );
 
   useEffect(() => {
-    if(isError) alert(message)
+    if (isError) alert(message);
     if (isSuccess) alert("Submitted Successfully");
-    dispatch(reset())
+    dispatch(reset());
     return;
   }, [isSuccess, isError]);
-
 
   const formik = useFormik({
     initialValues: {
@@ -31,7 +33,7 @@ const useContactForm = () => {
     validationSchema: contactMessageSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(sendMessage(values));
-      resetForm()
+      resetForm();
     },
   });
   return { formik, isLoading };

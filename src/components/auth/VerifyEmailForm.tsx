@@ -1,5 +1,5 @@
 import messageImg from "@/assets/images/Message.png";
-import useVerifyEmail from "@/hooks/useVerifyEmail";
+import useVerifyEmail from "@/hooks/formhooks/useVerifyEmail";
 
 const VerifyEmailForm = () => {
   const {
@@ -18,7 +18,7 @@ const VerifyEmailForm = () => {
         <div className="w-12 h-1 bg-[#008080] rounded-lg"></div>
         <div className="w-12 h-1 bg-[#98A2B3] rounded-lg"></div>
       </nav>
-      
+
       <div className="border border-[#D0D5DD] rounded-xl p-6 lg:p-14 mt-6 drop-shadow-lg flex flex-col justify-center items-center lg:w-[792px]">
         <img
           src={messageImg}

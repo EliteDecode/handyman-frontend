@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, LockKeyhole, EyeOff, Eye } from "lucide-react";
-import useCustomerSignUpForm from "@/hooks/useCustomerSignUpForm";
+import useCustomerSignUpForm from "@/hooks/formhooks/useCustomerSignUpForm";
 
 const CustomerSignUpForm = () => {
   const {

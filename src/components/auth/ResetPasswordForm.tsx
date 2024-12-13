@@ -1,4 +1,4 @@
-import useResetPasswordForm from "@/hooks/useResetPasswordForm";
+import useResetPasswordForm from "@/hooks/formhooks/useResetPasswordForm";
 import { Eye, EyeOff } from "lucide-react";
 
 const ResetPasswordForm = () => {
@@ -37,9 +37,9 @@ const ResetPasswordForm = () => {
             type="button"
           >
             {togglePassword ? (
-              <Eye color="#98A2B3" size={20}/>
+              <Eye color="#98A2B3" size={20} />
             ) : (
-              <EyeOff color="#98A2B3" size={20}/>
+              <EyeOff color="#98A2B3" size={20} />
             )}
           </button>
         </div>
@@ -74,9 +74,9 @@ const ResetPasswordForm = () => {
             type="button"
           >
             {toggleCPassword ? (
-              <Eye color="#98A2B3" size={20}/>
+              <Eye color="#98A2B3" size={20} />
             ) : (
-              <EyeOff color="#98A2B3" size={20}/>
+              <EyeOff color="#98A2B3" size={20} />
             )}
           </button>
         </div>

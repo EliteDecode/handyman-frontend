@@ -1,4 +1,4 @@
-import useContactForm from "@/hooks/useContactForm";
+import useContactForm from "@/hooks/formhooks/useContactForm";
 
 const ContactForm = () => {
   const { formik, isLoading } = useContactForm();

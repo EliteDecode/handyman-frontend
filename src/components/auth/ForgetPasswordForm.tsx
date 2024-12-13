@@ -1,4 +1,4 @@
-import useForgetPasswordForm from "@/hooks/useForgetPasswordForm";
+import useForgetPasswordForm from "@/hooks/formhooks/useForgetPasswordForm";
 import { Mail } from "lucide-react";
 
 const ForgetPasswordForm = () => {
