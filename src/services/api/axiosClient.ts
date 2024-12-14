@@ -10,7 +10,7 @@ const axiosClient = axios.create({
 });
 
 axiosClient.interceptors.request.use((config) => {
-  const accessToken = localStorage.getItem("");
+  const accessToken = localStorage.getItem("HM_access_token");
   if (accessToken) {
     config.headers["Authorization"] = `Bearer ${accessToken}`;
   }
@@ -23,13 +23,13 @@ axiosClient.interceptors.response.use(
     const originalRequest = error.config;
     if (error?.response?.status === 401 && !originalRequest?._retry) {
       originalRequest._retry = true;
-      const refreshToken = localStorage.getItem("");
+      const refreshToken = localStorage.getItem("HM_refresh_token");
       try {
         const response = await axios.post("", {
           token: refreshToken,
         });
         const newAccessToken = response.data.data.accessToken;
-        localStorage.setItem("", newAccessToken);
+        localStorage.setItem("HM_access_token", newAccessToken);
         axios.defaults.headers.common["Authorization"] =
           `Bearer ${newAccessToken}`;
         return axiosClient(originalRequest);

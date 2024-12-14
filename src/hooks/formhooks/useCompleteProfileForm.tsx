@@ -7,13 +7,14 @@ import { useNavigate } from "react-router-dom";
 import { reset } from "@/services/features/auth/CustomerAuthSlice";
 import { completeProfileSchema } from "@/lib/schema";
 import statefile from "@/lib/states_lgas.json";
+import { updateProfile } from "@/services/features/user/userSlice";
 
 const useCompleteProfileForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
 
   const { isLoading, isError, message, isSuccess } = useSelector(
-    (state: RootState) => state.customerAuth
+    (state: RootState) => state.user
   );
 
   useEffect(() => {
@@ -39,8 +40,8 @@ const useCompleteProfileForm = () => {
     },
     validationSchema: completeProfileSchema,
     onSubmit: (values) => {
-      console.log("Values", values);
-      //   dispatch(customerSignUp(userData));
+      console.log(values);
+      dispatch(updateProfile(values));
     },
   });
 
@@ -49,7 +50,7 @@ const useCompleteProfileForm = () => {
     return state ? state.lgas : [];
   };
 
-  return { formik, isLoading, getLGAs, statefile};
+  return { formik, isLoading, getLGAs, statefile };
 };
 
 export default useCompleteProfileForm;

@@ -24,6 +24,7 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import AuthLayout from "./layouts/AuthLayout/AuthLayout";
+import DashboardLayout from "./layouts/AuthLayout/AuthLayout";
 
 // routes
 
@@ -89,10 +90,6 @@ export default function App() {
               element: <EmailSuccess />,
             },
             {
-              path: "complete-profile",
-              element: <CompleteProfile />,
-            },
-            {
               path: "login",
               element: <Login />,
             },
@@ -103,6 +100,17 @@ export default function App() {
             {
               path: "reset-password",
               element: <ResetPassword />,
+            },
+          ],
+        },
+
+        {
+          path: "dashboard",
+          element: token ? <DashboardLayout /> : <Navigate to="/auth/login" />,
+          children: [
+            {
+              path: "complete-profile",
+              element: <CompleteProfile />,
             },
           ],
         },

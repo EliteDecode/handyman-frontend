@@ -2,9 +2,9 @@ import { createAsyncThunkWithHandler } from "@/services/api/apiHandler";
 import { createSlice } from "@reduxjs/toolkit";
 import customerSignUpService from "./CustomerAuthService";
 
-const token = localStorage.getItem("HMan_access_token");
+const token = localStorage.getItem("HM_access_token");
 
-const initialState: InitialSupportStateProps = {
+const initialState: InitialAuthStateProps = {
   isLoading: false,
   message: "",
   isSuccess: false,

@@ -3,7 +3,40 @@ declare interface InitialSupportStateProps {
   message: string;
   isSuccess: boolean;
   isError: boolean;
+}
+
+declare interface InitialAuthStateProps {
+  isLoading: boolean;
+  message: string;
+  isSuccess: boolean;
+  isError: boolean;
   token: string | null;
+}
+
+declare interface InitialUserStateProps {
+  isLoading: boolean;
+  message: string;
+  isSuccess: boolean;
+  isError: boolean;
+  user: IUser[] | null;
+}
+
+declare interface IUser {
+  _id: string;
+  firstname: string | null;
+  lastname: string | null;
+  gender: string | null;
+  state: string | null;
+  lga: string | null;
+  email: string;
+  phone: string | null;
+  address: sring | null;
+  isEmailVerified: boolean;
+  isProfileUpdated: boolean;
+  isSuspended: boolean;
+  referralCode: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 declare interface IMessage {
@@ -46,4 +79,14 @@ declare interface ResetPasswordProp {
   password: string;
   confirmPassword: string;
   token: string | null;
+}
+
+declare interface CompleteProfileProp {
+  address: string;
+  state: string;
+  lga: string;
+  firstname: string;
+  lastname: string;
+  phone: string;
+  gender: string;
 }

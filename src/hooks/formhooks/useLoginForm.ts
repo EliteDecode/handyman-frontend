@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { login, reset } from "@/services/features/auth/CustomerAuthSlice";
 import { useNavigate } from "react-router-dom";
 import { loginSchema } from "@/lib/schema";
+import { fetchUserInfo } from "@/services/features/user/userSlice";
 
 const useLoginForm = () => {
   const [togglePassword, setTogglePassword] = useState(false);
@@ -21,6 +22,7 @@ const useLoginForm = () => {
     if (isSuccess) {
       toast.success(message);
       formik.resetForm();
+      dispatch(fetchUserInfo())
       navigate("/home");
     }
     dispatch(reset());

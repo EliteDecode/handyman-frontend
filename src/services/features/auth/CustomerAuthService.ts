@@ -25,9 +25,9 @@ const login = async (userData: LoginProp) => {
   const response = await axiosClient.post(`/auth/login`, userData);
 
   if (response.data.success === true) {
-    localStorage.setItem("HMan_access_token", response.data.data.accessToken);
+    localStorage.setItem("HM_access_token", response.data.data.accessToken);
 
-    localStorage.setItem("HMan_refresh_token", response.data.data.refreshToken);
+    localStorage.setItem("HM_refresh_token", response.data.data.refreshToken);
   }
 
   return response.data;

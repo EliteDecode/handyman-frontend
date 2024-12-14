@@ -99,7 +99,7 @@ const CompleteProfileForm = () => {
       <div className="mt-6 lg:flex items-center gap-6">
         <div className="w-full">
           <label
-            htmlFor="firstName"
+            htmlFor="firstname"
             className="font-medium text-sm tracking-wide lg:text-base"
           >
             First Name
@@ -108,8 +108,8 @@ const CompleteProfileForm = () => {
           <div className="h-10 lg:h-14 px-3 lg:px-4 border border-[#D0D5DD] rounded-md">
             <input
               type="text"
-              name="firstName"
-              id="firstName"
+              name="firstname"
+              id="firstname"
               placeholder="Enter your first name"
               className="w-full h-full outline-none text-xs lg:text-sm"
               onChange={formik.handleChange}
@@ -125,7 +125,7 @@ const CompleteProfileForm = () => {
         </div>
         <div className="mt-6 lg:mt-0 w-full">
           <label
-            htmlFor="lastName"
+            htmlFor="lastname"
             className="font-medium text-sm lg:text-base tracking-wide"
           >
             Last Name
@@ -134,8 +134,8 @@ const CompleteProfileForm = () => {
           <div className="h-10 lg:h-14 px-3 lg:px-4 border border-[#D0D5DD] rounded-md">
             <input
               type="text"
-              name="lastName"
-              id="lastName"
+              name="lastname"
+              id="lastname"
               placeholder="Enter your last name"
               className="w-full h-full outline-none text-xs lg:text-sm"
               onChange={formik.handleChange}
@@ -196,8 +196,8 @@ const CompleteProfileForm = () => {
               value={formik.values.gender}
             >
               <option value=""></option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
           </div>
           {formik.touched.gender && formik.errors.gender ? (
