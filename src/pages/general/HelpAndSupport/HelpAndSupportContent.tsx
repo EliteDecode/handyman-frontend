@@ -23,7 +23,7 @@ const HelpAndSupportContent = () => {
                 Booking a Service
               </h3>
             </div>
-            <div className="text-[16px] leading-[18px] font-lato text-[#3C3C3C]">
+            <div className="text-[16px] leading-[18px]  text-[#3C3C3C]">
               <p>To book a service:</p>
               <ul className="ml-6 list-disc marker:text-black">
                 <li>Navigate to the service listing page.</li>
@@ -64,7 +64,7 @@ const HelpAndSupportContent = () => {
                       Booking a Service
                     </h3>
                   </div>
-                  <div className="text-[16px] leading-[18px] font-lato text-[#3C3C3C]">
+                  <div className="text-[16px] leading-[18px]  text-[#3C3C3C]">
                     <p>To book a service:</p>
                     <ul className="ml-6 list-disc marker:text-black">
                       <li>Navigate to the service listing page.</li>

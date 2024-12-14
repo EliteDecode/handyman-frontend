@@ -9,7 +9,7 @@ const ContactSupport = () => {
         <h1 className="text-[16px] sm:text-[28px] lg:text-[32px] leading-[24px] sm:leading-[36px] lg:leading-[48px] font-bold font-merriweather text-[#191919]">
           Contact Support
         </h1>
-        <p className="text-[12px] sm:text-[18px] lg:text-[24px] leading-5 sm:leading-6 lg:leading-8 font-lato text-[#3C3C3C] mt-4">
+        <p className="text-[12px] sm:text-[18px] lg:text-[24px] leading-5 sm:leading-6 lg:leading-8  text-[#3C3C3C] mt-4">
           Need help? Our support team is here to assist you every step of the
           way.
         </p>
@@ -22,7 +22,7 @@ const ContactSupport = () => {
           <div className="h-[60px] w-[60px] flex items-center justify-center bg-[#0080800A] rounded-full">
             <img src={phone} alt="Phone Icon" />
           </div>
-          <div className="sm:max-w-[246px] max-w-[179px] w-full mt-4 font-lato">
+          <div className="sm:max-w-[246px] max-w-[179px] w-full mt-4 ">
             <p className="text-[16px] sm:text-[20px] lg:text-[24px] leading-[24px] sm:leading-[26px] lg:leading-[28.8px] font-semibold text-[#191919]">
               Phone Number
             </p>
@@ -37,7 +37,7 @@ const ContactSupport = () => {
           <div className="h-[60px] w-[60px] flex items-center justify-center bg-[#0080800A] rounded-full">
             <img src={message} alt="Message Icon" />
           </div>
-          <div className="max-w-[246px] w-full mt-4 font-lato">
+          <div className="max-w-[246px] w-full mt-4 ">
             <p className="text-[16px] sm:text-[20px] lg:text-[24px] leading-[24px] sm:leading-[26px] lg:leading-[28.8px] font-semibold text-[#191919]">
               Email Address
             </p>

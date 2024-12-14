@@ -1,8 +1,8 @@
-import AboutCards from "@/components/AboutCards";
-import FooterCTA from "@/components/FooterCTA";
-import PageHero from "@/components/PageHero";
-import AboutInfo from "@/components/AboutInfo";
-import AboutTeam from "@/components/AboutTeam";
+import AboutCards from "@/components/general/AboutCards";
+import FooterCTA from "@/components/general/FooterCTA";
+import PageHero from "@/components/general/PageHero";
+import AboutInfo from "@/components/general/AboutInfo";
+import AboutTeam from "@/components/general/AboutTeam";
 
 const title = "About Handyman";
 const subtext =

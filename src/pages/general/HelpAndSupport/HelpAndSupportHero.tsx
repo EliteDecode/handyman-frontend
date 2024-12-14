@@ -11,7 +11,7 @@ const HelpAndSupportHero = () => (
       <h1 className="sm:text-[56px] text-[16px] sm:leading-[70.39px] leading-6 font-merriweather font-bold">
         Help & Support Center
       </h1>
-      <p className="sm:text-[20px] text-[12px] sm:leading-[32px] leading-4 font-lato font-semi-bold sm:w-full w-[214px]">
+      <p className="sm:text-[20px] text-[12px] sm:leading-[32px] leading-4  font-semi-bold sm:w-full w-[214px]">
         Find answers to your questions, get assistance, or reach out to our team
         for support.
       </p>

@@ -1,5 +1,5 @@
-import PageHero from "@/components/PageHero"
-import TermsDetails from "@/components/TermsDetails";
+import PageHero from "@/components/general/PageHero";
+import TermsDetails from "@/components/general/TermsDetails";
 
 const title = "Terms of Service for Handyman";
 const subtext = "Effective: 1st November 2024";
@@ -7,11 +7,11 @@ const subtext = "Effective: 1st November 2024";
 const Terms = () => {
   return (
     <>
-        <PageHero title={title} subtext={subtext} />
+      <PageHero title={title} subtext={subtext} />
 
-        <TermsDetails />
+      <TermsDetails />
     </>
-  )
-}
+  );
+};
 
-export default Terms
+export default Terms;
