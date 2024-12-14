@@ -23,8 +23,13 @@ import {
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
-import AuthLayout from "./layouts/AuthLayout/AuthLayout";
-import DashboardLayout from "./layouts/AuthLayout/AuthLayout";
+import DashboardLayout from "./layouts/Dashboard.tsx";
+import AuthLayout from "./layouts/AuthLayout";
+import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
+import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
+import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
+import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
+import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
 
 // routes
 
@@ -111,6 +116,34 @@ export default function App() {
             {
               path: "complete-profile",
               element: <CompleteProfile />,
+            },
+          ],
+        },
+
+        {
+          path: "/role-selection",
+          element: <RoleSelection />,
+        },
+
+        {
+          path: "/auth",
+          element: <AuthLayout />,
+          children: [
+            {
+              path: "handyman-signup",
+              element: <HMSignUp />,
+            },
+            {
+              path: "complete-your-profile",
+              element: <CompleteYourProfile />,
+            },
+            {
+              path: "verification-and-Identification",
+              element: <VerificationAndIdentification />,
+            },
+            {
+              path: "portfolio",
+              element: <Portfolio />,
             },
           ],
         },

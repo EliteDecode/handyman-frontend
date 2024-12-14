@@ -64,7 +64,7 @@ const FAQAccordion: React.FC = () => {
         <h1 className="sm:text-[32px] sm:leading-[48px] text-[16px] leading-6 font-bold font-merriweather text-[#191919]">
           FREQUENTLY ASKED QUESTIONS
         </h1>
-        <p className="w-full max-w-[882px] text-center text-[#3C3C3C] sm:text-[20px] sm:leading-8 text-[12px] leading-5 letter-spacing">
+        <p className="w-full max-w-[882px] text-center text-[#3C3C3C] sm:text-[20px] sm:leading-8 text-[12px] leading-5 tracking-2-percent">
           Find answers to common questions about our services, booking process,
           pricing and more. If you can’t find what you are looking for feel free
           to contact us for further assistance.
@@ -87,12 +87,12 @@ const FAQAccordion: React.FC = () => {
               id={`panel${index}-header`}
               className="sm:h-[78px] h-10"
             >
-              <h1 className="text-[#191919] sm:text-[18px] text-[11.58px] sm:leading-[30px] leading-[15.43px] font-medium  letter-spacing">
+              <h1 className="text-[#191919] sm:text-[18px] text-[11.58px] sm:leading-[30px] leading-[15.43px] font-medium font-lato tracking-2-percent">
                 {faq.question}
               </h1>
             </AccordionSummary>
             <AccordionDetails className="min-h-[72px] h-full">
-              <p className="sm:text-[18px] sm:leading-6 text-[11.58px] leading-[15.43px] letter-spacing text-[#3C3C3C] ">
+              <p className="sm:text-[18px] sm:leading-6 text-[11.58px] leading-[15.43px] tracking-2-percent text-[#3C3C3C] font-lato">
                 {faq.answer}
               </p>
             </AccordionDetails>

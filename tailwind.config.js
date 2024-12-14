@@ -64,6 +64,17 @@ module.exports = {
 
     boxShadow: {
       custom: "0px 4px 12px 0px #10182814",
+      custom1: "0px 4px 16px 0px #0000001F",
+      custom2: " 0px 1px 2px 0px #1018280D",
+    },
+
+    letterSpacing: {
+      "2-percent": "0.02em", // 2% letter spacing
+    },
+
+    backgroundImage: {
+      "custom-gradient-progress-bar":
+        "linear-gradient(90deg, #008080 0%, #F9DB6D 100%)",
     },
   },
   plugins: [require("tailwindcss-animate")],

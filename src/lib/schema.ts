@@ -105,3 +105,103 @@ export const completeProfileSchema = Yup.object().shape({
     .required("Phone number is required"),
   gender: Yup.string().required("State is required"),
 });
+
+export const handyMansignUpSchema = Yup.object().shape({
+  firstName: Yup.string()
+    .required("First name is required")
+    .min(2, "Name must be at least 3 characters")
+    .max(25, "Name cannot exceed 25 characters"),
+  lastName: Yup.string()
+    .required("Last name is required")
+    .min(2, "Name must be at least 3 characters")
+    .max(25, "Name cannot exceed 25 characters"),
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  gender: Yup.string().required("Gender is required"),
+  phoneNumber: Yup.string()
+    .min(11, "Phone number must be at least 11 characters")
+    .max(15, "Phone number should be less than 15 characters long.")
+    .matches(/^\d+$/, "Only numbers are allowed")
+    .required("Phone number is required"),
+  state: Yup.string().required("State is required"),
+  lga: Yup.string().required("Local Government is required"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters")
+    .required("Password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Confirm password is required"),
+});
+
+export const handyManCYPSchema = Yup.object().shape({
+  profileImage: Yup.mixed()
+    .nullable()
+    .required("Profile image is required")
+    .test("fileType", "Only image files are allowed", (value) => {
+      return (
+        !value || // Allow null/undefined if the field is optional
+        (value instanceof File &&
+          ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
+      );
+    })
+    .test("fileSize", "File size must be less than 5MB", (value) => {
+      return !value || (value instanceof File && value.size <= 5 * 1024 * 1024);
+    }),
+  selectedCategories: Yup.array()
+    .min(1, "Please select at least one category")
+    .of(Yup.string().required("Category is required")),
+  aboutMe: Yup.string()
+    .required("About me is required")
+    .min(10, "About me must be at least 10 characters")
+    .max(500, "About me cannot exceed 500 characters"),
+  serviceDescription: Yup.string()
+    .required("Service description is required")
+    .min(20, "Service description must be at least 20 characters")
+    .max(1000, "Service description cannot exceed 1000 characters"),
+  bankName: Yup.string().required("Bank Name is required"),
+  accountNumber: Yup.string()
+    .required("Account Number is required")
+    .matches(/^\d{10}$/, "Account Number must be 10 digits"),
+
+  accountName: Yup.string().required("Account's Name is required"),
+  guarantorsName: Yup.string()
+    .required("Guarantor's Name is required")
+    .max(100, "Guarantor's Name cannot exceed 100 characters"),
+  guarantorsPhoneNumber: Yup.string()
+    .required("Guarantor's Phone Number is required")
+    .matches(/^\d{11}$/, "Phone Number must be 11 digits"),
+  guarantorsRelationship: Yup.string().required(
+    "Guarantor's Relationship is required"
+  ),
+  YOE: Yup.number()
+    .required("Year's of experience is required")
+    .min(1, "Year's of experience cannot be negative")
+    .max(99, "Year's of experience cannot be more than 99 year's"),
+  days: Yup.string().required("Working days are required"),
+  startTime: Yup.string()
+    .required("Start time is required")
+    .test("is-valid-time", "Invalid start time format", (value) =>
+      /^([01]\d|2[0-3]):([0-5]\d)$/.test(value)
+    ),
+
+  endTime: Yup.string()
+    .required("End time is required")
+    .test("is-valid-time", "Invalid end time format", (value) =>
+      /^([01]\d|2[0-3]):([0-5]\d)$/.test(value)
+    )
+    .test(
+      "is-after-startTime",
+      "End time must be later than start time",
+      function (value) {
+        const { startTime } = this.parent;
+        return startTime && value && value > startTime;
+      }
+    ),
+  ratePerHour: Yup.number()
+    .required("Rate per hour is required")
+    .min(0, "Rate cannot be negative"),
+  ratePerJob: Yup.number()
+    .required("Rate per job is required")
+    .min(0, "Rate cannot be negative"),
+});
