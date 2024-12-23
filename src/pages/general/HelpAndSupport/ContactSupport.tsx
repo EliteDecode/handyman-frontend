@@ -3,7 +3,7 @@ import message from "@/assets/icons/message.svg";
 
 const ContactSupport = () => {
   return (
-    <div className="flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 md:px-10 lg:px-[120px] w-full gap-8 h-full my-6 lg:my-20">
+    <div className="flex flex-col lg:flex-row items-center px-4 sm:px-6 md:px-10 lg:px-[120px] w-full gap-8 h-full my-6 lg:my-20 max-w-[1440px]">
       {/* Text Section */}
       <div className="max-w-[550px] w-full text-center lg:text-left flex flex-col">
         <h1 className="text-[16px] sm:text-[28px] lg:text-[32px] leading-[24px] sm:leading-[36px] lg:leading-[48px] font-bold font-merriweather text-[#191919]">

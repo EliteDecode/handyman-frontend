@@ -81,7 +81,9 @@ export const handyManCYPSchema = Yup.object().shape({
     .required("Account Number is required")
     .matches(/^\d{10}$/, "Account Number must be 10 digits"),
 
-  accountName: Yup.string().required("Account's Name is required"),
+  accountName: Yup.string().required(
+    "Enter your account details to confirm your name"
+  ),
   guarantorsName: Yup.string()
     .required("Guarantor's Name is required")
     .max(100, "Guarantor's Name cannot exceed 100 characters"),

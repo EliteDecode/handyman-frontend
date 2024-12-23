@@ -1,11 +1,12 @@
-import manImage from "@/assets/images/image 141.png";
+import manImage from "@/assets/images/handyManImage.png";
 import searchIcon from "@/assets/icons/search_icon.svg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="flex flex-col items-center gap-12 px-6 md:flex-row lg:px-[120px] md:px-10">
+    <div className="flex flex-col items-center sm:gap-12 gap-6 px-6 md:flex-row lg:px-[120px] md:px-10 w-full max-w-[1440px]">
       {/* Left Content */}
-      <div className="flex flex-col items-center w-full gap-6 text-center md:items-start md:w-auto md:text-start">
+      <div className="flex flex-col items-center w-full gap-6 text-center md:items-start md:text-start">
         <h1 className="text-[#191919] font-bold text-[24px] md:text-[48px] leading-[30.17px] md:leading-[60.34px] max-w-[315px] md:max-w-[690px] font-merriweather">
           Book <span className="text-[#008080]">Trusted Handymen</span> for Your
           Home or Business Needs
@@ -18,7 +19,7 @@ const HeroSection = () => {
         </p>
 
         <form
-          className="flex flex-row items-center w-full gap-4 md:mt-8"
+          className="flex-row items-center hidden w-full gap-4 md:flex md:mt-8"
           aria-labelledby="service-search"
         >
           <div className="relative w-full">
@@ -42,6 +43,20 @@ const HeroSection = () => {
             Search
           </button>
         </form>
+
+        <div className="flex items-center justify-center w-full gap-6 md:hidden">
+          <Link className="w-full" to={"/role-selection"}>
+            <button className="w-full  h-14 px-4 bg-[#008080] text-white md:text-[18px] text-[12px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
+              Login / SignUp
+            </button>
+          </Link>
+
+          <Link className="w-full" to={"/auth/handyman-signup"}>
+            <button className="w-full h-14 px-4 border-[1.5px] border-[#008080] rounded-lg text-[#008080] md:text-[18px] text-[12px] md:leading-[24px] font-semibold">
+              Become a Handyman
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Right Image */}

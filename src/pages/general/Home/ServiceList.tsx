@@ -38,9 +38,9 @@ const ServiceList = () => {
       <h1 className="text-center text-[14px] md:text-[32px] font-bold text-[#191919] font-merriweather">
         Our Popular Services
       </h1>
-      <div className="flex items-center justify-between gap-4 ">
+      <div className="flex items-center justify-center md:gap-[57.5px] gap-4">
         {serviceItems.map((item, index) => (
-          <div key={index} className="flex flex-col items-center">
+          <div key={index} className="flex flex-col items-center w-[194px]">
             <img
               src={item.image}
               alt={item.name}
