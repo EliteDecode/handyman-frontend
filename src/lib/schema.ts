@@ -23,6 +23,89 @@ export const contactMessageSchema = Yup.object().shape({
     .notRequired(),
 });
 
+export const customerSignUpSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Please confirm your password"),
+  terms: Yup.boolean()
+    .oneOf([true], "You must accept the terms and conditions")
+    .required("You must accept the terms and conditions"),
+});
+
+export const emailOTPSchema = Yup.object().shape({
+  code: Yup.array().of(
+    Yup.string().matches(/^\d$/, "Must be a digit").required("Required")
+  ),
+});
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+});
+
+export const forgetPasswordSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email format")
+    .required("Email is required"),
+});
+
+export const resetPasswordSchema = Yup.object().shape({
+  password: Yup.string()
+    .required("Password is required")
+    .min(8, "Password must be at least 8 characters long")
+    .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "Password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Passwords must match")
+    .required("Please confirm your password"),
+});
+
+export const completeProfileSchema = Yup.object().shape({
+  address: Yup.string()
+    .min(5, "Address must be at least 5 character long")
+    .required("Address is required"),
+  state: Yup.string().required("State is required"),
+  lga: Yup.string().required("LGA is required"),
+  firstname: Yup.string()
+    .required("First name is required")
+    .min(2, "Name must be at least 2 characters"),
+  lastname: Yup.string()
+    .required("Last name is required")
+    .min(2, "Name must be at least 2 characters"),
+  phone: Yup.string()
+    .min(10, "Phone number must be at least 11 characters")
+    .max(15, "Phone number should be less than 15 characters long.")
+    .matches(/^\d+$/, "Only numbers are allowed")
+    .required("Phone number is required"),
+  gender: Yup.string().required("State is required"),
+});
+
 export const handyMansignUpSchema = Yup.object().shape({
   firstName: Yup.string()
     .required("First name is required")

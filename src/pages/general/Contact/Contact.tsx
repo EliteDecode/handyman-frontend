@@ -1,7 +1,7 @@
-import ContactCard from "@/components/ContactCard";
-import ContactFAQs from "@/components/ContactFAQs";
-import ContactMessage from "@/components/ContactMessage";
-import PageHero from "@/components/PageHero";
+import ContactCard from "@/components/general/ContactCard";
+import ContactFAQs from "@/components/general/ContactFAQs";
+import ContactMessage from "@/components/general/ContactMessage";
+import PageHero from "@/components/general/PageHero";
 
 const title = "Contact";
 const subtext =
