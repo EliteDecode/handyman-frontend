@@ -6,19 +6,7 @@ type Bank = {
 };
 
 type Props = {
-  formik: {
-    values: {
-      bankName: string;
-    };
-    setFieldValue: (field: string, value: string) => void;
-    handleBlur: React.FocusEventHandler<HTMLSelectElement>;
-    touched: {
-      [key: string]: boolean;
-    };
-    errors: {
-      [key: string]: string;
-    };
-  };
+  formik: any;
   banksInNigeria: Bank[];
   dropDown: string; // Path to dropdown image
 };
@@ -49,8 +37,7 @@ const BankSelector: React.FC<Props> = ({
         }
         console.log(selectedBank);
       }}
-      onBlur={formik.handleBlur}
-    >
+      onBlur={formik.handleBlur}>
       <option value="" disabled>
         Select your bank
       </option>

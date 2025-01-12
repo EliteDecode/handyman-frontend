@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 
-import ProgressBar from "./ProgressBarProps";
-import profile from "@/assets/icons/profile.svg";
-import edit from "@/assets/icons/editIcon.svg";
-import dropDown from "@/assets/icons/dropDown.svg";
 import backIcon from "@/assets/icons/backIcon.svg";
-import { useFormik, FormikValues, FormikHelpers } from "formik";
+import dropDown from "@/assets/icons/dropDown.svg";
+import edit from "@/assets/icons/editIcon.svg";
+import profile from "@/assets/icons/profile.svg";
 import { handyManCYPSchema } from "@/lib/schema";
 import axios from "axios";
+import { useFormik } from "formik";
 import BankSelector from "./BankSelector";
+import ProgressBar from "./ProgressBarProps";
 
 interface FormValues {
   profileImage: File | null;
@@ -32,23 +32,23 @@ interface FormValues {
   ratePerJob: string;
 }
 
-type ResolveAccountDetailsProps = {
-  formik: FormikValues;
-  setAccountName: (name: string) => void;
-  setLoadingAccountName: (loading: boolean) => void;
-  setError: (error: string | null) => void;
-};
+// type ResolveAccountDetailsProps = {
+//   formik: FormikValues;
+//   setAccountName: (name: string) => void;
+//   setLoadingAccountName: (loading: boolean) => void;
+//   setError: (error: string | null) => void;
+// };
 
-type UseEffectProps = {
-  formik: {
-    values: {
-      accountNumber: string;
-      bankCode: string;
-    };
-  };
-  resolveAccountDetails: () => Promise<void>;
-  setAccountName: (name: string) => void;
-};
+// type UseEffectProps = {
+//   formik: {
+//     values: {
+//       accountNumber: string;
+//       bankCode: string;
+//     };
+//   };
+//   resolveAccountDetails: () => Promise<void>;
+//   setAccountName: (name: string) => void;
+// };
 
 const banksInNigeria = [
   { name: "Access Bank", code: "044" },
@@ -79,8 +79,8 @@ const banksInNigeria = [
 ];
 
 const CompleteYourProfile = () => {
-  const [profileImage, setProfileImage] = useState<string | null>(profile);
-  const [fileInput, setFileInput] = useState<File | null>(null);
+  // const [profileImage, setProfileImage] = useState<string | null>(profile);
+  // const [fileInput, setFileInput] = useState<File | null>(null);
 
   const [loadingAccountName, setLoadingAccountName] = useState(false);
 
@@ -284,8 +284,7 @@ const CompleteYourProfile = () => {
               name="aboutMe"
               id="aboutMe"
               value={formik.values.aboutMe}
-              onChange={formik.handleChange}
-            ></textarea>
+              onChange={formik.handleChange}></textarea>
 
             <div className="text-xs text-[#B3261E] min-h-4">
               {formik.touched.aboutMe && formik.errors.aboutMe}
@@ -303,8 +302,7 @@ const CompleteYourProfile = () => {
                 name="serviceDescription"
                 id="serviceDescription"
                 value={formik.values.serviceDescription}
-                onChange={formik.handleChange}
-              ></textarea>
+                onChange={formik.handleChange}></textarea>
               {
                 <div className="text-xs text-[#B3261E] min-h-4">
                   {formik.touched.serviceDescription &&
@@ -496,8 +494,7 @@ const CompleteYourProfile = () => {
                     id="guarantorsRelationship"
                     value={formik.values.guarantorsRelationship}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  >
+                    onBlur={formik.handleBlur}>
                     <option className="text-[#98A2B3]" value="" disabled>
                       Select guarantor’s relationship
                     </option>
@@ -565,8 +562,7 @@ const CompleteYourProfile = () => {
                     id="days"
                     value={formik.values.days}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  >
+                    onBlur={formik.handleBlur}>
                     <option className="text-[#98A2B3]" value="" disabled>
                       Select your Working day
                     </option>
@@ -696,8 +692,7 @@ const CompleteYourProfile = () => {
             <div className="flex items-center justify-center">
               <button
                 type="submit"
-                className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato"
-              >
+                className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato">
                 Save and Continue
               </button>
             </div>
@@ -705,8 +700,7 @@ const CompleteYourProfile = () => {
             <div className="flex items-center justify-between cursor-pointer">
               <div
                 className="flex items-center sm:gap-[10px] gap-2"
-                onClick={() => navigate(-1)}
-              >
+                onClick={() => navigate(-1)}>
                 <img src={backIcon} alt="back" />
                 <p className="text-[18px] leading-[30px] font-medium font-lato text-[#3C3C3C]">
                   Back

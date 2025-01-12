@@ -1,9 +1,8 @@
+import backIcon from "@/assets/icons/backIcon.svg";
+import fileUpload from "@/assets/icons/fileUpload.svg";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ProgressBarProps from "../completeYourProfile/ProgressBarProps";
-import fileUpload from "@/assets/icons/fileUpload.svg";
-import backIcon from "@/assets/icons/backIcon.svg";
-import { useFileUpload } from "@/hooks/useFileUpload";
-import { useEffect } from "react";
 
 const VerificationAndIdentification = () => {
   const navigate = useNavigate();
@@ -64,8 +63,7 @@ const VerificationAndIdentification = () => {
                 />
                 <label
                   htmlFor="file-input"
-                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer"
-                >
+                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer">
                   Select file
                 </label>
               </div>
@@ -111,8 +109,7 @@ const VerificationAndIdentification = () => {
                 />
                 <label
                   htmlFor="file-input"
-                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer"
-                >
+                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer">
                   Select file
                 </label>
               </div>
@@ -130,8 +127,7 @@ const VerificationAndIdentification = () => {
           <div className="flex items-center justify-center">
             <button
               type="submit"
-              className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato"
-            >
+              className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato">
               Save and Continue
             </button>
           </div>
@@ -139,8 +135,7 @@ const VerificationAndIdentification = () => {
           <div className="flex items-center justify-between cursor-pointer">
             <div
               className="flex items-center gap-[10px]"
-              onClick={() => navigate(-1)}
-            >
+              onClick={() => navigate(-1)}>
               <img src={backIcon} alt="back" />
               <p>Back</p>
             </div>

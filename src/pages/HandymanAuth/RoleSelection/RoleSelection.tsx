@@ -1,6 +1,6 @@
-import React, { useState, FormEvent } from "react";
-import userImage from "@/assets/images/Frame 1597882487.png";
 import handymanImage from "@/assets/images/Frame 1597882487 (1).png";
+import userImage from "@/assets/images/Frame 1597882487.png";
+import { FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type Role = "user" | "handyman";
@@ -47,15 +47,13 @@ const RoleSelection = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center justify-center sm:mt-20 mt-4 sm:gap-[54px] gap-[52px]"
-      >
+        className="flex flex-col items-center justify-center sm:mt-20 mt-4 sm:gap-[54px] gap-[52px]">
         <div className="flex flex-col items-center justify-center gap-6 sm:flex-row">
           {/* User Option */}
           <div
             onClick={() => handleSelect("user")}
             className={getCardClasses("user")}
-            aria-pressed={selectedRole === "user"}
-          >
+            aria-pressed={selectedRole === "user"}>
             <div className="px-12 py-6 shadow-custom1 rounded-3xl">
               <img src={userImage} alt="User" />
             </div>
@@ -68,8 +66,7 @@ const RoleSelection = () => {
           <div
             onClick={() => handleSelect("handyman")}
             className={getCardClasses("handyman")}
-            aria-pressed={selectedRole === "handyman"}
-          >
+            aria-pressed={selectedRole === "handyman"}>
             <div className="px-12 py-6 shadow-custom1 rounded-3xl">
               <img src={handymanImage} alt="Handyman" />
             </div>
@@ -82,8 +79,7 @@ const RoleSelection = () => {
         <button
           type="submit"
           className="max-w-[384px] w-full h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[18px] leading-6 font-lato"
-          disabled={!selectedRole}
-        >
+          disabled={!selectedRole}>
           Continue
         </button>
       </form>

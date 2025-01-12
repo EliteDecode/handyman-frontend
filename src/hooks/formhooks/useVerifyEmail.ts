@@ -19,7 +19,7 @@ const useVerifyEmail = () => {
 
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
   const resetTime = new Date().getTime() + 30000;
-  const [timeLeft, setEndTime] = useCountdown(resetTime);
+  const [timeLeft, _] = useCountdown(resetTime);
   const seconds = Math.floor(Number(timeLeft) / 1000) % 60;
 
   useEffect(() => {

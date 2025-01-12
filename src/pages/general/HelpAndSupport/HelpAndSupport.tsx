@@ -1,7 +1,7 @@
-import HelpAndSupportHero from "./HelpAndSupportHero";
-import HelpAndSupportContent from "./HelpAndSupportContent";
-import FAQAccordion from "./FAQAccordion";
 import ContactSupport from "./ContactSupport";
+import FAQAccordion from "./FAQAccordion";
+import HelpAndSupportContent from "./HelpAndSupportContent";
+import HelpAndSupportHero from "./HelpAndSupportHero";
 
 export default function HelpAndSupport() {
   return (

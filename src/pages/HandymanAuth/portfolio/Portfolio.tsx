@@ -13,7 +13,7 @@ const Portfolio = () => {
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
-  const handleSubmit = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     handleOpenModal();
   };
@@ -74,8 +74,7 @@ const Portfolio = () => {
                 />
                 <label
                   htmlFor="file-input"
-                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer"
-                >
+                  className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer">
                   Select file
                 </label>
               </div>
@@ -101,8 +100,7 @@ const Portfolio = () => {
 
             <textarea
               className="resize-none h-[159px] w-full border border-[#D0D5DD] rounded-[8px] mt-6 px-4 py-[19px] placeholder:text-[12px] placeholder:leading-5 sm:placeholder:text-[14px]"
-              placeholder="Give a brief description of your project."
-            ></textarea>
+              placeholder="Give a brief description of your project."></textarea>
 
             <div className="flex flex-col gap-3 mt-2 sm:mt-4">
               <p className="sm:text-[16px] text-[12px] leading-5 text-[#191919]">
@@ -129,8 +127,7 @@ const Portfolio = () => {
             <button
               type="submit"
               className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato"
-              onClick={handleSubmit}
-            >
+              onClick={handleSubmit}>
               Save and Continue
             </button>
           </div>
@@ -138,8 +135,7 @@ const Portfolio = () => {
           <div className="flex items-center justify-between cursor-pointer">
             <div
               className="flex items-center gap-[10px]"
-              onClick={() => navigate(-1)}
-            >
+              onClick={() => navigate(-1)}>
               <img src={backIcon} alt="back" />
               <p>Back</p>
             </div>
