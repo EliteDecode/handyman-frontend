@@ -1,7 +1,7 @@
 import helpAndSupport from "@/assets/images/helpAndSupport.png";
 
 const HelpAndSupportHero = () => (
-  <div className="flex flex-col items-center sm:h-[400px] h-[142px] relative">
+  <div className="flex flex-col items-center sm:h-[400px] h-[142px] relative w-full">
     <img
       src={helpAndSupport}
       alt="Help and Support"

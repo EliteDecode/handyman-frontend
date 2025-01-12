@@ -41,6 +41,8 @@ const BankSelector: React.FC<Props> = ({
         const selectedBank = banksInNigeria.find(
           (bank) => bank.name === e.target.value
         );
+        formik.setFieldValue("accountName", "");
+
         if (selectedBank) {
           formik.setFieldValue("bankName", selectedBank.name); // Corrected field name
           formik.setFieldValue("bankCode", selectedBank.code); // Add bankCode field

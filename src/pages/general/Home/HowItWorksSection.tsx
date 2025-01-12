@@ -26,15 +26,15 @@ const HowItWorksSection = () => {
     },
     {
       icon: checkWithstarCircleAndMultiColour,
-      header: "Get it done right.",
+      header: "Make Secured Payment",
       content:
-        "Our handymen arrives on time, ready to work. Enjoy fast, reliable service from skilled professionals in your area.",
+        "Rest assured, your payment is safely held in escrow and only released to the handyman once the job is completed to your satisfaction.",
     },
     {
       icon: teamWithMultiColor,
-      header: "Share your experience.",
+      header: "Get it done right",
       content:
-        "Help others by leaving a rating after your service is complete. Your feedback ensures we maintain top-quality handymen.",
+        "Our handymen arrives on time, ready to work. Enjoy fast, reliable service from skilled professionals in your area.",
     },
   ];
 
@@ -51,7 +51,10 @@ const HowItWorksSection = () => {
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 place-items-center ">
         {bookingSteps.map((step, index) => (
-          <div className="flex flex-col items-center sm:w-[252px] w-[282px] sm:gap-4 gap-2 h-full">
+          <div
+            key={index}
+            className="flex flex-col items-center sm:w-[252px] w-[282px] sm:gap-4 gap-2 h-full"
+          >
             <h1
               className="sm:text-[64px] text-[32px] sm:leading-[80.45px] leading-[48px] font-bold sm:h-[80px] h-12 font-merriweather"
               style={{
@@ -68,7 +71,7 @@ const HowItWorksSection = () => {
               <h2 className="sm:text-[24px] text-[16px] leading-6 sm:leading-[32px] font-medium text-center mt-[24px] text-[#191919]">
                 {step.header}
               </h2>
-              <p className="sm:text-[16px] text-[12px] sm:leading-[30px] leading-5 text-center mt-[16px] text-[#3C3C3C]">
+              <p className="sm:text-[16px] text-[12px] sm:leading-5 leading-5 text-center mt-[16px] text-[#3C3C3C]">
                 {step.content}
               </p>
             </div>

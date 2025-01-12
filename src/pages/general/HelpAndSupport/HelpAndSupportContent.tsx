@@ -7,13 +7,13 @@ import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
 const HelpAndSupportContent = () => {
   return (
-    <div className="sm:mt-[80px] mt-6 px-6 lg:px-[120px] md:px-10 w-full">
+    <div className="sm:mt-[80px] mt-6 px-6 lg:px-[120px] md:px-10 w-full max-w-[1440px]">
       {/* Grid for Desktop */}
       <div className="hidden grid-cols-1 gap-6 sm:grid md:grid-cols-2 lg:grid-cols-3">
         {[...Array(6)].map((_, index) => (
           <div
             key={index}
-            className="w-full h-[296px] shadow-custom sm:px-[38px] px-4 flex-col flex gap-2 py-6"
+            className="w-full md:max-w-[384px] h-[296px] shadow-custom sm:px-[38px] px-4 flex-col flex gap-2 py-6"
           >
             <div className="flex items-center gap-4">
               <div className="h-[60px] w-[60px] flex items-center justify-center bg-[#0080800A] rounded-full">
