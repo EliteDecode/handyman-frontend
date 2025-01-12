@@ -122,3 +122,11 @@
     bottom: 40px; /* Change 20px to any value that moves it up or down */
   }
 }
+input {
+  -moz-appearance: text!; /* Remove spinners in Firefox */
+  -webkit-appearance: none!; /* Remove spinners in Chrome, Safari, etc. */
+  appearance: none!; /* Remove spinners in modern browsers */
+}
+input[type="number"]:focus {
+  outline: none; /* Remove default outline on focus */
+}

@@ -1,5 +1,5 @@
-import PageHero from "@/components/PageHero"
-import PrivacyDetails from "@/components/PrivacyDetails";
+import PageHero from "@/components/general/PageHero";
+import PrivacyDetails from "@/components/general/PrivacyDetails";
 
 const title = "Privacy Policy for Handyman";
 const subtext = "Effective: 1st November 2024";
@@ -11,7 +11,7 @@ const Privacy = () => {
 
       <PrivacyDetails />
     </section>
-  )
-}
+  );
+};
 
-export default Privacy
+export default Privacy;

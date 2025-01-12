@@ -13,11 +13,20 @@ import {
   HelpAndSupport,
   Contact,
   Terms,
+  SignUp,
+  VerifyEmail,
+  EmailSuccess,
+  CompleteProfile,
+  Login,
+  ForgetPassword,
+  ResetPassword,
 } from "./routes";
-import Login from "./pages/HandymanAuth/login/Login";
+import { useSelector } from "react-redux";
+import { RootState } from "./store";
+import DashboardLayout from "./layouts/Dashboard.tsx";
 import AuthLayout from "./layouts/AuthLayout";
-import RoleSelection from "./pages/HandymanAuth/roleSelection/RoleSelection";
-import SignUp from "./pages/HandymanAuth/signUp/SignUp";
+import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
+import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
@@ -25,6 +34,7 @@ import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
 // routes
 
 export default function App() {
+  const { token } = useSelector((state: RootState) => state.customerAuth);
   return (
     <RouterProvider
       router={createBrowserRouter([
@@ -67,6 +77,48 @@ export default function App() {
             },
           ],
         },
+        // Auth routes
+        {
+          path: "auth",
+          element: token ? <Navigate to="/home" /> : <AuthLayout />,
+          children: [
+            {
+              path: "sign-up",
+              element: <SignUp />,
+            },
+            {
+              path: "verify-email",
+              element: <VerifyEmail />,
+            },
+            {
+              path: "email-success",
+              element: <EmailSuccess />,
+            },
+            {
+              path: "login",
+              element: <Login />,
+            },
+            {
+              path: "forget-password",
+              element: <ForgetPassword />,
+            },
+            {
+              path: "reset-password",
+              element: <ResetPassword />,
+            },
+          ],
+        },
+
+        {
+          path: "dashboard",
+          element: token ? <DashboardLayout /> : <Navigate to="/auth/login" />,
+          children: [
+            {
+              path: "complete-profile",
+              element: <CompleteProfile />,
+            },
+          ],
+        },
 
         {
           path: "/role-selection",
@@ -79,7 +131,7 @@ export default function App() {
           children: [
             {
               path: "handyman-signup",
-              element: <SignUp />,
+              element: <HMSignUp />,
             },
             {
               path: "complete-your-profile",
