@@ -1,6 +1,6 @@
 import { createAsyncThunkWithHandler } from "@/services/api/apiHandler";
 import { createSlice } from "@reduxjs/toolkit";
-import customerSignUpService from "./CustomerAuthService";
+import CustomerAuthService from "./CustomerAuthService";
 
 const token = localStorage.getItem("HM_access_token");
 
@@ -15,35 +15,49 @@ const initialState: InitialAuthStateProps = {
 export const customerSignUp = createAsyncThunkWithHandler(
   "auth/signUp",
   async (data: CustomerSignUp, _) => {
-    return await customerSignUpService.sign_up(data);
+    return await CustomerAuthService.sign_up(data);
   }
 );
 
 export const verifyEmail = createAsyncThunkWithHandler(
   "auth/verifyEmail",
   async (data: VerifyEmailProp, _) => {
-    return await customerSignUpService.verify_email(data);
+    return await CustomerAuthService.verify_email(data);
   }
 );
 
 export const login = createAsyncThunkWithHandler(
   "auth/login",
   async (data: LoginProp, _) => {
-    return await customerSignUpService.login(data);
+    return await CustomerAuthService.login(data);
   }
 );
 
 export const forgetPassword = createAsyncThunkWithHandler(
   "auth/forgetPassword",
   async (data: ForgetPasswordProp, _) => {
-    return await customerSignUpService.forget_password(data);
+    return await CustomerAuthService.forget_password(data);
   }
 );
 
 export const resetPassword = createAsyncThunkWithHandler(
   "auth/ResetPassword",
   async (data: ResetPasswordProp, _) => {
-    return await customerSignUpService.reset_password(data);
+    return await CustomerAuthService.reset_password(data);
+  }
+);
+
+export const LoginWithGoogle = createAsyncThunkWithHandler(
+  "auth/login-google",
+  async (code: { code: string }, _) => {
+    return await CustomerAuthService.login_user_google(code);
+  }
+);
+
+export const LoginWithFacebook = createAsyncThunkWithHandler(
+  "auth/login-facebook",
+  async (code: { code: string }) => {
+    return await CustomerAuthService.login_user_facebook(code);
   }
 );
 
@@ -144,6 +158,40 @@ const customerAuthSlice = createSlice({
         state.message = action.payload as string;
         state.isSuccess = false;
       })
+
+      //LoginWithGoogle case
+      .addCase(LoginWithGoogle.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(LoginWithGoogle.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(LoginWithGoogle.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+        state.isSuccess = false;
+      })
+
+      //LoginWithFacebook case
+      .addCase(LoginWithFacebook.pending, (state, _) => {
+        state.isLoading = true;
+      })
+      .addCase(LoginWithFacebook.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(LoginWithFacebook.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+        state.isSuccess = false;
+      });
   },
 });
 
