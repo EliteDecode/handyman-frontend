@@ -3,6 +3,11 @@ import vision from "@/assets/icons/vision.svg";
 import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/images/plug.png";
+import valueIcon1 from "@/assets/icons/valueIcon1.png";
+import valueIcon2 from "@/assets/icons/valueIcon2.png";
+import valueIcon3 from "@/assets/icons/valueIcon3.png";
+import valueIcon4 from "@/assets/icons/valueIcon4.png";
+import valueIcon5 from "@/assets/icons/valueIcon5.png";
 import tapImg from "@/assets/images/tap.png";
 import { Clock3, MapPin, Phone, Mail } from "lucide-react";
 
@@ -337,5 +342,33 @@ export const contactFAQS = [
     question: "How can i contact customer’s support?",
     answer:
       "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+  },
+];
+
+export const coreValues = [
+  {
+    img: valueIcon1,
+    title: "Customer First",
+    desc: "Our customers are at the heart of everything we do. We prioritize your needs and work tirelessly to provide a seamless, satisfying experience.",
+  },
+  {
+    img: valueIcon2,
+    title: "Excellence in Service",
+    desc: "We strive to deliver the highest quality in every interaction, ensuring every job is completed to perfection.",
+  },
+  {
+    img: valueIcon3,
+    title: "Trust and Transparency",
+    desc: "We build relationships based on honesty, openness, and security.",
+  },
+  {
+    img: valueIcon4,
+    title: "Empowering Communities",
+    desc: "We believe in uplifting local communities by connecting skilled professionals with opportunities.",
+  },
+  {
+    img: valueIcon5,
+    title: "Sustainability and Responsibility",
+    desc: "We are committed to eco-friendly practices and responsible business operations.",
   },
 ];

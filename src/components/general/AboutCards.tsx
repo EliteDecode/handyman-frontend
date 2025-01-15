@@ -3,10 +3,10 @@ import { cardDetails } from "@/lib/demoData";
 const AboutCards = () => {
   return (
     <div className="w-full flex justify-center items-center">
-      <div className="flex flex-wrap lg:max-w-[1280px] xl:justify-between justify-center items-center gap- overflow-hidden">
+      <div className="flex flex-wrap lg:max-w-[1280px] xl:justify-between justify-center items-center overflow-hidden">
         {cardDetails.map((cardDetail, i) => (
           <div className="px-6 my-3" key={i}>
-            <div className="w-[340px] md:w-[355px] lg:w-[370px] h-[275px] md:h-[353px] lg:h-[430px] shadow-md rounded-xl flex flex-col">
+            <div className="w-[340px] md:w-[355px] lg:w-[370px] h-[275px] md:h-[353px] lg:h-[430px] shadow-custom rounded-xl flex flex-col">
               <div className="bg-[#008080] w-full h-28 md:h-[129px] lg:h-[146px] rounded-t-xl  relative flex justify-center items-center">
                 <h2 className="font-merriweather font-bold text-center text-white leading-6 md:text-[28px] lg:text-[40px]">
                   {cardDetail.title}
