@@ -245,7 +245,7 @@ export const servicesInfos = [
   },
   {
     id: 2,
-    image: serviceImg3,
+    image: serviceImg2,
     title: "Fast & Easy Booking",
     subtext:
       "We’ve made finding the right professional as easy as 1-2-3. With just a few clicks, you can search for the service you need, view profiles, and schedule an appointment at a time that works for you.",
