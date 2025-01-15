@@ -30,7 +30,7 @@ const ServicesInfo = () => {
                   className="w-[380px] md:w-[486px] lg:w-[486px] rounded-3xl"
                 />
               </div>
-              <div className="mt-4 w-[380px] md:w-[486px] lg:w-[690px]">
+              <div className="mt-4 max-w-[380px] md:max-w-[486px] lg:max-w-[690px]">
                 <h2 className="font-merriweather font-bold text-sm md:text-lg lg:text-2xl leading-6 lg:leading-8">
                   {servicesInfo.title}
                 </h2>
