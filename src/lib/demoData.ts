@@ -315,33 +315,88 @@ export const contactFAQS = [
   },
   {
     id: 3,
-    question: "How do you ensure quality and safety?",
+    question: "How do I book a handyman?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "To book a handyman, simply sign up or log in to the platform, search for the service you need, and browse through available service providers. Once you find a handyman, select a time and date, confirm your details, and proceed to payment. After payment, you'll receive a booking confirmation.",
   },
   {
     id: 4,
-    question: "How do i book Handyman?",
+    question: "How do I get a price estimate?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "To get a price estimate, select the service you need, view the handyman's profile, and check their pricing details. You can also contact the handyman directly through in-app chat for a more personalized quote based on your specific requirements.",
   },
   {
     id: 5,
-    question: "How do i get the price estimate?",
+    question: "Do you offer same day service?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "Yes, we offer same-day service depending on the handyman's availability. You can check the provider’s real-time availability and book the service for the same day if they are available.",
   },
   {
     id: 6,
-    question: "Do you offer same day service?",
+    question: "How can I contact customer support?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "You can contact customer support through the in-app help section, where you’ll find FAQs, chat support, and a ticket system for any issues or inquiries.",
   },
   {
     id: 7,
-    question: "How can i contact customer’s support?",
+    question: 'What is "Chat with Handyman"?',
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "Chat with Handyman is a feature that lets you consult with a handyman online. You can describe your problem, share photos or videos, and receive advice or troubleshooting tips. This is ideal for minor issues or if you want to know whether an in-person service is necessary.",
+  },
+  {
+    id: 8,
+    question: 'What is "Book a Handyman"?',
+    answer:
+      '"Book a Handyman" allows you to schedule an in-person appointment with a professional handyman. You can select the service you need, choose a preferred date and time, confirm your address, and book directly through the platform.',
+  },
+  {
+    id: 9,
+    question:
+      'What’s the difference between "Chat with Handyman" and "Book a Handyman"?',
+    answer:
+      "Chat with Handyman is best for quick consultations, troubleshooting, or advice. It’s done entirely online via in-app messaging while Book a Handyman is ideal for hands-on services that require the handyman to visit your location and complete the task.",
+  },
+  {
+    id: 10,
+    question: "What is the escrow service?",
+    answer:
+      "Our escrow service securely holds your payment until the handyman has completed the job to your satisfaction. Once the service is marked as complete, the funds are released to the handyman.",
+  },
+  {
+    id: 11,
+    question: "How does the escrow service work?",
+    answer:
+      "When you book a service, your payment is deposited into an escrow account. The funds are held securely until both you and the handyman confirm the job is complete. Only then is the payment released.",
+  },
+  {
+    id: 12,
+    question: "Why do I need an escrow service?",
+    answer:
+      "The escrow service ensures a fair and transparent transaction for both customers and handymen. It protects your money until you’re satisfied with the service provided.",
+  },
+  {
+    id: 13,
+    question: "When is the payment released to the handyman?",
+    answer:
+      "The payment is released after you confirm that the service has been completed to your satisfaction through the app.",
+  },
+  {
+    id: 14,
+    question: "What happens if there is a dispute?",
+    answer:
+      "In the event of a dispute, the funds remain in escrow while our support team mediates to resolve the issue fairly for both parties.",
+  },
+  {
+    id: 15,
+    question: "Is there an additional fee for the escrow service?",
+    answer:
+      "No, the escrow service is included as part of our commitment to ensuring secure and trustworthy transactions.",
+  },
+  {
+    id: 16,
+    question: "Can I cancel a booking while my funds are in escrow?",
+    answer:
+      "Yes, you can cancel a booking. Depending on the timing and reason for cancellation, our refund policy will determine the outcome. Funds in escrow are returned to you if the service has not started.",
   },
 ];
 

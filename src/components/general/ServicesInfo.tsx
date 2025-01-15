@@ -16,11 +16,12 @@ const ServicesInfo = () => {
       </div>
 
       <div className="">
-        {servicesInfos.map((servicesInfo) => {
+        {servicesInfos.map((servicesInfo, i) => {
           const id = servicesInfo.id % 2;
 
           return (
             <div
+              key={i}
               className={`${id ? "lg:flex-row" : "lg:flex-row-reverse"} mt-6 lg:mt-10 w-full flex flex-col justify-center items-center lg:gap-6`}
             >
               <div className="w-full lg:w-[486px] flex justify-center items-center">
