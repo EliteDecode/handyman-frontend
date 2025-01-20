@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-interface AccountDetails {
-  accountName: string;
-  accountNumber: string;
-}
+// interface AccountDetails {
+//   accountName: string;
+//   accountNumber: string;
+// }
 
 const useAccountDetailsEffect = (accountNumber: string, bankCode: string) => {
   const [accountName, setAccountName] = useState<string>("");
@@ -31,7 +31,7 @@ const useAccountDetailsEffect = (accountNumber: string, bankCode: string) => {
 
           // Set the account name on successful fetch
           setAccountName(response.data.data.account_name);
-        } catch (err) {
+        } catch (err: any) {
           console.error("Error fetching account details:", err);
 
           // Handle error based on error response

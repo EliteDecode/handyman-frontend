@@ -96,7 +96,7 @@ const SignUp = () => {
     setSelectedState(state);
 
     // Set LGAs based on selected state
-    const lgas = statesAndLGAs[state] || [];
+    const lgas = statesAndLGAs[state as keyof typeof statesAndLGAs] || [];
     setLGAs(lgas);
 
     // If there are LGAs for the selected state, set the first one as the default value for LGA
@@ -141,8 +141,7 @@ const SignUp = () => {
 
         <form
           className="flex flex-col gap-4 mt-6"
-          onSubmit={formik.handleSubmit}
-        >
+          onSubmit={formik.handleSubmit}>
           <div className="flex flex-col w-full gap-4 sm:gap-6 sm:flex-row">
             <div className="flex flex-col w-full gap-1 font-lato">
               <label className="sm:text-[16px] text-[14px] sm:leading-6 leading-[16.8px] font-medium text-[#101928]">
@@ -226,8 +225,7 @@ const SignUp = () => {
                   className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.gender && formik.errors.gender ? "border-red-500" : ""} `}
                   value={formik.values.gender}
                   onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                >
+                  onBlur={formik.handleBlur}>
                   <option className="text-[#98A2B3]" value="" disabled selected>
                     Select your option
                   </option>
@@ -278,8 +276,7 @@ const SignUp = () => {
                   id="state"
                   className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.state && formik.errors.state ? "border-red-500" : ""} `}
                   onChange={handleStateChange}
-                  value={formik.values.state}
-                >
+                  value={formik.values.state}>
                   <option className="text-[#98A2B3]" value="" disabled selected>
                     Select your option
                   </option>
@@ -313,8 +310,7 @@ const SignUp = () => {
                   disabled={!selectedState}
                   className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.lga && formik.errors.lga ? "border-red-500" : ""} `}
                   value={formik.values.lga}
-                  onChange={formik.handleChange}
-                >
+                  onChange={formik.handleChange}>
                   <option className="text-[#98A2B3]" value="" disabled selected>
                     {selectedState ? "Select your LGA" : "Select a state first"}
                   </option>
@@ -352,8 +348,7 @@ const SignUp = () => {
                 />
                 <div
                   className="absolute inset-y-0 flex items-center cursor-pointer right-3"
-                  onClick={handleShowPassword}
-                >
+                  onClick={handleShowPassword}>
                   <img src={hidePassword} />
                 </div>
                 <div className="absolute inset-y-0 flex items-center pointer-events-none left-3">
@@ -384,8 +379,7 @@ const SignUp = () => {
                 />
                 <div
                   className="absolute inset-y-0 flex items-center cursor-pointer right-3"
-                  onClick={handleShowConfirmPassword}
-                >
+                  onClick={handleShowConfirmPassword}>
                   <img src={hidePassword} />
                 </div>
                 <div className="absolute inset-y-0 flex items-center pointer-events-none left-3">
@@ -422,8 +416,7 @@ const SignUp = () => {
             <button
               type="submit"
               className="max-w-[384px] w-full h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[18px] leading-6 font-lato"
-              disabled={!isChecked}
-            >
+              disabled={!isChecked}>
               Sign Up
             </button>
           </div>

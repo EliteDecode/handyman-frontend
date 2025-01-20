@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
+import hambugger from "@/assets/icons/hambugger.svg";
+import cancelWithCircle from "@/assets/icons/cancelWithCircle.svg";
 
 const Header = () => {
   const location = useLocation().pathname;
   const [menuOpen, setMenuOpen] = useState(false);
+  const dropDownRef = useRef<HTMLDivElement | null>(null);
 
   interface UrlItem {
     name: string;
@@ -17,37 +20,47 @@ const Header = () => {
     { name: "Services", path: "/services" },
   ];
 
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        dropDownRef.current &&
+        !dropDownRef.current.contains(e.target as Node)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+
   return (
-    <div className="px-6 lg:px-[120px] md:px-10 md:h-[104px] h-14 flex items-center flex-row justify-between gap-3 w-full">
+    <div
+      ref={dropDownRef}
+      className="px-6 lg:px-[120px] md:px-10 md:h-[104px]  h-14 flex items-center flex-row justify-between gap-3 w-full">
       <h1 className="md:text-[36px] text-[16px] md:leading-[45px] leading-6 font-semibold font-quicksand">
         LOGO
       </h1>
 
       {/* Hamburger Icon for Mobile */}
-      <div className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
-        <div className="relative flex flex-col items-center justify-between w-6 h-6 cursor-pointer">
-          {/* Line 1 */}
-          <div
-            className={`w-full h-1 bg-black rounded transition-all duration-300 ${
-              menuOpen ? "rotate-45 translate-y-[5px]" : "rotate-0"
-            }`}
-          ></div>
+      <div></div>
 
-          {/* Line 2 */}
-          <div
-            className={`w-full h-1 bg-black rounded transition-all duration-300 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          ></div>
+      <img
+        src={hambugger}
+        alt="hambugger"
+        className={`md:hidden  ${menuOpen ? "hidden" : "block"}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      />
 
-          {/* Line 3 */}
-          <div
-            className={`w-full h-1 bg-black rounded transition-all duration-300 ${
-              menuOpen ? "-rotate-45 -translate-y-[15px]" : "rotate-0"
-            }`}
-          ></div>
-        </div>
-      </div>
+      <img
+        src={cancelWithCircle}
+        alt="hambugger"
+        className={`md:hidden  ${menuOpen ? "block" : "hidden"}`}
+        onClick={() => setMenuOpen(!menuOpen)}
+      />
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex items-center gap-4 text-[20px] leading-[32px] font-medium text-[#3C3C3C] ">
@@ -55,8 +68,7 @@ const Header = () => {
           <Link
             to={item.path}
             key={index}
-            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}
-          >
+            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}>
             {item.name}
           </Link>
         ))}
@@ -64,30 +76,29 @@ const Header = () => {
 
       {/* Mobile Navigation (Toggled by Hamburger) */}
       <div
-        className={`absolute z-10 top-14 left-0 right-0 bg-white w-full text-center shadow-md border py-10 md:hidden transition-all duration-500 ease-in-out transform px-6 ${
+        className={`absolute z-10 top-14 left-0 right-0 border-b border shadow-custom1 bg-white h-screen w-full shadow-md  md:hidden transition-all duration-500 ease-in-out transform px-6 ${
           menuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-[-20px] opacity-0"
-        }`}
-      >
-        <ul>
+        }`}>
+        <ul className="flex flex-col">
           {url.map((item, index) => (
             <Link
               to={item.path}
               key={index}
-              className={`cursor-pointer py-4 text-[20px] font-medium hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${
+              className={`cursor-pointer py-4 text-[14px] leading-5 text-[#3C3C3C] hover:text-[#008080] h-12  ${
                 location.toLocaleLowerCase().slice(1) ===
                 item.name.toLocaleLowerCase()
-                  ? "underline underline-offset-8 decoration-1 text-[#008080]"
+                  ? "text-[#008080]"
                   : "text-[#3C3C3C]"
-              }`}
-            >
+              } border-t border-[#98A2B3] px-6 ${index + 1 === url.length ? "border-b" : ""}`}
+              onClick={() => setMenuOpen(false)}>
               {item.name}
             </Link>
           ))}
         </ul>
 
-        <div className="flex items-center justify-center gap-6 mt-6">
+        <div className="flex flex-col items-center justify-center gap-4 mt-[284px]">
           <Link to={"/role-selection"} className="w-full">
             <button className="w-full h-14 px-4 bg-[#008080] text-white text-[15px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors">
               Login / SignUp
