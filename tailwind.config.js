@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+import animate from "tailwindcss-animate";
+
+export default {
   darkMode: ["class"],
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
@@ -77,5 +79,5 @@ module.exports = {
         "linear-gradient(90deg, #008080 0%, #F9DB6D 100%)",
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 };

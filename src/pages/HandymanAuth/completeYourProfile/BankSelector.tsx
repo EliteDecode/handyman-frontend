@@ -6,19 +6,7 @@ type Bank = {
 };
 
 type Props = {
-  formik: {
-    values: {
-      bankName: string;
-    };
-    setFieldValue: (field: string, value: string) => void;
-    handleBlur: React.FocusEventHandler<HTMLSelectElement>;
-    touched: {
-      [key: string]: boolean;
-    };
-    errors: {
-      [key: string]: string;
-    };
-  };
+  formik: any;
   banksInNigeria: Bank[];
   dropDown: string; // Path to dropdown image
 };
@@ -41,14 +29,15 @@ const BankSelector: React.FC<Props> = ({
         const selectedBank = banksInNigeria.find(
           (bank) => bank.name === e.target.value
         );
+        formik.setFieldValue("accountName", "");
+
         if (selectedBank) {
           formik.setFieldValue("bankName", selectedBank.name); // Corrected field name
           formik.setFieldValue("bankCode", selectedBank.code); // Add bankCode field
         }
         console.log(selectedBank);
       }}
-      onBlur={formik.handleBlur}
-    >
+      onBlur={formik.handleBlur}>
       <option value="" disabled>
         Select your bank
       </option>

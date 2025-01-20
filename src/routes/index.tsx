@@ -1,6 +1,6 @@
 import { lazy } from "react";
 
-// General routes - Contains routes for main public pages like Home, About and Contact
+// General routes -Contains routes for main public pages like Home, About and Contact
 export const Home = lazy(() => import("@/pages/General/Home/Home"));
 export const About = lazy(() => import("@/pages/General/About/About"));
 export const Contact = lazy(() => import("@/pages/General/Contact/Contact"));
