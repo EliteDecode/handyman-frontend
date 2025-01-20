@@ -34,7 +34,7 @@ const ServiceList = () => {
   ];
 
   return (
-    <div className="bg-[#0080800A] w-full py-[32px] px-6 lg:px-[120px] md:px-10 flex flex-col gap-6">
+    <div className="bg-[#0080800A] w-full sm:py-[32px] py-4 px-6 lg:px-[120px] md:px-10 flex flex-col gap-6">
       <h1 className="text-center text-[14px] md:text-[32px] font-bold text-[#191919] font-merriweather">
         Our Popular Services
       </h1>
