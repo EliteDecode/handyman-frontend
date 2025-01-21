@@ -29,3 +29,11 @@ export const ForgetPassword = lazy(
 export const ResetPassword = lazy(
   () => import("@/pages/CustomerAuth/ResetPassword/ResetPassword")
 );
+
+//Callbacks
+export const GoogleCallback = lazy(
+  () => import("../pages/CustomerAuth/callbacks/GoogleCallback")
+);
+export const FacebookCallback = lazy(
+  () => import("../pages/CustomerAuth/callbacks/FacebookCallback")
+);

@@ -5,8 +5,8 @@ import rocket from "@/assets/icons/rocket.svg";
 import vision from "@/assets/icons/vision.svg";
 import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
-import plugImg from "@/assets/images/plug.png";
-import tapImg from "@/assets/images/tap.png";
+import plugImg from "@/assets/images/Roller.png";
+import tapImg from "@/assets/images/Plumbing.png";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

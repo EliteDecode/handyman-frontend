@@ -16,21 +16,22 @@ const ServicesInfo = () => {
       </div>
 
       <div className="">
-        {servicesInfos.map((servicesInfo) => {
+        {servicesInfos.map((servicesInfo, i) => {
           const id = servicesInfo.id % 2;
 
           return (
             <div
-              className={`${id ? "lg:flex-row" : "lg:flex-row-reverse"} mt-6 lg:mt-10 w-full flex flex-col justify-center items-center lg:gap-6`}
+              key={i}
+              className={`${id ? "lg:flex-row" : "lg:flex-row-reverse"} mt-6 md:mt-8 lg:mt-10 w-full flex flex-col justify-center items-center lg:gap-6`}
             >
               <div className="w-full lg:w-[486px] flex justify-center items-center">
                 <img
                   src={servicesInfo.image}
                   alt=""
-                  className="w-[380px] md:w-[486px] lg:w-[486px] rounded-3xl"
+                  className="w-[380px] h-[335px] md:h-[367px] lg:h-[400px] object-cover md:w-[486px] lg:w-[486px] rounded-3xl"
                 />
               </div>
-              <div className="mt-4 w-[380px] md:w-[486px] lg:w-[690px]">
+              <div className="mt-4 max-w-[380px] md:max-w-[486px] lg:max-w-[690px]">
                 <h2 className="font-merriweather font-bold text-sm md:text-lg lg:text-2xl leading-6 lg:leading-8">
                   {servicesInfo.title}
                 </h2>

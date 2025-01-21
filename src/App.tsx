@@ -20,6 +20,8 @@ import {
   Login,
   ForgetPassword,
   ResetPassword,
+  FacebookCallback,
+  GoogleCallback,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -105,6 +107,14 @@ export default function App() {
             {
               path: "reset-password",
               element: <ResetPassword />,
+            },
+            {
+              path: "google/callback",
+              element: <GoogleCallback />,
+            },
+            {
+              path: "facebook/callback",
+              element: <FacebookCallback />,
             },
           ],
         },
