@@ -48,12 +48,40 @@ const reset_password = async (userData: ResetPasswordProp) => {
   return response.data;
 };
 
+//SignIn Options With google, facebook and github
+
+const login_user_google = async (code: { code: string }) => {
+  const response = await axiosClient.get(
+    `/auth/google/callback?code=${code.code}`
+  );
+
+  if (response.data.success === true) {
+    localStorage.setItem("HM_access_token", response.data.data.accessToken);
+    localStorage.setItem("HM_refresh_token", response.data.data.refreshToken);
+  }
+  return response.data;
+};
+
+const login_user_facebook = async (code: { code: string }) => {
+  const response = await axiosClient.get(
+    `/auth/facebook/callback?code=${code.code}`
+  );
+
+  if (response.data.success === true) {
+    localStorage.setItem("HM_access_token", response.data.data.accessToken);
+    localStorage.setItem("HM_refresh_token", response.data.data.refreshToken);
+  }
+  return response.data;
+};
+
 const customerSignUpService = {
   sign_up,
   verify_email,
   login,
   forget_password,
   reset_password,
+  login_user_google,
+  login_user_facebook,
 };
 
 export default customerSignUpService;

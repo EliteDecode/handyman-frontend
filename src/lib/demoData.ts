@@ -2,8 +2,18 @@ import rocket from "@/assets/icons/rocket.svg";
 import vision from "@/assets/icons/vision.svg";
 import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
-import plugImg from "@/assets/images/plug.png";
-import tapImg from "@/assets/images/tap.png";
+import plugImg from "@/assets/images/Roller.png";
+import tapImg from "@/assets/images/Plumbing.png";
+import serviceImg1 from "@/assets/images/serviceImg1.jpg";
+import serviceImg2 from "@/assets/images/serviceImg2.jpg";
+import serviceImg3 from "@/assets/images/serviceImg3.jpg";
+import serviceImg4 from "@/assets/images/serviceImg4.jpg";
+import serviceImg5 from "@/assets/images/serviceImg5.jpg";
+import valueIcon1 from "@/assets/icons/valueIcon1.png";
+import valueIcon2 from "@/assets/icons/valueIcon2.png";
+import valueIcon3 from "@/assets/icons/valueIcon3.png";
+import valueIcon4 from "@/assets/icons/valueIcon4.png";
+import valueIcon5 from "@/assets/icons/valueIcon5.png";
 import { Clock3, MapPin, Phone, Mail } from "lucide-react";
 
 export const cardDetails = [
@@ -228,40 +238,35 @@ export const popularServices = [
 export const servicesInfos = [
   {
     id: 1,
-    image:
-      "https://s3-alpha-sig.figma.com/img/0d22/231f/f74d1d1a92301ca3a8e688251fe9308b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FcbH514QWoMahG0djzsZImfaWb~RhJhL74Edo0d~67nsg-9DVGa1~5qJwp71ltPpFQwjmit9FP~bdme1C7sHOfdlwSpv~ELHDWO-7Bfz62IiW9QKpK7ksp9CKUTQAiWsP5v42CA5PCE~VVrmREnJwipK46KNe4HfaPCrR0ArxemyWU2YLxWMHGtSauizi1N-eBatRiJIKZ0M6jI8sOQDjLmazYG47Q3V0AspfZjEdQ5MNuE22XadgXWTHm5VibxWTp~~mXnIQHV9exhm2UlBC39y8oOORHkriWXuRAUmlFGTb5Yc1MUDVX9MymDaVKIUzFImxUxYGafT2jZRCD98Og__",
+    image: serviceImg1,
     title: "Verified Handymen",
     subtext:
       "Gain peace of mind knowing that all artisans on our platform are thoroughly vetted. We conduct background checks and skill assessments to ensure only qualified professionals join our network.",
   },
   {
     id: 2,
-    image:
-      "https://s3-alpha-sig.figma.com/img/88b8/b617/0f4f1b0a769400d0f78f4b0b10ad30a0?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FZw-PqgRy34ntEByubddLllZW5il5vKl2svB2mBV3HqtT3REFPhuvPvlPjLrC7aw7O2buMotutZjF-mRHcKnpUbAMcOabelkAevJdwN8gGDOeVudkooz0UnkhO0s-9B3zEDirthSLn78Yj26eWkq10ozTRLYVogKItZoGjz2EjAnpgLBGOUqgSk1rMVttao5K65gSI-TkXAafrzQxYWLTrIrdHVC7F3PQ-3hc0zaZjizldm86IZvyfp~E60yea1K3bBu6UxkKF26xFxhet-tSfPbNQ7JVYYv~PIkp5oFQnEUKgWSB1dRrCxxzkxvAVoaONSqpN0gE3BI5FCqMZUIQw__",
+    image: serviceImg2,
     title: "Fast & Easy Booking",
     subtext:
       "We’ve made finding the right professional as easy as 1-2-3. With just a few clicks, you can search for the service you need, view profiles, and schedule an appointment at a time that works for you.",
   },
   {
     id: 3,
-    image:
-      "https://s3-alpha-sig.figma.com/img/7b6a/1b72/e7a93f1f45a8455009c86e414bc65e06?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BfkB438ZkRmOHWXdQACjy~i~45RoNTHd38pbiAFojo4GiOVvYfib5hlsUbP21h6wRVFxEa8KFBMMRVR~rkEN92jceuSVHFFwcuj0u4MXJyPiBzGOnSUTDiNu3slRz8rdlA-q24ZsXPcFaXA8eR6EaxwD9yHo5skVpBdv7XjVmNEOIe8TNtNfXEAbWrh2meuebIfx52ucVibDSPydbM405Whrn6G3mhiUfY-5TYPszuzGamRw9Q2i4Q20AYGoLsQwENezVDDEAs50NWRRzI110DhsySFKZrv1JyIe7ibiqjkVe~yM51SlG-pMMKe8bLN21ZP8DHIDgDE0tfNR77aFWw__",
+    image: serviceImg3,
     title: "Location-Based Matching",
     subtext:
       "Time is precious, and we aim to save yours by connecting you with artisans nearest to you. Our advanced location-based matching system uses your current location to recommend the best professionals in your vicinity, ensuring faster response times and quicker arrivals. ",
   },
   {
     id: 4,
-    image:
-      "https://s3-alpha-sig.figma.com/img/3182/eb87/318904efbef5565e91af2464275da977?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=buSGSJdAMvd1amKWQj1U9OKDMpi3TJur6vTLc-4rqzjyGcgd0p~ATEQxG6F6FqWP9syPPpELImrKEubaMaQfSnurBnBjkA0v9rQtu5yO6M5A1rQjF7Ffu-EP6JciLJd7t9Vbf5qMlnCCRT59HHskb257rM2cp-TwgixezIU5aZhGuuAI0M9wHSTNEpWU2pgte0yMgdUv6aaQbtMouye2bD6ZPfCm-WyM0CTUA4~v92YRTO2KtD6nzWy1R9aYp7ilzwS~0z7uYwjXetlq~cKT3f~FoKUeX3OEjWtOIyXnF-EQu4zcCZV8nrej~Tpl8E4WhAlRtkWRUkOka7OgqM6FDg__",
+    image: serviceImg4,
     title: "Flexible Payment Options",
     subtext:
       "We believe in providing convenience at every step, including when it’s time to pay. Choose from multiple payment methods such as bank transfers, credit/debit cards, or mobile payments, and rest assured that your transactions are secure.",
   },
   {
     id: 5,
-    image:
-      "https://s3-alpha-sig.figma.com/img/3e95/190e/16ac0b96e211bb185e32a7d2c74c1332?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=arYl7e1ffCNjoQu6QnH7~veeST8pX1LPRUPRHWEn57Yet6cjSs7TYRt7imAt4Kg9KKb8i0VlDdF3mJdekm2dZLWVpSa8jxGSqW-OpMd0rLXIx1KsmKyK2TX-vKSYN63r~JRo2jXeJLHh0s7gtIo-jyA-k2x~uMW9RR8pV~bF5fR-Ng3ApYjCoIlGjTVyxJRb7QzU3WBPu~GpI94xI0Yx4kCXU7dgFti7xB2zs2Fq~RuE24JX68Xc0bPe7W-9fY8M0uEuBh5yG0P6ATtof-VSLOyCieNKnUhavmifaul2ydErlChJ5l7NIcsDb9gFlr5BRYr4VK1FslkiOvd-AU4hDw__",
+    image: serviceImg5,
     title: "Customer Reviews & Ratings",
     subtext:
       "Make informed choices by reading honest feedback from other users like you. Each professional on our platform is rated and reviewed based on past services, allowing you to see what others have to say about their quality of work, punctuality, and professionalism.",
@@ -298,44 +303,127 @@ export const contactDetails: ContactDetails = [
 export const contactFAQS = [
   {
     id: 1,
-    question: "What type of services do you offer?",
+    question: "Can I schedule an appointment?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "Yes, you can schedule an appointment. When booking a service, you can select a time and date for the service, either immediately or for a future date. You also have the flexibility to reschedule or cancel the appointment if needed.",
   },
   {
     id: 2,
-    question: "Can i Schedule an appointment?",
+    question: "How do you ensure quality and safety?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "We ensure quality and safety by verifying artisans' identities, skills, and past work. Customers can leave ratings and reviews, helping us maintain high standards. We also provide guidelines for artisans and encourage clear communication between customers and artisans.",
   },
   {
     id: 3,
-    question: "How do you ensure quality and safety?",
+    question: "How do I book a handyman?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "To book a handyman, simply sign up or log in to the platform, search for the service you need, and browse through available service providers. Once you find a handyman, select a time and date, confirm your details, and proceed to payment. After payment, you'll receive a booking confirmation.",
   },
   {
     id: 4,
-    question: "How do i book Handyman?",
+    question: "How do I get a price estimate?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "To get a price estimate, select the service you need, view the handyman's profile, and check their pricing details. You can also contact the handyman directly through in-app chat for a more personalized quote based on your specific requirements.",
   },
   {
     id: 5,
-    question: "How do i get the price estimate?",
+    question: "Do you offer same day service?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "Yes, we offer same-day service depending on the handyman's availability. You can check the provider’s real-time availability and book the service for the same day if they are available.",
   },
   {
     id: 6,
-    question: "Do you offer same day service?",
+    question: "How can I contact customer support?",
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "You can contact customer support through the in-app help section, where you’ll find FAQs, chat support, and a ticket system for any issues or inquiries.",
   },
   {
     id: 7,
-    question: "How can i contact customer’s support?",
+    question: 'What is "Chat with Handyman"?',
     answer:
-      "We offer a wide range of services including plumbing, electrical work, painting, carpentry, furniture assembly, and general home repairs. Check out our Services page for more details.",
+      "Chat with Handyman is a feature that lets you consult with a handyman online. You can describe your problem, share photos or videos, and receive advice or troubleshooting tips. This is ideal for minor issues or if you want to know whether an in-person service is necessary.",
+  },
+  {
+    id: 8,
+    question: 'What is "Book a Handyman"?',
+    answer:
+      '"Book a Handyman" allows you to schedule an in-person appointment with a professional handyman. You can select the service you need, choose a preferred date and time, confirm your address, and book directly through the platform.',
+  },
+  {
+    id: 9,
+    question:
+      'What’s the difference between "Chat with Handyman" and "Book a Handyman"?',
+    answer:
+      "Chat with Handyman is best for quick consultations, troubleshooting, or advice. It’s done entirely online via in-app messaging while Book a Handyman is ideal for hands-on services that require the handyman to visit your location and complete the task.",
+  },
+  {
+    id: 10,
+    question: "What is the escrow service?",
+    answer:
+      "Our escrow service securely holds your payment until the handyman has completed the job to your satisfaction. Once the service is marked as complete, the funds are released to the handyman.",
+  },
+  {
+    id: 11,
+    question: "How does the escrow service work?",
+    answer:
+      "When you book a service, your payment is deposited into an escrow account. The funds are held securely until both you and the handyman confirm the job is complete. Only then is the payment released.",
+  },
+  {
+    id: 12,
+    question: "Why do I need an escrow service?",
+    answer:
+      "The escrow service ensures a fair and transparent transaction for both customers and handymen. It protects your money until you’re satisfied with the service provided.",
+  },
+  {
+    id: 13,
+    question: "When is the payment released to the handyman?",
+    answer:
+      "The payment is released after you confirm that the service has been completed to your satisfaction through the app.",
+  },
+  {
+    id: 14,
+    question: "What happens if there is a dispute?",
+    answer:
+      "In the event of a dispute, the funds remain in escrow while our support team mediates to resolve the issue fairly for both parties.",
+  },
+  {
+    id: 15,
+    question: "Is there an additional fee for the escrow service?",
+    answer:
+      "No, the escrow service is included as part of our commitment to ensuring secure and trustworthy transactions.",
+  },
+  {
+    id: 16,
+    question: "Can I cancel a booking while my funds are in escrow?",
+    answer:
+      "Yes, you can cancel a booking. Depending on the timing and reason for cancellation, our refund policy will determine the outcome. Funds in escrow are returned to you if the service has not started.",
+  },
+];
+
+export const coreValues = [
+  {
+    img: valueIcon1,
+    title: "Customer First",
+    desc: "Our customers are at the heart of everything we do. We prioritize your needs and work tirelessly to provide a seamless, satisfying experience.",
+  },
+  {
+    img: valueIcon2,
+    title: "Excellence in Service",
+    desc: "We strive to deliver the highest quality in every interaction, ensuring every job is completed to perfection.",
+  },
+  {
+    img: valueIcon3,
+    title: "Trust and Transparency",
+    desc: "We build relationships based on honesty, openness, and security.",
+  },
+  {
+    img: valueIcon4,
+    title: "Empowering Communities",
+    desc: "We believe in uplifting local communities by connecting skilled professionals with opportunities.",
+  },
+  {
+    img: valueIcon5,
+    title: "Sustainability and Responsibility",
+    desc: "We are committed to eco-friendly practices and responsible business operations.",
   },
 ];
