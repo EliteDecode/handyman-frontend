@@ -40,7 +40,7 @@ const TrustedHandyManSection = () => {
             ))}
           </ul>
 
-          <button className="text-[18px] leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[140px] h-14 rounded-lg block md:mt-8">
+          <button className="text-[18px] leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[140px] h-14 rounded-lg block md:mt-8 font-lato">
             Get Started
           </button>
         </div>
