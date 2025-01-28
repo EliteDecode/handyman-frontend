@@ -12,7 +12,7 @@ const GrowBusinessSection = () => {
           business? Join Handyman today and connect with individuals and
           companies in need of trusted, skilled professionals like you.{" "}
         </p>
-        <button className="text-[18px] lg:mt-8 mt-6 font-lato leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] sm:w-[233px] w-[155px] h-14 rounded-lg">
+        <button className="text-[18px] lg:mt-8 mt-6 font-lato leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[217px] h-14 rounded-lg">
           Become a Handyman
         </button>
       </div>

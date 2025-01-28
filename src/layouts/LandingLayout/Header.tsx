@@ -40,7 +40,8 @@ const Header = () => {
   return (
     <div
       ref={dropDownRef}
-      className="px-6 lg:px-[120px] md:px-10 md:h-[104px]  h-14 flex items-center flex-row justify-between gap-3 w-full">
+      className="px-6 lg:px-[120px] md:px-10 md:h-[104px]  h-14 flex items-center flex-row justify-between gap-3 w-full"
+    >
       <h1 className="md:text-[36px] text-[16px] md:leading-[45px] leading-6 font-semibold font-quicksand">
         LOGO
       </h1>
@@ -68,7 +69,8 @@ const Header = () => {
           <Link
             to={item.path}
             key={index}
-            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}>
+            className={`cursor-pointer hover:text-[#008080] hover:underline hover:underline-offset-8 hover:decoration-1 ${location.toLocaleLowerCase().slice(1) === item.name.toLocaleLowerCase() ? "underline underline-offset-8 decoration-1 text-[#008080]" : ""}`}
+          >
             {item.name}
           </Link>
         ))}
@@ -80,7 +82,8 @@ const Header = () => {
           menuOpen
             ? "translate-y-0 opacity-100"
             : "translate-y-[-20px] opacity-0"
-        }`}>
+        }`}
+      >
         <ul className="flex flex-col">
           {url.map((item, index) => (
             <Link
@@ -92,7 +95,8 @@ const Header = () => {
                   ? "text-[#008080]"
                   : "text-[#3C3C3C]"
               } border-t border-[#98A2B3] px-6 ${index + 1 === url.length ? "border-b" : ""}`}
-              onClick={() => setMenuOpen(false)}>
+              onClick={() => setMenuOpen(false)}
+            >
               {item.name}
             </Link>
           ))}
