@@ -5,12 +5,17 @@ import App from "./App.tsx";
 import "./assets/styles/index.css";
 import { store } from "./store/index.ts";
 import { Toaster } from "react-hot-toast";
+import { MantineProvider } from "@mantine/core";
+
+import "@mantine/core/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <Suspense>
+  <MantineProvider withGlobalStyles withNormalizeCSS>
     <Provider store={store}>
       <Toaster />
-      <App />
+      <Suspense fallback={<div>Loading...</div>}>
+        <App />
+      </Suspense>
     </Provider>
-  </Suspense>
+  </MantineProvider>
 );

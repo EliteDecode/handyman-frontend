@@ -11,26 +11,7 @@ import axios from "axios";
 import { useFormik } from "formik";
 import BankSelector from "./BankSelector";
 import ProgressBar from "./ProgressBarProps";
-
-interface FormValues {
-  profileImage: File | null;
-  aboutMe: string;
-  serviceDescription: string;
-  selectedCategories: string[];
-  bankName: string;
-  bankCode: string;
-  accountNumber: string;
-  accountName: string;
-  guarantorsName: string;
-  guarantorsPhoneNumber: string;
-  guarantorsRelationship: string;
-  YOE: string;
-  days: string;
-  startTime: string;
-  endTime: string;
-  ratePerHour: string;
-  ratePerJob: string;
-}
+import toast from "react-hot-toast";
 
 // type ResolveAccountDetailsProps = {
 //   formik: FormikValues;
@@ -88,7 +69,7 @@ const CompleteYourProfile = () => {
 
   const navigate = useNavigate();
 
-  const formik = useFormik<FormValues>({
+  const formik = useFormik<CompleteYourProfileFormValues>({
     initialValues: {
       profileImage: null,
       aboutMe: "",
@@ -105,8 +86,7 @@ const CompleteYourProfile = () => {
       days: "",
       startTime: "",
       endTime: "",
-      ratePerHour: "",
-      ratePerJob: "",
+      priceRange: "",
     },
     validationSchema: handyManCYPSchema,
     onSubmit: (values) => {
@@ -134,44 +114,63 @@ const CompleteYourProfile = () => {
   const resolveAccountDetails = async () => {
     const { accountNumber, bankCode } = formik.values;
 
-    if (accountNumber && bankCode) {
-      setLoadingAccountName(true);
-      console.log(loadingAccountName);
+    if (!accountNumber || !bankCode) {
+      toast.error("Please enter account number and bank code.");
+      return;
+    }
 
-      try {
-        const response = await axios.get(
-          `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${bankCode}`,
-          {
-            headers: {
-              Authorization: `Bearer sk_test_0b939b05baed1f9f688c7f074450b4c062baac54`, // Use your test secret key here
-              "Content-Type": "application/json",
-            },
-          }
-        );
+    setLoadingAccountName(true);
 
-        // Set the accountName field in Formik with the correct value
-        if (response.data.data.account_name) {
-          formik.setFieldValue("accountName", response.data.data.account_name);
+    try {
+      const response = await axios.get(
+        `https://api.paystack.co/bank/resolve?account_number=${accountNumber}&bank_code=${bankCode}`,
+        {
+          headers: {
+            Authorization: `Bearer sk_test_0b939b05baed1f9f688c7f074450b4c062baac54`,
+            "Content-Type": "application/json",
+          },
         }
-      } catch (err: unknown) {
-        if (axios.isAxiosError(err)) {
-          if (err.message === "Network Error") {
-            alert("Network issue. Try again.");
-          } else if (err.response?.status === 422) {
-            alert("Invalid account details.");
-          } else if (err.response?.status === 401) {
-            alert("Unauthorized request. Check your API key.");
-          } else {
-            alert("Unexpected error occurred. Please try again.");
-          }
-        } else {
-          alert("Unexpected error occurred. Please try again.");
-        }
+      );
 
-        formik.setFieldValue("accountName", "");
-      } finally {
-        setLoadingAccountName(false);
+      console.log("API Response:", response.data); // Debugging
+
+      // Ensure response data exists before accessing properties
+      if (response.data?.data?.account_name) {
+        formik.setFieldValue("accountName", response.data.data.account_name);
+        formik.setFieldError("accountName", ""); // Clear previous errors
+      } else {
+        console.error("No account found with these details.");
+        toast.error("No account found with these details.");
+        formik.setFieldValue("accountName", ""); // Clear input
       }
+    } catch (err: unknown) {
+      console.error("Error caught:", err); // Debugging
+
+      if (axios.isAxiosError(err)) {
+        const errorMessage =
+          err.response?.data?.message ||
+          err.response?.data ||
+          err.message ||
+          "Unexpected error. Try again.";
+
+        // toast.error(errorMessage);
+        console.error("Axios Error:", errorMessage);
+
+        if (err.message === "Network Error") {
+          toast.error("Network issue. Try again.");
+        } else if (err.response?.status === 422) {
+          toast.error("Invalid account details.");
+        } else if (err.response?.status === 401) {
+          toast.error("Unauthorized request. Check API key.");
+        }
+      } else {
+        toast.error("Unexpected error. Try again.");
+        console.error("Unexpected error:", err);
+      }
+
+      formik.setFieldValue("accountName", ""); // Clear account name on error
+    } finally {
+      setLoadingAccountName(false);
     }
   };
 
@@ -193,8 +192,6 @@ const CompleteYourProfile = () => {
     if (formik.errors && Object.keys(formik.errors).length > 0) {
       const firstError = Object.keys(formik.errors)[0];
       const firstErrorElement = document.getElementById(firstError);
-      console.log(firstErrorElement);
-      console.log(firstError);
 
       if (firstErrorElement) {
         // Scroll smoothly to the first error element
@@ -205,11 +202,6 @@ const CompleteYourProfile = () => {
       }
     }
   }, [formik.errors]);
-
-  console.log(formik.errors);
-  console.log(formik.errors && Object.keys(formik.errors).length > 0);
-
-  console.log("me");
 
   return (
     <div className="flex items-center justify-center w-full lg:px-[120px] md:px-10 px-6 h-full">
@@ -284,7 +276,8 @@ const CompleteYourProfile = () => {
               name="aboutMe"
               id="aboutMe"
               value={formik.values.aboutMe}
-              onChange={formik.handleChange}></textarea>
+              onChange={formik.handleChange}
+            ></textarea>
 
             <div className="text-xs text-[#B3261E] min-h-4">
               {formik.touched.aboutMe && formik.errors.aboutMe}
@@ -302,7 +295,8 @@ const CompleteYourProfile = () => {
                 name="serviceDescription"
                 id="serviceDescription"
                 value={formik.values.serviceDescription}
-                onChange={formik.handleChange}></textarea>
+                onChange={formik.handleChange}
+              ></textarea>
               {
                 <div className="text-xs text-[#B3261E] min-h-4">
                   {formik.touched.serviceDescription &&
@@ -426,7 +420,7 @@ const CompleteYourProfile = () => {
                   Account Name
                 </label>
                 <input
-                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.accountName && formik.errors.accountName ? "border-red-500" : ""}`}
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.accountName && formik.errors.accountName ? "border-red-500" : ""} ${loadingAccountName ? "text-[#008080] cursor-not-allowed" : ""}`}
                   // type={type}
                   name="accountName"
                   id="accountName"
@@ -494,7 +488,8 @@ const CompleteYourProfile = () => {
                     id="guarantorsRelationship"
                     value={formik.values.guarantorsRelationship}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}>
+                    onBlur={formik.handleBlur}
+                  >
                     <option className="text-[#98A2B3]" value="" disabled>
                       Select guarantor’s relationship
                     </option>
@@ -562,7 +557,8 @@ const CompleteYourProfile = () => {
                     id="days"
                     value={formik.values.days}
                     onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}>
+                    onBlur={formik.handleBlur}
+                  >
                     <option className="text-[#98A2B3]" value="" disabled>
                       Select your Working day
                     </option>
@@ -640,67 +636,43 @@ const CompleteYourProfile = () => {
             <div className="flex gap-[25px] sm:gap-6 sm:w-1/2 w-full items-center flex-row">
               <div className="flex flex-col w-full gap-1 font-lato">
                 <label className="sm:text-[16px] text-[14px] sm:leading-6 leading-[16.8px] font-medium text-[#101928]">
-                  Rate per hour
+                  Price Range
                 </label>
-                <div className="relative w-full sm:max-w-[282px]">
-                  <input
-                    className={`sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.ratePerHour && formik.errors.ratePerHour ? "border-red-500" : ""}`}
-                    name="ratePerHour"
-                    id="ratePerHour"
-                    value={formik.values.ratePerHour}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  <p className="absolute inset-y-0 flex items-center cursor-pointer right-3 text-[#667185] text-[14px] leading-[20.3px]">
-                    ₦
-                  </p>
-                </div>
+
+                <input
+                  className={`sm:max-w-[384px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.priceRange && formik.errors.priceRange ? "border-red-500" : ""}`}
+                  name="priceRange"
+                  id="priceRange"
+                  value={formik.values.priceRange}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  placeholder="Enter your preferred price range in Naira"
+                />
 
                 <div className="text-xs text-[#B3261E] min-h-4">
-                  {formik.touched.ratePerHour && formik.errors.ratePerHour}
-                </div>
-              </div>
-
-              <div className="flex flex-col w-full gap-1 font-lato">
-                <label className="sm:text-[16px] text-[14px] sm:leading-6 leading-[16.8px] font-medium text-[#101928]">
-                  Rate per job
-                </label>
-                <div className="relative w-full sm:max-w-[282px]">
-                  <input
-                    className={`sm:max-w-[282px] sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] pl-4 pr-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.ratePerJob && formik.errors.ratePerJob ? "border-red-500" : ""}`}
-                    name="ratePerJob"
-                    id="ratePerJob"
-                    value={formik.values.ratePerJob}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
-                  />
-                  <p className="absolute inset-y-0 flex items-center cursor-pointer right-3 text-[#667185] text-[14px] leading-[20.3px]">
-                    ₦
-                  </p>
-                </div>
-
-                {/* Reserve space for error messages */}
-                <div className="text-xs text-[#B3261E] min-h-4">
-                  {formik.touched.ratePerJob && formik.errors.ratePerJob}
+                  {formik.touched.priceRange && formik.errors.priceRange}
                 </div>
               </div>
             </div>
           </section>
 
           {/* buttons */}
-          <div className="flex flex-col gap-8 mt-6 sm:gap-14 sm:mt-8">
-            <div className="flex items-center justify-center">
-              <button
-                type="submit"
-                className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato">
-                Save and Continue
-              </button>
-            </div>
+          <div className="flex items-center justify-center mt-6 sm:mt-8">
+            <button
+              type="submit"
+              className="w-[194px] h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato"
+            >
+              Save and Continue
+            </button>
+          </div>
+          {/* <div className="flex flex-col gap-8 mt-6 sm:gap-14 sm:mt-8">
+   
 
             <div className="flex items-center justify-between cursor-pointer">
               <div
                 className="flex items-center sm:gap-[10px] gap-2"
-                onClick={() => navigate(-1)}>
+                onClick={() => navigate(-1)}
+              >
                 <img src={backIcon} alt="back" />
                 <p className="text-[18px] leading-[30px] font-medium font-lato text-[#3C3C3C]">
                   Back
@@ -713,7 +685,7 @@ const CompleteYourProfile = () => {
                 </button>
               </Link>
             </div>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>

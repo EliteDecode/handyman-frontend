@@ -200,10 +200,61 @@ export const handyManCYPSchema = Yup.object().shape({
         return startTime && value && value > startTime;
       }
     ),
-  ratePerHour: Yup.number()
-    .required("Rate per hour is required")
-    .min(0, "Rate cannot be negative"),
-  ratePerJob: Yup.number()
-    .required("Rate per job is required")
-    .min(0, "Rate cannot be negative"),
+  priceRange: Yup.number()
+    .required("Price range is required")
+    .min(0, "Price cannot be negative"),
+});
+
+export const handyManVerificationAndIdentificationSchema = Yup.object().shape({
+  idType: Yup.string().required("Identification type is required"),
+  certificationsType: Yup.string().required("Identification type is required"),
+  idImage: Yup.mixed()
+    .nullable()
+    .required("Identification image is required")
+    .test("fileType", "Only image files are allowed", (value) => {
+      return (
+        !value || // Allow null/undefined if the field is optional
+        (value instanceof File &&
+          ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
+      );
+    })
+    .test("fileSize", "File size must be less than 5MB", (value) => {
+      return !value || (value instanceof File && value.size <= 5 * 1024 * 1024);
+    }),
+  certificationsImage: Yup.mixed()
+    .nullable()
+    .required("Certifications image is required")
+    .test("fileType", "Only image files are allowed", (value) => {
+      return (
+        !value || // Allow null/undefined if the field is optional
+        (value instanceof File &&
+          ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
+      );
+    })
+    .test("fileSize", "File size must be less than 5MB", (value) => {
+      return !value || (value instanceof File && value.size <= 5 * 1024 * 1024);
+    }),
+});
+
+export const handyManPorfolioSchema = Yup.object().shape({
+  workImage: Yup.mixed()
+    .nullable()
+    .required("Certifications image is required")
+    .test("fileType", "Only image files are allowed", (value) => {
+      return (
+        !value || // Allow null/undefined if the field is optional
+        (value instanceof File &&
+          ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
+      );
+    })
+    .test("fileSize", "File size must be less than 5MB", (value) => {
+      return !value || (value instanceof File && value.size <= 5 * 1024 * 1024);
+    }),
+  projectDescription: Yup.string()
+    .required("Project description is required")
+    .min(20, "Project description must be at least 20 characters")
+    .max(1000, "Project description cannot exceed 1000 characters"),
+  tags: Yup.array()
+    .min(1, "At least one tag is required")
+    .max(5, `Max ${5} tags allowed`),
 });
