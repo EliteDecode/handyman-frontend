@@ -17,11 +17,11 @@ const HeroSection = () => {
           to exclusive features and updates.
         </p>
 
-        <button className="max-w-[208px] w-full h-14 px-4 bg-[#008080] text-white text-[18px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors font-lato">
-          <Link to={"https://forms.gle/87jEekNcUUWExrG99"}>
+        <Link to={"https://forms.gle/87jEekNcUUWExrG99"}>
+          <button className="max-w-[208px] w-full h-14 px-4 bg-[#008080] text-white text-[18px] leading-[24px] font-semibold rounded-lg hover:bg-[#006666] transition-colors font-lato">
             Get Early Access
-          </Link>
-        </button>
+          </button>
+        </Link>
       </div>
 
       {/* Right Image */}
