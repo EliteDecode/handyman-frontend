@@ -215,7 +215,7 @@ export const popularServices = [
   {
     id: 1,
     icon: toolImg,
-    title: "Capentry",
+    title: "Carpentry",
     subtext:
       "Whether you need custom furniture, repairs, or cabinetry, our skilled carpenters provide craftsmanship that lasts.",
   },
