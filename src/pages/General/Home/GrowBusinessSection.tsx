@@ -1,4 +1,5 @@
 import handyManWithClient from "@/assets/images/handyManWithClient.png";
+import { Link } from "react-router-dom";
 
 const GrowBusinessSection = () => {
   return (
@@ -12,9 +13,11 @@ const GrowBusinessSection = () => {
           business? Join Handyman today and connect with individuals and
           companies in need of trusted, skilled professionals like you.{" "}
         </p>
-        <button className="text-[18px] lg:mt-8 mt-6 font-lato leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[217px] h-14 rounded-lg">
-          Become a Handyman
-        </button>
+        <Link to={"/auth/handyman-signup"}>
+          <button className="text-[18px] lg:mt-8 mt-6 font-lato leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[217px] h-14 rounded-lg">
+            Become a Handyman
+          </button>
+        </Link>
       </div>
       <img
         className="max-w-[540px] max-h-[386px] rounded-[8.65px] w-full h-full"
