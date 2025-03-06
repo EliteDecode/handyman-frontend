@@ -78,10 +78,10 @@ const Header = () => {
 
       {/* Mobile Navigation (Toggled by Hamburger) */}
       <div
-        className={`absolute z-10 top-14 left-0 right-0 border-b border shadow-custom1 bg-white h-screen w-full shadow-md  md:hidden transition-all duration-500 ease-in-out transform px-6 ${
+        className={`absolute  top-14 left-0 right-0 border-b border shadow-custom1 bg-white h-screen w-full shadow-md  md:hidden transition-all duration-500 ease-in-out transform px-6 ${
           menuOpen
-            ? "translate-y-0 opacity-100"
-            : "translate-y-[-20px] opacity-0"
+            ? "translate-y-0 opacity-100 z-30"
+            : "translate-y-[-20px] opacity-0 z-0"
         }`}
       >
         <ul className="flex flex-col">

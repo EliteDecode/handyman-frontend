@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import backIcon from "@/assets/icons/backIcon.svg";
 import dropDown from "@/assets/icons/dropDown.svg";
 import edit from "@/assets/icons/editIcon.svg";
 import profile from "@/assets/icons/profile.svg";
