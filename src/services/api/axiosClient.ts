@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://handyman-backend-4sb0.onrender.com/handyman/v1";
+export const baseURL = "https://apihandyman.purplebeetech.com/handyman/v1";
 
 const axiosClient = axios.create({
   baseURL,
