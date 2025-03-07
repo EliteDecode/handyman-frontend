@@ -23,7 +23,7 @@ const useLoginForm = () => {
       toast.success(message);
       formik.resetForm();
       dispatch(fetchUserInfo())
-      navigate("/home");
+      navigate("/dashboard");
     }
     dispatch(reset());
     return;

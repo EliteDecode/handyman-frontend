@@ -37,3 +37,6 @@ export const GoogleCallback = lazy(
 export const FacebookCallback = lazy(
   () => import("../pages/CustomerAuth/callbacks/FacebookCallback")
 );
+
+//Customers Dashboard
+export const Dashboard = lazy(()=> import("@/pages/Dashboard/Dashboard/Dashboard"))
