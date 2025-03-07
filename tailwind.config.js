@@ -55,7 +55,7 @@ export default {
       },
       backgroundImage: {
         signup_bg:
-          "url('https://s3-alpha-sig.figma.com/img/7411/31d5/f00469f1f5b3f859a65599521f6a917f?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nHaYNPtyHq6OlsvCMXkaQ-YSAY5Cbjw0eVrNlVDH1CXktMQcneaYpqZlKppLvRWXyvy1SK4T3PjY5DTcrza0Gsx4OHsAE3ErtFARGJeYhjcs5mFuh3z77Vtvj4Y6MlAomaLkc80bloywGv1SvheJTX7CW0E9Df2CGbh7hcLwErnJLnB9swhF8KUNMEVDM3VHJPhEP7Jf4lvtMV-CzNaYRxVTlPgc-tdEd3y0t5j4qHMkQE8oq2VA2ZZCYD6Cm6A7zeddKndV1HR06iasKuYtVkatSaA0P6D9beIdbU1NO10jDUZCMZGfR1wUNbBLePo6o--amb3-3ssrcVux1QyImg__')",
+          "url('/src/assets/images/signup-bg.webp')",
       },
     },
     fontFamily: {
