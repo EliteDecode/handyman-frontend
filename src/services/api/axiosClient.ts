@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://handyman-backend-4sb0.onrender.com/handyman/v1";
+export const baseURL = import.meta.env.VITE_BASE_URL;
 
 const axiosClient = axios.create({
   baseURL,
