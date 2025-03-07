@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://apihandyman.purplebeetech.com/handyman/v1";
+export const baseURL = import.meta.env.VITE_BASE_URL;
 
 const axiosClient = axios.create({
   baseURL,
