@@ -16,7 +16,7 @@ const Login = () => {
           </h2>
           <p className="text-xs md:text-sm lg:text-lg lg:font-medium text-center tracking-wide mt-4 lg:mt-6">
             Don’t have an account?{" "}
-            <Link to="/auth/sign-up" className="text-[#008080]">
+            <Link to="/auth/user-signup" className="text-[#008080]">
               Create an account
             </Link>
           </p>

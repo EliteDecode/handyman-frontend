@@ -85,7 +85,7 @@ export default function App() {
           element: token ? <Navigate to="/home" /> : <AuthLayout />,
           children: [
             {
-              path: "sign-up",
+              path: "user-signup",
               element: <SignUp />,
             },
             {
