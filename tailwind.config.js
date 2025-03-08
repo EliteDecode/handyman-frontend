@@ -52,10 +52,11 @@ export default {
           4: "hsl(var(--chart-4))",
           5: "hsl(var(--chart-5))",
         },
+        textHeader: "#191919",
+        textBody: "#3C3C3C",
       },
       backgroundImage: {
-        signup_bg:
-          "url('/src/assets/images/signup-bg.webp')",
+        signup_bg: "url('/src/assets/images/signup-bg.webp')",
       },
     },
     fontFamily: {
@@ -77,6 +78,8 @@ export default {
     backgroundImage: {
       "custom-gradient-progress-bar":
         "linear-gradient(90deg, #008080 0%, #F9DB6D 100%)",
+      "dashboard-custom-gradient":
+        "linear-gradient(90deg, #0080800a 0%, #0080900d 25%, #0080801a 60%, #0f0fff1b 100% )",
     },
   },
   plugins: [animate],

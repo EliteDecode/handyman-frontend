@@ -57,3 +57,9 @@ declare interface TOCProps {
     to: string;
   }[];
 }
+
+declare type dashboardCard = {
+  bg: string;
+  amount: number;
+  title: string;
+};

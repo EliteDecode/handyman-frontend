@@ -14,7 +14,7 @@ const Header = ({ isOpen, setIsOpen }: any) => {
   const title = sidebarLinks.find((val) => val.link === location.pathname);
 
   return (
-    <section className="flex justify-between items-center h-[80px] px-8 shadow-custom">
+    <section className="flex justify-between items-center h-[80px] px-6 lg:px-8 shadow-custom">
       <div className="flex gap-6">
         <button className="outline-none lg:hidden" onClick={toggleDrawer}>
           {isOpen ? <X /> : <Menu />}
