@@ -17,7 +17,7 @@ const MobileSidebar = ({ isOpen, setIsOpen }: any) => {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed bg-black opacity-30 w-full h-full top-0"
+          className="fixed bg-black opacity-30 w-full h-full top-0 z-10"
         ></div>
       )}
       <motion.div
