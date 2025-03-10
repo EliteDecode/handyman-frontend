@@ -40,7 +40,7 @@ const CustomerSignUpForm = () => {
           <div className="border-[#D0D5DD] border w-full px-2 lg:px-4 flex items-center gap-2 rounded-md">
             <Mail color="#98A2B3" />
             <input
-              type="text"
+              type="email"
               name="email"
               id="email"
               placeholder="handyman@example.com"

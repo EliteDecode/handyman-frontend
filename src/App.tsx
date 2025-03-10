@@ -22,10 +22,11 @@ import {
   ResetPassword,
   FacebookCallback,
   GoogleCallback,
+  Dashboard,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
-import DashboardLayout from "./layouts/Dashboard.tsx";
+import DashboardLayout from "./layouts/Dashboard.tsx/index.tsx";
 import AuthLayout from "./layouts/AuthLayout";
 import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
 import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
@@ -82,7 +83,7 @@ export default function App() {
         // Auth routes
         {
           path: "auth",
-          element: token ? <Navigate to="/home" /> : <AuthLayout />,
+          element: token ? <Navigate to="/dashboard" /> : <AuthLayout />,
           children: [
             {
               path: "user-signup",
@@ -124,8 +125,24 @@ export default function App() {
           element: token ? <DashboardLayout /> : <Navigate to="/auth/login" />,
           children: [
             {
+              path: "",
+              element: <Dashboard />,
+            },
+            {
               path: "complete-profile",
               element: <CompleteProfile />,
+            },
+            {
+              path: "bookings",
+              element: <h2>Bookings</h2>,
+            },
+            {
+              path: "payments-invoices",
+              element: <h2>Payment & Invoices</h2>,
+            },
+            {
+              path: "settings",
+              element: <h2>Settings</h2>,
             },
           ],
         },

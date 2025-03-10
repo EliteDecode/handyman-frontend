@@ -7,6 +7,7 @@ import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/images/Roller.png";
 import tapImg from "@/assets/images/Plumbing.png";
+import { LayoutDashboard, Banknote, Settings2, Calendar } from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -194,6 +195,7 @@ export const privacyInfos = [
       },
     ],
   },
+  2,
 ];
 
 export const privacyLinks = [
@@ -446,5 +448,28 @@ export const servicesInfos = [
     title: "Customer Reviews & Ratings",
     subtext:
       "Make informed choices by reading honest feedback from other users like you. Each professional on our platform is rated and reviewed based on past services, allowing you to see what others have to say about their quality of work, punctuality, and professionalism.",
+  },
+];
+
+export const sidebarLinks = [
+  {
+    name: "Dashboard",
+    link: "/dashboard",
+    icon: LayoutDashboard,
+  },
+  {
+    name: "My Bookings",
+    link: "/dashboard/bookings",
+    icon: Calendar,
+  },
+  {
+    name: "Payment & Invoices",
+    link: "/dashboard/payments-invoices",
+    icon: Banknote,
+  },
+  {
+    name: "Settings",
+    link: "/dashboard/settings",
+    icon: Settings2,
   },
 ];

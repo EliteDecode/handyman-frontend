@@ -117,6 +117,7 @@ const customerAuthSlice = createSlice({
         state.isError = false;
         state.isSuccess = true;
         state.message = action.payload.message;
+        state.token = action.payload.data.accessToken;
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;

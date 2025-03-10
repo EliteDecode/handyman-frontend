@@ -19,9 +19,6 @@ export const VerifyEmail = lazy(
 export const EmailSuccess = lazy(
   () => import("@/pages/CustomerAuth/VerifySuccess/VerifySuccess")
 );
-export const CompleteProfile = lazy(
-  () => import("@/pages/Dashboard/CompleteProfile/CompleteProfile")
-);
 export const Login = lazy(() => import("@/pages/CustomerAuth/Login/Login"));
 export const ForgetPassword = lazy(
   () => import("@/pages/CustomerAuth/ForgetPassword/ForgetPassword")
@@ -36,4 +33,10 @@ export const GoogleCallback = lazy(
 );
 export const FacebookCallback = lazy(
   () => import("../pages/CustomerAuth/callbacks/FacebookCallback")
+);
+
+//Customers Dashboard
+export const Dashboard = lazy(()=> import("@/pages/CustomerDashboard/Dashboard/Dashboard"))
+export const CompleteProfile = lazy(
+  () => import("@/pages/CustomerDashboard/CompleteProfile/CompleteProfile")
 );
