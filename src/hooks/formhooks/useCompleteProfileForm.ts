@@ -22,7 +22,7 @@ const useCompleteProfileForm = () => {
     if (isSuccess) {
       toast.success(message);
       formik.resetForm();
-      navigate("/");
+      navigate("/dashboard");
     }
     dispatch(reset());
     return;

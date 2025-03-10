@@ -3,7 +3,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 const DashboardInfoCard = () => {
-  const [toggleFilter, setToggleFilter] = useState(true);
+  const [toggleFilter, setToggleFilter] = useState(false);
   return (
     <div className="shadow-custom lg:p-6 p-4">
       <div>
