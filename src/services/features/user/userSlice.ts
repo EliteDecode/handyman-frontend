@@ -50,6 +50,7 @@ const userSlice = createSlice({
         state.isError = false;
         state.isSuccess = true;
         state.message = action.payload.message;
+        state.user = action.payload.data;
       })
       .addCase(fetchUserInfo.rejected, (state, action) => {
         state.isLoading = false;

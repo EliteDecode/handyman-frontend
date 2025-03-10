@@ -50,7 +50,9 @@ const CompleteProfileForm = () => {
               onBlur={formik.handleBlur}
               value={formik.values.state}
             >
-              <option value="" disabled selected>Select your state</option>
+              <option value="" disabled>
+                Select your state
+              </option>
               {statefile.map((val, i) => (
                 <option key={i} value={val.state}>
                   {val.state}
@@ -81,7 +83,11 @@ const CompleteProfileForm = () => {
               onBlur={formik.handleBlur}
               value={formik.values.lga}
             >
-              <option value="" disabled selected>{!formik.values.state?"Select your state first":"Select your LGA"}</option>
+              <option value="" disabled>
+                {!formik.values.state
+                  ? "Select your state first"
+                  : "Select your LGA"}
+              </option>
               {getLGAs(formik.values.state).map((val, i) => (
                 <option key={i} value={val}>
                   {val}
@@ -195,7 +201,7 @@ const CompleteProfileForm = () => {
               onBlur={formik.handleBlur}
               value={formik.values.gender}
             >
-              <option value="" disabled selected>
+              <option value="" disabled>
                 Select your gender
               </option>
               <option value="male">Male</option>
