@@ -3,14 +3,14 @@ import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const STORAGE_KEY = "isProfileUpdated";
 const EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours in ms
 
 const useDashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { user, isLoading, isError, message, isSuccess }: any = useSelector(
     (state: RootState) => state.user
