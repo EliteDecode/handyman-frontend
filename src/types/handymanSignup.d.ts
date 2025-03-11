@@ -11,7 +11,7 @@ declare interface CompleteYourProfileFormValues {
   guarantorsPhoneNumber: string;
   guarantorsRelationship: string;
   YOE: string;
-  days: string;
+  days: string[];
   startTime: string;
   endTime: string;
   priceRange: string;

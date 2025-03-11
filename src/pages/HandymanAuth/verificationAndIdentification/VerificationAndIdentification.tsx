@@ -73,7 +73,7 @@ const VerificationAndIdentification = () => {
         <ProgressBarProps progress={66.6} step={2} />
 
         <section className="flex flex-col flex-grow w-full gap-6 p-4 mt-8 min-h-[510px] h-full md:flex-row">
-          <div className="flex-grow w-full md:w-1/2">
+          <div className="w-full md:w-1/2">
             <div className="flex flex-col sm:gap-4 gap-2 font-lato text-[#191919]">
               <h1 className="sm:text-[24px] sm:leading-8 text-[14px] leading-5 font-medium">
                 Upload valid identification
@@ -105,6 +105,7 @@ const VerificationAndIdentification = () => {
                   <option>International Passport</option>
                   <option>Driver's License</option>
                   <option>Permanent Voter's Card (PVC)</option>
+                  <option>Others</option>
                 </select>
                 <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
                   <img src={dropDown} alt="dropdown" />
@@ -116,7 +117,7 @@ const VerificationAndIdentification = () => {
             </div>
 
             <div
-              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.idImage && formik.errors.idImage ? "border-red-500" : ""}`}
+              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] overflow-scroll h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.idImage && formik.errors.idImage ? "border-red-500" : ""}`}
             >
               {formik.values.idImage ? (
                 <div className="w-full h-full">
@@ -174,7 +175,7 @@ const VerificationAndIdentification = () => {
             </div>
           </div>
 
-          <div className="flex-grow w-full md:w-1/2">
+          <div className="w-full md:w-1/2">
             <div className="flex flex-col gap-4 font-lato text-[#191919]">
               <h1 className="sm:text-[24px] sm:leading-8 text-[14px] leading-5 font-medium">
                 Provide relevant certifications
@@ -202,13 +203,9 @@ const VerificationAndIdentification = () => {
                   <option className="text-[#98A2B3]" value="" disabled>
                     Select type
                   </option>
-                  <option>
-                    General Technical & Engineering Certifications
-                  </option>
-                  <option>Electrical & Electronics Certifications</option>
-                  <option>Plumbing & HVAC Certifications</option>
-                  <option>Construction & Carpentry Certifications</option>
-                  <option>Welding & Fabrication Certifications</option>
+                  <option>Certifications</option>
+                  <option>License</option>
+                  <option>Others</option>
                 </select>
                 <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
                   <img src={dropDown} alt="dropdown" />
@@ -221,21 +218,21 @@ const VerificationAndIdentification = () => {
             </div>
 
             <div
-              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.certificationsImage && formik.errors.certificationsImage ? "border-red-500" : ""}`}
+              className={`max-w-[588px] w-full max-h-[338px] overflow-scroll  min-h-[256px] h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.certificationsImage && formik.errors.certificationsImage ? "border-red-500" : ""}`}
             >
               {formik.values.certificationsImage ? (
                 <div className="w-full h-full">
                   <img
                     src={URL.createObjectURL(formik.values.certificationsImage)}
                     alt="Uploaded ID"
-                    className="object-cover rounded-[8px]"
+                    className="max-h-full max-w-full object-contain rounded-[8px]"
                   />
                   <div className="absolute top-0 right-0 flex gap-2 p-2">
                     <button
                       className="px-3 py-1 text-white transition bg-red-800 rounded-md hover:text-red-900 hover:bg-white"
                       onClick={handleFileRemoveCertificationsImage}
                     >
-                      Remove
+                      Removes
                     </button>
                   </div>
                 </div>
@@ -267,6 +264,11 @@ const VerificationAndIdentification = () => {
                   </div>
                 </>
               )}
+            </div>
+
+            <div className="text-xs text-[#B3261E] min-h-4">
+              {formik.touched.certificationsImage &&
+                formik.errors.certificationsImage}
             </div>
 
             <div className="flex items-center justify-between sm:text-[14px] text-[12px] leading-5 text-[#3C3C3C] font-medium font-lato sm:mt-4 mt-2">

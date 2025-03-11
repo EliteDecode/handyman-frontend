@@ -176,11 +176,11 @@ export const handyManCYPSchema = Yup.object().shape({
   guarantorsRelationship: Yup.string().required(
     "Guarantor's Relationship is required"
   ),
-  YOE: Yup.number()
-    .required("Year's of experience is required")
-    .min(1, "Year's of experience cannot be negative")
-    .max(99, "Year's of experience cannot be more than 99 year's"),
-  days: Yup.string().required("Working days are required"),
+  YOE: Yup.string().required("Year's of experience is required"),
+  days: Yup.array()
+    .min(1, "Select at least one working day")
+    .required("Working days are required"),
+
   startTime: Yup.string()
     .required("Start time is required")
     .test("is-valid-time", "Invalid start time format", (value) =>
