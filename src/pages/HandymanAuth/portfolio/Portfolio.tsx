@@ -82,7 +82,7 @@ const Portfolio = () => {
             </div>
 
             <div
-              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.workImage && formik.errors.workImage ? "border-red-500" : ""}`}
+              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] overflow-scroll h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.workImage && formik.errors.workImage ? "border-red-500" : ""}`}
             >
               {formik.values.workImage ? (
                 <div className="w-full h-full">

@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 import dropDown from "@/assets/icons/dropDown.svg";
 import edit from "@/assets/icons/editIcon.svg";
+import cancel from "@/assets/icons/cancel.svg";
 import profile from "@/assets/icons/profile.svg";
 import { handyManCYPSchema } from "@/lib/schema";
 import axios from "axios";
@@ -11,24 +12,6 @@ import { useFormik } from "formik";
 import BankSelector from "./BankSelector";
 import ProgressBar from "./ProgressBarProps";
 import toast from "react-hot-toast";
-
-// type ResolveAccountDetailsProps = {
-//   formik: FormikValues;
-//   setAccountName: (name: string) => void;
-//   setLoadingAccountName: (loading: boolean) => void;
-//   setError: (error: string | null) => void;
-// };
-
-// type UseEffectProps = {
-//   formik: {
-//     values: {
-//       accountNumber: string;
-//       bankCode: string;
-//     };
-//   };
-//   resolveAccountDetails: () => Promise<void>;
-//   setAccountName: (name: string) => void;
-// };
 
 const banksInNigeria = [
   { name: "Access Bank", code: "044" },
@@ -58,11 +41,20 @@ const banksInNigeria = [
   { name: "Zenith Bank", code: "057" },
 ];
 
-const CompleteYourProfile = () => {
-  // const [profileImage, setProfileImage] = useState<string | null>(profile);
-  // const [fileInput, setFileInput] = useState<File | null>(null);
+const daysList = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
 
+const CompleteYourProfile = () => {
   const [loadingAccountName, setLoadingAccountName] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Dropdown state
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB (in bytes)
 
@@ -82,7 +74,7 @@ const CompleteYourProfile = () => {
       guarantorsPhoneNumber: "",
       guarantorsRelationship: "",
       YOE: "",
-      days: "",
+      days: [],
       startTime: "",
       endTime: "",
       priceRange: "",
@@ -108,6 +100,23 @@ const CompleteYourProfile = () => {
 
       formik.setFieldValue("profileImage", file);
     }
+  };
+
+  // Function to toggle selection
+  const handleSelection = (day: string) => {
+    const selectedDays = formik.values.days.includes(day)
+      ? formik.values.days.filter((d) => d !== day) // Remove if already selected
+      : [...formik.values.days, day]; // Add new day
+
+    formik.setFieldValue("days", selectedDays);
+  };
+
+  // Function to remove a selected day
+  const removeDay = (day: string) => {
+    formik.setFieldValue(
+      "days",
+      formik.values.days.filter((d) => d !== day)
+    );
   };
 
   const resolveAccountDetails = async () => {
@@ -201,6 +210,21 @@ const CompleteYourProfile = () => {
       }
     }
   }, [formik.errors]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className="flex items-center justify-center w-full lg:px-[120px] md:px-10 px-6 h-full">
@@ -399,10 +423,16 @@ const CompleteYourProfile = () => {
                   // type={type}
                   name="accountNumber"
                   id="accountNumber"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
                   value={formik.values.accountNumber}
                   onChange={(e) => {
+                    // Remove non-numeric characters
+                    const sanitizedValue = e.target.value.replace(/\D/g, "");
+                    // Clear accountName when phoneNumber changes
                     formik.setFieldValue("accountName", "");
-                    formik.handleChange(e);
+                    // Update phoneNumber with sanitized input
+                    formik.setFieldValue("accountNumber", sanitizedValue);
                   }}
                   onBlur={formik.handleBlur}
                   placeholder={"Enter account number"}
@@ -419,11 +449,13 @@ const CompleteYourProfile = () => {
                   Account Name
                 </label>
                 <input
-                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.accountName && formik.errors.accountName ? "border-red-500" : ""} ${loadingAccountName ? "text-[#008080] cursor-not-allowed" : ""}`}
-                  // type={type}
+                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] 
+                      ${formik.touched.accountName && formik.errors.accountName ? "border-red-500" : ""} 
+                      ${loadingAccountName ? "text-[#008080] cursor-not-allowed" : ""}`}
                   name="accountName"
                   id="accountName"
                   value={`${loadingAccountName ? "Loading account name..." : formik.values.accountName}`}
+                  placeholder="Fill in account details to get name"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   disabled
@@ -465,7 +497,15 @@ const CompleteYourProfile = () => {
                   name="guarantorsPhoneNumber"
                   id="guarantorsPhoneNumber"
                   value={formik.values.guarantorsPhoneNumber}
-                  onChange={formik.handleChange}
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  onChange={(e) => {
+                    const sanitizedValue = e.target.value.replace(/\D/g, "");
+                    formik.setFieldValue(
+                      "guarantorsPhoneNumber",
+                      sanitizedValue
+                    );
+                  }}
                   onBlur={formik.handleBlur}
                   placeholder={"Enter guarantor’s Number"}
                 />
@@ -516,16 +556,32 @@ const CompleteYourProfile = () => {
                 <label className="text-[14px] sm:text-[16px] leading-[16.8px] sm:leading-6 font-medium text-[#101928]">
                   Years of Experience
                 </label>
-                <input
-                  className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:leading-5 sm:placeholder:leading-[16.8px] text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] ${formik.touched.YOE && formik.errors.YOE ? "border-red-500" : ""}`}
-                  // type={type}
-                  name="YOE"
-                  id="YOE"
-                  value={formik.values.YOE}
-                  onChange={formik.handleChange}
-                  onBlur={formik.handleBlur}
-                  placeholder={"Enter years of experience"}
-                />
+                <div className="relative w-full">
+                  <select
+                    className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-3 sm:px-4 text-[12px] sm:text-[14px] leading-5 sm:leading-[16.8px] focus:outline-none focus:border-2 focus:border-[#008080] appearance-none ${
+                      formik.touched.YOE && formik.errors.YOE
+                        ? "border-red-500"
+                        : ""
+                    }`}
+                    name="YOE"
+                    id="YOE"
+                    value={formik.values.YOE}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                  >
+                    <option value="" disabled>
+                      Select years of experience
+                    </option>
+                    <option value="1">Less than 1 year</option>
+                    <option value="1-2">1-2 years</option>
+                    <option value="3-5">3-5 years</option>
+                    <option value="5-10">5-10 years</option>
+                    <option value="10+">Above 10 Years</option>
+                  </select>
+                  <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
+                    <img src={dropDown} alt="dropdown" />
+                  </div>
+                </div>
 
                 <div className="text-xs text-[#B3261E] min-h-[16px]">
                   {formik.touched.YOE && formik.errors.YOE}
@@ -544,37 +600,85 @@ const CompleteYourProfile = () => {
               </p>
             </div>
 
-            <div className="flex flex-col items-start w-full sm:gap-[25px]  sm:flex-row sm:items-center gap-4">
+            <div className="flex flex-col items-start w-full sm:gap-[25px] sm:flex-row  gap-4">
               <div className="w-full sm:w-1/2">
                 <label className="block text-[#101928] sm:text-[16px] text-[14px] sm:leading-6 leading-[16.8px] font-medium mb-2">
                   Days
                 </label>
-                <div className="relative w-full">
-                  <select
-                    className={`h-9 sm:h-14 w-full border-[#98A2B3] border rounded-[6px] px-4 placeholder:text-[14px] sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${formik.touched.days && formik.errors.days ? "border-red-500" : ""}`}
-                    name="days"
-                    id="days"
-                    value={formik.values.days}
-                    onChange={formik.handleChange}
-                    onBlur={formik.handleBlur}
+                <div className="relative w-full" ref={dropdownRef}>
+                  {/* Select Box */}
+                  <div
+                    className="w-full border border-[#98A2B3] rounded-[6px] px-4 h-9 sm:h-14 flex justify-between items-center cursor-pointer focus-within:border-[#008080]"
+                    onClick={() => setIsOpen(!isOpen)}
                   >
-                    <option className="text-[#98A2B3]" value="" disabled>
-                      Select your Working day
-                    </option>
-                    <option>Sunday</option>
-                    <option>Monday</option>
-                    <option>Tuesday</option>
-                    <option>Wednesday</option>
-                    <option>Thursday</option>
-                    <option>Friday</option>
-                    <option>Saturday</option>
-                  </select>
-                  <div className="absolute inset-y-0 flex items-center pointer-events-none right-3">
-                    <img src={dropDown} alt="dropdown" />
+                    <span className="text-gray-500 text-[14px]">
+                      {formik.values.days.length > 0
+                        ? `${formik.values.days.length} days selected`
+                        : "Select your Working Days"}
+                    </span>
+
+                    {/* <IoChevronDown
+                      className={`text-gray-500 transition-transform ${isOpen ? "rotate-180" : ""}`}
+                    /> */}
+
+                    <div
+                      className={`text-gray-500 transition-transform  pointer-events-none ${isOpen ? "rotate-180" : ""}`}
+                    >
+                      <img src={dropDown} alt="dropdown" />
+                    </div>
                   </div>
-                </div>
-                <div className="text-xs text-[#B3261E] min-h-4">
-                  {formik.touched.days && formik.errors.days}
+
+                  {/* Dropdown List */}
+                  {isOpen && (
+                    <div className="absolute z-10 w-full bg-white border border-[#98A2B3] rounded-[6px] mt-1 shadow-md h-fit overflow-auto p-4">
+                      {daysList.map((day) => (
+                        <label
+                          key={day}
+                          className="flex items-center w-full gap-3 cursor-pointer h-9 hover:bg-gray-100"
+                        >
+                          <input
+                            type="checkbox"
+                            className="accent-[#008080] w-5 h-5"
+                            checked={formik.values.days.includes(day)}
+                            onChange={() => handleSelection(day)}
+                          />
+                          <span className="text-[16px] leading-[100%] tracking-[2%] font-lato text-[#3C3C3C]">
+                            {day}
+                          </span>
+                        </label>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Selected Days as Pills */}
+                  {formik.values.days.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {formik.values.days.map((day) => (
+                        <div
+                          key={day}
+                          className="flex items-center justify-center text-[#008080] border-[#008080] border px-3  w-fit gap-1 h-9 rounded-[6px]"
+                        >
+                          <span className="text-[14px] leading-5 font-medium tracking-[2%]">
+                            {day}
+                          </span>
+                          <button
+                            type="button"
+                            className="text-white hover:text-gray-300"
+                            onClick={() => removeDay(day)}
+                          >
+                            <img src={cancel} alt="cancel" />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Formik Validation Error */}
+                  {formik.touched.days && formik.errors.days && (
+                    <p className="text-red-500 text-[12px] mt-1">
+                      {formik.errors.days}
+                    </p>
+                  )}
                 </div>
               </div>
 
