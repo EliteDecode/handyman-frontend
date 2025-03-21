@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import ProgressBarProps from "../completeYourProfile/ProgressBarProps";
 import fileUpload from "@/assets/icons/fileUpload.svg";
+import cancelWithCircle from "@/assets/icons/cancelWithCircle.svg";
+import addGreen from "@/assets/icons/addGreen.svg";
 import ApplicationSubmittedSuccessful from "../modals/ApplicationSubmittedSuccessful";
 
 import InputPillWithFormik from "@/components/auth/InputPillWithFormik";
 import { useFormik } from "formik";
 import { handyManPorfolioSchema } from "@/lib/schema";
+import toast from "react-hot-toast";
+
+const MAX_IMAGES = 3; // Maximum allowed images
 
 const Portfolio = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const formik = useFormik<porfolioFormValues>({
+  const formik = useFormik({
     initialValues: {
-      workImage: null,
+      workImage: [],
       projectDescription: "",
       tags: [],
     },
@@ -23,6 +26,15 @@ const Portfolio = () => {
     },
   });
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("");
+
+  useEffect(() => {
+    if (formik.values.workImage.length > 0) {
+      setSelectedImage(formik.values.workImage[0]);
+    }
+  }, [formik.values.workImage]);
+
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
 
@@ -30,25 +42,46 @@ const Portfolio = () => {
     handleOpenModal();
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const handleFileChangeWorkImage = (
-    e: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
+    const files = event.target.files;
 
-      formik.setFieldValue("workImage", file);
+    if (files && files.length > 0) {
+      const newImagesPromises = Array.from(files).map((file) => {
+        return new Promise<string>((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result as string);
+          reader.readAsDataURL(file);
+        });
+      });
+
+      Promise.all(newImagesPromises).then((newImages) => {
+        let updatedImages = [...formik.values.workImage, ...newImages];
+
+        // Check if images exceed the max limit
+        if (updatedImages.length > MAX_IMAGES) {
+          toast.error(`You can only upload up to ${MAX_IMAGES} images.`);
+          updatedImages = updatedImages.slice(0, MAX_IMAGES); // Keep only the first 3
+        }
+
+        formik.setFieldValue("workImage", updatedImages);
+        setSelectedImage(updatedImages[0]); // Set the first image as selected
+      });
     }
   };
 
-  const handleFileRemoveWorkImage = () => {
-    formik.setFieldValue("workImage", null);
+  const handleFileRemoveWorkImage = (index: number) => {
+    const updatedImages = [...formik.values.workImage];
+    updatedImages.splice(index, 1); // Remove the selected image
+
+    formik.setFieldValue("workImage", updatedImages);
+
+    // If no images left, clear the preview
+
+    setSelectedImage(updatedImages.length > 0 ? updatedImages[0] : "");
   };
 
-  console.log(formik.errors);
   return (
     <form
       className="max-w-[1440px] w-full mx-auto"
@@ -76,67 +109,102 @@ const Portfolio = () => {
                 Upload photos of past work
               </h1>
               <p className="sm:text-[16px] leading-5 text-[12px] font-lato">
-                Upload any certifications or licenses related to your profession
-                to boost your profile and stand out to clients.
+                Upload any certifications or licenses related to your
+                profession.
               </p>
             </div>
 
-            <div
-              className={`max-w-[588px] w-full max-h-[338px] min-h-[256px] overflow-scroll h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative ${formik.touched.workImage && formik.errors.workImage ? "border-red-500" : ""}`}
-            >
-              {formik.values.workImage ? (
-                <div className="w-full h-full">
-                  <img
-                    src={URL.createObjectURL(formik.values.workImage)}
-                    alt="Uploaded "
-                    className="object-cover rounded-[8px]"
-                  />
-                  <div className="absolute top-0 right-0 flex gap-2 p-2">
-                    <button
-                      className="px-3 py-1 text-white transition bg-red-800 rounded-md hover:text-red-900 hover:bg-white"
-                      onClick={handleFileRemoveWorkImage}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                </div>
+            <div className="max-w-[588px] w-full max-h-[338px] min-h-[256px] overflow-scroll h-full border-dashed border-2 border-[#3C3C3C] rounded-[8px] flex items-center justify-center flex-col sm:mt-6 mt-4 relative">
+              {selectedImage ? (
+                <img
+                  src={selectedImage}
+                  alt="Uploaded"
+                  className="object-cover rounded-[8px] w-full h-full"
+                />
               ) : (
                 <>
                   <img
                     src={fileUpload}
                     alt="file Upload Icon"
-                    className="w-[24px] h-[29.33px] sm:w-16 sm:h-16"
+                    className="w-16 h-16"
                   />
                   <p className="sm:mt-6 mt-4 sm:text-[18px] sm:leading-6 text-[12px] leading-5 text-[#191919] font-lato">
                     Drag and drop document or photo here
                   </p>
-                  <div>
-                    <input
-                      name="workImage"
-                      id="workImage"
-                      onChange={handleFileChangeWorkImage}
-                      type="file"
-                      className="hidden"
-                      accept="image/*"
-                    />
-                    <label
-                      htmlFor="workImage"
-                      className="sm:w-[125px] sm:h-14 w-[109px] h-9  bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer"
-                    >
-                      Select file
-                    </label>
-                  </div>
+                  <input
+                    name="workImage"
+                    id="workImage"
+                    type="file"
+                    className="hidden"
+                    accept="image/*"
+                    multiple
+                    onChange={handleFileChangeWorkImage}
+                  />
+                  <label
+                    htmlFor="workImage"
+                    className="sm:w-[125px] sm:h-14 w-[109px] h-9 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold sm:text-[16px] sm:leading-6 text-[14px] leading-5 font-lato sm:mt-8 mt-6 flex items-center justify-center cursor-pointer"
+                  >
+                    Select file
+                  </label>
                 </>
               )}
             </div>
 
-            <div className="text-xs text-[#B3261E] min-h-4">
-              {formik.touched.workImage && formik.errors.workImage}
-            </div>
+            <div className="flex flex-col w-full gap-4 mt-4">
+              <div className="flex flex-wrap w-full h-full gap-2">
+                {formik.values.workImage.map((img, index) => (
+                  <div
+                    key={index}
+                    className={`w-[120px] h-[120px] border-2 rounded-md cursor-pointer overflow-hidden relative ${
+                      selectedImage === img
+                        ? "border-blue-500"
+                        : "border-gray-300"
+                    }`}
+                    onClick={() => setSelectedImage(img)}
+                  >
+                    <img
+                      src={img}
+                      alt={`Thumbnail ${index}`}
+                      className="object-cover w-full h-full"
+                    />
+                    <img
+                      src={cancelWithCircle}
+                      alt="Cancel"
+                      className="absolute top-0 right-0 p-1 bg-white rounded-full shadow-md cursor-pointer"
+                      onClick={(e) => {
+                        e.stopPropagation(); // ✅ Prevents event bubbling
+                        handleFileRemoveWorkImage(index);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
 
-            <div className="flex items-center justify-between sm:text-[14px] text-[12px] leading-5 text-[#3C3C3C] font-medium font-lato sm:mt-4 mt-2">
-              <p>Supported Format: jpg and png</p>
-              <p>500kb max file size</p>
+              {formik.values.workImage.length > 0 &&
+                formik.values.workImage.length < 3 && (
+                  <div>
+                    <label
+                      htmlFor="workImage"
+                      className="flex items-center cursor-pointer"
+                    >
+                      <img src={addGreen} alt="Add another" />
+                      <p className="text-[#008080] text-[14px] font-semibold">
+                        Add Another Image
+                      </p>
+                    </label>
+                    <input
+                      type="file"
+                      id="workImage"
+                      className="hidden"
+                      accept="image/*"
+                      multiple
+                      onChange={handleFileChangeWorkImage}
+                    />
+                  </div>
+                )}
+            </div>
+            <div className="text-xs text-[#B3261E]">
+              {formik.touched.workImage && formik.errors.workImage}
             </div>
           </div>
 
