@@ -25,7 +25,7 @@ declare interface verificationAndIdentificationFormValues {
 }
 
 declare interface porfolioFormValues {
-  workImage: File | null;
+  workImage: string[];
   projectDescription: string;
   tags: string[];
 }
