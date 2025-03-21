@@ -237,19 +237,34 @@ export const handyManVerificationAndIdentificationSchema = Yup.object().shape({
 });
 
 export const handyManPorfolioSchema = Yup.object().shape({
-  workImage: Yup.mixed()
-    .nullable()
-    .required("Certifications image is required")
-    .test("fileType", "Only image files are allowed", (value) => {
-      return (
-        !value || // Allow null/undefined if the field is optional
-        (value instanceof File &&
-          ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
-      );
-    })
-    .test("fileSize", "File size must be less than 5MB", (value) => {
-      return !value || (value instanceof File && value.size <= 5 * 1024 * 1024);
-    }),
+  workImage: Yup.array()
+    .of(
+      Yup.mixed()
+        .nullable()
+        .test(
+          "fileType",
+          "Only JPEG, JPG, and PNG files are allowed",
+          (value) => {
+            return (
+              !value || // Allow null/undefined if optional
+              typeof value === "string" || // Allow base64 strings
+              (value instanceof File &&
+                ["image/jpeg", "image/png", "image/jpg"].includes(value.type))
+            );
+          }
+        )
+        .test("fileSize", "Each image must be less than 5MB", (value) => {
+          return (
+            !value ||
+            typeof value === "string" || // Base64 strings don’t have size, assume valid
+            (value instanceof File && value.size <= 5 * 1024 * 1024)
+          );
+        })
+    )
+    .min(1, "At least one image is required")
+    .max(3, "You can upload up to 3 images") // Adjusted max limit to 3
+    .required("Work image is required"),
+
   projectDescription: Yup.string()
     .required("Project description is required")
     .min(20, "Project description must be at least 20 characters")
