@@ -6,6 +6,7 @@ const token = localStorage.getItem("HM_access_token");
 
 const initialState: InitialAuthStateProps = {
   isLoading: false,
+  isLogoutLoading: false,
   message: "",
   isSuccess: false,
   isError: false,
@@ -61,15 +62,23 @@ export const LoginWithFacebook = createAsyncThunkWithHandler(
   }
 );
 
+export const logout = createAsyncThunkWithHandler("auth/logout", async () => {
+  return await CustomerAuthService.logout();
+});
+
 const customerAuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
     reset: (state) => {
+      state.isLogoutLoading = false;
       state.isLoading = false;
       state.isSuccess = false;
       state.isError = false;
       state.message = "";
+    },
+    resetToken: (state) => {
+      state.token = null;
     },
   },
   extraReducers: (builder) => {
@@ -192,9 +201,26 @@ const customerAuthSlice = createSlice({
         state.isError = true;
         state.message = action.payload as string;
         state.isSuccess = false;
+      })
+
+      //Logout case
+      .addCase(logout.pending, (state, _) => {
+        state.isLogoutLoading = true;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
+        state.isLogoutLoading = false;
+        state.isError = false;
+        state.isSuccess = true;
+        state.message = action.payload.message;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.isLogoutLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+        state.isSuccess = false;
       });
   },
 });
 
-export const { reset } = customerAuthSlice.actions;
+export const { reset, resetToken } = customerAuthSlice.actions;
 export default customerAuthSlice.reducer;

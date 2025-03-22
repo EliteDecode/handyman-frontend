@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, X } from "lucide-react";
+import Notification from "@/assets/icons/notifucation.svg";
 
 const DashboardNotification = ({
   toggleNotification,
@@ -130,6 +131,20 @@ const DashboardNotification = ({
             </div>
           </div>
         </div>
+
+        {/* No notification block */}
+
+        {/* <div className="py-[60px] w-full flex flex-col justify-center items-center">
+          <img src={Notification} alt="icon" className="lg:w-20 w-14" />
+          <div className="mt-6  items-center justify-center">
+            <h2 className="font-medium text-center text-textHeader text-sm lg:text-base">
+              You’re All Caught Up!
+            </h2>
+            <p className="text-textBody text-xs lg:text-sm font-medium">
+              Check back later for updates and offers.
+            </p>
+          </div>
+        </div> */}
       </motion.div>
     </div>
   );

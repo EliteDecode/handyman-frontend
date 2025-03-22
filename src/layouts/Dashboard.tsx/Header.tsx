@@ -7,8 +7,12 @@ import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store";
 import DashboardNotification from "@/components/CustomerDashboard/DashboardNotification";
+import { PiSpinnerGap } from "react-icons/pi";
+import useLogout from "@/hooks/useLogout";
 
 const Header = ({ isOpen, setIsOpen }: any) => {
+  const { logoutBtn, isLogoutLoading } = useLogout();
+
   const { user }: any = useSelector((state: RootState) => state.user);
   const [toggleProfile, setToggleProfile] = useState(false);
   const [toggleNotification, setToggleNotification] = useState(false);
@@ -67,14 +71,27 @@ const Header = ({ isOpen, setIsOpen }: any) => {
           ></div>
         )}
         <motion.div
-          className="absolute  right-3  w-[280px] p-4 bg-white z-10 rounded-xl"
+          className="absolute  right-3  w-[280px] py-4 px-2 bg-white z-10 rounded-xl"
           initial={{ y: "-250%" }}
           animate={{ y: toggleProfile ? "0%" : "-250%" }}
         >
-          <p className="py-2 text-sm">
+          <p className="py-2 text-sm px-4">
             {user?.email ? user?.email : "handyman@contact.com"}
           </p>
-          <button className="py-2 text-sm outline-none">Logout</button>
+          <button
+            className="py-2 text-sm outline-none hover:bg-[#008080]/80 hover:text-white  w-full text-left px-4 rounded-md transition-all duration-200"
+            onClick={() => logoutBtn()}
+          >
+            {isLogoutLoading ? (
+              <span className="flex gap-2 items-center">
+                {" "}
+                Signing out...{" "}
+                <PiSpinnerGap className="animate-spin stroke-2 text-lg" />{" "}
+              </span>
+            ) : (
+              "Logout"
+            )}
+          </button>
         </motion.div>
       </div>
 

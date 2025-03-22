@@ -15,9 +15,7 @@ const useDashboard = () => {
   const { user, isLoading, isError, message, isSuccess }: any = useSelector(
     (state: RootState) => state.user
   );
-  const [isProfileUpdated, setIsProfileUpdated] = useState<boolean | null>(
-    true
-  );
+  const [isProfileUpdated, setIsProfileUpdated] = useState<boolean>(true);
 
   const getStoredProfileStatus = () => {
     const storedItem = localStorage.getItem(STORAGE_KEY);
@@ -25,7 +23,7 @@ const useDashboard = () => {
       const { value } = JSON.parse(storedItem);
       setIsProfileUpdated(value);
     } else {
-      setIsProfileUpdated(null);
+      setIsProfileUpdated(true);
     }
   };
 
