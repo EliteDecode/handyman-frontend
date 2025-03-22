@@ -11,7 +11,7 @@ declare interface CompleteYourProfileFormValues {
   guarantorsPhoneNumber: string;
   guarantorsRelationship: string;
   YOE: string;
-  days: string;
+  days: string[];
   startTime: string;
   endTime: string;
   priceRange: string;
@@ -25,7 +25,7 @@ declare interface verificationAndIdentificationFormValues {
 }
 
 declare interface porfolioFormValues {
-  workImage: File | null;
+  workImage: string[];
   projectDescription: string;
   tags: string[];
 }

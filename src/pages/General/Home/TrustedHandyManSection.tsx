@@ -1,5 +1,6 @@
 import handyManWorkingImage from "@/assets/images/handyManWorkingImage.png";
 import checkWithCircle from "@/assets/icons/checkWithCircle.svg";
+import { Link } from "react-router-dom";
 
 const TrustedHandyManSection = () => {
   const trustedHandyMan: string[] = [
@@ -40,9 +41,12 @@ const TrustedHandyManSection = () => {
             ))}
           </ul>
 
-          <button className="text-[18px] leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[140px] h-14 rounded-lg block md:mt-8 font-lato">
+          <Link
+            to={"/role-selection"}
+            className="text-[18px] flex items-center justify-center  leading-[24px] font-semibold text-[#FFFFFF] bg-[#008080] w-[140px] h-14 rounded-lg  md:mt-8 font-lato"
+          >
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </div>
