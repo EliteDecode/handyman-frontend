@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const FeaturedServices = () => {
-  const featuredItems: any = [];
+  const featuredItems: any = [1, 2, 3, 4, 5, 6, 7];
   return (
     <motion.section
       className=""
@@ -18,7 +18,7 @@ const FeaturedServices = () => {
         Featured Service Providers
       </h2>
 
-      <section className="mt-6 px-4">
+      <section className="mt-6">
         {featuredItems.length > 0 ? (
           <Swiper
             pagination={{
@@ -33,10 +33,10 @@ const FeaturedServices = () => {
               1200: { slidesPerView: 4.3, spaceBetween: 30 }, // Desktops
             }}
             modules={[Pagination, Autoplay]}
-            className="mySwiper "
+            className="mySwiper"
           >
             {featuredItems?.map((item: any) => (
-              <SwiperSlide className="pb-10 px-4 pt-4" key={item}>
+              <SwiperSlide className="pb-10 px-4 lg:px-2 pt-4" key={item}>
                 <FeaturedCard />
               </SwiperSlide>
             ))}

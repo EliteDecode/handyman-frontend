@@ -29,12 +29,11 @@ const Header = ({ isOpen, setIsOpen }: any) => {
           {isOpen ? <X /> : <Menu />}
         </button>
         <div>
-          <Link
-            to="/dashboard"
+          <div
             className="lg:block hidden text-primary text-2xl font-merriweather font-bold"
           >
             {title?.name}
-          </Link>
+          </div>
           <Link
             to="/dashboard"
             className="lg:hidden block text-primary text-2xl font-merriweather font-bold"
