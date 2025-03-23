@@ -36,7 +36,12 @@ export const FacebookCallback = lazy(
 );
 
 //Customers Dashboard
-export const Dashboard = lazy(()=> import("@/pages/CustomerDashboard/Dashboard/Dashboard"))
+export const Dashboard = lazy(
+  () => import("@/pages/CustomerDashboard/Dashboard/Dashboard")
+);
 export const CompleteProfile = lazy(
   () => import("@/pages/CustomerDashboard/CompleteProfile/CompleteProfile")
+);
+export const CustomerServices = lazy(
+  () => import("@/pages/CustomerDashboard/Services/Services")
 );

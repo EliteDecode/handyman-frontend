@@ -1,6 +1,7 @@
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/icons/Electrical.svg";
 import tapImg from "@/assets/icons/FullToolStorageBox.svg";
+import { Link } from "react-router-dom";
 
 const DashboardServices = () => {
   return (
@@ -49,9 +50,9 @@ const DashboardServices = () => {
       </div>
 
       <div className="w-full flex items-center justify-center mb-5">
-        <button className="h-14 px-6 duration-200 hover:bg-[#008080]/50 bg-primary text-white rounded-lg mt-8 outline-none text-xs lg:text-base">
+        <Link to="/dashboard/services" className="h-14 px-6 flex items-center justify-center duration-200 hover:bg-[#008080]/50 bg-primary text-white rounded-lg mt-8 outline-none text-xs lg:text-base">
           See all Services
-        </button>
+        </Link>
       </div>
     </div>
   );

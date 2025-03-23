@@ -10,7 +10,7 @@ import DashboardNotification from "@/components/CustomerDashboard/DashboardNotif
 import { PiSpinnerGap } from "react-icons/pi";
 import useLogout from "@/hooks/useLogout";
 
-const Header = ({ isOpen, setIsOpen }: any) => {
+const SubHeader = ({ isOpen, setIsOpen }: any) => {
   const { logoutBtn, isLogoutLoading } = useLogout();
 
   const { user }: any = useSelector((state: RootState) => state.user);
@@ -100,6 +100,6 @@ const Header = ({ isOpen, setIsOpen }: any) => {
       />
     </section>
   );
-};
+}
 
-export default Header;
+export default SubHeader
