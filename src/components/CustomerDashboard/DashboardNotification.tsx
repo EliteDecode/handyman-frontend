@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Calendar, X } from "lucide-react";
-import Notification from "@/assets/icons/notifucation.svg";
+// import Notification from "@/assets/icons/notifucation.svg";
 
 const DashboardNotification = ({
   toggleNotification,
