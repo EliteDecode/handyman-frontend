@@ -2,12 +2,32 @@ import { motion } from "framer-motion";
 import { ArrowUpDown, Filter } from "lucide-react";
 import ServiceProviderCard from "./ServiceProviderCard";
 import ServiceProviderFilter from "./ServiceProviderFilter";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FeaturedSortBy from "./FeaturedSortBy";
+import usePaginate from "@/hooks/usePaginate";
+
+import ServiceProviderPageNumber from "./ServiceProviderPageNumber";
 
 const ServiceProviderListing = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [toggleSort, setToggleSort] = useState(false);
+  const demoArray = Array.from({ length: 113 });
+  const {
+    changeCurPage,
+    currentPage,
+    nextPage,
+    prevPage,
+    records,
+    nPage,
+  } = usePaginate(demoArray);
+
+  const topRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTop = () => {
+    if (topRef.current) {
+      topRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
 
   return (
     <motion.section
@@ -16,6 +36,7 @@ const ServiceProviderListing = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, ease: "easeOut" }}
+      ref={topRef}
     >
       <div className="flex items-center justify-between gap-6 relative">
         <h2 className="font-bold font-merriweather text-2xl text-textHeader">
@@ -41,12 +62,21 @@ const ServiceProviderListing = () => {
         />
         <FeaturedSortBy toggleSort={toggleSort} setToggleSort={setToggleSort} />
       </div>
-      
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 mt-6">
-        {Array.from({ length: 10 }).map((_, i) => (
+
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 mt-6">
+        {records.map((_, i) => (
           <ServiceProviderCard key={i} />
         ))}
       </div>
+
+      <ServiceProviderPageNumber
+        prevPage={prevPage}
+        scrollToTop={scrollToTop}
+        changeCurPage={changeCurPage}
+        nPage={nPage}
+        currentPage={currentPage}
+        nextPage={nextPage}
+      />
     </motion.section>
   );
 };
