@@ -9,7 +9,7 @@ const FeaturedCard = () => {
 
   return (
     <motion.div
-      className="w-[270px] min-h-[322px] rounded-xl shadow-custom p-6"
+      className="min-w-[270px] min-h-[322px] rounded-xl shadow-custom p-6"
       initial={{ backgroundColor: "#ffffff" }} // Default white background
       animate={{
         backgroundColor: isClicked

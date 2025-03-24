@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import { useState } from "react";
 import MobileSidebar from "./MobileSidebar";
 import SubHeader from "./SubHeader";
@@ -12,7 +12,8 @@ const DashboardSubLayout = () => {
         <MobileSidebar isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
       <SubHeader isOpen={isOpen} setIsOpen={setIsOpen} />
-      <div className="lg:my-8 my-6 ">
+      <div className="w-full lg:my-8 my-6 overflow-hidden">
+        <ScrollRestoration />
         <Outlet />
       </div>
     </>
