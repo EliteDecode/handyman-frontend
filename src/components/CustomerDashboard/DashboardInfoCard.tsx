@@ -1,11 +1,18 @@
 import { Filter, Search } from "lucide-react";
 import { useState } from "react";
 import DashboardFilter from "./DashboardFilter";
+import { motion } from "framer-motion";
 
 const DashboardInfoCard = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   return (
-    <div className="shadow-custom lg:p-6 p-4">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="shadow-custom lg:p-6 p-4"
+    >
       <div>
         <h2 className="lg:font-medium font-bold font-merriweather lg:font-lato text-xl tracking-2-percent lg:leading-8">
           Find Skilled Handymen for Every Job, Anytime
@@ -41,7 +48,7 @@ const DashboardInfoCard = () => {
           setToggleFilter={setToggleFilter}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,8 +1,15 @@
 import TeleconsultantImg from "@/assets/images/dashboard-teleconsultation.png";
+import {motion} from "framer-motion"
 
 const DashboardTeleconsultant = () => {
   return (
-    <div className="pl-6 bg-dashboard-custom-gradient mt-6 rounded-lg flex justify-between items-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className="pl-6 bg-dashboard-custom-gradient mt-6 rounded-lg flex justify-between items-center"
+    >
       <div className="py-4">
         <h2 className="font-bold font-merriweather lg:text-base text-[#191919] text-sm">
           Need Expert Help Quickly?
@@ -22,7 +29,7 @@ const DashboardTeleconsultant = () => {
           className=" object-cover w-full h-full object-center rounded-e-lg"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

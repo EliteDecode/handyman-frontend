@@ -38,22 +38,22 @@ const ServiceProviderListing = () => {
       transition={{ duration: 1, ease: "easeOut" }}
       ref={topRef}
     >
-      <div className="flex items-center justify-between gap-6 relative">
-        <h2 className="font-bold font-merriweather text-2xl text-textHeader">
+      <div className="flex items-center justify-between gap-2 relative">
+        <h2 className="font-bold font-merriweather lg:text-2xl text-base text-textHeader">
           Service Providers Listing
         </h2>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setToggleFilter((prev) => !prev)}
-            className="outline-none bg-[#ECECEC] px-4 h-14 rounded-md flex items-center gap-2 justify-center tracking-2-percent text-textBody"
+            className="outline-none bg-[#ECECEC] text-[11px] lg:text-base px-2 text-nowrap lg:px-4 h-10 lg:h-14 rounded-md flex items-center lg:gap-2 gap-1 justify-center tracking-2-percent text-textBody"
           >
-            Filter <Filter className="lg:w-5 w-4" />
+            Filter <Filter className="lg:w-5 w-3" />
           </button>
           <button
             onClick={() => setToggleSort((prev) => !prev)}
-            className="outline-none bg-[#ECECEC] px-4 h-14 rounded-md flex items-center gap-2 justify-center tracking-2-percent text-textBody"
+            className="outline-none bg-[#ECECEC] text-[11px] lg:text-base px-2 text-nowrap lg:px-4 h-10 lg:h-14 rounded-md flex items-center lg:gap-2 gap-1 justify-center tracking-2-percent text-textBody"
           >
-            Sort by <ArrowUpDown className="lg:w-5 w-4" />
+            Sort by <ArrowUpDown className="lg:w-5 w-3" />
           </button>
         </div>
         <ServiceProviderFilter
@@ -63,7 +63,7 @@ const ServiceProviderListing = () => {
         <FeaturedSortBy toggleSort={toggleSort} setToggleSort={setToggleSort} />
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(180px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 mt-6">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 lg:gap-6 mt-6">
         {records.map((_, i) => (
           <ServiceProviderCard key={i} />
         ))}

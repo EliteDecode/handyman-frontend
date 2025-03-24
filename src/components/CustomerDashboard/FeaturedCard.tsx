@@ -26,7 +26,7 @@ const FeaturedCard = () => {
     >
       <div className="flex w-full justify-end">
         <span
-          className={`${isClicked ? "bg-white text-primary" : isHovered ? "bg-primary text-white" : "bg-[#0080800A] text-primary"} transition-all duration-300 rounded-[40px] py-1 px-4 font-semibold`}
+          className={`${isClicked ? "bg-white text-primary" : isHovered ? "bg-primary text-white" : "bg-[#0080800A] text-primary"} transition-all duration-300 rounded-[40px] py-1 lg:px-4 px-2 font-semibold text-xs lg:text-base`}
         >
           Fearured
         </span>
@@ -43,7 +43,7 @@ const FeaturedCard = () => {
           Ifeanyi Nwafor
         </h2>
         <span
-          className={`${isClicked ? "text-white" : "text-textBody"} tracking-2-percent mt-1`}
+          className={`${isClicked ? "text-white" : "text-textBody"} tracking-2-percent mt-1 text-sm lg:text-base`}
         >
           Plumber
         </span>
@@ -55,15 +55,15 @@ const FeaturedCard = () => {
           <Star className="w-4 h-4 text-transparent" fill="#D0D5DD" />
         </div>
         <p
-          className={`tracking-2-percent mt-2 ${isClicked ? "text-white" : "text-textBody"}`}
+          className={`tracking-2-percent mt-2 ${isClicked ? "text-white" : "text-textBody"} text-sm lg:text-base`}
         >
-          <span className="">&#8358;5000</span> -{" "}
-          <span className="">&#8358;8000</span>
+          <span>&#8358;5000</span> -{" "}
+          <span>&#8358;8000</span>
         </p>
 
         <div className="flex items-center gap-2 mt-2 tracking-2-percent">
           <span className="w-2.5 h-2.5 rounded-full bg-[#34C759]" />
-          <span className={`${isClicked ? "text-white" : "text-textBody"}`}>
+          <span className={`${isClicked ? "text-white" : "text-textBody"} text-xs lg:text-sm`}>
             Available
           </span>
         </div>

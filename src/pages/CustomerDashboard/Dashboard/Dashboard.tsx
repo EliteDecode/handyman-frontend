@@ -31,7 +31,7 @@ const Dashboard = () => {
     <section className="lg:p-8 p-6 w-full">
       <DashboardInfoCard />
 
-      <div className="grid grid-cols-2 xl:grid-cols-4 md:grid-cols-3 gap-6 mt-6 place-items-center">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(175px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(255px,1fr))] gap-6 mt-6 ">
         {dashboardCardInfo.map((val, i) => (
           <DashboardCard
             key={i}
