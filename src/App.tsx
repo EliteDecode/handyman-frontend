@@ -27,13 +27,15 @@ import {
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import DashboardLayout from "./layouts/Dashboard.tsx/index.tsx";
+import HandymanDashboardLayout from "./layouts/HandyManDashboardLayout/Index.tsx";
 import AuthLayout from "./layouts/AuthLayout";
 import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
 import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
-
+import HandymanDashboard from "./pages/HandymanDashboard/Dashboard/Dashboard.tsx";
+import JobRequests from "./pages/HandymanDashboard/JobRequests/JobRequests.tsx";
 // routes
 
 export default function App() {
@@ -143,6 +145,23 @@ export default function App() {
             {
               path: "settings",
               element: <h2>Settings</h2>,
+            },
+          ],
+        },
+
+        // handyman dashboard routes
+        {
+          path: "handyman/dashboard",
+          element: <HandymanDashboardLayout />,
+
+          children: [
+            {
+              path: "",
+              element: <HandymanDashboard />,
+            },
+            {
+              path: "job-requests",
+              element: <JobRequests />,
             },
           ],
         },

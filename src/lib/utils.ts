@@ -7,7 +7,15 @@ import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/images/Roller.png";
 import tapImg from "@/assets/images/Plumbing.png";
-import { LayoutDashboard, Banknote, Settings2, Calendar } from "lucide-react";
+import {
+  LayoutDashboard,
+  Banknote,
+  Settings2,
+  Calendar,
+  FileText,
+  LayoutGrid,
+  BriefcaseBusiness,
+} from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -470,6 +478,34 @@ export const sidebarLinks = [
   {
     name: "Settings",
     link: "/dashboard/settings",
+    icon: Settings2,
+  },
+];
+
+export const sidebarHandymanLinks = [
+  {
+    name: "Dashboard",
+    link: "/handyman/dashboard",
+    icon: LayoutGrid,
+  },
+  {
+    name: "Job Requests",
+    link: "/handyman/dashboard/job-requests",
+    icon: FileText,
+  },
+  {
+    name: "Services",
+    link: "/handyman/dashboard/services",
+    icon: BriefcaseBusiness,
+  },
+  {
+    name: "Payments",
+    link: "/handyman/dashboard/payments",
+    icon: Banknote,
+  },
+  {
+    name: "Settings",
+    link: "/handyman/dashboard/settings",
     icon: Settings2,
   },
 ];
