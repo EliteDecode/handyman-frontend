@@ -54,3 +54,6 @@ export const HandymanProfile = lazy(
 export const HandymanPortfolioImage = lazy(
   () => import("@/components/CustomerDashboard/HandymanPortfolioImage")
 );
+export const HandymanPortfolioCertification = lazy(
+  () => import("@/components/CustomerDashboard/HandymanPortfolioCertification")
+);

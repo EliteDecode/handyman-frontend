@@ -36,7 +36,8 @@ const HandymanProfilePortfolio = ({ profileInfo }: any) => {
           <div className="mt-6">
             {profileInfo?.certificaitons?.map(
               (certification: any, i: number) => (
-                <div
+                <Link
+                  to={`/dashboard/handyman-portfolio-certs/${profileInfo?.id}?certName=${certification?.name}`}
                   key={i}
                   className="w-full py-3 px-4 border border-[#C9CDD3] rounded-2xl mt-4 flex items-center gap-2"
                 >
@@ -44,7 +45,7 @@ const HandymanProfilePortfolio = ({ profileInfo }: any) => {
                   <span className="text-textBody font-medium text-lg tracking-2-percent">
                     {certification?.name}
                   </span>
-                </div>
+                </Link>
               )
             )}
           </div>

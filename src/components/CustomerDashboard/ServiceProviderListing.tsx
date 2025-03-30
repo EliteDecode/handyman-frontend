@@ -30,7 +30,7 @@ const ServiceProviderListing = () => {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 1, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       ref={topRef}
     >
       <div className="flex items-center justify-between gap-2 relative">
