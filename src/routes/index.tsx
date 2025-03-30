@@ -48,3 +48,9 @@ export const ServicesListing = lazy(
 export const ServicesProvider = lazy(
   () => import("@/pages/CustomerDashboard/Services/ServicesProvider")
 );
+export const HandymanProfile = lazy(
+  () => import("@/pages/CustomerDashboard/HandymanProfile/HandymanProfile")
+);
+export const HandymanPortfolioImage = lazy(
+  () => import("@/components/CustomerDashboard/HandymanPortfolioImage")
+);

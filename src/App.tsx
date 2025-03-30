@@ -25,6 +25,9 @@ import {
   Dashboard,
   ServicesProvider,
   ServicesListing,
+  HandymanProfile,
+  HandymanPortfolioImage,
+
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -160,6 +163,14 @@ export default function App() {
             {
               path: "services-provider",
               element: <ServicesProvider />,
+            },
+            {
+              path: "handyman-profile/:id",
+              element: <HandymanProfile />,
+            },
+            {
+              path: "handyman-portfolio-images/:id",
+              element: <HandymanPortfolioImage />,
             },
           ]
         },

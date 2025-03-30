@@ -2,40 +2,15 @@ import { motion } from "framer-motion";
 import ImagePlaceHolder from "../../assets/images/placeholderImg.png";
 import Rating from "@mui/material/Rating";
 import StarIcon from "@mui/icons-material/Star";
+import { Link } from "react-router-dom";
 const ServiceProviderCard = ({ serviceData }: any) => {
-  const checkImage = (url: string) => {
-    return new Promise((resolve) => {
-      const img = new Image();
-      img.src = url;
-      img.onload = () => resolve(true);
-      img.onerror = () => resolve(false);
-    });
-  };
-
-  const verifyImages = async (imageUrls: string[]) => {
-    const results = await Promise.all(
-      imageUrls.map(async (url) => ({
-        url,
-        isValid: await checkImage(url),
-      }))
-    );
-
-    console.log("Image URL Validation:", results);
-  };
-
-  // Example Usage
-  const imageUrls = serviceData?.previousJobs;
-
-  verifyImages(imageUrls);
-
-
   return (
     <motion.div
       className="rounded-xl shadow-custom p-6"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
     >
       <div className="mt-2 w-full h-f flex flex-col items-center justify-center">
         <img
@@ -85,12 +60,12 @@ const ServiceProviderCard = ({ serviceData }: any) => {
           </span>
         </div>
 
-        <button
+        <Link
+          to={`/dashboard/handyman-profile/${serviceData?.id}`}
           className={`${serviceData?.available ? " duration-200 hover:bg-[#008080]/50 bg-primary" : "bg-[#C9CDD3]"} cursor-pointer text-white lg:py-4 py-2 lg:px-6 px-4 font-semibold text-[10px] lg:text-base rounded-lg lg:mt-8 mt-6 outline-none`}
-          disabled={!serviceData?.available}
         >
           Book Now
-        </button>
+        </Link>
       </div>
     </motion.div>
   );

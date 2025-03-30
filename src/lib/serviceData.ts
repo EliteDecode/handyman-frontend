@@ -76,13 +76,14 @@ export const serviceListings = [
 
 export const serviceProviders = [
   {
+    id: 1,
     name: "Ifeanyi Nwafor",
     bioData:
       "I have over 15 years of experience transforming residential and commercial spaces, I am renowned for delivering precise, high-quality results that bring walls to life. My expertise spans various styles, from classic interiors to modern, minimalist designs, ensuring each project aligns with the client’s unique vision. My commitment to professionalism is reflected in my punctuality, cleanliness, and respect for clients' spaces, making me a preferred choice for homeowners and businesses alike. I am available for both small touch-ups and large-scale projects, My services are reliable and are tailored to create vibrant, welcoming spaces in any setting.",
     skill: "Painter",
     minPrice: 12000,
     maxPrice: 15000,
-    priceDescription: "",
+    priceDescription: "Basic Painting",
     available: true,
     rating: 3.5,
     profileImg:
@@ -100,8 +101,21 @@ export const serviceProviders = [
       "https://plus.unsplash.com/premium_photo-1661963211494-558f6f7aa721?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjF8fGNvb2wlMjByb29tJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D",
       "https://plus.unsplash.com/premium_photo-1676320514040-aa62563f44df?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODl8fGNvb2wlMjByb29tJTIwcGFpbnRpbmd8ZW58MHx8MHx8fDA%3D",
     ],
+    certificaitons: [
+      {
+        name: "Amiable Painters; Certificate of participation",
+        image:
+          "https://marketplace.canva.com/EAF7h2vFXaU/2/0/1600w/canva-blue-and-gold-elegant-curved-certificate-of-achievement-certificate-HTxQpZIhLas.jpg",
+      },
+      {
+        name: "Painters Association of Nigeria",
+        image:
+          "https://marketplace.canva.com/EAFy42rCTA0/1/0/1600w/canva-blue-minimalist-certificate-of-achievement-_asVJz8YgJE.jpg",
+      },
+    ],
   },
   {
+    id: 2,
     name: "Chioma Adigwe",
     bioData:
       "A professional electrician with over 7 years of experience in wiring installations, electrical repairs, and troubleshooting power failures. I ensure all my services comply with industry standards, prioritizing safety and efficiency.",
@@ -123,8 +137,21 @@ export const serviceProviders = [
       "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60",
       "https://images.unsplash.com/photo-1590631726950-6ff17f74b612?w=500&auto=format&fit=crop&q=60",
     ],
+    certificaitons: [
+      {
+        name: "Nation Power Grid; Certificate of participation",
+        image:
+          "https://piktochart.com/wp-content/uploads/2023/05/large-271.jpg",
+      },
+      {
+        name: "Electrical Association of Nigeria",
+        image:
+          "https://marketplace.canva.com/EAFtLMllF3s/1/0/1600w/canva-blue-and-gold-simple-certificate-zxaa6yB-uaU.jpg",
+      },
+    ],
   },
   {
+    id: 3,
     name: "Emeka Okonkwo",
     bioData:
       "An expert plumber with over 10 years of experience. I specialize in both residential and commercial plumbing services, including pipe installations, leak repairs, and water system maintenance. I am committed to providing efficient and cost-effective solutions to all plumbing needs.",
@@ -148,6 +175,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 4,
     name: "Kelechi Eze",
     bioData:
       "A skilled carpenter with expertise in creating custom furniture and home fixtures. I specialize in kitchen cabinets, wardrobes, doors, and other wooden structures, providing top-notch craftsmanship and durable designs.",
@@ -171,6 +199,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 5,
     name: "Adewale Johnson",
     bioData:
       "With over a decade of experience in plumbing, I specialize in leak detection, pipe repairs, and complete plumbing installations. I ensure quality service with durable solutions, making sure clients never have to worry about frequent repairs.",
@@ -192,6 +221,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 6,
     name: "Chinedu Okafor",
     bioData:
       "As a certified electrician, I specialize in wiring, lighting installation, and electrical maintenance. My expertise ensures safe, high-quality installations that meet all safety regulations.",
@@ -215,6 +245,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 7,
     name: "Musa Garba",
     bioData:
       "A professional carpenter with vast experience in making furniture, woodworks, and home fittings. My craftsmanship is tailored to provide durable and aesthetically pleasing wooden designs.",
@@ -238,6 +269,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 8,
     name: "Esther Oladimeji",
     bioData:
       "A dedicated gardener passionate about transforming outdoor spaces into beautiful, lush gardens. From lawn maintenance to landscape design, I provide top-tier services.",
@@ -261,6 +293,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 9,
     name: "Blessing Uche",
     bioData:
       "I provide exceptional cleaning services for homes, offices, and commercial spaces. With years of experience, I ensure thorough sanitation, leaving your environment fresh and spotless.",
@@ -284,6 +317,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 10,
     name: "David Bassey",
     bioData:
       "I specialize in metal fabrication, welding repairs, and custom metal works. With precision and attention to detail, I ensure durability in every project.",
@@ -307,6 +341,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 11,
     name: "Emmanuel Obi",
     bioData:
       "As a professional bricklayer, I specialize in building construction, plastering, and block laying. My work ensures structural integrity and long-lasting results.",
@@ -330,6 +365,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 12,
     name: "Yusuf Adamu",
     bioData:
       "An expert automobile mechanic specializing in vehicle repairs, diagnostics, and maintenance services. I ensure efficient and reliable repairs to keep your car running smoothly.",
@@ -353,6 +389,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 13,
     name: "Amina Bello",
     bioData:
       "A professional fashion designer specializing in custom-made outfits for all occasions. My designs are tailored to perfection, combining style with comfort.",
@@ -376,6 +413,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 14,
     name: "Chinedu Okafor",
     bioData:
       "I am an expert plumber specializing in pipe installations, leakage repairs, and drainage system maintenance. I ensure quality and durable plumbing solutions.",
@@ -399,6 +437,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 15,
     name: "Samuel Adeyemi",
     bioData:
       "I am a professional painter specializing in interior and exterior wall painting, wallpaper installation, and decorative finishes.",
@@ -422,6 +461,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 16,
     name: "Peter Ojo",
     bioData:
       "I offer expert electrical services, including wiring, lighting installation, and home automation setups for residential and commercial buildings.",
@@ -445,6 +485,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 17,
     name: "Ahmed Suleiman",
     bioData:
       "A professional barber specializing in modern haircuts, beard grooming, and hair treatments. I offer home services for convenience.",
@@ -468,6 +509,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 18,
     name: "Stella Eze",
     bioData:
       "I specialize in bridal, casual, and professional makeup services. I use top-quality products to enhance natural beauty for all occasions.",
@@ -491,6 +533,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 19,
     name: "Henry Johnson",
     bioData:
       "A professional chef specializing in continental and local dishes. I offer home cooking services for events and private dining.",
@@ -514,6 +557,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 20,
     name: "Ifeanyi Nwafor",
     bioData:
       "I have over 15 years of experience transforming residential and commercial spaces...",
@@ -536,6 +580,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 21,
     name: "Emeka Okafor",
     bioData:
       "An experienced plumber specializing in residential and commercial plumbing solutions...",
@@ -558,6 +603,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 22,
     name: "Chioma Adeyemi",
     bioData:
       "Dedicated to delivering top-notch electrical installations and maintenance...",
@@ -580,6 +626,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 23,
     name: "John Adebayo",
     bioData:
       "Experienced carpenter skilled in furniture making, cabinetry, and home renovations...",
@@ -602,6 +649,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 24,
     name: "Janet Chukwu",
     bioData:
       "Professional cleaner with a keen eye for detail, offering home and office cleaning services...",
@@ -624,6 +672,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 25,
     name: "Michael Obi",
     bioData:
       "Experienced gardener offering landscaping, lawn maintenance, and plant care services...",
@@ -646,6 +695,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 26,
     name: "Grace Uche",
     bioData:
       "A highly skilled tailor specializing in custom-made outfits, alterations, and fashion design...",
@@ -668,6 +718,7 @@ export const serviceProviders = [
     ],
   },
   {
+    id: 27,
     name: "Daniel Okeke",
     bioData:
       "Specialized in welding and metal fabrication for residential and commercial projects...",
