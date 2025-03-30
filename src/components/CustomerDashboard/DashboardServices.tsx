@@ -20,19 +20,14 @@ const DashboardServices = () => {
         Choose from a variety of expert services tailored to your needs.
       </p>
 
-      <div className="mt-6 grid md:grid-cols-2 xl:grid-cols-3 gap-6 w-full place-items-center">
+      <div className="mt-6 grid grid-cols-[repeat(auto-fit,minmax(250px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(315px,1fr))] gap-6 w-full place-items-center">
         <motion.div
-          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }} // No shadow initially
+          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }}
           whileHover={{
-            backgroundColor: ["#0080800A", "#008080", "#0080800A"], // Color transitions
-            boxShadow: [
-              "none", // No shadow at the start
-              "0px 2px 4px rgba(16, 24, 40, 0.08)", // Light shadow when flashing
-              "0px 4px 10px rgba(16, 24, 40, 0.08)", // Final shadow when settled
-            ],
-            transition: { duration: 0.4, times: [0, 0.2, 1] }, // Controls animation timing
+            backgroundColor: ["#0080800A", "#0080803D"],
+            transition: { duration: 0.4, times: [0, 0.2, 1] },
           }}
-          className=" flex flex-col items-center justify-center w-ful rounded-lg w-[250px] md:min-w-[330px] py-4 "
+          className=" flex flex-col items-center justify-center rounded-lg w-[250px] md:min-w-[330px] py-4 "
         >
           <div className="w-[220px] flex flex-col items-center justify-center">
             <img src={toolImg} alt="" className="w-12" />
@@ -45,14 +40,9 @@ const DashboardServices = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }} // No shadow initially
+          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }}
           whileHover={{
-            backgroundColor: ["#0080800A", "#008080", "#0080800A"], // Color transitions
-            boxShadow: [
-              "none", // No shadow at the start
-              "0px 2px 4px rgba(16, 24, 40, 0.08)", // Light shadow when flashing
-              "0px 4px 10px rgba(16, 24, 40, 0.08)", // Final shadow when settled
-            ],
+            backgroundColor: ["#0080800A", "#0080803D"],
             transition: { duration: 0.4, times: [0, 0.2, 1] }, // Controls animation timing
           }}
           className=" flex flex-col items-center justify-center w-ful rounded-lg w-[250px] md:min-w-[330px] py-4 "
@@ -68,15 +58,10 @@ const DashboardServices = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }} // No shadow initially
+          initial={{ backgroundColor: "#0080800A", boxShadow: "none" }}
           whileHover={{
-            backgroundColor: ["#0080800A", "#008080", "#0080800A"], // Color transitions
-            boxShadow: [
-              "none", // No shadow at the start
-              "0px 2px 4px rgba(16, 24, 40, 0.08)", // Light shadow when flashing
-              "0px 4px 10px rgba(16, 24, 40, 0.08)", // Final shadow when settled
-            ],
-            transition: { duration: 0.4, times: [0, 0.2, 1] }, // Controls animation timing
+            backgroundColor: ["#0080800A", "#0080803D"],
+            transition: { duration: 0.4, times: [0, 0.2, 1] },
           }}
           className=" flex flex-col items-center justify-center w-ful rounded-lg w-[250px] md:min-w-[330px] py-4 "
         >
@@ -94,7 +79,7 @@ const DashboardServices = () => {
 
       <div className="w-full flex items-center justify-center mb-5">
         <Link
-          to="/dashboard/services"
+          to="/dashboard/services-listing"
           className="h-14 px-6 flex items-center justify-center duration-200 hover:bg-[#008080]/50 bg-primary text-white rounded-lg mt-8 outline-none text-xs lg:text-base"
         >
           See all Services

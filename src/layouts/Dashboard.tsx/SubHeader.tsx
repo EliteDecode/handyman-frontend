@@ -22,7 +22,7 @@ const SubHeader = ({ isOpen, setIsOpen }: any) => {
 
   return (
     <section className="max-w-[1200px] mx-auto lg:p">
-      <div className="flex justify-between lg:mt-6 items-center h-[80px] px-6 lg:px-8 shadow-custom relative">
+      <div className="flex justify-between lg:mt-6 items-center h-[80px] px-6 lg:px-8 shadow-custom3 relative">
         <div className="flex gap-6">
           <button className="outline-none hidden lg:block" onClick={() => navigate(-1)}>
             <FaArrowLeftLong className="text-2xl" />

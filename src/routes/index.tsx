@@ -42,6 +42,9 @@ export const Dashboard = lazy(
 export const CompleteProfile = lazy(
   () => import("@/pages/CustomerDashboard/CompleteProfile/CompleteProfile")
 );
-export const CustomerServices = lazy(
-  () => import("@/pages/CustomerDashboard/Services/Services")
+export const ServicesListing = lazy(
+  () => import("@/pages/CustomerDashboard/Services/ServiceListing")
+);
+export const ServicesProvider = lazy(
+  () => import("@/pages/CustomerDashboard/Services/ServicesProvider")
 );

@@ -1,9 +1,9 @@
 import FeaturedServices from "@/components/CustomerDashboard/FeaturedServices";
 import ServiceProviderListing from "@/components/CustomerDashboard/ServiceProviderListing";
 
-const Services = () => {
+const ServicesProvider = () => {
   return (
-    <section className="px-6 ">
+    <section className="px-6">
       <div className="mx-auto max-w-[1200px]">
         <FeaturedServices />
         <ServiceProviderListing />
@@ -12,4 +12,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default ServicesProvider;

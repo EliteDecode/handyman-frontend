@@ -23,7 +23,8 @@ import {
   FacebookCallback,
   GoogleCallback,
   Dashboard,
-  CustomerServices,
+  ServicesProvider,
+  ServicesListing,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -153,8 +154,12 @@ export default function App() {
           element: token ? <DashboardSubLayout /> : <Navigate to="/auth/login" />,
           children: [
             {
-              path: "services",
-              element: <CustomerServices />,
+              path: "services-listing",
+              element: <ServicesListing />,
+            },
+            {
+              path: "services-provider",
+              element: <ServicesProvider />,
             },
           ]
         },

@@ -7,19 +7,14 @@ import FeaturedSortBy from "./FeaturedSortBy";
 import usePaginate from "@/hooks/usePaginate";
 
 import ServiceProviderPageNumber from "./ServiceProviderPageNumber";
+import { serviceProviders } from "@/lib/serviceData";
 
 const ServiceProviderListing = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
   const [toggleSort, setToggleSort] = useState(false);
-  const demoArray = Array.from({ length: 113 });
-  const {
-    changeCurPage,
-    currentPage,
-    nextPage,
-    prevPage,
-    records,
-    nPage,
-  } = usePaginate(demoArray);
+  // const demoArray = Array.from({ length: 113 });
+  const { changeCurPage, currentPage, nextPage, prevPage, records, nPage } =
+    usePaginate(serviceProviders);
 
   const topRef = useRef<HTMLDivElement>(null);
 
@@ -64,19 +59,20 @@ const ServiceProviderListing = () => {
       </div>
 
       <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 lg:gap-6 mt-6">
-        {records.map((_, i) => (
-          <ServiceProviderCard key={i} />
+        {records.map((val, i) => (
+          <ServiceProviderCard key={i} serviceData={val} />
         ))}
       </div>
-
-      <ServiceProviderPageNumber
-        prevPage={prevPage}
-        scrollToTop={scrollToTop}
-        changeCurPage={changeCurPage}
-        nPage={nPage}
-        currentPage={currentPage}
-        nextPage={nextPage}
-      />
+      {serviceProviders.length > 12 && (
+        <ServiceProviderPageNumber
+          prevPage={prevPage}
+          scrollToTop={scrollToTop}
+          changeCurPage={changeCurPage}
+          nPage={nPage}
+          currentPage={currentPage}
+          nextPage={nextPage}
+        />
+      )}
     </motion.section>
   );
 };
