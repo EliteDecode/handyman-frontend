@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const HandymanProfileReviews = ({ profileInfo }: any) => {
   const [rating, setRating] = useState<number | null>();
   const [newReview, setNewReview] = useState<string>("");
-  console.log(profileInfo?.reviews?.length);
   
   return (
     <motion.div
@@ -84,7 +83,7 @@ const HandymanProfileReviews = ({ profileInfo }: any) => {
             </div>
             {profileInfo?.reviews?.length > 3 && (
               <Link
-                to={""}
+                to={`/dashboard/handyman-ratings/${profileInfo?.id}`}
                 className="px-6 rounded-lg text-primary text-lg font-semibold "
               >
                 See All

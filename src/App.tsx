@@ -28,6 +28,7 @@ import {
   HandymanProfile,
   HandymanPortfolioImage,
   HandymanPortfolioCertification,
+  HandymanRatings,
 
 } from "./routes";
 import { useSelector } from "react-redux";
@@ -176,6 +177,10 @@ export default function App() {
             {
               path: "handyman-portfolio-certs/:id",
               element: <HandymanPortfolioCertification />,
+            },
+            {
+              path: "handyman-ratings/:id",
+              element: <HandymanRatings />,
             },
           ]
         },
