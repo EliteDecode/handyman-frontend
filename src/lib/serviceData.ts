@@ -85,6 +85,7 @@ export const serviceProviders = [
     maxPrice: 15000,
     priceDescription: "Basic Painting",
     available: true,
+    averageRating: 4.4,
     rating: 3.5,
     profileImg:
       "https://images.unsplash.com/photo-1615947454195-f8950f188cc0?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGhlYWQlMjBzaG90fGVufDB8fDB8fHww",
@@ -113,6 +114,188 @@ export const serviceProviders = [
           "https://marketplace.canva.com/EAFy42rCTA0/1/0/1600w/canva-blue-minimalist-certificate-of-achievement-_asVJz8YgJE.jpg",
       },
     ],
+    reviews: [
+      {
+        name: "Emeka Okonkwo",
+        img: "https://randomuser.me/api/portraits/men/32.jpg",
+        rating: 5,
+        date: "05 March 2025",
+        review:
+          "Excellent work! Very professional and detailed. My home looks stunning after the painting. I will definitely hire him again.",
+        isVerified: true,
+      },
+      {
+        name: "Amina Yusuf",
+        img: "https://randomuser.me/api/portraits/women/45.jpg",
+        rating: 4,
+        date: "22 February 2025",
+        review:
+          "Great job fixing my electrical issues. He was efficient and explained everything well. The pricing was also fair!",
+        isVerified: false,
+      },
+      {
+        name: "James Adewale",
+        img: "https://randomuser.me/api/portraits/men/51.jpg",
+        rating: 4.8,
+        date: "14 January 2025",
+        review:
+          "Superb service! He installed my ceiling fan perfectly. I appreciate the professionalism and quick work.",
+        isVerified: true,
+      },
+      {
+        name: "Ngozi Chukwuma",
+        img: "https://randomuser.me/api/portraits/women/33.jpg",
+        rating: 3.9,
+        date: "09 December 2024",
+        review:
+          "He did a good job, but I wish he had cleaned up better after the work. Overall, I’m satisfied with the service.",
+        isVerified: false,
+      },
+      {
+        name: "Isaac Bako",
+        img: "https://randomuser.me/api/portraits/men/29.jpg",
+        rating: 5,
+        date: "28 November 2024",
+        review:
+          "Absolutely fantastic! The best carpenter I have ever hired. My new kitchen cabinets are stunning.",
+        isVerified: true,
+      },
+      {
+        name: "Mariam Lawal",
+        img: "https://randomuser.me/api/portraits/women/41.jpg",
+        rating: 4.2,
+        date: "17 November 2024",
+        review:
+          "The gardener did a great job revamping my backyard! It looks so much fresher now. Highly recommended.",
+        isVerified: true,
+      },
+      {
+        name: "Tunde Falade",
+        img: "https://randomuser.me/api/portraits/men/36.jpg",
+        rating: 3.5,
+        date: "05 October 2024",
+        review:
+          "The service was okay, but he arrived 30 minutes late. The work was good, though.",
+        isVerified: false,
+      },
+      {
+        name: "Chioma Okafor",
+        img: "https://randomuser.me/api/portraits/women/38.jpg",
+        rating: 4.7,
+        date: "21 September 2024",
+        review:
+          "He cleaned my entire apartment very well. Everything looks spotless! I’ll be using his services again.",
+        isVerified: true,
+      },
+      {
+        name: "Victor Uche",
+        img: "https://randomuser.me/api/portraits/men/40.jpg",
+        rating: 5,
+        date: "07 August 2024",
+        review:
+          "Excellent customer service! He installed my new AC unit perfectly. Highly recommended!",
+        isVerified: true,
+      },
+      {
+        name: "Zainab Sanni",
+        img: "https://randomuser.me/api/portraits/women/30.jpg",
+        rating: 4.3,
+        date: "15 July 2024",
+        review:
+          "Great experience. He fixed my water heater and even gave me maintenance tips!",
+        isVerified: true,
+      },
+      {
+        name: "Gabriel Ayodele",
+        img: "https://randomuser.me/api/portraits/men/35.jpg",
+        rating: 3.8,
+        date: "30 June 2024",
+        review:
+          "Good service, but I wish the response time was faster. The work was done well, though.",
+        isVerified: false,
+      },
+      {
+        name: "Fatima Hassan",
+        img: "https://randomuser.me/api/portraits/women/37.jpg",
+        rating: 4.9,
+        date: "12 May 2024",
+        review:
+          "The best electrician I’ve ever hired! My home is much safer now with the rewiring he did.",
+        isVerified: true,
+      },
+      {
+        name: "Kenechukwu Okoro",
+        img: "https://randomuser.me/api/portraits/men/47.jpg",
+        rating: 4.6,
+        date: "25 April 2024",
+        review:
+          "Really efficient plumber! Fixed my bathroom pipes within an hour. I'm impressed.",
+        isVerified: true,
+      },
+      {
+        name: "Blessing Eze",
+        img: "https://randomuser.me/api/portraits/women/50.jpg",
+        rating: 5,
+        date: "10 March 2024",
+        review:
+          "I love how he transformed my garden! Everything looks so neat and fresh. He’s really skilled.",
+        isVerified: true,
+      },
+      {
+        name: "Umar Abdullahi",
+        img: "https://randomuser.me/api/portraits/men/39.jpg",
+        rating: 4,
+        date: "27 February 2024",
+        review:
+          "Good job fixing my door hinges, but I wish he was a bit more detailed. Still, I appreciate the service.",
+        isVerified: false,
+      },
+      {
+        name: "Chiamaka Umeh",
+        img: "https://randomuser.me/api/portraits/women/42.jpg",
+        rating: 4.5,
+        date: "14 January 2024",
+        review:
+          "Very polite and professional! He repaired my leaking roof within a few hours. Great work!",
+        isVerified: true,
+      },
+      {
+        name: "Samuel Onu",
+        img: "https://randomuser.me/api/portraits/men/48.jpg",
+        rating: 3.7,
+        date: "02 December 2023",
+        review:
+          "The cleaning was okay, but I expected a bit more attention to detail. Still, a decent service.",
+        isVerified: false,
+      },
+      {
+        name: "Rukayat Bello",
+        img: "https://randomuser.me/api/portraits/women/44.jpg",
+        rating: 5,
+        date: "18 November 2023",
+        review:
+          "Amazing carpenter! He custom-built my bookshelves, and they look fantastic. Highly skilled!",
+        isVerified: true,
+      },
+      {
+        name: "Osas Ighodaro",
+        img: "https://randomuser.me/api/portraits/women/49.jpg",
+        rating: 4.4,
+        date: "09 October 2023",
+        review:
+          "He installed my kitchen sink perfectly. Very neat and professional work.",
+        isVerified: true,
+      },
+      {
+        name: "Bolu Adeyemi",
+        img: "https://randomuser.me/api/portraits/men/34.jpg",
+        rating: 4.2,
+        date: "22 September 2023",
+        review:
+          "Nice work with my electrical rewiring. It took longer than expected, but the quality is top-notch!",
+        isVerified: true,
+      },
+    ],
   },
   {
     id: 2,
@@ -132,6 +315,7 @@ export const serviceProviders = [
       "https://images.unsplash.com/photo-1558531304-a4773b7e3a9c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGhlYWQlMjBzaG90fGVufDB8fDB8fHww",
     certificates: 2,
     bookingsCompleted: 19,
+    averageRating: 4.4,
     previousJobs: [
       "https://images.unsplash.com/photo-1571175441581-dcfe10e4b201?w=500&auto=format&fit=crop&q=60",
       "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60",
@@ -147,6 +331,188 @@ export const serviceProviders = [
         name: "Electrical Association of Nigeria",
         image:
           "https://marketplace.canva.com/EAFtLMllF3s/1/0/1600w/canva-blue-and-gold-simple-certificate-zxaa6yB-uaU.jpg",
+      },
+    ],
+    reviews: [
+      {
+        name: "Emeka Okonkwo",
+        img: "https://randomuser.me/api/portraits/men/32.jpg",
+        rating: 5,
+        date: "05 March 2025",
+        review:
+          "Excellent work! Very professional and detailed. My home looks stunning after the painting. I will definitely hire him again.",
+        isVerified: true,
+      },
+      {
+        name: "Amina Yusuf",
+        img: "https://randomuser.me/api/portraits/women/45.jpg",
+        rating: 4,
+        date: "22 February 2025",
+        review:
+          "Great job fixing my electrical issues. He was efficient and explained everything well. The pricing was also fair!",
+        isVerified: false,
+      },
+      {
+        name: "James Adewale",
+        img: "https://randomuser.me/api/portraits/men/51.jpg",
+        rating: 4.8,
+        date: "14 January 2025",
+        review:
+          "Superb service! He installed my ceiling fan perfectly. I appreciate the professionalism and quick work.",
+        isVerified: true,
+      },
+      {
+        name: "Ngozi Chukwuma",
+        img: "https://randomuser.me/api/portraits/women/33.jpg",
+        rating: 3.9,
+        date: "09 December 2024",
+        review:
+          "He did a good job, but I wish he had cleaned up better after the work. Overall, I’m satisfied with the service.",
+        isVerified: false,
+      },
+      {
+        name: "Isaac Bako",
+        img: "https://randomuser.me/api/portraits/men/29.jpg",
+        rating: 5,
+        date: "28 November 2024",
+        review:
+          "Absolutely fantastic! The best carpenter I have ever hired. My new kitchen cabinets are stunning.",
+        isVerified: true,
+      },
+      {
+        name: "Mariam Lawal",
+        img: "https://randomuser.me/api/portraits/women/41.jpg",
+        rating: 4.2,
+        date: "17 November 2024",
+        review:
+          "The gardener did a great job revamping my backyard! It looks so much fresher now. Highly recommended.",
+        isVerified: true,
+      },
+      {
+        name: "Tunde Falade",
+        img: "https://randomuser.me/api/portraits/men/36.jpg",
+        rating: 3.5,
+        date: "05 October 2024",
+        review:
+          "The service was okay, but he arrived 30 minutes late. The work was good, though.",
+        isVerified: false,
+      },
+      {
+        name: "Chioma Okafor",
+        img: "https://randomuser.me/api/portraits/women/38.jpg",
+        rating: 4.7,
+        date: "21 September 2024",
+        review:
+          "He cleaned my entire apartment very well. Everything looks spotless! I’ll be using his services again.",
+        isVerified: true,
+      },
+      {
+        name: "Victor Uche",
+        img: "https://randomuser.me/api/portraits/men/40.jpg",
+        rating: 5,
+        date: "07 August 2024",
+        review:
+          "Excellent customer service! He installed my new AC unit perfectly. Highly recommended!",
+        isVerified: true,
+      },
+      {
+        name: "Zainab Sanni",
+        img: "https://randomuser.me/api/portraits/women/30.jpg",
+        rating: 4.3,
+        date: "15 July 2024",
+        review:
+          "Great experience. He fixed my water heater and even gave me maintenance tips!",
+        isVerified: true,
+      },
+      {
+        name: "Gabriel Ayodele",
+        img: "https://randomuser.me/api/portraits/men/35.jpg",
+        rating: 3.8,
+        date: "30 June 2024",
+        review:
+          "Good service, but I wish the response time was faster. The work was done well, though.",
+        isVerified: false,
+      },
+      {
+        name: "Fatima Hassan",
+        img: "https://randomuser.me/api/portraits/women/37.jpg",
+        rating: 4.9,
+        date: "12 May 2024",
+        review:
+          "The best electrician I’ve ever hired! My home is much safer now with the rewiring he did.",
+        isVerified: true,
+      },
+      {
+        name: "Kenechukwu Okoro",
+        img: "https://randomuser.me/api/portraits/men/47.jpg",
+        rating: 4.6,
+        date: "25 April 2024",
+        review:
+          "Really efficient plumber! Fixed my bathroom pipes within an hour. I'm impressed.",
+        isVerified: true,
+      },
+      {
+        name: "Blessing Eze",
+        img: "https://randomuser.me/api/portraits/women/50.jpg",
+        rating: 5,
+        date: "10 March 2024",
+        review:
+          "I love how he transformed my garden! Everything looks so neat and fresh. He’s really skilled.",
+        isVerified: true,
+      },
+      {
+        name: "Umar Abdullahi",
+        img: "https://randomuser.me/api/portraits/men/39.jpg",
+        rating: 4,
+        date: "27 February 2024",
+        review:
+          "Good job fixing my door hinges, but I wish he was a bit more detailed. Still, I appreciate the service.",
+        isVerified: false,
+      },
+      {
+        name: "Chiamaka Umeh",
+        img: "https://randomuser.me/api/portraits/women/42.jpg",
+        rating: 4.5,
+        date: "14 January 2024",
+        review:
+          "Very polite and professional! He repaired my leaking roof within a few hours. Great work!",
+        isVerified: true,
+      },
+      {
+        name: "Samuel Onu",
+        img: "https://randomuser.me/api/portraits/men/48.jpg",
+        rating: 3.7,
+        date: "02 December 2023",
+        review:
+          "The cleaning was okay, but I expected a bit more attention to detail. Still, a decent service.",
+        isVerified: false,
+      },
+      {
+        name: "Rukayat Bello",
+        img: "https://randomuser.me/api/portraits/women/44.jpg",
+        rating: 5,
+        date: "18 November 2023",
+        review:
+          "Amazing carpenter! He custom-built my bookshelves, and they look fantastic. Highly skilled!",
+        isVerified: true,
+      },
+      {
+        name: "Osas Ighodaro",
+        img: "https://randomuser.me/api/portraits/women/49.jpg",
+        rating: 4.4,
+        date: "09 October 2023",
+        review:
+          "He installed my kitchen sink perfectly. Very neat and professional work.",
+        isVerified: true,
+      },
+      {
+        name: "Bolu Adeyemi",
+        img: "https://randomuser.me/api/portraits/men/34.jpg",
+        rating: 4.2,
+        date: "22 September 2023",
+        review:
+          "Nice work with my electrical rewiring. It took longer than expected, but the quality is top-notch!",
+        isVerified: true,
       },
     ],
   },
@@ -173,6 +539,7 @@ export const serviceProviders = [
       "https://images.unsplash.com/photo-1563201515-a66645cdd6c2?w=500&auto=format&fit=crop&q=60",
       "https://images.unsplash.com/photo-1604969679213-5f2dedf4f263?w=500&auto=format&fit=crop&q=60",
     ],
+    reviews:[]
   },
   {
     id: 4,

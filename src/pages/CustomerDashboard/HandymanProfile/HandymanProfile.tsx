@@ -31,22 +31,22 @@ const HandymanProfile = () => {
             <ArrowLeft className="w-5 h-5" /> Back
           </button>
         </div>
-        <div className="flex gap-6">
-          <div className="w-5/12 h-fit p-6 rounded-xl shadow-custom flex flex-col items-center justify-center">
+        <div className="lg:flex gap-6">
+          <div className="w-full lg:w-5/12 h-fit p-6 rounded-xl lg:shadow-custom flex flex-col items-center justify-center">
             <img
               src={profileInfo?.profileImg}
               alt="profile Image"
-              className="w-[340px] h-[260px] object-center object-cover rounded-[18px]"
+              className="w-[200px] lg:w-[340px] h-[160px] lg:h-[260px] object-center object-cover rounded-[18px]"
             />
             <p className="text-justify mt-8 tracking-2-percent text-textBody">
               {profileInfo?.bioData}
             </p>
           </div>
-          <div className="w-7/12 px-6 py-12 rounded-xl shadow-custom">
+          <div className="w-full lg:w-7/12 px-6 py-12 rounded-xl lg:shadow-custom">
             <HandymanProfileInfo profileInfo={profileInfo} />
 
             <div className="mt-10">
-              <div className="py-4 flex items-center gap-6 ">
+              <div className="py-4 flex items-center gap-6 shadow-custom">
                 <div className="py-1 px-4">
                   <button
                     onClick={() => setActiveTab("portfolio")}
@@ -69,7 +69,7 @@ const HandymanProfile = () => {
                 {activeTab === "portfolio" ? (
                   <HandymanProfilePortfolio key="portfolio" profileInfo={profileInfo}/>
                 ) : (
-                  <HandymanProfileReviews key="reviews" />
+                  <HandymanProfileReviews key="reviews" profileInfo={profileInfo}/>
                 )}
               </div>
             </div>
