@@ -7,6 +7,7 @@ import gardening from "@/assets/images/gardening.svg";
 import cleaning from "@/assets/images/cleaning.svg";
 import Hairdresser from "@/assets/images/Hairdresser.svg";
 import cushion from "@/assets/images/cushion.svg";
+import { FaSalesforce } from "react-icons/fa6";
 
 export const serviceListings = [
   {
@@ -317,9 +318,14 @@ export const serviceProviders = [
     bookingsCompleted: 19,
     averageRating: 4.4,
     previousJobs: [
-      "https://images.unsplash.com/photo-1571175441581-dcfe10e4b201?w=500&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1579541814924-49fef17c5be5?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29vbCUyMHJvb20lMjBwYWludGluZ3xlbnwwfHwwfHx8MA%3D%3D",
       "https://images.unsplash.com/photo-1512100356356-de1b84283e18?w=500&auto=format&fit=crop&q=60",
-      "https://images.unsplash.com/photo-1590631726950-6ff17f74b612?w=500&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1462041866295-e4af004a32ef?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZWxlY3RyaWNhbHxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1566417110090-6b15a06ec800?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZWxlY3RyaWNhbHxlbnwwfHwwfHx8MA%3D%3D",
+      "https://images.unsplash.com/photo-1558054665-fbe00cd7d920?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGVsZWN0cmljYWx8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1595856619767-ab739fa7daae?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGVsZWN0cmljYWx8ZW58MHx8MHx8fDA%3D",
+      "https://images.unsplash.com/photo-1530240852689-f7a9c6d9f6c7?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGVsZWN0cmljYWx8ZW58MHx8MHx8fDA%3D",
+      "https://plus.unsplash.com/premium_photo-1682086494759-b459f6eff2df?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGVsZWN0cmljYWx8ZW58MHx8MHx8fDA%3D",
     ],
     certificaitons: [
       {
@@ -539,7 +545,7 @@ export const serviceProviders = [
       "https://images.unsplash.com/photo-1563201515-a66645cdd6c2?w=500&auto=format&fit=crop&q=60",
       "https://images.unsplash.com/photo-1604969679213-5f2dedf4f263?w=500&auto=format&fit=crop&q=60",
     ],
-    reviews:[]
+    reviews: [],
   },
   {
     id: 4,
@@ -596,7 +602,7 @@ export const serviceProviders = [
     minPrice: 12000,
     maxPrice: 18000,
     priceDescription: "Basic electrical wiring",
-    available: true,
+    available: FaSalesforce,
     rating: 4.5,
     town: "Enugu",
     state: "Enugu",
@@ -692,7 +698,7 @@ export const serviceProviders = [
     minPrice: 13000,
     maxPrice: 18000,
     priceDescription: "Custom metal welding",
-    available: true,
+    available: false,
     rating: 4.6,
     town: "Calabar",
     state: "Cross River",

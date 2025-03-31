@@ -82,8 +82,12 @@ const HandymanRating = () => {
                   readOnly
                   precision={0.1}
                 />
-                <p className="text-textBody mt-2 text-sm lg:text-base tracking-2-percent">{review?.date}</p>
-                <p className="mt-2 lg:mt-4 text-sm lg:text-xl tracking-2-percent text-textBody lg:font-medium lg:leading-8">{review?.review}</p>
+                <p className="text-textBody mt-2 text-sm lg:text-base tracking-2-percent">
+                  {review?.date}
+                </p>
+                <p className="mt-2 lg:mt-4 text-sm lg:text-xl tracking-2-percent text-textBody lg:font-medium lg:leading-8">
+                  {review?.review}
+                </p>
               </div>
             </div>
           ))}
