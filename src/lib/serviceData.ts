@@ -1,5 +1,5 @@
 import toolbox from "@/assets/images/toolBox.png";
-import electrical from "@/assets/images/Electrical.png";
+import electrical from "@/assets/images/electrical.png";
 import tools from "@/assets/images/tools.png";
 import plumbing from "@/assets/images/Plumbing.png";
 import roller from "@/assets/images/Roller.png";
