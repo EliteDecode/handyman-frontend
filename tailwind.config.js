@@ -54,6 +54,7 @@ export default {
         },
         textHeader: "#191919",
         textBody: "#3C3C3C",
+        buttonHover: "#80BFBF",
       },
       backgroundImage: {
         signup_bg: "url('/src/assets/images/signup-bg.webp')",
@@ -69,6 +70,7 @@ export default {
       custom: "0px 4px 12px 0px #10182814",
       custom1: "0px 4px 16px 0px #0000001F",
       custom2: " 0px 1px 2px 0px #1018280D",
+      custom3: " 0px 4px 12px 0px #0080800A",
     },
 
     letterSpacing: {

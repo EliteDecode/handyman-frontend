@@ -7,6 +7,7 @@ declare interface InitialSupportStateProps {
 
 declare interface InitialAuthStateProps {
   isLoading: boolean;
+  isLogoutLoading: boolean;
   message: string;
   isSuccess: boolean;
   isError: boolean;
