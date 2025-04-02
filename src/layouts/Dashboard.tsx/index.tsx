@@ -8,8 +8,7 @@ import UpdateProfile from "@/components/CustomerDashboard/UpdateProfile";
 
 const index = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user, forceUpdateProfileStatus, isProfileUpdated }: any =
-    useDashboard();
+  const { forceUpdateProfileStatus, isProfileUpdated }: any = useDashboard();
 
   return (
     <>
@@ -31,7 +30,7 @@ const index = () => {
               />
             )}
             <ScrollRestoration />
-            <Outlet context={user} />
+            <Outlet />
           </div>
         </div>
       </div>

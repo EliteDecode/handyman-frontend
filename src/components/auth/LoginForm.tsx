@@ -77,7 +77,7 @@ const LoginForm = () => {
           to="/auth/forget-password"
           className="text-xs lg:text-sm tracking-wide"
         >
-          Forget Password?
+          Forgot Password?
         </Link>
       </div>
 

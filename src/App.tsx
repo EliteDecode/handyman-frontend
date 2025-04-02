@@ -23,6 +23,13 @@ import {
   FacebookCallback,
   GoogleCallback,
   Dashboard,
+  ServicesProvider,
+  ServicesListing,
+  HandymanProfile,
+  HandymanPortfolioImage,
+  HandymanPortfolioCertification,
+  HandymanRatings,
+
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -33,6 +40,7 @@ import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
+import DashboardSubLayout from "./layouts/Dashboard.tsx/DashboardSubLayout.tsx";
 
 // routes
 
@@ -119,7 +127,7 @@ export default function App() {
             },
           ],
         },
-
+        // Dashboard routes
         {
           path: "dashboard",
           element: token ? <DashboardLayout /> : <Navigate to="/auth/login" />,
@@ -146,6 +154,37 @@ export default function App() {
             },
           ],
         },
+        {
+          path: "dashboard",
+          element: token ? <DashboardSubLayout /> : <Navigate to="/auth/login" />,
+          children: [
+            {
+              path: "services-listing",
+              element: <ServicesListing />,
+            },
+            {
+              path: "services-provider",
+              element: <ServicesProvider />,
+            },
+            {
+              path: "handyman-profile/:id",
+              element: <HandymanProfile />,
+            },
+            {
+              path: "handyman-portfolio-images/:id",
+              element: <HandymanPortfolioImage />,
+            },
+            {
+              path: "handyman-portfolio-certs/:id",
+              element: <HandymanPortfolioCertification />,
+            },
+            {
+              path: "handyman-ratings/:id",
+              element: <HandymanRatings />,
+            },
+          ]
+        },
+
 
         {
           path: "/role-selection",
