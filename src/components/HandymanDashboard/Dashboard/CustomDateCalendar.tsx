@@ -71,7 +71,7 @@ const CustomPickersDay = styled(PickersDay)(({ day }) => {
   return { pointerEvents: "none" };
 });
 
-const ReadOnlyDateCalendar = () => {
+const CustomDateCalendar = () => {
   const navigate = useNavigate(); // Hook for navigation
 
   // Handle click on available date
@@ -110,4 +110,4 @@ const ReadOnlyDateCalendar = () => {
   );
 };
 
-export default ReadOnlyDateCalendar;
+export default CustomDateCalendar;

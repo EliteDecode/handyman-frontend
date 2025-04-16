@@ -34,8 +34,16 @@ import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
-import HandymanDashboard from "./pages/HandymanDashboard/Dashboard/Dashboard.tsx";
-import JobRequests from "./pages/HandymanDashboard/JobRequests/JobRequests.tsx";
+import HandymanDashboard from "./pages/HandymanDashboard/Dashboard.tsx";
+import JobRequests from "./pages/HandymanDashboard/JobRequests.tsx";
+import TransactionHistory from "./pages/HandymanDashboard/TransactionHistory.tsx";
+import Overview from "./pages/HandymanDashboard/Overview.tsx";
+import UpcomingPayouts from "./pages/HandymanDashboard/UpcomingPayouts.tsx";
+import OverviewLayout from "./layouts/HandyManDashboardLayout/OverviewLayout.tsx";
+import ServicesLayout from "./layouts/HandyManDashboardLayout/ServicesLayout.tsx";
+import ServicesDetails from "./pages/HandymanDashboard/ServicesDetails.tsx";
+import ServicesHistory from "./pages/HandymanDashboard/ServicesHistory.tsx";
+import ServiceDetailPage from "./pages/HandymanDashboard/ServiceDetailPage.tsx";
 // routes
 
 export default function App() {
@@ -151,17 +159,56 @@ export default function App() {
 
         // handyman dashboard routes
         {
-          path: "handyman/dashboard",
+          path: "handyman/",
           element: <HandymanDashboardLayout />,
 
           children: [
             {
-              path: "",
+              path: "dashboard",
               element: <HandymanDashboard />,
             },
             {
               path: "job-requests",
               element: <JobRequests />,
+            },
+            {
+              path: "payments",
+              element: <OverviewLayout />,
+
+              children: [
+                {
+                  path: "overview",
+                  element: <Overview />,
+                },
+                {
+                  path: "transaction-history",
+                  element: <TransactionHistory />,
+                },
+                {
+                  path: "upcoming-payouts",
+                  element: <UpcomingPayouts />,
+                },
+              ],
+            },
+
+            {
+              path: "services",
+              element: <ServicesLayout />,
+              children: [
+                {
+                  path: "service-details",
+                  element: <ServicesDetails />,
+                },
+                {
+                  path: "service-history",
+                  element: <ServicesHistory />,
+                },
+              ],
+            },
+
+            {
+              path: "/handyman/services/:id",
+              element: <ServiceDetailPage />,
             },
           ],
         },

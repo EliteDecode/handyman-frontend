@@ -490,22 +490,59 @@ export const sidebarHandymanLinks = [
   },
   {
     name: "Job Requests",
-    link: "/handyman/dashboard/job-requests",
+    link: "/handyman/job-requests",
     icon: FileText,
   },
   {
     name: "Services",
-    link: "/handyman/dashboard/services",
+    link: "/handyman/services",
     icon: BriefcaseBusiness,
   },
   {
     name: "Payments",
-    link: "/handyman/dashboard/payments",
+    link: "/handyman/payments",
     icon: Banknote,
   },
   {
     name: "Settings",
-    link: "/handyman/dashboard/settings",
+    link: "/handyman/settings",
     icon: Settings2,
   },
 ];
+
+export function getPageNumbers(
+  totalPages: number,
+  currentPage: number
+): (number | string)[] {
+  const delta = 2;
+  const range: number[] = [];
+  const rangeWithDots: (number | string)[] = [];
+  let l: number | undefined;
+
+  // Loop to generate page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 || // Always show the first page
+      i === totalPages || // Always show the last page
+      (i >= currentPage - delta && i <= currentPage + delta) // Show pages around the current page
+    ) {
+      range.push(i);
+    }
+  }
+
+  // Loop through the range and add pagination with dots where necessary
+  for (let i of range) {
+    if (l) {
+      // If the difference between the current page and the previous one is more than 1, add "..."
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1); // Show intermediate page number
+      } else if (i - l !== 1) {
+        rangeWithDots.push("..."); // Add "..."
+      }
+    }
+    rangeWithDots.push(i); // Add the current page
+    l = i;
+  }
+
+  return rangeWithDots;
+}

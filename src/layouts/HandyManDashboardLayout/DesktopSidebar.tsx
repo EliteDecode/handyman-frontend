@@ -29,7 +29,7 @@ const SideBar = ({ setIsOpen }: any) => {
                       onClick={() => setIsOpen(false)}
                       to={val.link}
                       className={`${
-                        location.pathname === val.link
+                        location.pathname.startsWith(val.link)
                           ? "bg-primary font-semibold text-white hover:bg-primary hover:text-white"
                           : ""
                       } flex gap-3 items-center text-sm md:text-base h-[56px] px-6 duration-300 hover:bg-[#008080]/[7%] hover:text-primary rounded-lg`}

@@ -1,9 +1,9 @@
+import ActiveBookings from "@/components/HandymanDashboard/Dashboard/ActiveBookings";
+import CustomDateCalendar from "@/components/HandymanDashboard/Dashboard/CustomDateCalendar";
+import EarningsChart from "@/components/HandymanDashboard/Dashboard/EarningsChart";
+import InfoCards from "@/components/HandymanDashboard/Dashboard/InfoCards";
+import PendingVerification from "@/components/HandymanDashboard/Dashboard/PendingVerification";
 import React from "react";
-import PendingVerification from "./PendingVerification";
-import InfoCards from "./InfoCards";
-import ActiveBookings from "./ActiveBookings";
-import CustomDateCalendar from "./CustomDateCalendar";
-import EarningsChart from "./EarningsChart";
 
 const cardData = [
   {

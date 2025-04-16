@@ -16,8 +16,8 @@ const Header = ({ isOpen, setIsOpen }: any) => {
     setIsOpen((prev: boolean) => !prev);
   };
   const location = useLocation();
-  const title = sidebarHandymanLinks.find(
-    (val) => val.link === location.pathname
+  const title = sidebarHandymanLinks.find((val) =>
+    location.pathname.startsWith(val.link)
   );
 
   return (
