@@ -35,7 +35,6 @@ import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/Comple
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
 import HandymanDashboard from "./pages/HandymanDashboard/Dashboard.tsx";
-import JobRequests from "./pages/HandymanDashboard/JobRequests.tsx";
 import TransactionHistory from "./pages/HandymanDashboard/TransactionHistory.tsx";
 import Overview from "./pages/HandymanDashboard/Overview.tsx";
 import UpcomingPayouts from "./pages/HandymanDashboard/UpcomingPayouts.tsx";
@@ -44,6 +43,8 @@ import ServicesLayout from "./layouts/HandyManDashboardLayout/ServicesLayout.tsx
 import ServicesDetails from "./pages/HandymanDashboard/ServicesDetails.tsx";
 import ServicesHistory from "./pages/HandymanDashboard/ServicesHistory.tsx";
 import ServiceDetailPage from "./pages/HandymanDashboard/ServiceDetailPage.tsx";
+import JobRequestLayout from "./layouts/HandyManDashboardLayout/JobRequestLayout.tsx";
+import Allrequests from "./pages/HandymanDashboard/Allrequests.tsx";
 // routes
 
 export default function App() {
@@ -169,7 +170,14 @@ export default function App() {
             },
             {
               path: "job-requests",
-              element: <JobRequests />,
+              element: <JobRequestLayout />,
+
+              children: [
+                {
+                  path: "all-requests",
+                  element: <Allrequests />,
+                },
+              ],
             },
             {
               path: "payments",
