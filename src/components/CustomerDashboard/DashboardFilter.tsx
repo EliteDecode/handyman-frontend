@@ -1,13 +1,18 @@
 import { motion } from "framer-motion";
 import SortButton from "./SortButton";
 
-const DashboardFilter = ({ toggleFilter, setToggleFilter }: any) => {
-  const filterOptions = [
-    "Electrical",
-    "Cleaning",
-    "Painting",
-    "Carpentry",
-  ];
+const DashboardFilter = ({
+  toggleFilter,
+  setToggleFilter,
+  setSelectedFilter,
+}: any) => {
+  const filterOptions = {
+    Electrical: "Electric Work",
+    Cleaning: "Cleaning",
+    Painting: "Painting",
+    Carpentry: "Capentry",
+    Plumbing: "Plumbing",
+  };
 
   return (
     toggleFilter && (
@@ -19,16 +24,21 @@ const DashboardFilter = ({ toggleFilter, setToggleFilter }: any) => {
           ></div>
         )}
         <motion.div
-          className={` absolute top-0 right-0 lg:right-0 min-w-[240px] max-h-[700px] overflow-y-auto py-4 bg-white z-10 rounded-xl`}
+          className={` absolute top-0 right-0 lg:right-0 min-w-[240px] max-h-[700px]  overflow-y-auto py-4 bg-white z-10 rounded-xl`}
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="">
-            {filterOptions.map((val, i) => (
-              <SortButton key={i} setToggleItem={setToggleFilter}>
-                {val}
+          <div className="h-full">
+            {Object.entries(filterOptions).map(([key, val]) => (
+              <SortButton
+                key={key}
+                value={val}
+                setToggleItem={setToggleFilter}
+                setSelectedFilter={setSelectedFilter}
+              >
+                {key}
               </SortButton>
             ))}
           </div>

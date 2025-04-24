@@ -167,7 +167,7 @@ export default function App() {
               element: <ServicesProvider />,
             },
             {
-              path: "handyman-profile/:id",
+              path: "handyman-profile",
               element: <HandymanProfile />,
             },
             {

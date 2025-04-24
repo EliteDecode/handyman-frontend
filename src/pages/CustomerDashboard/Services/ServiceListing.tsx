@@ -1,13 +1,36 @@
 import { ArrowLeft, Filter, Search } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DashboardFilter from "@/components/CustomerDashboard/DashboardFilter";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { serviceListings } from "@/lib/serviceData";
+import { serviceListingsIcons } from "@/lib/serviceData";
+import EmptyImg from "@/assets/images/emptyServices.svg";
+import { AppDispatch, RootState } from "@/store";
+import { useDispatch, useSelector } from "react-redux";
+import { getHandymenByService, resetListByService } from "@/services/features/user/userSlice";
 
 const ServiceListing = () => {
   const [toggleFilter, setToggleFilter] = useState(false);
+  const { serviceCategories } = useSelector((state: RootState) => state.user);
+  const [selectedFilter, setSelectedFilter] = useState<string | null>(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(resetListByService());
+  }, [])
+  
+
+  const handleServiceListing = (serviceId: string) => {
+    dispatch(getHandymenByService(serviceId));
+  };
+
+  const filteredServices = selectedFilter
+    ? serviceCategories?.filter((service) =>
+        service.category.toLowerCase().includes(selectedFilter.toLowerCase())
+      )
+    : serviceCategories;
+
   return (
     <motion.section
       initial={{ opacity: 0, y: 50 }}
@@ -16,7 +39,7 @@ const ServiceListing = () => {
       transition={{ duration: 0.3, ease: "easeOut" }}
       className="p-6"
     >
-      <div className="mx-auto max-w-[1200px] h-full -mt-6">
+      <div className="mx-auto max-w-[1200px] -mt-6 min-h-[80vh]">
         <div className="w-full lg:hidden">
           <button
             onClick={() => navigate(-1)}
@@ -57,40 +80,61 @@ const ServiceListing = () => {
             <DashboardFilter
               toggleFilter={toggleFilter}
               setToggleFilter={setToggleFilter}
+              setSelectedFilter={setSelectedFilter}
             />
           </div>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(370px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(380px,1fr))] gap-6 mt-14">
-          {serviceListings.map((val, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="lg:p-6 px-4 py-6 rounded-xl shadow-custom flex flex-col items-center w-full "
-            >
-              <div className="flex lg:flex-col items-center h-full w-full gap-5 lg:gap-0">
-                <img src={val.image} alt="icon" className="w-20 h-20" />
-                <div className="">
-                  <h2 className="lg:mt-6 font-semibold text-textBody text-base lg:text-2xl lg:text-center">
-                    {val.title}
-                  </h2>
-                  <p className="mt-4 text-sm lg:text-xl tracking-2-percent text-textBody lg:text-center">
-                    {val.description}
-                  </p>
-                </div>
-              </div>
-              <Link
-                to={val.available? val.link:"#"}
-                className={`lg:mt-10 mt-4 font-semibold text-sm lg:text-lg text-white py-4 px-6 rounded-lg duration-300  ${val.available ? "hover:bg-buttonHover bg-primary" : "bg-[#D0D5DD]"}`}
+        {filteredServices && filteredServices.length > 0 && (
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(370px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(380px,1fr))] gap-6 mt-14">
+            {filteredServices?.map((val, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1, ease: "easeOut" }}
+                className="lg:p-6 px-4 py-6 rounded-xl shadow-custom flex flex-col items-center w-full "
               >
-                {val.available ? "View Service Providers" : "Coming Soon"}
-              </Link>
-            </motion.div>
+                <div className="flex lg:flex-col items-center h-full w-full gap-5 lg:gap-0">
+                  <img
+                    src={
+                      serviceListingsIcons[val?.category] ||
+                      serviceListingsIcons["Appliance Repairs"]
+                    }
+                    alt="icon"
+                    className="w-20 h-20"
+                  />
+                  <div className="">
+                    <h2 className="lg:mt-6 font-semibold text-textBody text-base lg:text-2xl lg:text-center">
+                      {val?.category}
+                    </h2>
+                    <p className="mt-4 text-sm lg:text-xl tracking-2-percent text-textBody lg:text-center">
+                      {val?.description}
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  to={`/dashboard/services-provider?category=${val?.category}`}
+                  className={`lg:mt-10 mt-4 font-semibold text-sm lg:text-lg text-white py-4 px-6 rounded-lg duration-300 hover:bg-buttonHover bg-primary`}
+                  onClick={() => handleServiceListing(val?._id)}
+                >
+                  View Service Providers
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        )}
+
+        {!filteredServices ||
+          (filteredServices.length == 0 && (
+            <div className="flex items-center justify-center flex-col w-full h-[50vh]">
+              <img src={EmptyImg} alt="image" className="w-[130px]" />
+              <h2 className="lg:mt-10 mt-6 text-textBody lg:text-2xl tracking-2-percent font-bold max-w-[530px] text-center">
+                Sorry, No services found matching your search.
+              </h2>
+            </div>
           ))}
-        </div>
       </div>
     </motion.section>
   );

@@ -2,27 +2,29 @@ import { motion } from "framer-motion";
 import { ArrowUpDown, Filter } from "lucide-react";
 import ServiceProviderCard from "./ServiceProviderCard";
 import ServiceProviderFilter from "./ServiceProviderFilter";
-import { useRef, useState } from "react";
 import FeaturedSortBy from "./FeaturedSortBy";
-import usePaginate from "@/hooks/usePaginate";
 
 import ServiceProviderPageNumber from "./ServiceProviderPageNumber";
-import { serviceProviders } from "@/lib/serviceData";
+import useServiceListing from "@/hooks/dashboardHook/useServiceListing";
+import { PiSpinner } from "react-icons/pi";
 
 const ServiceProviderListing = () => {
-  const [toggleFilter, setToggleFilter] = useState(false);
-  const [toggleSort, setToggleSort] = useState(false);
-  // const demoArray = Array.from({ length: 113 });
-  const { changeCurPage, currentPage, nextPage, prevPage, records, nPage } =
-    usePaginate(serviceProviders);
-
-  const topRef = useRef<HTMLDivElement>(null);
-
-  const scrollToTop = () => {
-    if (topRef.current) {
-      topRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const {
+    changeCurPage,
+    currentPage,
+    nPage,
+    nextPage,
+    prevPage,
+    records,
+    scrollToTop,
+    setToggleFilter,
+    setToggleSort,
+    toggleFilter,
+    topRef,
+    toggleSort,
+    serviceProviders,
+    isLoading,
+  } = useServiceListing();
 
   return (
     <motion.section
@@ -58,20 +60,36 @@ const ServiceProviderListing = () => {
         <FeaturedSortBy toggleSort={toggleSort} setToggleSort={setToggleSort} />
       </div>
 
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 lg:gap-6 mt-6">
-        {records.map((val, i) => (
-          <ServiceProviderCard key={i} serviceData={val} />
-        ))}
-      </div>
-      {serviceProviders.length > 12 && (
-        <ServiceProviderPageNumber
-          prevPage={prevPage}
-          scrollToTop={scrollToTop}
-          changeCurPage={changeCurPage}
-          nPage={nPage}
-          currentPage={currentPage}
-          nextPage={nextPage}
-        />
+      {isLoading ? (
+        <p className="flex items-center gap-2 mt-12 justify-center font-medium text-gray-700 text-sm md:text-base">
+          Getting Service Providers... <PiSpinner className="animate-spin" />
+        </p>
+      ) : (
+        <div className="">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(170px,2fr))] sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4 lg:gap-6 mt-6">
+            {records?.map((val, i) => (
+              <ServiceProviderCard key={i} serviceData={val} />
+            ))}
+          </div>
+          {serviceProviders?.length > 12 && (
+            <ServiceProviderPageNumber
+              prevPage={prevPage}
+              scrollToTop={scrollToTop}
+              changeCurPage={changeCurPage}
+              nPage={nPage}
+              currentPage={currentPage}
+              nextPage={nextPage}
+            />
+          )}
+          {records?.length === 0 && (
+            <div className="w-full h-[230px] text-center items-center justify-center flex tracking-2-percent font-medium lg:font-bold text-sm lg:text-2xl p-4 text-textBody">
+              <span className="max-w-[287px] md:max-w-full">
+                There are currently no service providers available. Please check
+                back later. later.
+              </span>
+            </div>
+          )}
+        </div>
       )}
     </motion.section>
   );
