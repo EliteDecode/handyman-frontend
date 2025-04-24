@@ -45,6 +45,13 @@ import ServicesHistory from "./pages/HandymanDashboard/ServicesHistory.tsx";
 import ServiceDetailPage from "./pages/HandymanDashboard/ServiceDetailPage.tsx";
 import JobRequestLayout from "./layouts/HandyManDashboardLayout/JobRequestLayout.tsx";
 import Allrequests from "./pages/HandymanDashboard/Allrequests.tsx";
+import SettingLayout from "./layouts/HandyManDashboardLayout/SettingLayout.tsx";
+import ProfileLayout from "./layouts/HandyManDashboardLayout/ProfileLayout.tsx";
+import PersonalInformation from "./pages/HandymanDashboard/PersonalInformation.tsx";
+import Profile from "./pages/HandymanDashboard/Profile.tsx";
+import Availability from "./pages/HandymanDashboard/Availability.tsx";
+import Certification from "./pages/HandymanDashboard/Certification.tsx";
+import SettingsServices from "./pages/HandymanDashboard/Services.tsx";
 // routes
 
 export default function App() {
@@ -210,6 +217,43 @@ export default function App() {
                 {
                   path: "service-history",
                   element: <ServicesHistory />,
+                },
+              ],
+            },
+
+            {
+              path: "settings",
+              element: <SettingLayout />,
+              children: [
+                {
+                  path: "profile",
+                  element: <ProfileLayout />,
+                  children: [
+                    {
+                      path: "personal-information",
+                      element: <PersonalInformation />,
+                    },
+                    {
+                      path: "certification",
+                      element: <Certification />,
+                    },
+                    {
+                      path: "services",
+                      element: <SettingsServices />,
+                    },
+                    {
+                      path: "portfolio",
+                      element: <ServicesHistory />,
+                    },
+                  ],
+                },
+                {
+                  path: "profile",
+                  element: <Profile />,
+                },
+                {
+                  path: "availability",
+                  element: <Availability />,
                 },
               ],
             },

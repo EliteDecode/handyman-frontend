@@ -1,4 +1,5 @@
 import React from "react";
+import { banksInNigeria } from "@/lib/utils";
 
 type Bank = {
   name: string;
@@ -7,37 +8,33 @@ type Bank = {
 
 type Props = {
   formik: any;
-  banksInNigeria: Bank[];
   dropDown: string; // Path to dropdown image
 };
 
-const BankSelector: React.FC<Props> = ({
-  formik,
-  banksInNigeria,
-  dropDown,
-}) => (
+const BankSelector: React.FC<Props> = ({ formik, dropDown }) => (
   <div className="relative w-full">
     <select
       className={`sm:h-14 h-9 w-full border-[#98A2B3] border rounded-[6px] sm:px-4 px-3 sm:placeholder:text-[14px] placeholder:text-[12px] sm:placeholder:leading-[16.8px] placeholder:leading-5 sm:text-[14px] text-[12px] sm:leading-[16.8px] leading-5 focus:outline-none focus:border-2 focus:border-[#008080] appearance-none bg-white ${
-        formik.touched.bankName && formik.errors.bankName
+        formik?.touched.bankName && formik?.errors.bankName
           ? "border-red-500"
           : ""
       }`}
       name="bankName"
-      value={formik.values.bankName}
+      value={formik?.values.bankName}
       onChange={(e) => {
         const selectedBank = banksInNigeria.find(
           (bank) => bank.name === e.target.value
         );
-        formik.setFieldValue("accountName", "");
+        formik?.setFieldValue("accountName", "");
 
         if (selectedBank) {
-          formik.setFieldValue("bankName", selectedBank.name); // Corrected field name
-          formik.setFieldValue("bankCode", selectedBank.code); // Add bankCode field
+          formik?.setFieldValue("bankName", selectedBank.name); // Corrected field name
+          formik?.setFieldValue("bankCode", selectedBank.code); // Add bankCode field
         }
         console.log(selectedBank);
       }}
-      onBlur={formik.handleBlur}>
+      onBlur={formik?.handleBlur}
+    >
       <option value="" disabled>
         Select your bank
       </option>
