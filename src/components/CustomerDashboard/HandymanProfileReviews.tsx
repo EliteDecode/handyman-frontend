@@ -133,7 +133,7 @@ const HandymanProfileReviews = ({ profileInfo }: any) => {
             )}
           </div>
         </div>
-        <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <Modal isOpen={showModal} onClose={() => setShowModal(false)} maxWidth={618}>
           <div className="max-w-[465px] mx-auto">
             <p className="text-center text-base lg:text-2xl font-medium text-textHeader">
               Thank you for sharing your feedback! Your review has been
