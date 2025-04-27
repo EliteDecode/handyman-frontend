@@ -2,14 +2,17 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import TimeButton from "@/components/CustomerDashboard/TimeButton";
 import { appointmentTime } from "@/lib/demoData";
+import { useNavigate } from "react-router-dom";
 
 const CheckAvailability = () => {
   const [date, setDate] = useState<Date>(new Date(Date.now()));
   const [time, setTime] = useState<string>("");
+
+  const navigate = useNavigate();
 
   const handleDateChange = (value: Date) => {
     setDate(value);
@@ -25,15 +28,25 @@ const CheckAvailability = () => {
       transition={{ duration: 0.4 }}
     >
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex gap-16">
-          <div className="shadow-custom px-8 py-12 rounded-xl h-fit">
-            <h2 className="font-merriweather font-bold text-2xl text-textHeader">
-              Check Availability
-            </h2>
-            <p className="mt-4 text-textBody tracking-2-percent">
-              View available slots and book directly with Ifeanyi Nwafor
-            </p>
-            <div className="mt-6 px-12 py-6">
+        <div className="w-full lg:hidden">
+          <button
+            onClick={() => navigate(-1)}
+            className="outline-none flex items-center gap-2 mb-5 font-semibold text-textBody"
+          >
+            <ArrowLeft className="w-5 h-5" /> Back
+          </button>
+        </div>
+        <div className="lg:flex gap-16">
+          <div className="shadow-custom lg:px-8 lg:py-12 py-4 rounded-xl h-fit flex flex-col justify-center items-center">
+            <div className="">
+              <h2 className="font-merriweather font-bold text-base lg:text-2xl text-textHeader">
+                Check Availability
+              </h2>
+              <p className="mt-4 text-sm lg:text-base text-textBody tracking-2-percent">
+                View available slots and book directly with Ifeanyi Nwafor
+              </p>
+            </div>
+            <div className="mt-6 px-6 lg:px-12 py-6">
               <Calendar
                 className="custom-calendar"
                 onChange={handleDateChange}
@@ -57,16 +70,16 @@ const CheckAvailability = () => {
               />
             </div>
           </div>
-          <div className="shadow-custom px-12 py-[60px] rounded-xl w-full h-fit">
+          <div className="shadow-custom px-2 lg:px-12 py-4 lg:py-[60px] rounded-xl w-full h-fit lg:mt-0 mt-6">
             <div className="">
-              <p className="font-semibold text-xl text-textBody">
+              <p className="font-semibold text-sm lg:text-xl text-textBody">
                 {formatDate(date)}
               </p>
-              <h2 className="font-merriweather font-bold text-2xl text-textHeader mt-2">
+              <h2 className="font-merriweather font-bold text-base lg:text-2xl text-textHeader mt-2">
                 Select your appointment time
               </h2>
 
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(120px,2fr))] gap-x-4 gap-y-6 w-full mt-8">
+              <div className="grid grid-cols-[repeat(auto-fit,minmax(86px,2fr))] lg:grid-cols-[repeat(auto-fit,minmax(120px,2fr))] gap-x-2.5 lg:gap-x-4 gap-y-6 w-full mt-8">
                 {appointmentTime?.map((val, i) => (
                   <TimeButton
                     time={val.time}
