@@ -29,6 +29,7 @@ import {
   HandymanPortfolioImage,
   HandymanPortfolioCertification,
   HandymanRatings,
+  BookingAvailabilty,
 
 } from "./routes";
 import { useSelector } from "react-redux";
@@ -156,7 +157,11 @@ export default function App() {
         },
         {
           path: "dashboard",
-          element: token ? <DashboardSubLayout /> : <Navigate to="/auth/login" />,
+          element: token ? (
+            <DashboardSubLayout />
+          ) : (
+            <Navigate to="/auth/login" />
+          ),
           children: [
             {
               path: "services-listing",
@@ -182,9 +187,12 @@ export default function App() {
               path: "handyman-ratings/:id",
               element: <HandymanRatings />,
             },
-          ]
+            {
+              path: "booking-availability",
+              element: <BookingAvailabilty />,
+            },
+          ],
         },
-
 
         {
           path: "/role-selection",

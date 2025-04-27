@@ -1,7 +1,7 @@
 import { Rating } from "@mui/material";
 import StarIcon from "@mui/icons-material/Star";
 import { Award, Clock3, FileText, Heart, MapPin } from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const HandymanhandymanProfile = ({
   handymanProfile,
@@ -129,11 +129,12 @@ const HandymanhandymanProfile = ({
         </div>
       </div>
       <div className="px-4 lg:px-0">
-        <button
-          className={`${handymanProfile?.available ? "bg-primary duration-200 hover:bg-[#008080]/50" : "bg-[#98A2B3]"} mt-6 lg:mt-10 w-full px-6 py-4 rounded-lg text-white text-base lg:text-lg font-semibold`}
+        <Link
+          to="/dashboard/booking-availability"
+          className={`${!handymanProfile?.available ? "bg-primary duration-200 hover:bg-[#008080]/50" : "bg-[#98A2B3]"} block text-center mt-6 lg:mt-10 w-full px-6 py-4 rounded-lg text-white text-base lg:text-lg font-semibold outline-none`}
         >
           Book Now
-        </button>
+        </Link>
       </div>
     </div>
   );
