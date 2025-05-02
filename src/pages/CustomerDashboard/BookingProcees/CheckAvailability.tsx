@@ -7,18 +7,29 @@ import { formatDate } from "@/lib/utils";
 import TimeButton from "@/components/CustomerDashboard/TimeButton";
 import { appointmentTime } from "@/lib/demoData";
 import { Link, useNavigate } from "react-router-dom";
+import React from "react";
 
 const CheckAvailability = () => {
-  const [date, setDate] = useState<Date>(new Date(Date.now()));
+  const [date, setDate] = useState<Date | null>(new Date(Date.now()));
   const [time, setTime] = useState<string>("");
   const navigate = useNavigate();
+  type ValuePiece = Date | null;
+  type Value = ValuePiece | [ValuePiece, ValuePiece];
 
-  const handleDateChange = (value: Date) => {
-    setDate(value);
+  const handleDateChange = (
+    value: Value,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    console.log("Event target:", event.target); 
+    if (!Array.isArray(value)) {
+      setDate(value);
+    } else {
+      setDate(value[0]);
+    }
   };
 
   return (
-    <motion.section 
+    <motion.section
       className="p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -71,7 +82,7 @@ const CheckAvailability = () => {
           <div className="shadow-custom px-2 lg:px-12 py-4 lg:py-[60px] rounded-xl w-full h-fit lg:mt-0 mt-6">
             <div className="">
               <p className="font-semibold text-sm lg:text-xl text-textBody">
-                {formatDate(date)}
+                {date ? formatDate(date) : "No date selected"}
               </p>
               <h2 className="font-merriweather font-bold text-base lg:text-2xl text-textHeader mt-2">
                 Select your appointment time
@@ -92,10 +103,16 @@ const CheckAvailability = () => {
           </div>
         </div>
         <div className="mt-12 flex items-center gap-6">
-          <button onClick={()=>navigate(-1)} className="outline-none border border-primary rounded-lg text-primary py-4 px-6 w-full text-lg font-semibold hover:border-[#80BFBF] hover:text-[#80BFBF] active:text-[#002B2B] active:border-[#002B2B] duration-300">
+          <button
+            onClick={() => navigate(-1)}
+            className="outline-none border border-primary rounded-lg text-primary py-4 px-6 w-full text-lg font-semibold hover:border-[#80BFBF] hover:text-[#80BFBF] active:text-[#002B2B] active:border-[#002B2B] duration-300"
+          >
             Cancel
           </button>
-          <Link to="/dashboard/job-details" className="text-center border border-primary bg-primary rounded-lg text-white py-4 px-6 w-full text-lg font-semibold hover:bg-[#80BFBF] hover:border-[#80BFBF] active:bg-[#002B2B] active:border-[#002B2B] duration-300">
+          <Link
+            to="/dashboard/job-details"
+            className="text-center border border-primary bg-primary rounded-lg text-white py-4 px-6 w-full text-lg font-semibold hover:bg-[#80BFBF] hover:border-[#80BFBF] active:bg-[#002B2B] active:border-[#002B2B] duration-300"
+          >
             Book Now
           </Link>
         </div>
