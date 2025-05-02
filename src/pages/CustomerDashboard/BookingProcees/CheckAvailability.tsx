@@ -6,21 +6,19 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import TimeButton from "@/components/CustomerDashboard/TimeButton";
 import { appointmentTime } from "@/lib/demoData";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const CheckAvailability = () => {
   const [date, setDate] = useState<Date>(new Date(Date.now()));
   const [time, setTime] = useState<string>("");
-
   const navigate = useNavigate();
 
   const handleDateChange = (value: Date) => {
     setDate(value);
   };
-  console.log(formatDate(date));
 
   return (
-    <motion.section
+    <motion.section 
       className="p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -94,12 +92,12 @@ const CheckAvailability = () => {
           </div>
         </div>
         <div className="mt-12 flex items-center gap-6">
-          <button className="border border-primary rounded-lg text-primary py-4 px-6 w-full text-lg font-semibold hover:border-[#80BFBF] hover:text-[#80BFBF] active:text-[#002B2B] active:border-[#002B2B] duration-300">
+          <button onClick={()=>navigate(-1)} className="outline-none border border-primary rounded-lg text-primary py-4 px-6 w-full text-lg font-semibold hover:border-[#80BFBF] hover:text-[#80BFBF] active:text-[#002B2B] active:border-[#002B2B] duration-300">
             Cancel
           </button>
-          <button className="border border-primary bg-primary rounded-lg text-white py-4 px-6 w-full text-lg font-semibold hover:bg-[#80BFBF] hover:border-[#80BFBF] active:bg-[#002B2B] active:border-[#002B2B] duration-300">
+          <Link to="/dashboard/job-details" className="text-center border border-primary bg-primary rounded-lg text-white py-4 px-6 w-full text-lg font-semibold hover:bg-[#80BFBF] hover:border-[#80BFBF] active:bg-[#002B2B] active:border-[#002B2B] duration-300">
             Book Now
-          </button>
+          </Link>
         </div>
       </div>
     </motion.section>

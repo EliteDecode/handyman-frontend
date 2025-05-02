@@ -273,3 +273,14 @@ export const handyManPorfolioSchema = Yup.object().shape({
     .min(1, "At least one tag is required")
     .max(5, `Max ${5} tags allowed`),
 });
+
+export const jobDetailsSchema = Yup.object().shape({
+  street: Yup.string()
+    .min(5, "Street must be at least 5 character long")
+    .required("Street is required"),
+  city: Yup.string().required("City is required"),
+  state: Yup.string().required("State is required"),
+  lga: Yup.string().required("LGA is required"),
+  country: Yup.string().required("Country is required"),
+  zipCode: Yup.string().required("Zip Code is required"),
+});

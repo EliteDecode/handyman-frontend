@@ -54,6 +54,9 @@ export const HandymanProfile = lazy(
 export const BookingAvailabilty = lazy(
   () => import("@/pages/CustomerDashboard/BookingProcees/CheckAvailability")
 );
+export const JobDetails = lazy(
+  () => import("@/pages/CustomerDashboard/BookingProcees/JobDetails")
+);
 export const HandymanPortfolioImage = lazy(
   () => import("@/components/CustomerDashboard/HandymanPortfolioImage")
 );

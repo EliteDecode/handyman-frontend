@@ -30,7 +30,7 @@ import {
   HandymanPortfolioCertification,
   HandymanRatings,
   BookingAvailabilty,
-
+  JobDetails,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -190,6 +190,10 @@ export default function App() {
             {
               path: "booking-availability",
               element: <BookingAvailabilty />,
+            },
+            {
+              path: "job-details",
+              element: <JobDetails />,
             },
           ],
         },
