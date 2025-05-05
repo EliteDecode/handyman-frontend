@@ -74,6 +74,25 @@ const login_user_facebook = async (code: { code: string }) => {
   return response.data;
 };
 
+const logout = async () => {
+  const refresh_token = localStorage.getItem("HM_refresh_token");
+  
+  const response = await axiosClient.post(`/auth/logout`, {
+    refreshToken: refresh_token,
+  });
+
+  if (
+    response.data.success === true &&
+    response.data.message === "Logout successful"
+  ) {
+    localStorage.removeItem("HM_access_token");
+    localStorage.removeItem("HM_refresh_token");
+    localStorage.removeItem("HM_user_info");
+    localStorage.removeItem("isProfileUpdated");
+  }
+  return response.data;
+};
+
 const customerSignUpService = {
   sign_up,
   verify_email,
@@ -82,6 +101,7 @@ const customerSignUpService = {
   reset_password,
   login_user_google,
   login_user_facebook,
+  logout,
 };
 
 export default customerSignUpService;

@@ -1,8 +1,10 @@
+import { resetToken } from "@/services/features/auth/CustomerAuthSlice";
 import { fetchUserInfo, reset } from "@/services/features/user/userSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const STORAGE_KEY = "isProfileUpdated";
@@ -10,14 +12,12 @@ const EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours in ms
 
 const useDashboard = () => {
   const dispatch = useDispatch<AppDispatch>();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const { user, isLoading, isError, message, isSuccess }: any = useSelector(
     (state: RootState) => state.user
   );
-  const [isProfileUpdated, setIsProfileUpdated] = useState<boolean | null>(
-    true
-  );
+  const [isProfileUpdated, setIsProfileUpdated] = useState<boolean>(true);
 
   const getStoredProfileStatus = () => {
     const storedItem = localStorage.getItem(STORAGE_KEY);
@@ -25,7 +25,7 @@ const useDashboard = () => {
       const { value } = JSON.parse(storedItem);
       setIsProfileUpdated(value);
     } else {
-      setIsProfileUpdated(null);
+      setIsProfileUpdated(true);
     }
   };
 
@@ -38,6 +38,15 @@ const useDashboard = () => {
     if (isError) toast.error(message);
     if (isSuccess) {
       //   toast.success(message);
+    }
+    if (message === "Invalid Token") {
+      localStorage.removeItem("HM_access_token");
+      localStorage.removeItem("HM_refresh_token");
+      localStorage.removeItem("HM_user_info");
+      localStorage.removeItem("isProfileUpdated");
+      dispatch(resetToken());
+
+      navigate("/auth/login", { replace: true });
     }
     dispatch(reset());
     return;

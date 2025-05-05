@@ -23,6 +23,12 @@ import {
   FacebookCallback,
   GoogleCallback,
   Dashboard,
+  ServicesProvider,
+  ServicesListing,
+  HandymanProfile,
+  HandymanPortfolioImage,
+  HandymanPortfolioCertification,
+  HandymanRatings,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -58,6 +64,7 @@ import Notification from "./pages/HandymanDashboard/Notification.tsx";
 import AcceptRequestTable from "./components/HandymanDashboard/JobRequest/AcceptRequestTable.tsx";
 import DeclinedRequestTable from "./components/HandymanDashboard/JobRequest/DeclinedRequestTable.tsx";
 import CompletedRequestTable from "./components/HandymanDashboard/JobRequest/CompletedRequestTable.tsx";
+import DashboardSubLayout from "./layouts/Dashboard.tsx/DashboardSubLayout.tsx";
 // routes
 
 export default function App() {
@@ -143,7 +150,7 @@ export default function App() {
             },
           ],
         },
-
+        // Dashboard routes
         {
           path: "dashboard",
           element: token ? <DashboardLayout /> : <Navigate to="/auth/login" />,
@@ -167,6 +174,40 @@ export default function App() {
             {
               path: "settings",
               element: <h2>Settings</h2>,
+            },
+          ],
+        },
+        {
+          path: "dashboard",
+          element: token ? (
+            <DashboardSubLayout />
+          ) : (
+            <Navigate to="/auth/login" />
+          ),
+          children: [
+            {
+              path: "services-listing",
+              element: <ServicesListing />,
+            },
+            {
+              path: "services-provider",
+              element: <ServicesProvider />,
+            },
+            {
+              path: "handyman-profile/:id",
+              element: <HandymanProfile />,
+            },
+            {
+              path: "handyman-portfolio-images/:id",
+              element: <HandymanPortfolioImage />,
+            },
+            {
+              path: "handyman-portfolio-certs/:id",
+              element: <HandymanPortfolioCertification />,
+            },
+            {
+              path: "handyman-ratings/:id",
+              element: <HandymanRatings />,
             },
           ],
         },
