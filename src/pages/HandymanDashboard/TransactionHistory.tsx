@@ -14,7 +14,7 @@ export default function TransactionHistory() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null);
   const statusList = ["Completed", "Processing", "Scheduled"];
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -187,7 +187,7 @@ export default function TransactionHistory() {
 
               <button
                 onClick={() => {
-                  const params = {};
+                  const params: Record<string, string> = {};
 
                   if (selectedStatus) {
                     params.status = selectedStatus;

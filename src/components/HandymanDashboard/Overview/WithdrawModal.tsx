@@ -47,7 +47,7 @@ export default function WithdrawModal({
         </div>
 
         <form
-          className="flex flex-col md:gap-3 gap-2"
+          className="flex flex-col gap-2 md:gap-3"
           onSubmit={formik.handleSubmit}
         >
           {/* Available Balance */}
@@ -76,15 +76,15 @@ export default function WithdrawModal({
               className="md:h-14 h-9 border border-[#D0D5DD] rounded-[6px] px-4 text-[#101928] text-[12px] md:text-[14px]"
             />
             {formik.touched.amount && formik.errors.amount && (
-              <span className="text-red-500 text-xs">
+              <span className="text-xs text-red-500">
                 {formik.errors.amount}
               </span>
             )}
           </div>
 
           {/* Bank Info */}
-          <div className="flex md:flex-row flex-col gap-4 w-full">
-            <div className="flex flex-col gap-1 w-full">
+          <div className="flex flex-col w-full gap-4 md:flex-row">
+            <div className="flex flex-col w-full gap-1">
               <label className="text-[14px] md:text-[16px] font-lato text-[#101928] font-medium">
                 Linked Bank Account
               </label>
@@ -95,7 +95,7 @@ export default function WithdrawModal({
               />
             </div>
 
-            <div className="flex flex-col gap-1 w-full">
+            <div className="flex flex-col w-full gap-1">
               <label className="text-[14px] md:text-[16px] font-lato text-[#101928] font-medium">
                 Linked Bank Account Number
               </label>
@@ -108,7 +108,7 @@ export default function WithdrawModal({
           </div>
 
           {/* Buttons */}
-          <div className="flex items-center justify-between gap-4 md:mt-12 mt-4">
+          <div className="flex items-center justify-between gap-4 mt-4 md:mt-12">
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}

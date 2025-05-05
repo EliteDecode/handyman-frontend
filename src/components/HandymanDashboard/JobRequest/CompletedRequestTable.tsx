@@ -4,7 +4,7 @@ import { IoAdd } from "react-icons/io5";
 import { getPageNumbers } from "@/lib/utils";
 import { useState } from "react";
 
-export default function AllRequestTable() {
+export default function CompletedRequestTable() {
   const data = [
     {
       customer: "Amina Ikechukwu",
@@ -12,7 +12,7 @@ export default function AllRequestTable() {
       dateTime: "11/05/2024 03:00PM",
       description:
         "Plumbing repair - The tap at my backyard is leaking and hard to switch off.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -21,7 +21,7 @@ export default function AllRequestTable() {
       dateTime: "13/05/2024 10:00AM",
       description:
         "Electrical work - Faulty sockets need fixing in the living room.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -29,7 +29,7 @@ export default function AllRequestTable() {
       location: "5 Admiralty Way, Lekki",
       dateTime: "14/05/2024 01:30PM",
       description: "Carpentry - Kitchen cabinet door is broken.",
-      status: "Declined",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -37,7 +37,7 @@ export default function AllRequestTable() {
       location: "21 Banana Island Road, Ikoyi",
       dateTime: "15/05/2024 09:00AM",
       description: "AC repair - AC unit not cooling properly.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -45,7 +45,7 @@ export default function AllRequestTable() {
       location: "11 Opebi Link Road, Ikeja",
       dateTime: "15/05/2024 02:00PM",
       description: "Painting - Repaint the living room and hallway.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -53,7 +53,7 @@ export default function AllRequestTable() {
       location: "3 Olowu Street, Yaba",
       dateTime: "16/05/2024 11:00AM",
       description: "Tiling - Replace broken bathroom tiles.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -61,7 +61,7 @@ export default function AllRequestTable() {
       location: "8A Awolowo Way, Ikoyi",
       dateTime: "16/05/2024 03:30PM",
       description: "Plumbing - Fix shower leakage in master bathroom.",
-      status: "Declined",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -69,7 +69,7 @@ export default function AllRequestTable() {
       location: "17 Sanusi Fafunwa Street, VI",
       dateTime: "17/05/2024 01:00PM",
       description: "Electrical - Install new ceiling fans in 3 rooms.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -77,7 +77,7 @@ export default function AllRequestTable() {
       location: "22 Adeniran Ogunsanya, Surulere",
       dateTime: "17/05/2024 04:00PM",
       description: "Cleaning - Post-renovation home cleaning.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -85,7 +85,7 @@ export default function AllRequestTable() {
       location: "10 Oba Akinjobi Street, GRA Ikeja",
       dateTime: "18/05/2024 09:30AM",
       description: "Generator repair - Generator not powering on.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -93,7 +93,7 @@ export default function AllRequestTable() {
       location: "30A Adeola Odeku Street, VI",
       dateTime: "18/05/2024 12:00PM",
       description: "Furniture assembly - Assemble new office desk.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -101,7 +101,7 @@ export default function AllRequestTable() {
       location: "18 Bourdillon Road, Ikoyi",
       dateTime: "19/05/2024 10:30AM",
       description: "Window repair - Replace broken glass pane.",
-      status: "Declined",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -109,7 +109,7 @@ export default function AllRequestTable() {
       location: "12 Herbert Macaulay Way, Sabo",
       dateTime: "19/05/2024 03:00PM",
       description: "Painting - Touch up exterior paintwork.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -117,7 +117,7 @@ export default function AllRequestTable() {
       location: "6B Oregun Road, Ikeja",
       dateTime: "20/05/2024 01:00PM",
       description: "AC maintenance - Clean and refill gas.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -125,7 +125,7 @@ export default function AllRequestTable() {
       location: "15 Alhaji Masha Road, Surulere",
       dateTime: "20/05/2024 04:30PM",
       description: "Lighting - Install chandelier in dining area.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -133,7 +133,7 @@ export default function AllRequestTable() {
       location: "2B Glover Road, Ikoyi",
       dateTime: "21/05/2024 10:00AM",
       description: "Door replacement - Replace main entrance door.",
-      status: "Declined",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -141,7 +141,7 @@ export default function AllRequestTable() {
       location: "9A Mobolaji Bank Anthony, Ikeja",
       dateTime: "21/05/2024 02:00PM",
       description: "Water heater - Heater not turning on.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -149,7 +149,7 @@ export default function AllRequestTable() {
       location: "16 Ozumba Mbadiwe, VI",
       dateTime: "22/05/2024 11:00AM",
       description: "General repairs - Fix broken drawers and switches.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -157,7 +157,7 @@ export default function AllRequestTable() {
       location: "25 Isaac John Street, GRA Ikeja",
       dateTime: "22/05/2024 03:30PM",
       description: "Gate welding - Reinforce the front gate.",
-      status: "Pending",
+      status: "Completed",
       image: aboutInfo,
     },
     {
@@ -165,7 +165,7 @@ export default function AllRequestTable() {
       location: "4B Bishop Aboyade Cole, VI",
       dateTime: "23/05/2024 09:00AM",
       description: "Cleaning - Deep clean 4-bedroom duplex.",
-      status: "Accepted",
+      status: "Completed",
       image: aboutInfo,
     },
   ];

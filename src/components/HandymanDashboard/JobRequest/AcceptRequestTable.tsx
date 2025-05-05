@@ -4,7 +4,7 @@ import { IoAdd } from "react-icons/io5";
 import { getPageNumbers } from "@/lib/utils";
 import { useState } from "react";
 
-export default function AllRequestTable() {
+export default function AcceptRequestTable() {
   const data = [
     {
       customer: "Amina Ikechukwu",
@@ -21,7 +21,7 @@ export default function AllRequestTable() {
       dateTime: "13/05/2024 10:00AM",
       description:
         "Electrical work - Faulty sockets need fixing in the living room.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -29,7 +29,7 @@ export default function AllRequestTable() {
       location: "5 Admiralty Way, Lekki",
       dateTime: "14/05/2024 01:30PM",
       description: "Carpentry - Kitchen cabinet door is broken.",
-      status: "Declined",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -45,7 +45,7 @@ export default function AllRequestTable() {
       location: "11 Opebi Link Road, Ikeja",
       dateTime: "15/05/2024 02:00PM",
       description: "Painting - Repaint the living room and hallway.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -61,7 +61,7 @@ export default function AllRequestTable() {
       location: "8A Awolowo Way, Ikoyi",
       dateTime: "16/05/2024 03:30PM",
       description: "Plumbing - Fix shower leakage in master bathroom.",
-      status: "Declined",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -77,7 +77,7 @@ export default function AllRequestTable() {
       location: "22 Adeniran Ogunsanya, Surulere",
       dateTime: "17/05/2024 04:00PM",
       description: "Cleaning - Post-renovation home cleaning.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -93,7 +93,7 @@ export default function AllRequestTable() {
       location: "30A Adeola Odeku Street, VI",
       dateTime: "18/05/2024 12:00PM",
       description: "Furniture assembly - Assemble new office desk.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -101,7 +101,7 @@ export default function AllRequestTable() {
       location: "18 Bourdillon Road, Ikoyi",
       dateTime: "19/05/2024 10:30AM",
       description: "Window repair - Replace broken glass pane.",
-      status: "Declined",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -117,7 +117,7 @@ export default function AllRequestTable() {
       location: "6B Oregun Road, Ikeja",
       dateTime: "20/05/2024 01:00PM",
       description: "AC maintenance - Clean and refill gas.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -133,7 +133,7 @@ export default function AllRequestTable() {
       location: "2B Glover Road, Ikoyi",
       dateTime: "21/05/2024 10:00AM",
       description: "Door replacement - Replace main entrance door.",
-      status: "Declined",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -141,7 +141,7 @@ export default function AllRequestTable() {
       location: "9A Mobolaji Bank Anthony, Ikeja",
       dateTime: "21/05/2024 02:00PM",
       description: "Water heater - Heater not turning on.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {
@@ -157,7 +157,7 @@ export default function AllRequestTable() {
       location: "25 Isaac John Street, GRA Ikeja",
       dateTime: "22/05/2024 03:30PM",
       description: "Gate welding - Reinforce the front gate.",
-      status: "Pending",
+      status: "Accepted",
       image: aboutInfo,
     },
     {

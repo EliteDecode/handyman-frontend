@@ -4,12 +4,12 @@ import filter from "@/assets/icons/filter.svg";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import StatusDropdownFilter from "@/components/HandymanDashboard/StatusDropdownFilter";
+import dayjs from "dayjs";
 
 export default function ServicesHistory() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null);
   const statusList = ["Completed", "Processing", "Scheduled"];
   const [searchParams, setSearchParams] = useSearchParams();
 

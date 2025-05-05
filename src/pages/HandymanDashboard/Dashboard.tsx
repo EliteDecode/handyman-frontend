@@ -3,7 +3,6 @@ import CustomDateCalendar from "@/components/HandymanDashboard/Dashboard/CustomD
 import EarningsChart from "@/components/HandymanDashboard/Dashboard/EarningsChart";
 import InfoCards from "@/components/HandymanDashboard/Dashboard/InfoCards";
 import PendingVerification from "@/components/HandymanDashboard/Dashboard/PendingVerification";
-import React from "react";
 
 const cardData = [
   {

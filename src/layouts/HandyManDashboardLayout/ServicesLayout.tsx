@@ -25,10 +25,6 @@ export default function ServicesLayout() {
               to: "/handyman/services/service-history",
               label: "Service History",
             },
-            {
-              to: "/handyman/services/tab",
-              label: "tab",
-            },
           ].map(({ to, label }) => (
             <Link
               key={to}

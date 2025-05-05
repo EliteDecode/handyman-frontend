@@ -1,11 +1,6 @@
 import React from "react";
 import { banksInNigeria } from "@/lib/utils";
 
-type Bank = {
-  name: string;
-  code: string;
-};
-
 type Props = {
   formik: any;
   dropDown: string; // Path to dropdown image

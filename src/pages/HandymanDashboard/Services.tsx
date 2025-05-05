@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import trashGreen from "@/assets/icons/trashGreen.svg";
 import editIcon from "@/assets/icons/editIcon.svg";
 import addGreen from "@/assets/icons/addGreen.svg";
 import EditServicesModal from "@/components/HandymanDashboard/Settings/EditServicesModal";
 import AddServicesModal from "@/components/HandymanDashboard/Settings/AddServicesModal";
 
+type Service = {
+  id: number;
+  service: string;
+  rate: number;
+};
+
 export default function Services() {
-  const [showModalEditModal, setShowModalEditModal] = useState(false);
-  const [showModalAddModal, setShowModalAddModal] = useState(false);
-  const [currentService, setCurrentService] = useState(null);
+  const [showModalEditModal, setShowModalEditModal] = useState<boolean>(false);
+  const [showModalAddModal, setShowModalAddModal] = useState<boolean>(false);
+  const [currentService, setCurrentService] = useState<Service | null>(null);
 
   const openModalEdit = () => setShowModalEditModal(true);
   const closeModalEdit = () => {
@@ -19,7 +25,7 @@ export default function Services() {
   const openModalAdd = () => setShowModalAddModal(true);
   const closeModalAdd = () => setShowModalAddModal(false);
 
-  const dummyBookings = [
+  const dummyBookings: Service[] = [
     {
       id: 1,
       service: "Scridding, finishing and painting",
@@ -38,7 +44,7 @@ export default function Services() {
   ];
 
   return (
-    <div className="p-6 shadow-custom space-y-6">
+    <div className="p-6 space-y-6 shadow-custom">
       <div className="md:h-[69px] h-[72px] md:space-y-[10px] space-y-2 w-full border-b border-[#98A2B3]">
         <h1 className="sm:text-[24px] text-[16px] sm:leading-6 leading-[100%] font-merriweather font-bold">
           Services
@@ -68,12 +74,12 @@ export default function Services() {
                   className="hover:bg-gray-100 px-6 h-[72px] text-[14px] leading-5 tracking-wide font-lato text-[#191919] flex items-center justify-between border-b border-[#C9CDD3] w-full"
                 >
                   {/* Column 1: Left */}
-                  <div className=" text-start cursor-pointer w-full">
+                  <div className="w-full cursor-pointer text-start">
                     {data.service}
                   </div>
 
                   {/* Column 2: Center */}
-                  <div className=" w-full flex justify-center text-start">
+                  <div className="flex justify-center w-full text-start">
                     {`₦${data.rate.toLocaleString()}`}
                   </div>
 
@@ -107,7 +113,7 @@ export default function Services() {
               ))}
             </div>
           </div>
-          <div className="flex md:flex-row flex-col gap-6 justify-end w-full">
+          <div className="flex flex-col justify-end w-full gap-6 md:flex-row">
             <button
               className="md:w-[185px] w-full h-14 flex items-center justify-center gap-2 border-[1.5px] border-primary text-primary rounded-[8px]"
               onClick={() => {
@@ -118,10 +124,6 @@ export default function Services() {
               <p className="md:text-[18px] text-[12px] md:leading-6 leading-[14px] font-semibold tracking-2-percent">
                 Add Service
               </p>
-            </button>
-
-            <button className="md:w-[142px] w-full h-14 bg-primary text-white rounded-[8px] md:text-[18px] text-[12px] md:leading-6 leading-[14px] font-semibold tracking-2-percent">
-              Save Changes
             </button>
           </div>
         </div>

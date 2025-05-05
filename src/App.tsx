@@ -42,6 +42,7 @@ import OverviewLayout from "./layouts/HandyManDashboardLayout/OverviewLayout.tsx
 import ServicesLayout from "./layouts/HandyManDashboardLayout/ServicesLayout.tsx";
 import ServicesDetails from "./pages/HandymanDashboard/ServicesDetails.tsx";
 import ServicesHistory from "./pages/HandymanDashboard/ServicesHistory.tsx";
+import PortfolioSettings from "./pages/HandymanDashboard/Portfolio.tsx";
 import ServiceDetailPage from "./pages/HandymanDashboard/ServiceDetailPage.tsx";
 import JobRequestLayout from "./layouts/HandyManDashboardLayout/JobRequestLayout.tsx";
 import Allrequests from "./pages/HandymanDashboard/Allrequests.tsx";
@@ -52,6 +53,11 @@ import Profile from "./pages/HandymanDashboard/Profile.tsx";
 import Availability from "./pages/HandymanDashboard/Availability.tsx";
 import Certification from "./pages/HandymanDashboard/Certification.tsx";
 import SettingsServices from "./pages/HandymanDashboard/Services.tsx";
+import Security from "./pages/HandymanDashboard/Security.tsx";
+import Notification from "./pages/HandymanDashboard/Notification.tsx";
+import AcceptRequestTable from "./components/HandymanDashboard/JobRequest/AcceptRequestTable.tsx";
+import DeclinedRequestTable from "./components/HandymanDashboard/JobRequest/DeclinedRequestTable.tsx";
+import CompletedRequestTable from "./components/HandymanDashboard/JobRequest/CompletedRequestTable.tsx";
 // routes
 
 export default function App() {
@@ -184,6 +190,18 @@ export default function App() {
                   path: "all-requests",
                   element: <Allrequests />,
                 },
+                {
+                  path: "accepted-requests",
+                  element: <AcceptRequestTable />,
+                },
+                {
+                  path: "declined-requests",
+                  element: <DeclinedRequestTable />,
+                },
+                {
+                  path: "completed-requests",
+                  element: <CompletedRequestTable />,
+                },
               ],
             },
             {
@@ -243,7 +261,7 @@ export default function App() {
                     },
                     {
                       path: "portfolio",
-                      element: <ServicesHistory />,
+                      element: <PortfolioSettings />,
                     },
                   ],
                 },
@@ -254,6 +272,14 @@ export default function App() {
                 {
                   path: "availability",
                   element: <Availability />,
+                },
+                {
+                  path: "security",
+                  element: <Security />,
+                },
+                {
+                  path: "notification",
+                  element: <Notification />,
                 },
               ],
             },

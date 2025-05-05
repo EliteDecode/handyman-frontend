@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import OverViewCard from "../../components/HandymanDashboard/Payments/OverViewCard";
 import EscrowFundsOverview from "../../components/HandymanDashboard/Payments/EscrowFundsOverview";
 import PayoutPreferences from "../../components/HandymanDashboard/Payments/PayoutPreferences";
@@ -27,6 +27,8 @@ export default function Overview() {
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const bank = "UBA";
+  const accountName = "John Doe"; // Replace with actual value or logic
 
   const handleWithdrawClick = () => {
     setIsModalOpen(true);
@@ -64,7 +66,13 @@ export default function Overview() {
       <EscrowFundsOverview />
       <PayoutPreferences />
 
-      {isModalOpen && <WithdrawModal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && (
+        <WithdrawModal
+          setIsModalOpen={setIsModalOpen}
+          bank={bank}
+          accountName={accountName}
+        />
+      )}
     </div>
   );
 }

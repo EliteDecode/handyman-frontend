@@ -174,7 +174,7 @@ export default function ServicesDetailsTable() {
   const totalPages = Math.ceil(dummyTableData.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
   const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   const paginatedCustomers = dummyTableData.slice(
     (currentPage - 1) * itemsPerPage,
@@ -217,14 +217,7 @@ export default function ServicesDetailsTable() {
               <tbody>
                 {paginatedCustomers.map(
                   (
-                    {
-                      customerName,
-                      service,
-                      dateTime,
-                      location,
-                      jobStatus,
-                      action,
-                    },
+                    { customerName, service, dateTime, location, jobStatus },
                     index
                   ) => (
                     <tr

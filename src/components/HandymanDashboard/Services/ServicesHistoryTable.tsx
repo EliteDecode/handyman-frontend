@@ -6,11 +6,19 @@ import love from "@/assets/icons/love.svg";
 import save from "@/assets/icons/save.svg";
 import download from "@/assets/icons/download.svg";
 import exportIcon from "@/assets/icons/export.svg";
-import serviceImg3 from "@/assets/images/serviceImg3.jpg";
 import ServiceHistoryModal from "./ServiceHistoryModal";
 
+interface Booking {
+  service: string;
+  dateTime: string;
+  customer: string;
+  location: string;
+  amount: string;
+  status: "Success" | "Pending" | "Failed";
+}
+
 export default function ServicesHistoryTable() {
-  const dummyBookings = [
+  const dummyBookings: Booking[] = [
     {
       service: "Plumbing",
       dateTime: "2025-04-10 10:00 AM",
@@ -177,7 +185,7 @@ export default function ServicesHistoryTable() {
 
   const totalPages = Math.ceil(dummyBookings.length / itemsPerPage);
   const [currentPage, setCurrentPage] = useState(1);
-  const [openModalIndex, setOpenModalIndex] = useState<any | null>(null);
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
 
   const paginatedCustomers = dummyBookings.slice(
     (currentPage - 1) * itemsPerPage,
@@ -386,11 +394,13 @@ export default function ServicesHistoryTable() {
         </div>
       )}
 
-      <ServiceHistoryModal
-        isOpen={openModalIndex !== null}
-        onClose={() => setOpenModalIndex(null)}
-        booking={paginatedCustomers[openModalIndex]}
-      />
+      {openModalIndex !== null && (
+        <ServiceHistoryModal
+          isOpen={openModalIndex !== null}
+          onClose={() => setOpenModalIndex(null)}
+          booking={paginatedCustomers[openModalIndex]}
+        />
+      )}
     </div>
   );
 }

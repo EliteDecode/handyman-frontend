@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import locationIcon from "@/assets/icons/fluent_open-24-filled.svg";
 import DropDown from "@/assets/icons/greenDropDownWithCircle.svg";
+import cautionGreen from "@/assets/icons/cautionGreen.svg";
+import mapIcon from "@/assets/icons/map.svg";
 import map from "@/assets/images/map.png";
 
 type RequestRowProps = {
@@ -70,7 +72,9 @@ export default function RequestRow({
             isOpen ? "hidden" : "block"
           }`}
         >
-          <p className="h-9 w-[92px] bg-[#0080800A] flex items-center justify-center rounded-[8px] text-[#008080]">
+          <p
+            className={`h-9 w-[92px] ${status === "Accepted" ? "bg-[#0080800A] text-[#008080]" : status === "Pending" ? "bg-[#FFF7EB] text-[#FF9500]" : status === "Completed" ? "bg-[#F1F2F4] text-[#191919]" : "bg-[#FFD8D6] text-[#FF3B30]"} flex items-center justify-center rounded-[8px] `}
+          >
             {status}
           </p>
         </div>
@@ -258,7 +262,7 @@ export default function RequestRow({
 
               <div className="bg-[#0080800A] bg-opacity-[4%] rounded-lg px-6 py-4 flex flex-row justify-between">
                 <div className="flex flex-row items-center gap-[19px]">
-                  <img src={locationIcon} alt="location icon" />
+                  <img src={cautionGreen} alt="location icon" />
 
                   <p className="text-[12px] leading-5 text-[#98A2B3]">
                     OUR POLICY
@@ -282,30 +286,47 @@ export default function RequestRow({
                   className="object-cover w-full h-full"
                 />
 
-                <div className="md:absolute bottom-6 inset-x-6 md:h-[92px] h-fit flex md:flex-row flex-col gap-[10px] items-center justify-between bg-[#FFFFFF] rounded-md md:px-4 w-auto md:py-0 py-4">
-                  <div className="flex items-center justify-between w-full md:max-w-[464px] max-w-full gap-4">
-                    {/* <InfoItem
-                    label="DATE & TIME"
-                    value="Wed, 21st November, 2024 : 03:00PM"
+                <div className="absolute bg-[#008080CC] right-4 top-1 md:w-[140px] w-[114px] md:h-11 h-[38px] flex items-center justify-center md:gap-[10px] gap-[5px] rounded-[8px] cursor-pointer">
+                  <img
+                    src={mapIcon}
+                    className="w-[9.5px] h-[9.5px] md:w-fit md:h-fit"
                   />
-                  <InfoItem label="DISTANCE" value="3 km" />
-                  <InfoItem label="TIME" value="12 mins" /> */}
+                  <p className="text-[#FFFFFF] md:text-[14px] text-[12px] md:leading-[20px] leading-[14px] tracking-2-percent font-medium">
+                    View on map
+                  </p>
+                </div>
+
+                <div className="md:absolute bottom-6 inset-x-6 md:h-[118px] h-fit flex md:flex-row flex-col gap-2 items-center sm:justify-between justify-center bg-[#FFFFFF] rounded-md px-4  w-auto md:py-0 py-4">
+                  <div className="flex  flex-col w-full md:max-w-[464px] max-w-full gap-2">
+                    <p className="text-[#98A2B3] leading-[14px] font-semibold text-[14px]">
+                      LOCATION:
+                      <br />
+                      <span className="leading-[20px]  text-[#191919] font-normal">
+                        25 Bourdillon Rd, Ikoyi, Lagos 106104, Lagos
+                      </span>
+                    </p>
+
+                    <p className="text-[#98A2B3] leading-[14px] font-semibold text-[14px]">
+                      DATE & TIME:
+                      <br />
+                      <span className="leading-[20px]  text-[#191919] font-normal">
+                        Wed, 21st November, 2024 : 03:00PM
+                      </span>
+                    </p>
                   </div>
 
-                  <div className="flex items-center max-w-[343px] w-full gap-4">
-                    <button
-                      className="w-full sm:max-w-[178px] bg-[#008080] md:h-14 h-[30px] rounded-md text-white md:text-[18px] text-[12px] md:leading-6 leading-[14px] font-semibold"
-                      // onClick={handleStartNavigation}
-                    >
-                      Start Navigation
-                    </button>
-
-                    <button
-                      className="w-full sm:max-w-[149px] border-[1.5px] border-[#008080] md:h-14  h-[30px] rounded-md  md:text-[18px] text-[12px] md:leading-6 leading-[14px] text-[#008080] font-semibold"
-                      // onClick={handleNotifyDelay}
-                    >
-                      Notify Delay
-                    </button>
+                  <div className="flex items-center md:items-end justify-end max-w-[343px] w-full gap-4 flex-col">
+                    <p className="text-[12px] leaading-5 tracking-2-percent text-[#3C3C3C]">
+                      You accepted this offer
+                    </p>
+                    <div className="flex flex-row gap-4">
+                      <button className="w-[93px] h-[30px] rounded-[8px] bg-[#D0D5DD] text-[12px] leading-[14px] font-semibold">
+                        Reschedule
+                      </button>
+                      <button className="w-[93px] h-[30px] rounded-[8px] bg-[#CB1A14] text-[12px] text-[#FFFFFF] leading-[14px] font-semibold">
+                        Decline offer
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

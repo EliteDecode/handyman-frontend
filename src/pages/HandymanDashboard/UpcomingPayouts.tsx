@@ -1,7 +1,7 @@
 import search from "@/assets/icons/search_icon.svg";
 import filter from "@/assets/icons/filter.svg";
 import { useSearchParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import dayjs from "dayjs";
 import UpcomingPayoutsTable from "@/components/HandymanDashboard/UpcomingPayouts/UpcomingPayoutsTable";
@@ -10,7 +10,7 @@ import StatusDropdownFilter from "@/components/HandymanDashboard/StatusDropdownF
 export default function UpcomingPayouts() {
   const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState<dayjs.Dayjs | null>(null);
   const statusList = ["Completed", "Processing", "Scheduled"];
   const [searchParams, setSearchParams] = useSearchParams();
 

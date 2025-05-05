@@ -1,13 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import serviceImg3 from "@/assets/images/serviceImg3.jpg";
 import exportIcon from "@/assets/icons/export.svg";
 
 interface Booking {
-  // define fields according to your data structure
-  customerName?: string;
-  appointmentTime?: string;
-  jobStatus?: string;
-  workTime?: string;
+  service: string;
+  dateTime: string;
+  customer: string;
+  location: string;
+  amount: string;
+  status: "Success" | "Pending" | "Failed";
 }
 
 interface Props {
@@ -68,10 +69,10 @@ export default function ServiceHistoryModal({
             </ul>
             <div>
               <ul className="space-y-4 md:text-[16px] text-[14px] md:leading-[18px] leading-[100%] text-[#3C3C3C] font-medium">
-                <li>{booking.customerName || "Amira Ikechukwu"}</li>
-                <li>{booking.appointmentTime || "10/05/2024 03:00PM"}</li>
-                <li>{booking.jobStatus || "Completed"}</li>
-                <li>{booking.workTime || "1 hour, 30 mins"}</li>
+                <li>{booking.customer || "Amira Ikechukwu"}</li>
+                <li>{booking.dateTime || "10/05/2024 03:00PM"}</li>
+                <li>{booking.service || "Completed"}</li>
+                <li>{"1 hour, 30 mins"}</li>
               </ul>
             </div>
           </div>

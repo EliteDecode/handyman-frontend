@@ -1,4 +1,3 @@
-import React from "react";
 import profile from "@/assets/icons/profile.svg";
 import edit from "@/assets/icons/editIcon.svg";
 import trash from "@/assets/icons/redTrash.svg";
@@ -10,6 +9,7 @@ export default function PersonalInformation() {
   const formik = useFormik({
     initialValues: {
       bankName: "",
+      accountNumber: "",
     },
     onSubmit: (values) => {
       console.log(values);
@@ -17,7 +17,7 @@ export default function PersonalInformation() {
   });
 
   return (
-    <div className="shadow-custom flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 p-6 shadow-custom">
       <div className="sm:h-14 h-8 w-full border-b border-[#98A2B3] sm:text-[24px] text-[16px] sm:leading-6 leading-[100%] font-merriweather font-bold">
         Personal Information
       </div>
@@ -28,7 +28,7 @@ export default function PersonalInformation() {
             Profile Photo{" "}
           </h1>
 
-          <div className="flex items-center flex-col sm:flex-row gap-6">
+          <div className="flex flex-col items-center gap-6 sm:flex-row">
             <div className="sm:w-[120px] sm:h-[120px] w-[120px] h-[120px]">
               <img
                 src={profile}
@@ -37,7 +37,7 @@ export default function PersonalInformation() {
               />
             </div>
 
-            <div className="font-lato flex items-center flex-row gap-6">
+            <div className="flex flex-row items-center gap-6 font-lato">
               <button className="w-[108px] h-8 gap-2 border-[1.5px] border-[#008080] flex items-center justify-center rounded-[8px]">
                 <img src={edit} alt="edit" className="w-4 h-4" />
                 <p className="text-[#008080] text-[12px] leading-[14px] font-semibold">
@@ -247,7 +247,7 @@ export default function PersonalInformation() {
           </div>
         </div>
 
-        <div className="mt-2 flex items-center justify-end">
+        <div className="flex items-center justify-end mt-2">
           <button className="w-[142px] h-14 bg-[#008080] rounded-md text-[#FFFFFF] text-[18px] leading-6 font-lato font-semibold">
             Save Changes
           </button>

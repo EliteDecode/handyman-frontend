@@ -5,9 +5,9 @@ import * as Yup from "yup";
 interface EditServicesModalProps {
   show: boolean;
   onClose: () => void;
-  id: number;
-  service: string;
-  rate: number;
+  id?: number;
+  service?: string;
+  rate?: number;
 }
 
 const EditServicesModal: React.FC<EditServicesModalProps> = ({
@@ -58,7 +58,7 @@ const EditServicesModal: React.FC<EditServicesModalProps> = ({
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center px-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center px-6 bg-black bg-opacity-40">
       <div
         ref={modalRef}
         className="bg-white rounded-lg p-6 w-full max-w-[543px] shadow-xl relative px-8 py-[39px] space-y-6"
@@ -68,7 +68,7 @@ const EditServicesModal: React.FC<EditServicesModalProps> = ({
         </div>
 
         <form
-          className="font-lato md:space-y-6 space-y-4"
+          className="space-y-4 font-lato md:space-y-6"
           onSubmit={formik.handleSubmit}
         >
           {/* Service */}
@@ -146,7 +146,7 @@ const EditServicesModal: React.FC<EditServicesModalProps> = ({
           </div>
 
           {/* Buttons */}
-          <div className="flex md:flex-row flex-col gap-6 justify-end w-full">
+          <div className="flex flex-col justify-end w-full gap-6 md:flex-row">
             <button
               type="button"
               onClick={onClose}
