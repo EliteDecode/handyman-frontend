@@ -284,3 +284,36 @@ export const jobDetailsSchema = Yup.object().shape({
   country: Yup.string().required("Country is required"),
   zipCode: Yup.string().required("Zip Code is required"),
 });
+
+export const changePasswordHandyManSecuritySchema = Yup.object().shape({
+  currentPassword: Yup.string()
+    .required("Current password is required")
+    .min(8, "Current password must be at least 8 characters long")
+    .matches(
+      /[A-Z]/,
+      "Current password must contain at least one uppercase letter"
+    )
+    .matches(/[0-9]/, "Current password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Current password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+
+  newPassword: Yup.string()
+    .required("New password is required")
+    .min(8, "New password must be at least 8 characters long")
+    .matches(/[A-Z]/, "New password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "New password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "New password must contain at least one special character (e.g., $, &, @, etc.)"
+    )
+    .notOneOf(
+      [Yup.ref("currentPassword")],
+      "New password cannot be the same as the current password"
+    ), // Custom validation
+
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword")], "Passwords must match")
+    .required("Please confirm your password"),
+});
