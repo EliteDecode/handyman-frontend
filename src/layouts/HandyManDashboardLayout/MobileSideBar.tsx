@@ -1,7 +1,7 @@
 import { sidebarHandymanLinks } from "@/lib/utils";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import dropDown from "@/assets/icons/dropdown.svg";
+import dropDown from "@/assets/icons/dropDown.svg";
 
 import Logo from "../../assets/images/logo-no-background.png";
 import { Menu, X } from "lucide-react";
