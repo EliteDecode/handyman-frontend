@@ -29,6 +29,8 @@ import {
   HandymanPortfolioImage,
   HandymanPortfolioCertification,
   HandymanRatings,
+  BookingAvailabilty,
+  JobDetails,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
@@ -194,7 +196,7 @@ export default function App() {
               element: <ServicesProvider />,
             },
             {
-              path: "handyman-profile/:id",
+              path: "handyman-profile",
               element: <HandymanProfile />,
             },
             {
@@ -208,6 +210,14 @@ export default function App() {
             {
               path: "handyman-ratings/:id",
               element: <HandymanRatings />,
+            },
+            {
+              path: "booking-availability",
+              element: <BookingAvailabilty />,
+            },
+            {
+              path: "job-details",
+              element: <JobDetails />,
             },
           ],
         },

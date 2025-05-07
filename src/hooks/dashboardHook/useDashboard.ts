@@ -1,5 +1,5 @@
 import { resetToken } from "@/services/features/auth/CustomerAuthSlice";
-import { fetchUserInfo, reset } from "@/services/features/user/userSlice";
+import { fetchUserInfo, getServiceCategories, reset } from "@/services/features/user/userSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -31,6 +31,7 @@ const useDashboard = () => {
 
   useEffect(() => {
     dispatch(fetchUserInfo());
+    dispatch(getServiceCategories());
     getStoredProfileStatus();
   }, []);
 

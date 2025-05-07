@@ -3,6 +3,7 @@ import {
   reset,
   resetToken,
 } from "@/services/features/auth/CustomerAuthSlice";
+import { resetUser } from "@/services/features/user/userSlice";
 import { AppDispatch, RootState } from "@/store";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
@@ -22,6 +23,7 @@ const useLogout = () => {
     if (isSuccess && message === "Logout successful") {
       toast.success(message);
       dispatch(resetToken());
+      dispatch(resetUser());
       navigate("/auth/login", { replace: true });
     }
     if (
@@ -33,7 +35,11 @@ const useLogout = () => {
       localStorage.removeItem("HM_refresh_token");
       localStorage.removeItem("HM_user_info");
       localStorage.removeItem("isProfileUpdated");
+      localStorage.removeItem("HM_service_categories");
+      localStorage.removeItem("HM_handymen_lists");
+      localStorage.removeItem("HM_handyman_profile");
       dispatch(resetToken());
+      dispatch(resetUser());
 
       navigate("/auth/login", { replace: true });
     }
