@@ -273,3 +273,47 @@ export const handyManPorfolioSchema = Yup.object().shape({
     .min(1, "At least one tag is required")
     .max(5, `Max ${5} tags allowed`),
 });
+
+export const jobDetailsSchema = Yup.object().shape({
+  street: Yup.string()
+    .min(5, "Street must be at least 5 character long")
+    .required("Street is required"),
+  city: Yup.string().required("City is required"),
+  state: Yup.string().required("State is required"),
+  lga: Yup.string().required("LGA is required"),
+  country: Yup.string().required("Country is required"),
+  zipCode: Yup.string().required("Zip Code is required"),
+});
+
+export const changePasswordHandyManSecuritySchema = Yup.object().shape({
+  currentPassword: Yup.string()
+    .required("Current password is required")
+    .min(8, "Current password must be at least 8 characters long")
+    .matches(
+      /[A-Z]/,
+      "Current password must contain at least one uppercase letter"
+    )
+    .matches(/[0-9]/, "Current password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "Current password must contain at least one special character (e.g., $, &, @, etc.)"
+    ),
+
+  newPassword: Yup.string()
+    .required("New password is required")
+    .min(8, "New password must be at least 8 characters long")
+    .matches(/[A-Z]/, "New password must contain at least one uppercase letter")
+    .matches(/[0-9]/, "New password must contain at least one number")
+    .matches(
+      /[\W_]/,
+      "New password must contain at least one special character (e.g., $, &, @, etc.)"
+    )
+    .notOneOf(
+      [Yup.ref("currentPassword")],
+      "New password cannot be the same as the current password"
+    ), // Custom validation
+
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword")], "Passwords must match")
+    .required("Please confirm your password"),
+});

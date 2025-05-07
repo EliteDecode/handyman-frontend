@@ -28,7 +28,7 @@ const FeaturedCard = () => {
         <span
           className={`${isClicked ? "bg-white text-primary" : isHovered ? "bg-primary text-white" : "bg-[#0080800A] text-primary"} transition-all duration-300 rounded-[40px] py-1 lg:px-4 px-2 font-semibold text-xs lg:text-base`}
         >
-          Fearured
+          Featured
         </span>
       </div>
       <div className="mt-2 w-full flex flex-col items-center justify-center">

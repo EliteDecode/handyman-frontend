@@ -9,71 +9,17 @@ import Hairdresser from "@/assets/images/Hairdresser.svg";
 import cushion from "@/assets/images/cushion.svg";
 import { FaSalesforce } from "react-icons/fa6";
 
-export const serviceListings = [
-  {
-    title: "Capentry",
-    image: toolbox,
-    description: "Custom furniture and home repairs.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Electrical",
-    image: electrical,
-    description: "Professional electrical installations and maintenance.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Plumbing",
-    image: plumbing,
-    description: "Fix leaks, install fixtures, and resolve water flow issues.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Cleaning",
-    image: cleaning,
-    description: "Home and office cleaning tailored to your needs.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "General Repairs",
-    image: tools,
-    description: "Your go-to professionals for odd jobs and quick fixes.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Painting",
-    image: roller,
-    description: "Enhance your space with expert painting solutions.",
-    available: true,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Gardening Services",
-    image: gardening,
-    description: "Transform your outdoor space with our gardeners.",
-    available: false,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Hair & Beauty",
-    image: Hairdresser,
-    description: "Book appointments with the best stylists and beauticians.",
-    available: false,
-    link: "/dashboard/services-provider",
-  },
-  {
-    title: "Tailoring",
-    image: cushion,
-    description: "Expert tailoring for bespoke outfits and garment adjustments",
-    available: false,
-    link: "/dashboard/services-provider",
-  },
-];
+export const serviceListingsIcons: Record<string, string> = {
+  "Electric Work": electrical,
+  "Home Repairs": cleaning,
+  Capentry: toolbox,
+  Plumbing: plumbing,
+  "Appliance Repairs": tools,
+  roller,
+  gardening,
+  Hairdresser,
+  cushion,
+};
 
 export const serviceProviders = [
   {

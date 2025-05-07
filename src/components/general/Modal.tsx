@@ -3,8 +3,9 @@ interface modalProps {
   isOpen: boolean;
   onClose: () => void;
   children: React.ReactNode;
+  maxWidth: number;
 }
-const Modal = ({ isOpen, onClose, children }: modalProps) => {
+const Modal = ({ isOpen, onClose, children, maxWidth = 670 }: modalProps) => {
   if (!isOpen) return null;
   return (
     <div className="h-full w-full fixed flex items-center justify-center top-0 left-0 z-50">
@@ -17,7 +18,8 @@ const Modal = ({ isOpen, onClose, children }: modalProps) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.4 }}
-        className="border border-borderColor rounded-2xl bg-white px-6 pt-4 pb-7 shadow-lg relative w-[90%] md:max-w-[670px] "
+        style={{ maxWidth: `${maxWidth}px` }}
+        className="border border-borderColor rounded-2xl bg-white px-6 pt-4 pb-7 shadow-lg relative w-[90%] "
       >
         <div className="mt-4">{children}</div>
       </motion.div>

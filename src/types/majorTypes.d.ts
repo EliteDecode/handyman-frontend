@@ -19,7 +19,30 @@ declare interface InitialUserStateProps {
   message: string;
   isSuccess: boolean;
   isError: boolean;
+  isProfileLoading: boolean;
   user: IUser[] | null;
+  serviceCategories: serviceCategories[] | null;
+  handymenLists: [] | null;
+  handymanProfile: {} | null;
+  handymenListsByService: [] | null;
+}
+
+declare interface serviceCategories {
+  _id: string;
+  category: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
+declare type serviceCategoriesProps = {
+  _id: string;
+  category: string;
+  description: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 }
 
 declare interface IUser {

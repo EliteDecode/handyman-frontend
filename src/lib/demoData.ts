@@ -427,3 +427,54 @@ export const coreValues = [
     desc: "We are committed to eco-friendly practices and responsible business operations.",
   },
 ];
+
+export const appointmentTime = [
+  {
+    time: "8:00am",
+    available: true,
+  },
+  {
+    time: "10:00am",
+    available: true,
+  },
+  {
+    time: "12:00pm",
+    available: false,
+  },
+  {
+    time: "12:30pm",
+    available: true,
+  },
+  {
+    time: "1:30pm",
+    available: false,
+  },
+  {
+    time: "2:00pm",
+    available: true,
+  },
+  {
+    time: "3:30pm",
+    available: true,
+  },
+  {
+    time: "4:00pm",
+    available: true,
+  },
+  {
+    time: "5:00pm",
+    available: true,
+  },
+  {
+    time: "5:30pm",
+    available: true,
+  },
+  {
+    time: "6:00pm",
+    available: true,
+  },
+  {
+    time: "7:00pm",
+    available: false,
+  },
+];

@@ -29,19 +29,44 @@ import {
   HandymanPortfolioImage,
   HandymanPortfolioCertification,
   HandymanRatings,
-
+  BookingAvailabilty,
+  JobDetails,
 } from "./routes";
 import { useSelector } from "react-redux";
 import { RootState } from "./store";
 import DashboardLayout from "./layouts/Dashboard.tsx/index.tsx";
+import HandymanDashboardLayout from "./layouts/HandyManDashboardLayout/Index.tsx";
 import AuthLayout from "./layouts/AuthLayout";
 import RoleSelection from "./pages/HandymanAuth/RoleSelection/RoleSelection";
 import HMSignUp from "./pages/HandymanAuth/signUp/SignUp";
 import CompleteYourProfile from "./pages/HandymanAuth/completeYourProfile/CompleteYourProfile";
 import VerificationAndIdentification from "./pages/HandymanAuth/verificationAndIdentification/VerificationAndIdentification";
 import Portfolio from "./pages/HandymanAuth/portfolio/Portfolio";
+import HandymanDashboard from "./pages/HandymanDashboard/Dashboard.tsx";
+import TransactionHistory from "./pages/HandymanDashboard/TransactionHistory.tsx";
+import Overview from "./pages/HandymanDashboard/Overview.tsx";
+import UpcomingPayouts from "./pages/HandymanDashboard/UpcomingPayouts.tsx";
+import OverviewLayout from "./layouts/HandyManDashboardLayout/OverviewLayout.tsx";
+import ServicesLayout from "./layouts/HandyManDashboardLayout/ServicesLayout.tsx";
+import ServicesDetails from "./pages/HandymanDashboard/ServicesDetails.tsx";
+import ServicesHistory from "./pages/HandymanDashboard/ServicesHistory.tsx";
+import PortfolioSettings from "./pages/HandymanDashboard/Portfolio.tsx";
+import ServiceDetailPage from "./pages/HandymanDashboard/ServiceDetailPage.tsx";
+import JobRequestLayout from "./layouts/HandyManDashboardLayout/JobRequestLayout.tsx";
+import Allrequests from "./pages/HandymanDashboard/Allrequests.tsx";
+import SettingLayout from "./layouts/HandyManDashboardLayout/SettingLayout.tsx";
+import ProfileLayout from "./layouts/HandyManDashboardLayout/ProfileLayout.tsx";
+import PersonalInformation from "./pages/HandymanDashboard/PersonalInformation.tsx";
+import Profile from "./pages/HandymanDashboard/Profile.tsx";
+import Availability from "./pages/HandymanDashboard/Availability.tsx";
+import Certification from "./pages/HandymanDashboard/Certification.tsx";
+import SettingsServices from "./pages/HandymanDashboard/Services.tsx";
+import Security from "./pages/HandymanDashboard/Security.tsx";
+import Notification from "./pages/HandymanDashboard/Notification.tsx";
+import AcceptRequestTable from "./components/HandymanDashboard/JobRequest/AcceptRequestTable.tsx";
+import DeclinedRequestTable from "./components/HandymanDashboard/JobRequest/DeclinedRequestTable.tsx";
+import CompletedRequestTable from "./components/HandymanDashboard/JobRequest/CompletedRequestTable.tsx";
 import DashboardSubLayout from "./layouts/Dashboard.tsx/DashboardSubLayout.tsx";
-
 // routes
 
 export default function App() {
@@ -156,7 +181,11 @@ export default function App() {
         },
         {
           path: "dashboard",
-          element: token ? <DashboardSubLayout /> : <Navigate to="/auth/login" />,
+          element: token ? (
+            <DashboardSubLayout />
+          ) : (
+            <Navigate to="/auth/login" />
+          ),
           children: [
             {
               path: "services-listing",
@@ -167,7 +196,7 @@ export default function App() {
               element: <ServicesProvider />,
             },
             {
-              path: "handyman-profile/:id",
+              path: "handyman-profile",
               element: <HandymanProfile />,
             },
             {
@@ -182,9 +211,136 @@ export default function App() {
               path: "handyman-ratings/:id",
               element: <HandymanRatings />,
             },
-          ]
+            {
+              path: "booking-availability",
+              element: <BookingAvailabilty />,
+            },
+            {
+              path: "job-details",
+              element: <JobDetails />,
+            },
+          ],
         },
 
+        // handyman dashboard routes
+        {
+          path: "handyman/",
+          element: <HandymanDashboardLayout />,
+
+          children: [
+            {
+              path: "dashboard",
+              element: <HandymanDashboard />,
+            },
+            {
+              path: "job-requests",
+              element: <JobRequestLayout />,
+
+              children: [
+                {
+                  path: "all-requests",
+                  element: <Allrequests />,
+                },
+                {
+                  path: "accepted-requests",
+                  element: <AcceptRequestTable />,
+                },
+                {
+                  path: "declined-requests",
+                  element: <DeclinedRequestTable />,
+                },
+                {
+                  path: "completed-requests",
+                  element: <CompletedRequestTable />,
+                },
+              ],
+            },
+            {
+              path: "payments",
+              element: <OverviewLayout />,
+
+              children: [
+                {
+                  path: "overview",
+                  element: <Overview />,
+                },
+                {
+                  path: "transaction-history",
+                  element: <TransactionHistory />,
+                },
+                {
+                  path: "upcoming-payouts",
+                  element: <UpcomingPayouts />,
+                },
+              ],
+            },
+
+            {
+              path: "services",
+              element: <ServicesLayout />,
+              children: [
+                {
+                  path: "service-details",
+                  element: <ServicesDetails />,
+                },
+                {
+                  path: "service-history",
+                  element: <ServicesHistory />,
+                },
+              ],
+            },
+
+            {
+              path: "settings",
+              element: <SettingLayout />,
+              children: [
+                {
+                  path: "profile",
+                  element: <ProfileLayout />,
+                  children: [
+                    {
+                      path: "personal-information",
+                      element: <PersonalInformation />,
+                    },
+                    {
+                      path: "certification",
+                      element: <Certification />,
+                    },
+                    {
+                      path: "services",
+                      element: <SettingsServices />,
+                    },
+                    {
+                      path: "portfolio",
+                      element: <PortfolioSettings />,
+                    },
+                  ],
+                },
+                {
+                  path: "profile",
+                  element: <Profile />,
+                },
+                {
+                  path: "availability",
+                  element: <Availability />,
+                },
+                {
+                  path: "security",
+                  element: <Security />,
+                },
+                {
+                  path: "notification",
+                  element: <Notification />,
+                },
+              ],
+            },
+
+            {
+              path: "/handyman/services/:id",
+              element: <ServiceDetailPage />,
+            },
+          ],
+        },
 
         {
           path: "/role-selection",

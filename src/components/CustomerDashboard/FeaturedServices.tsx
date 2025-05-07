@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
 
 const FeaturedServices = () => {
-  const featuredItems: any = [1, 2, 3, 4, 5, 6, 7];
+  const featuredItems: any = [];
   return (
     <motion.section
       className=""

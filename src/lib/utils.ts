@@ -7,7 +7,15 @@ import target from "@/assets/icons/target.svg";
 import toolImg from "@/assets/images/tools.png";
 import plugImg from "@/assets/images/Roller.png";
 import tapImg from "@/assets/images/Plumbing.png";
-import { LayoutDashboard, Banknote, Settings2, Calendar } from "lucide-react";
+import {
+  LayoutDashboard,
+  Banknote,
+  Settings2,
+  Calendar,
+  FileText,
+  LayoutGrid,
+  BriefcaseBusiness,
+} from "lucide-react";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -472,4 +480,149 @@ export const sidebarLinks = [
     link: "/dashboard/settings",
     icon: Settings2,
   },
+];
+
+export const formatDate = (date: Date): string => {
+  const getOrdinalSuffix = (day: number): string => {
+    if (day > 3 && day < 21) return "th";
+    switch (day % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
+  const day = date.getDate();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const month = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+
+  return `${day}${getOrdinalSuffix(day)} ${month} ${year}`;
+};
+export const sidebarHandymanLinks = [
+  {
+    name: "Dashboard",
+    link: "/handyman/dashboard",
+    icon: LayoutGrid,
+  },
+  {
+    name: "Job Requests",
+    link: "/handyman/job-requests",
+    icon: FileText,
+  },
+  {
+    name: "Services",
+    link: "/handyman/services",
+    icon: BriefcaseBusiness,
+  },
+  {
+    name: "Payments",
+    link: "/handyman/payments",
+    icon: Banknote,
+  },
+  {
+    name: "Settings",
+    link: "/handyman/settings",
+    icon: Settings2,
+    sublinks: [
+      {
+        name: "Profile",
+        link: "/handyman/settings/profile",
+      },
+      {
+        name: "Availability",
+        link: "/handyman/settings/availability",
+      },
+      {
+        name: "Security",
+        link: "/handyman/settings/security",
+      },
+      {
+        name: "Notification",
+        link: "/handyman/settings/notification",
+      },
+    ],
+  },
+];
+
+export function getPageNumbers(
+  totalPages: number,
+  currentPage: number
+): (number | string)[] {
+  const delta = 2;
+  const range: number[] = [];
+  const rangeWithDots: (number | string)[] = [];
+  let l: number | undefined;
+
+  // Loop to generate page numbers
+  for (let i = 1; i <= totalPages; i++) {
+    if (
+      i === 1 || // Always show the first page
+      i === totalPages || // Always show the last page
+      (i >= currentPage - delta && i <= currentPage + delta) // Show pages around the current page
+    ) {
+      range.push(i);
+    }
+  }
+
+  // Loop through the range and add pagination with dots where necessary
+  for (let i of range) {
+    if (l) {
+      // If the difference between the current page and the previous one is more than 1, add "..."
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1); // Show intermediate page number
+      } else if (i - l !== 1) {
+        rangeWithDots.push("..."); // Add "..."
+      }
+    }
+    rangeWithDots.push(i); // Add the current page
+    l = i;
+  }
+
+  return rangeWithDots;
+}
+
+export const banksInNigeria = [
+  { name: "Access Bank", code: "044" },
+  { name: "Citibank", code: "023" },
+  { name: "Diamond Bank", code: "063" },
+  { name: "Ecobank Nigeria", code: "050" },
+  { name: "Fidelity Bank Nigeria", code: "070" },
+  { name: "First Bank of Nigeria", code: "011" },
+  { name: "First City Monument Bank", code: "214" },
+  { name: "Guaranty Trust Bank", code: "058" },
+  { name: "Heritage Bank Plc", code: "030" },
+  { name: "Keystone Bank Limited", code: "082" },
+  { name: "Kuda Bank", code: "50211" },
+  { name: "Moniepoint MFB", code: "50515" },
+  { name: "Opay", code: "999991" },
+  { name: "Palmpay", code: "999992" },
+  { name: "Polaris Bank", code: "076" },
+  { name: "Providus Bank", code: "101" },
+  { name: "Stanbic IBTC Bank", code: "221" },
+  { name: "Standard Chartered Bank", code: "068" },
+  { name: "Sterling Bank", code: "232" },
+  { name: "Suntrust Bank Nigeria", code: "100" },
+  { name: "Union Bank of Nigeria", code: "032" },
+  { name: "United Bank for Africa", code: "033" },
+  { name: "Unity Bank Plc", code: "215" },
+  { name: "Wema Bank", code: "035" },
+  { name: "Zenith Bank", code: "057" },
 ];
