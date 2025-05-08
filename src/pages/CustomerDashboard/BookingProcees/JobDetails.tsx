@@ -64,16 +64,21 @@ const JobDetails = () => {
           <h1 className="border-b border-[#98A2B3] font-merriweather text-sm lg:text-2xl font-bold text-textHeader pb-6">
             2. Address information
           </h1>
+          <div className="mt-6">
+            <h2 className="font-bold text-base lg:text-2xl text-textHeader font-merriweather">
+              My Saved Addresses
+            </h2>
+            <div className="mt-6 rounded-xl shadow-custom p-4 lg:p-6 tracking-2-percent text-textBody lg:text-textHeader text-sm lg:text-xl lg:font-medium">
+              25 Bourdillon Rd, Ikoyi, Lagos 106104, Lagos
+            </div>
+            <div className="mt-2 lg:mt-6 rounded-xl shadow-custom p-4 lg:p-6 tracking-2-percent text-textBody lg:text-textHeader text-sm lg:text-xl lg:font-medium">
+              12 Alhaji Masha Road, Surulere, Lagos, Nigeria.{" "}
+            </div>
+          </div>
+          <p className="lg:my-6 my-4 lg:p-6 p-4 font-bold font-merriweather lg:text-2xl text-textHeader lg:text-center text-left">
+            Enter another address
+          </p>
           <div className="">
-            {/* <LoadScript googleMapsApiKey={import.meta.env.VITE_MAP_API_KEY}>
-              <GoogleMap
-                mapContainerStyle={containerStyle}
-                center={center}
-                zoom={15}
-              >
-                <Marker position={center} />
-              </GoogleMap>
-            </LoadScript> */}
             <MapDetails />
           </div>
           <JobDetailsForm
