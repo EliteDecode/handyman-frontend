@@ -17,7 +17,7 @@ const MobileSidebar = ({ isOpen, setIsOpen }: any) => {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed bg-black opacity-30 w-full h-full top-0 z-10"
+          className="fixed top-0 z-10 w-full h-full bg-black opacity-30"
         ></div>
       )}
       <motion.div
@@ -26,11 +26,11 @@ const MobileSidebar = ({ isOpen, setIsOpen }: any) => {
         animate={{ x: isOpen ? "0%" : "-100%" }}
       >
         <div className="relative">
-          <Link to="/dashboard" className="w-fit">
+          <Link to="/handyman/dashboard" className="w-fit">
             <img src={Logo} alt="" className="w-[223px] " />
           </Link>
           <button
-            className="outline-none lg:hidden absolute top-0 right-0"
+            className="absolute top-0 right-0 outline-none lg:hidden"
             onClick={toggleDrawer}
           >
             {isOpen ? <X /> : <Menu />}

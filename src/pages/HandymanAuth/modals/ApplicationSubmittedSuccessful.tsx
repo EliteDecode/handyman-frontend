@@ -46,7 +46,8 @@ const ApplicationSubmittedSuccessful: React.FC<
 
         <button
           className="max-w-[227px] w-full h-14 bg-[#008080] rounded-[8px] text-[#FFFFFF] font-semibold text-[16px] leading-6 font-lato sm:mt-[59px] mt-8"
-          onClick={() => navigate("/home")}>
+          onClick={() => navigate("/handyman/dashboard")}
+        >
           Welcome to HandyMan
         </button>
       </div>
