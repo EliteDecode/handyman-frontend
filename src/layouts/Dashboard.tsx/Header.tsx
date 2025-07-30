@@ -29,14 +29,12 @@ const Header = ({ isOpen, setIsOpen }: any) => {
           {isOpen ? <X /> : <Menu />}
         </button>
         <div>
-          <div
-            className="lg:block hidden text-primary text-2xl font-merriweather font-bold"
-          >
+          <div className="hidden text-2xl font-bold lg:block text-primary font-merriweather">
             {title?.name}
           </div>
           <Link
-            to="/dashboard"
-            className="lg:hidden block text-primary text-2xl font-merriweather font-bold"
+            to="/"
+            className="block text-2xl font-bold lg:hidden text-primary font-merriweather"
           >
             <img src={Logo} alt="logo" className="w-[120px] h-8" />
           </Link>
@@ -51,9 +49,9 @@ const Header = ({ isOpen, setIsOpen }: any) => {
         </button>
         <button
           onClick={() => setToggleProfile((prev) => !prev)}
-          className=" flex gap-2 items-center cursor-pointer outline-none"
+          className="flex items-center gap-2 outline-none cursor-pointer "
         >
-          <div className="rounded-full lg:w-12 lg:h-12 w-8 h-8 border-2 border-primary flex items-center justify-center">
+          <div className="flex items-center justify-center w-8 h-8 border-2 rounded-full lg:w-12 lg:h-12 border-primary">
             <User2 className="lg:w-8 lg:h-10" />
           </div>
           <ChevronDown
@@ -66,7 +64,7 @@ const Header = ({ isOpen, setIsOpen }: any) => {
         {toggleProfile && (
           <div
             onClick={() => setToggleProfile(false)}
-            className="fixed bg-black opacity-30 w-full h-full top-0 left-0 z-10"
+            className="fixed top-0 left-0 z-10 w-full h-full bg-black opacity-30"
           ></div>
         )}
         <motion.div
@@ -74,7 +72,7 @@ const Header = ({ isOpen, setIsOpen }: any) => {
           initial={{ y: "-250%" }}
           animate={{ y: toggleProfile ? "0%" : "-250%" }}
         >
-          <p className="py-2 text-sm px-4">
+          <p className="px-4 py-2 text-sm">
             {user?.email ? user?.email : "handyman@contact.com"}
           </p>
           <button
@@ -82,9 +80,9 @@ const Header = ({ isOpen, setIsOpen }: any) => {
             onClick={() => logoutBtn()}
           >
             {isLogoutLoading ? (
-              <span className="flex gap-2 items-center">
+              <span className="flex items-center gap-2">
                 Signing out...
-                <PiSpinnerGap className="animate-spin stroke-2 text-lg" />
+                <PiSpinnerGap className="text-lg stroke-2 animate-spin" />
               </span>
             ) : (
               "Logout"
