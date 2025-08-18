@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import SignUpSuccessful from "../modals/SignUpSucessful";
 import { useFormik } from "formik";
 import { handyMansignUpSchema } from "@/lib/schema";
+import { Link } from "react-router-dom";
 
 const statesAndLGAs = {
   Abia: ["Aba", "Umuahia", "Ohafia", "Arochukwu"],
@@ -135,7 +136,9 @@ const SignUp = () => {
           </h1>
           <p className="text-[#3C3C3C] text-[12px] sm:text-[18px] sm:leading-[30px] leading-5">
             Already have an account?{" "}
-            <span className="text-[#008080]">Sign in</span>
+            <span className="text-[#008080]">
+              <Link to={"/auth/login"}>Sign in</Link>
+            </span>
           </p>
         </div>
 
