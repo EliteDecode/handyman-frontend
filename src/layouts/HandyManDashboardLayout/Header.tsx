@@ -28,13 +28,13 @@ const Header = ({ isOpen, setIsOpen }: any) => {
         </button>
         <div>
           <Link
-            to="/dashboard"
+            to="/"
             className="hidden text-2xl font-bold lg:block text-primary font-merriweather"
           >
             {title?.name}
           </Link>
           <Link
-            to="/dashboard"
+            to="/"
             className="block text-2xl font-bold lg:hidden text-primary font-merriweather"
           >
             <img src={Logo} alt="logo" className="w-[120px] h-8" />
@@ -76,7 +76,14 @@ const Header = ({ isOpen, setIsOpen }: any) => {
           <p className="py-2 text-sm">
             {user?.email ? user?.email : "handyman@contact.com"}
           </p>
-          <button className="py-2 text-sm outline-none">Logout</button>
+          <Link to={"/handyman/logout"}>
+            <button
+              className="py-2 text-sm outline-none"
+              onClick={() => setToggleProfile(false)}
+            >
+              Logout
+            </button>
+          </Link>
         </motion.div>
       </div>
 

@@ -67,6 +67,7 @@ import AcceptRequestTable from "./components/HandymanDashboard/JobRequest/Accept
 import DeclinedRequestTable from "./components/HandymanDashboard/JobRequest/DeclinedRequestTable.tsx";
 import CompletedRequestTable from "./components/HandymanDashboard/JobRequest/CompletedRequestTable.tsx";
 import DashboardSubLayout from "./layouts/Dashboard.tsx/DashboardSubLayout.tsx";
+import Logout from "./pages/HandymanDashboard/Logout.tsx";
 // routes
 
 export default function App() {
@@ -338,6 +339,10 @@ export default function App() {
             {
               path: "/handyman/services/:id",
               element: <ServiceDetailPage />,
+            },
+            {
+              path: "logout",
+              element: <Logout />,
             },
           ],
         },

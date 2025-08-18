@@ -1,5 +1,6 @@
-import image from "@/assets/images/about-info.jpg";
 import addGreen from "@/assets/icons/addGreen.svg";
+import trashGreen from "@/assets/icons/trashGreen.svg";
+import adobaPDF from "@/assets/icons/adobaPDF.svg";
 
 export default function Certification() {
   return (
@@ -12,9 +13,30 @@ export default function Certification() {
       </div>
 
       <div className="flex flex-col items-center justify-center w-full gap-6 space-y-8 md:gap-8">
-        <div className="w-full flex justify-center items-center  flex-col max-w-[721.13px] gap-4">
-          <img src={image} alt="certificate" />
-          <img src={image} alt="certificate" />
+        <div className="flex flex-col items-center justify-center w-full gap-4">
+          <div className="flex items-center justify-between w-full h-16 gap-2 px-4 border border-gray-500 rounded-xl">
+            <div className="flex flex-row items-center gap-2">
+              <img src={adobaPDF} />
+
+              <p className="text-[18px] leading-[30px] tracking-2-percent font-medium text-[#666464]">
+                Amiable Painters; Certificate of participation
+              </p>
+            </div>
+
+            <img src={trashGreen} className="cursor-pointer" />
+          </div>
+
+          <div className="flex items-center justify-between w-full h-16 gap-2 px-4 border border-gray-500 rounded-xl">
+            <div className="flex flex-row items-center gap-2">
+              <img src={adobaPDF} />
+
+              <p className="text-[18px] leading-[30px] tracking-2-percent font-medium text-[#666464]">
+                Amiable Painters; Certificate of participation
+              </p>
+            </div>
+
+            <img src={trashGreen} className="cursor-pointer" />
+          </div>
         </div>
 
         <div className="flex flex-col justify-end w-full gap-6 md:flex-row">
