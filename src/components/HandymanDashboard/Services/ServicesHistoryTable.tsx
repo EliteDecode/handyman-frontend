@@ -221,12 +221,12 @@ export default function ServicesHistoryTable() {
               </p>
             </button>
 
-            <button className="w-[107px] h-9 bg-[#D0D5DD] rounded-lg flex items-center justify-center gap-2 px-3">
+            {/* <button className="w-[107px] h-9 bg-[#D0D5DD] rounded-lg flex items-center justify-center gap-2 px-3">
               <img src={exportIcon} alt="download" />
               <p className="text-white text-[12px] leading-[14px] font-lato font-semibold">
                 Export
               </p>
-            </button>
+            </button> */}
           </div>
         </div>
 

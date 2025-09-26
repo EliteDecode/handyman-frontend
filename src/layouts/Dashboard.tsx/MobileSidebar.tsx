@@ -12,6 +12,8 @@ const MobileSidebar = ({ isOpen, setIsOpen }: any) => {
     setIsOpen(false);
   };
 
+  console.log(isOpen);
+
   return (
     <section>
       {isOpen && (

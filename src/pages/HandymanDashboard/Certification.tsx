@@ -46,10 +46,10 @@ export default function Certification() {
               Add Document
             </p>
           </button>
-
+          {/* 
           <button className="md:w-[142px] w-full h-14 bg-primary text-white rounded-[8px] md:text-[18px] text-[12px] md:leading-6 leading-[14px] font-semibold tracking-2-percent">
             Save Changes
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
