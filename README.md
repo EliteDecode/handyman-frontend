@@ -1,6 +1,6 @@
 # Handyman
 
-Handyman is a marketplace that connects people who need home services â€” plumbing, electrical work, carpentry, cleaning, repairs and more â€” with skilled, verified handymen nearby. Customers book trusted professionals in a few clicks, and handymen get a steady flow of jobs and a professional profile to grow their business.
+Handyman is a marketplace that connects people who need home services — plumbing, electrical work, carpentry, cleaning, repairs and more — with skilled, verified handymen nearby. Customers book trusted professionals in a few clicks, and handymen get a steady flow of jobs and a professional profile to grow their business.
 
 ## Business idea
 
