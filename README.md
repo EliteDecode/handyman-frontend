@@ -1,164 +1,56 @@
-# HANDYMAN Project Guidelines
+# Handyman
 
-## 📁 Project Structure
-```
-src/
-├── assets/          # Images, fonts, static files
-├── components/      # Reusable UI components
-├── hooks/           # Custom React hooks
-├── layouts/         # Layout components
-├── lib/            # Third-party library configurations
-├── pages/          # Page components
-├── routes/         # Route configurations
-├── services/       # API and external service integrations
-├── store/          # State management
-├── types/          # TypeScript types/interfaces
-└── utils/          # Helper functions
-```
+Handyman is a marketplace that connects people who need home services â€” plumbing, electrical work, carpentry, cleaning, repairs and more â€” with skilled, verified handymen nearby. Customers book trusted professionals in a few clicks, and handymen get a steady flow of jobs and a professional profile to grow their business.
 
-## 🔧 Technology Stack
-- ShadcN UI
-- Tailwind CSS
-- MUI Components
-- Icons: Lucide React/Icon libraries
+## Business idea
 
-## 📋 Development Rules
-1. **Types**
-   - All types must be in `src/types` folder
-   - No `any` types allowed
-   - Export interfaces/types from separate files
+Finding a reliable handyman usually depends on word of mouth, and customers have no easy way to check skills, prices or reviews. Skilled artisans, meanwhile, struggle to find enough work. Handyman solves both sides:
 
-2. **Components**
-   - One function per page
-   - Use hooks when needed
-   - Comment complex logic only
+- **Customers** search services, compare handymen, check availability and book a job.
+- **Handymen** sign up, verify their identity and certifications, show a portfolio, set their availability and receive job requests.
+- **Trust** is built through identity verification, certifications and a transparent job history.
+- **Payments** flow through the platform, with transaction history and upcoming payouts for handymen.
 
-3. **Styling**
-   - Prefer Tailwind classes
-   - ShadcN components take priority
-   - Use MUI components when necessary
+The platform earns a commission on completed jobs.
 
-## 🌿 Git Workflow Rules
+## Key features
 
-### Daily Development
+### Customers
+- Sign up and log in with email, Google or Facebook
+- Browse services, service listings and service details
+- Check handyman availability and send job requests
+- Dashboard with requests, service history, notifications and transactions
+
+### Handymen
+- Role selection and guided profile completion
+- Personal information, verification and identification, certifications
+- Portfolio and availability calendar
+- Job requests and job details
+- Dashboard overview, transaction history and upcoming payouts
+
+### Everyone
+- Email verification, OTP and password reset
+- Help and support centre with FAQs and contact support
+- Terms and privacy pages
+- Nigerian states and LGAs for location, plus Google Maps
+
+## Tech stack
+
+- React + TypeScript, built with Vite
+- Redux Toolkit, Axios
+- shadcn/ui, Tailwind CSS, Material UI, Mantine and Ant Design
+- Formik + Yup
+- Google Maps, Chart.js and MUI X Charts
+
+## Getting started
+
 ```bash
-# Start of day - Update your feature branch
-git checkout development
-git pull origin development
-git checkout your-feature-branch
-git merge development
+npm install
+npm run dev
+npm run build
+npm run preview
 ```
 
-### If Conflicts Occur
-```bash
-# 1. When merge shows conflicts
-git status  # Check conflicting files
+## Contributing
 
-# 2. Open each conflicting file and resolve conflicts
-# Look for <<<<<<< HEAD, =======, and >>>>>>> markers
-
-# 3. After resolving
-git add .
-git commit -m "resolved conflicts with development branch"
-```
-
-### When Stuck/Need to Reset
-```bash
-# If you need to undo changes in your feature branch
-git fetch origin
-git reset --hard origin/development
-git checkout -b feature/your-branch-name
-```
-
-### Before Making Pull Request
-```bash
-# 1. Update your branch
-git checkout development
-git pull origin development
-git checkout your-feature-branch
-git merge development
-
-# 2. Fix any conflicts
-# 3. Test your changes
-# 4. Then push
-git push origin your-feature-branch
-```
-
-### Emergency Fix Process
-```bash
-# If you find a bug in your feature
-git checkout your-feature-branch
-# Fix the issue
-git commit -m "fix: description of the fix"
-git push origin your-feature-branch
-```
-
-## ⚠️ Important Rules
-1. **NEVER** push directly to `master` or `development`
-2. Always create Pull Request for review
-3. Keep commits small and focused
-4. Write clear commit messages
-5. Pull from `development` daily
-6. Resolve conflicts in your feature branch
-
-## 🚨 Commit Message Format
-```
-feat: add new feature
-fix: bug fix
-style: styling changes
-refactor: code refactoring
-docs: documentation updates
-test: adding tests
-```
-
-## 🔄 Branch Naming
-```
-feature/feature-name
-bugfix/bug-description
-hotfix/urgent-fix
-```
-
-## 📝 Pull Request Process
-1. Update your feature branch with development
-2. Resolve any conflicts
-3. Push your changes
-4. Create PR on GitHub
-5. Wait for code review
-6. Address review comments
-7. Get approval
-8. Merge will be done by lead
-
-## 🚫 Common Issues & Solutions
-
-### 1. Stuck with Bad Changes
-```bash
-# Discard all local changes
-git checkout -- .
-
-# Or reset to last commit
-git reset --hard HEAD
-```
-
-### 2. Wrong Branch
-```bash
-# Save your changes
-git stash
-git checkout correct-branch
-git stash pop
-```
-
-### 3. Bad Merge
-```bash
-# Undo last merge
-git reset --hard HEAD~1
-```
-
-### 4. Update Branch After PR Comments
-```bash
-# Make changes
-git add .
-git commit -m "fix: PR review changes"
-git push origin your-feature-branch
-```
-
-For any Git-related issues, contact the team lead before making major changes.
+The project is organised into `components`, `hooks`, `layouts`, `lib`, `pages`, `routes`, `services`, `store`, `types` and `utils` under `src/`. New work is done on feature branches (for example `feat/customer-dashboard`) and merged into `development` through pull requests before release.
